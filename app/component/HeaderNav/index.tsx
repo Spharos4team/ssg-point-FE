@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../ui/NavLogo";
 import { useState } from "react";
-import { getImage } from "../../../utils/storage";
 
 //TODO: 전역 상태 또는 세션,쿠키 확인해서 로그인 상태 가져오기 -> 컴포넌트로 빼고 Header는 use server
 export default function Header() {
@@ -25,6 +24,8 @@ export default function Header() {
           >
             로그인
           </Link>
+
+          {/* LinkImageWithFallback 사용하지 않음(toggle 필요) */}
           <button
             className="absolute right-[2px] top-[2px] w-[56px] h-[52px]"
             onClick={toggleHandler}

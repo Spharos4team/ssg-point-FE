@@ -1,18 +1,20 @@
-import BannerList from "./component/BannerList";
 import BodyNav from "./component/BodyNav";
 import BodyNavTop from "./component/BodyNavTop";
-import FooterNav from "./component/FooterNav";
 import MainBanner from "./component/MainBanner";
+import MainBannerBox from "./component/MainBannerBox";
 
+/**
+ * @pathname "/"
+ */
 export default function Home() {
   return (
-    <div>
-      <section id="content">
-        <BodyNavTop />
-        <MainBanner />
-        <BodyNav />
-        {/* <BannerList /> */}
-      </section>
-    </div>
+    <>
+      <BodyNavTop />
+      <div className="notice_top_banner mt-[36px]"></div>
+      <MainBanner />
+      <BodyNav />
+      <MainBannerBox /> {/* Swiper Area */}
+      {/* <BannerList /> */}
+    </>
   );
 }

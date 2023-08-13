@@ -1,5 +1,6 @@
+/* ./styles/globals.css */
 @tailwind base;
-@tailwind component;
+@tailwind components;
 @tailwind utilities;
 
 /* 화면 사이즈, 폰트 등 전역 설정 */
