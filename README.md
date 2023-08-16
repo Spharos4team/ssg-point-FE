@@ -28,6 +28,14 @@
 - [ ] [prettier](https://prettier.io/docs/en/install.html)
 - [x] [eslint](https://eslint.org/docs/user-guide/getting-started)
 - [ ] [lodash](https://lodash.com/docs/4.17.15)
-- [ ] [Todo Tree]()
+- [x] [Todo Tree]()
+- [x] [SWR]
 
-## 📌
+## 📌 Check
+
+### Naming Convention
+
+- 컴포넌트는 컴포넌트 폴더 하위에 index.tsx로 생성하지 말고 파일명으로 사용
+  - ~~ExampleComponent/inde.tsx~~
+- Component: {컴포넌트}{위치}{범위}.tsx
+  - TabBarTopMain.tsx
