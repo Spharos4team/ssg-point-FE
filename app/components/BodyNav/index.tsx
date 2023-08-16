@@ -6,7 +6,7 @@ const fontSize = "xs";
 const bodyNavProps: Array<ImageLinkPropTest> = [
   {
     _id: 1,
-    _href: "/ingevents",
+    _href: "/ingEvents",
     name: "이벤트",
     image: {
       _src: "/images/event.png",

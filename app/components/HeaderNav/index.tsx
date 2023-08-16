@@ -1,22 +1,24 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../ui/NavLogo";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import NavIconBox from "../NavIconBox";
 
 //TODO: 전역 상태 또는 세션,쿠키 확인해서 로그인 상태 가져오기 -> 컴포넌트로 빼고 Header는 use server
-export default function Header() {
+export default function HeaderNav() {
   const [toggle, setToggle] = useState(false);
   const toggleHandler = () => {
     setToggle(!toggle);
     console.log("toggle: ", toggle);
   };
+  const pathname = usePathname();
 
   return (
     <header>
       <div className="fixed left-0 top-0 w-full h-[56px] bg-white z-10">
         <div className="flex justify-between items-center h-full relative pr-[60px] pl-[48px] z-2">
-          <Logo />
+          <NavIconBox pathname={pathname} />
 
           <Link
             className="flex items-center text-[14px] leading-[21px] whitespace-nowrap"

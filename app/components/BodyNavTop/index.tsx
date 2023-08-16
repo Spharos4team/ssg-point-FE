@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 const navLinks: Array<{ key: number; _href: string; name: string }> = [
   {
@@ -17,24 +18,12 @@ const navLinks: Array<{ key: number; _href: string; name: string }> = [
 
 //TODO: 현재 페이지 확인하고 현재 페이지 위에 마크
 export default function BodyNavTop() {
-  const [curLocation, setCurLocation] = useState({ href: "", pathname: "" });
+  const pathname = usePathname();
 
-  const fetchCurrentLoc = () => {
-    if (typeof window !== "undefined") {
-      const { href, pathname } = window.location;
-      setCurLocation({ href, pathname });
-      console.log(curLocation);
-    }
-  };
-  useEffect(() => {
-    fetchCurrentLoc();
-  }, []);
-
-  console.log(curLocation);
-
+  //TODO: atom으로 분리
   const active =
     "before:content-[''] before:absolute before:top-[-2px] before:left-1/2 before:translate-x-1/2 before:w-1 before:h-1 before:bg-black before:rounded-full";
-  ("before:absolute before:top-[-2px] before:content-[''] before:w-1 before:h-1 before:bg-black before:rounded-full");
+
   return (
     <div className="fixed top-[56px] left-0 bg-white h-[36px] w-full z-[102]">
       <ul className="flex justify-center pt-1 space-x-8">
@@ -42,7 +31,7 @@ export default function BodyNavTop() {
           <li key={key}>
             <Link
               className={`relative text-base leading-7 ${
-                _href == curLocation.pathname ? active : ""
+                _href == pathname ? active : ""
               }`}
               href={_href}
             >

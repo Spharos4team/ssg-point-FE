@@ -1,5 +1,6 @@
-import BodyNavTop from "@/app/component/BodyNavTop";
+import BodyNavTop from "@/app/components/BodyNavTop";
 
+//TODO: 쿠폰 리스트 표시
 export default function couponPage() {
   return (
     <>

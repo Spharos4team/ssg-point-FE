@@ -5,6 +5,7 @@ export const InputText = ({
   title,
   placeholder,
 }: Pick<HTMLInputElement, "type" | "title" | "placeholder">) => {
+  const focusColor = "focus-visible:shadow-[0_0_0_2px_#1101ff]";
   return (
     <div
       data-state
@@ -16,10 +17,17 @@ export const InputText = ({
       >
         <span className="table-cell align-middle text-left break-all">
           {placeholder}
+          {type == "password" ? (
+            <em className="inline-block text-xs text-[#bcbcbc]">
+              (영문, 숫자, 특수문자 8-20자)
+            </em>
+          ) : (
+            <></>
+          )}
         </span>
       </label>
       <input
-        className="h-full w-full overflow-hidden peer"
+        className="block text-sm h-full w-full px-[16px] rounded-full overflow-hidden caret-black focus-visible:relative peer"
         id={type}
         type={type}
         title={title}

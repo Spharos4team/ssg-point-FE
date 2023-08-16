@@ -42,7 +42,7 @@ const LinkImageWithFallback = ({
     );
   };
 
-  console.log(fontSize);
+  // console.log(fontSize);
   //TODO: 현재 image.size의 nullish 여부에 따라 유사한 <Image /> 가 반복되고 있는데, 가능하면 수정.
   return errFallback ? (
     <Suspense fallback={<ImageFallback />}>

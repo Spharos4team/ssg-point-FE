@@ -1,14 +1,13 @@
 import "./globals.css";
 import "tailwindcss/tailwind.css";
-// <Header /> is removed.
-// {children} is modified to <body>{children}</body>
-// Reference:
-import type { Metadata } from "next";
+
 //TODO: 전역 폰트 재설정 필요(Inter, NotoSansKR)
 import { Inter } from "next/font/google";
-import HeaderNav from "./component/HeaderNav";
-import FooterNav from "./component/FooterNav";
-import Footer from "./component/Footer";
+import type { Metadata } from "next";
+
+import HeaderNav from "./components/HeaderNav";
+import Footer from "./components/Footer";
+import TabBarBottomGlobal from "./components/layout/tabbar/TabBarBottomGlobal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +29,7 @@ export default function RootLayout({
         {/* <ToTop /> to top button */}
         <section id="content">{children}</section>
         <Footer />
-        <FooterNav />
+        <TabBarBottomGlobal />
       </body>
     </html>
   );
