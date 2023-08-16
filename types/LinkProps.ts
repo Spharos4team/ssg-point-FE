@@ -59,7 +59,24 @@ export interface ImageLinkPropTest {
   fontHidden?: boolean;
 }
 
+/**
+ * @interface SwiperItemProp
+ * @For Swiper Plugin
+ * 추후 적용 시에 다른 타입으로 분류해야 될 수도...
+ */
 export interface SwiperItemProp {
   item: ImagePropTest;
   name: string;
+}
+
+/**
+ *
+ */
+export interface PageProp {
+  _id?: number;
+  _href: string; //pathname
+  name: string;
+  image?: ImagePropTest;
+  fontSize?: "xs" | "sm" | "base" | "lg" | "xl";
+  fontHidden?: boolean;
 }
