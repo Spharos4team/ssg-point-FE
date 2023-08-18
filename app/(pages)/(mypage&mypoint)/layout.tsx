@@ -45,10 +45,9 @@ export default function IngEventLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="mt-12">
       <TabBarTopCont pages={pagesInMy} />
-      <div className="mt-10">This is Layout for MyPages</div>
       {children}
-    </>
+    </div>
   );
 }

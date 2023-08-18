@@ -1,0 +1,7 @@
+.barcode {
+  color: #000;
+  width: calc(100% + 10px) !important;
+  height: auto !important;
+  position: relative;
+  left: -5px;
+}

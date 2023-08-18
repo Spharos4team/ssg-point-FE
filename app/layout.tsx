@@ -5,9 +5,9 @@ import "tailwindcss/tailwind.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 
-import HeaderNav from "./components/HeaderNav";
 import Footer from "./components/Footer";
 import TabBarBottomGlobal from "./components/layout/tabbar/TabBarBottomGlobal";
+import HeaderNavBar from "./components/layout/header/HeaderNavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         {/* //TODO: 현재 루트에서 나누고 있는데, 재고필요, 공통 객체만 남겨둘 것 */}
-        <HeaderNav />
+        <HeaderNavBar />
         {/* <ToTop /> to top button */}
         <section id="content">{children}</section>
         <Footer />

@@ -1,4 +1,4 @@
-import { InputText } from "@/app/components/ui/InputText";
+import { InputText } from "@/app/components/atoms/InputText";
 import LinkImageWithFallback from "@/app/components/ui/LinkImageWithFallback";
 import PrimaryButton from "@/app/components/ui/PrimaryButton";
 import Image from "next/image";

@@ -1,7 +1,7 @@
-import { ImageLinkPropTest } from "@/types/LinkProps";
+import { ImageLinkProp } from "@/types/LinkProps";
 import LinkImageWithFallback from "../ui/LinkImageWithFallback";
 
-const BannerList: ImageLinkPropTest[] = [
+const BannerList: ImageLinkProp[] = [
   {
     _id: 1,
     _href: "/",

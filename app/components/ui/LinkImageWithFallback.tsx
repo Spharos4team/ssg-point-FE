@@ -1,13 +1,13 @@
 "use client";
-import { ImageLinkPropTest } from "@/types/LinkProps";
+import { ImageLinkProp } from "@/types/LinkProps";
 import Image from "next/image";
 import Link from "next/link";
 import React, { Suspense, useState } from "react";
 
 /**
  * @version 0.1
- * @interface ImageLinkPropTest
- * @param {ImagePropTest} image ImageProp type.
+ * @interface ImageLinkProp
+ * @param {ImageProp} image ImageProp type.
  * @returns ReactFC
  */
 const LinkImageWithFallback = ({
@@ -17,7 +17,7 @@ const LinkImageWithFallback = ({
   image,
   fontSize,
   fontHidden,
-}: ImageLinkPropTest) => {
+}: ImageLinkProp) => {
   const [errFallback, setErrFallback] = useState(true); //인자로 받은 src
 
   const ImageFallback = () => {
@@ -25,7 +25,7 @@ const LinkImageWithFallback = ({
     const height = image.size?.h ? `h-[${image.size.h}px]` : "h-full";
     return (
       <div
-        className={`relative ${width} ${height} p-10 rounded-lg bg-gray-300 dark:bg-gray-700`}
+        className={`relative ${width} ${height} p-10 rounded-2xl bg-gray-300 dark:bg-gray-700`}
       >
         <svg
           className="w-full h-full text-gray-200 dark:text-gray-600 mx-auto"

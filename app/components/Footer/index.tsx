@@ -1,8 +1,8 @@
 import Link from "next/link";
 import LinkImageWithFallback from "../ui/LinkImageWithFallback";
-import { ImagePropTest } from "@/types/LinkProps";
+import { ImageProp } from "@/types/LinkProps";
 
-const imageTest: ImagePropTest = {
+const imageTest: ImageProp = {
   _src: "/images/wa_mark.144ed89e.png",
   size: { w: 67, h: 46 },
   type: "icon",

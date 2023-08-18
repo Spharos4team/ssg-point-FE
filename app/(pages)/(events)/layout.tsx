@@ -29,7 +29,6 @@ export default function IngEventLayout({
   return (
     <>
       <TabBarTopCont pages={pagesInEvents} />
-      <div className="mt-10">This is Layout for Events Pages</div>
       {children}
     </>
   );

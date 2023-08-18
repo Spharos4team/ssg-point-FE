@@ -1,9 +1,9 @@
-import { ImageLinkPropTest } from "@/types/LinkProps";
+import { ImageLinkProp } from "@/types/LinkProps";
 import LinkImageWithFallback from "../ui/LinkImageWithFallback";
 
 const iconSize = 45; // 아이콘 사이즈 설정
 const fontSize = "xs";
-const bodyNavProps: Array<ImageLinkPropTest> = [
+const bodyNavProps: Array<ImageLinkProp> = [
   {
     _id: 1,
     _href: "/ingEvents",

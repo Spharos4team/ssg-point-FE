@@ -1,11 +1,11 @@
 "use client";
 
-import { ImageLinkPropTest } from "@/types/LinkProps";
+import { ImageLinkProp } from "@/types/LinkProps";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const TabBarLinks: Array<ImageLinkPropTest> = [
+const TabBarLinks: Array<ImageLinkProp> = [
   {
     _id: 1,
     _href: "/myinfo/infoRcvAgree",
@@ -17,7 +17,7 @@ const TabBarLinks: Array<ImageLinkPropTest> = [
     name: "마이 회원정보",
   },
   {
-    _id: 1,
+    _id: 2,
     _href: "/mypoint/pntHistory",
     image: {
       _src: "/images/my-point.png",
@@ -27,7 +27,7 @@ const TabBarLinks: Array<ImageLinkPropTest> = [
     name: "마이 포인트",
   },
   {
-    _id: 1,
+    _id: 3,
     _href: "/",
     image: {
       _src: "/images/home.png",
@@ -37,7 +37,7 @@ const TabBarLinks: Array<ImageLinkPropTest> = [
     name: "홈",
   },
   {
-    _id: 1,
+    _id: 4,
     _href: "/benefits/pntTip",
     image: {
       _src: "/images/point_tip.png",
@@ -47,7 +47,7 @@ const TabBarLinks: Array<ImageLinkPropTest> = [
     name: "포인트 꿀팁",
   },
   {
-    _id: 1,
+    _id: 5,
     _href: "/membership/combine",
     image: {
       _src: "/images/universe-club.png",
