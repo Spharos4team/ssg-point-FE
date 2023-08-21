@@ -35,7 +35,7 @@ export default function RegAffLayout({
         "신세계포인트 회원끼리 주고받는<br />가장 실속있는 마음의 선물!<br />친구나 가족, 소중한 사람에게 선물해 보세요.",
     },
     {
-      _href: "/mypoint/convertPntList",
+      _href: "/myPoint/convertPntList",
       name: "포인트 전환",
       title: (
         <>
@@ -49,7 +49,7 @@ export default function RegAffLayout({
         "알뜰하게 적립한 포인트를 모두 모아<br />자주 사용하는 포인트로 전환해 보세요.",
     },
     {
-      _href: "/mypoint/convertPntList",
+      _href: "/myPoint/convertPntList",
       name: "영수증으로 적립",
       title: (
         <>

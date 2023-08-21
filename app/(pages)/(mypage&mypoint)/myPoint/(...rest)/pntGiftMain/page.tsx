@@ -30,7 +30,7 @@ export default function pntGiftMain() {
   ];
   return (
     <>
-      <ButtonPrimary className="px-5 pb-10" round="rounded-lg">
+      <ButtonPrimary className="py-10" round="rounded-lg">
         선물하기
       </ButtonPrimary>
 

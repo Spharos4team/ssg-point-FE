@@ -1,4 +1,5 @@
-import ButtonBasic from "@/components/atoms/Button/ButtonBasic";
+import RoundedButton from "@/components/atoms/Button/RoundedButton";
+import ButtonBasic from "@/components/atoms/Button/RoundedButton";
 import ButtonPrimary from "@/components/atoms/ButtonPrimary";
 import PointBox from "@/components/atoms/PointBox";
 
@@ -77,8 +78,8 @@ export default function cardManage() {
 
       {/* 버튼 모음 */}
       <div className="flex flex-col gap-2 pb-10 px-5">
-        <ButtonBasic round="rounded-lg">신규 포인트카드 등록하기</ButtonBasic>
-        <ButtonBasic round="rounded-lg">임시 발급 카드 인증하기</ButtonBasic>
+        <RoundedButton>신규 포인트카드 등록하기</RoundedButton>
+        <RoundedButton>임시 발급 카드 인증하기</RoundedButton>
         <ButtonPrimary round="rounded-lg">
           포인트 비밀번호 변경하기
         </ButtonPrimary>
