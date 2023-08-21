@@ -1,4 +1,4 @@
-import TabBarTopCont from "@/app/components/layout/tabbar/TabBarTopCont";
+import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
 
 const pagesInMy: PageProp[] = [
@@ -8,7 +8,7 @@ const pagesInMy: PageProp[] = [
     name: "광고정보 수신관리",
   },
   {
-    _id: 2 - 1,
+    _id: 2,
     _href: ["/myInfo/serviceAgree", "/myInfo/clubAgree"],
     name: "서비스 동의 관리",
   },

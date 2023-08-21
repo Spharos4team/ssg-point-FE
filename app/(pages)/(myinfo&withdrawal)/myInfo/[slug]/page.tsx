@@ -1,6 +1,4 @@
-import { Checkbox } from "@/app/components/atoms/Checkbox";
 import { pathValidate } from "@/utils/PathValidator";
-import Link from "next/link";
 
 export default function MyInfo({ params }: { params: { slug: string } }) {
   const PAGES: { [key: string]: string } = {

@@ -1,7 +1,6 @@
-import BodyNavTop from "@/app/components/BodyNavTop";
-import TabBarTopCont from "@/app/components/layout/tabbar/TabBarTopCont";
+import BodyNavTop from "@/components/BodyNavTop";
+import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
-import { usePathname } from "next/navigation";
 
 const pagesInEvents: PageProp[] = [
   {

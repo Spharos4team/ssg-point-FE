@@ -1,13 +1,12 @@
-import { Checkbox } from "@/app/components/atoms/Checkbox";
-import ContentHeader from "@/app/components/atoms/ContentHeader";
-import ListForNoticeBox from "@/app/components/atoms/ListForNoticeBox";
-import NoticeBox from "@/app/components/modules/NoticeBox";
-import Link from "next/link";
-import React from "react";
+import { Checkbox } from "@/components/atoms/Checkbox";
+import ContentHeader from "@/components/atoms/ContentHeader";
+import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
+import PrimaryButtonBasic from "@/components/atoms/ButtonPrimary";
+import NoticeBox from "@/components/modules/NoticeBox";
+import RoundCard from "@/components/modules/RoundCard";
+import SimpleContainer from "@/components/modules/SimpleContainer";
 
 export default function InfoRcvAgree() {
-  const arrow =
-    "after:content-[''] after:inline-block after:ml-1 after:w-[10px] after:h-[6px] after:bg-contain after:bg-[url('/images/icon_back.png')] after:rotate-180 after:bg-center after:bg-no-repeat";
   return (
     <>
       <ContentHeader
@@ -45,18 +44,12 @@ export default function InfoRcvAgree() {
         </div>
       </div>
 
-      <div className="relative mx-5 py-5 px-6 box-border border-[1px] border-gray-300 rounded-lg shadow-[0_3px_8px_0_rgba(0,0,0,.08)]">
-        <p className="text-[13px] leading-[21px] text-[#767676]">
-          <strong>연락처 정보 변경이 필요하시나요?</strong>
-          <br /> 회원정보 수정 메뉴에서 변경하실 수 있습니다.{" "}
-        </p>
-        <Link
-          className={`inline-flex items-center text-sm mt-4 ${arrow}`}
-          href={"/"}
-        >
-          회원정보 수정
-        </Link>
-      </div>
+      <RoundCard
+        title="연락처 정보 변경이 필요하시나요?"
+        subtitle="회원정보 수정 메뉴에서 변경하실 수 있습니다."
+        linkName="회원정보 수정"
+        round="rounded-lg"
+      />
 
       <div className="px-5 py-10">
         <div>
@@ -103,16 +96,18 @@ export default function InfoRcvAgree() {
           </div>
         </div>
       </div>
-      <div className="px-5">
-        <p className="text-xs leading-5 text-[#505050] break-keep">
-          당사, 관계사, 신세계포인트 제휴사가 제공하는 상품 및 서비스 홍보,
-          소식지 제공, 이벤트 정보 제공(할인 쿠폰, 포인트 추가 적립, 상품 할인
-          포함), 제휴행사를 안내해 드립니다. 수신동의 변경은 신세계포인트
-          고객센터 및 홈페이지(www.shinsegaepoint.com)에서 가능합니다. ※ 서비스
-          주요 정책 및 공지사항 안내 등은 수신동의 여부와 관계없이 발송됩니다.
-        </p>
-      </div>
-      <NoticeBox title="유의사항">
+      <SimpleContainer>
+        <ListForNoticeBox level={2} isBullet={false}>
+          {
+            "당사, 관계사, 신세계포인트 제휴사가 제공하는 상품 및 서비스 홍보, 소식지 제공, 이벤트 정보 제공(할인 쿠폰, 포인트 추가 적립, 상품 할인 포함), 제휴행사를 안내해 드립니다. 수신동의 변경은 신세계포인트 고객센터 및 홈페이지(www.shinsegaepoint.com)에서 가능합니다.<br />※ 서비스 주요 정책 및 공지사항 안내 등은 수신동의 여부와 관계없이 발송됩니다."
+          }
+        </ListForNoticeBox>
+
+        <PrimaryButtonBasic className="py-10" round="rounded-lg">
+          확인
+        </PrimaryButtonBasic>
+      </SimpleContainer>
+      <NoticeBox type="info" title="유의사항">
         <ListForNoticeBox level={2}>
           광고정보 수신거부와 관계없이 회원 및 서비스 정책 변경, 주문/배송 안내,
           법적 의무사항 등 안내성 고지 사항은 정상발송됩니다.

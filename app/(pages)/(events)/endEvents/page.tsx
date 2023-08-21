@@ -1,6 +1,6 @@
 "use client";
 
-import BodyNavTop from "@/app/components/BodyNavTop";
+import BodyNavTop from "@/components/BodyNavTop";
 import { usePathname } from "next/navigation";
 
 type PageParam = {

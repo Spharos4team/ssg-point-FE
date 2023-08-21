@@ -1,6 +1,6 @@
-import { InputText } from "@/app/components/atoms/InputText";
-import LinkImageWithFallback from "@/app/components/ui/LinkImageWithFallback";
-import PrimaryButton from "@/app/components/ui/PrimaryButton";
+import { InputText } from "@/components/atoms/InputText";
+import LinkImageWithFallback from "@/components/ui/LinkImageWithFallback";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 import Image from "next/image";
 
 //TODO: 자동 로그인, 아이디 저장 기능 구현: 쿠키 활용할 것
@@ -18,7 +18,8 @@ export default function login() {
           />
         </div>
         <div className="login_input_area space-y-5">
-          {/* FIXME: input 마다 다른 로직이 수행되어야 한다면 어떻게 할래? */}
+          {/* FIXME: input 마다 다른 로직이 수행되어야 한다면 어떻게 할래?
+              TODO: InputText 대신 TextBox 사용 */}
           <InputText
             type="email"
             title="로그인을 위해 아이디를 입력해주세요."

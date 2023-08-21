@@ -40,6 +40,8 @@ export interface PageProp {
   _id?: number;
   _href: string | string[]; //pathname
   name: string;
+  title?: React.ReactNode;
+  subTitle?: string;
   image?: ImageProp;
   fontSize?: "xs" | "sm" | "base" | "lg" | "xl";
   fontHidden?: boolean;

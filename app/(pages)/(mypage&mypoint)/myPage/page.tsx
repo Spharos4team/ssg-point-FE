@@ -1,4 +1,4 @@
-import LinkImageWithFallback from "@/app/components/ui/LinkImageWithFallback";
+import LinkImageWithFallback from "@/components/ui/LinkImageWithFallback";
 import { PageProp } from "@/types/LinkProps";
 import Barcode from "@/utils/Barcode/Barcode";
 import Image from "next/image";
@@ -99,8 +99,11 @@ const barcodeValue = "9350-1200-1875-5220";
 export default function MyPage() {
   return (
     <>
+      {/* 현재 섹션 레이아웃 패딩, 마진에 position 문제 있는 듯. */}
+      {/* 컴포넌트 사용하기 */}
       <div className="relative mt-[56px] mx-5 z-10">
-        <div className="pb-[2px] mx-auto box-border h-full mx-w-[327px] bg-gradient-primary rounded-[20px] overflow-hidden shadow-md">
+        {/* 아래부터 PointBox */}
+        <div className="pb-[2px] mx-auto box-border h-full max-w-[327px] bg-gradient-primary-line rounded-[20px] overflow-hidden shadow-md">
           <div className="flex items-center justify-between h-10 px-4">
             <h3 className="indent-[-999em] w-[105px] h-[18px] bg-[length:100%_auto] bg-[url('/images/point_card_logo.png')] bg-no-repeat overflow-hidden">
               shinsegae point
@@ -137,6 +140,7 @@ export default function MyPage() {
               <ul className="flex justify-between">
                 {btnsInPointBox.map(({ _id, _href, name, image }) => (
                   <li key={_id} className="w-[85px]">
+                    {/* TODO: href가 배열이라면 swiper로 */}
                     <Link
                       className="block w-full text-xs font-normal text-center whitespace-nowrap"
                       href={_href}

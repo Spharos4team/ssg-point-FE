@@ -1,7 +1,7 @@
-import BodyNav from "./components/BodyNav";
-import BodyNavTop from "./components/BodyNavTop";
-import MainBanner from "./components/MainBanner";
-import MainBannerBox from "./components/MainBannerBox";
+import BodyNav from "@/components/BodyNav";
+import BodyNavTop from "@/components/BodyNavTop";
+import MainBanner from "@/components/MainBanner";
+import MainBannerBox from "@/components/MainBannerBox";
 
 /**
  * @pathname "/"

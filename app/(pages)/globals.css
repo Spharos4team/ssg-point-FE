@@ -1,0 +1,31 @@
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 화면 사이즈, 폰트 등 전역 설정 */
+* {
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+#content {
+  padding-top: 56px;
+}
+
+em {
+  font-style: normal;
+}

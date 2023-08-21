@@ -1,13 +1,13 @@
-import "./globals.css";
+import "app/(pages)/globals.css";
 import "tailwindcss/tailwind.css";
 
 //TODO: 전역 폰트 재설정 필요(Inter, NotoSansKR)
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 
-import Footer from "./components/Footer";
-import TabBarBottomGlobal from "./components/layout/tabbar/TabBarBottomGlobal";
-import HeaderNavBar from "./components/layout/header/HeaderNavBar";
+import Footer from "@/components/Footer";
+import TabBarBottomGlobal from "@/components/layout/tabbar/TabBarBottomGlobal";
+import HeaderNavBar from "@/components/layout/header/HeaderNavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
