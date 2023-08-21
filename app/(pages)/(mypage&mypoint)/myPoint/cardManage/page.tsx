@@ -57,7 +57,7 @@ export default function cardManage() {
             </tbody>
           </table>
         </div>
-        <p className="font-medium text-[16px] leading-[26px] pb-[16px] hidden">비즈 클럽 카드</p>
+        <p className="hidden font-medium text-[16px] leading-[26px] pb-[16px]">비즈 클럽 카드</p>
           {/*<Link className="absolute right-2.5 top-[-37px] text-3 leading-5 font-[400]" href={""} alt={"카드 관리로 이동"}>카드 관리</Link>*/}
           <table className="table-fixed w-full border-t-[1px] border-solid border-black">
             <caption className="w-full table-fixed border-solid border-1 border-black">비즈 클럽 카드</caption>
