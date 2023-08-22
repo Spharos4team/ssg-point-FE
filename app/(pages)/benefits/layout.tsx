@@ -1,0 +1,45 @@
+import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
+import { PageProp } from "@/types/LinkProps";
+import React from "react";
+import contentHeader from "@/components/atoms/ContentHeader";
+
+const pagesInBene: PageProp[] = [
+  {
+    _id: 1,
+    _href: "/benefits/pntPlus/attend",
+    name: "포인트 플러스",
+  },
+  {
+    _id: 2,
+    _href: "/benefits/benefitMyLuck",
+    name: "나의 운세보기",
+  },
+  {
+    _id: 3,
+    _href: "/benefits/myCoupon",
+    name: "마이 쿠폰함",
+  },
+  {
+    _id: 4,
+    _href: "/benefits/myEvent",
+    name: "마이 이벤트",
+  },
+  {
+    _id: 5,
+    _href: "/benefits/pntTip",
+    name: "포인트 꿀팁",
+  },
+];
+
+export default function BenefitsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="mt-12">
+      <TabBarTopCont pages={pagesInBene} />
+      <div className="py-10 px-5">{children}</div>
+    </div>
+  );
+}

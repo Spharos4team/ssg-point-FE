@@ -58,8 +58,9 @@ export default function cardManage() {
           </table>
         </div>
         <p className="hidden font-medium text-[16px] leading-[26px] pb-[16px]">비즈 클럽 카드</p>
+          {/*링크 alt 에러*/}
           {/*<Link className="absolute right-2.5 top-[-37px] text-3 leading-5 font-[400]" href={""} alt={"카드 관리로 이동"}>카드 관리</Link>*/}
-          <table className="table-fixed w-full border-t-[1px] border-solid border-black">
+          <table className="hidden table-fixed w-full border-t-[1px] border-solid border-black">
             <caption className="w-full table-fixed border-solid border-1 border-black">비즈 클럽 카드</caption>
             <colgroup>
               <col width={"40%"} />
@@ -75,38 +76,6 @@ export default function cardManage() {
             </thead>
             <tbody></tbody>
           </table>
-        {/*/!* 데이터가 없을 때 *!/*/}
-        {/*<div>*/}
-        {/*  <p className="font-medium text-[16px] leading-[26px] pb-[16px]">온라인 카드</p>*/}
-        {/*  <table className="relative pb-[40px]">*/}
-        {/*    <caption >온라인/모바일 카드</caption>*/}
-        {/*    <colgroup>*/}
-        {/*      <col width={"40%"} />*/}
-        {/*      <col width={"auto"} />*/}
-        {/*      <col width={"81px"} />*/}
-        {/*    </colgroup>*/}
-        {/*    <thead>*/}
-        {/*    <tr>*/}
-        {/*      <th>카드번호</th>*/}
-        {/*      <th>발급처</th>*/}
-        {/*      <th>발급일자</th>*/}
-        {/*    </tr>*/}
-        {/*    </thead>*/}
-        {/*    <tbody>*/}
-        {/*    /!* tr map *!/*/}
-        {/*    <tr>*/}
-        {/*      <td colSpan={3}>*/}
-        {/*        <div>*/}
-        {/*          <p className="after:content-[''] after:absolute after:top-0 after:left-1/2 after:w-12 after:h-12 after:bg-[url('/images/icon_nodata.png')] after:bg-no-repeat after:bg-[100%_auto]">*/}
-        {/*            보유하신 제휴 신용카드가 없습니다.*/}
-        {/*          </p>*/}
-        {/*        </div>*/}
-        {/*      </td>*/}
-        {/*    </tr>*/}
-        {/*    </tbody>*/}
-        {/*  </table>*/}
-        {/*</div>*/}
-
 
           <p className="font-medium text-[16px] leading-[26px] pb-[16px]">제휴 신용카드</p>
           <div className="relative pb-[40px]">
@@ -130,7 +99,6 @@ export default function cardManage() {
                 <td className="text-[#767676] font-[400] align-middle text-center border-b-[1px] border-solid border-#e8e8e8 py-3 box-border text-[13px] leading-[21px] break-keep" colSpan={3}>
                   <div className="py-[28px] ">
                     <p className="relative pt-16 text-[13px] text-center text-[#767676] after:content-[''] after:absolute after:bg-[url('/images/icon_nodata.png')] after:bg-no-repeat after:top-0 after:left-1/2 after:w-12 after:h-12 after:bg-[100%_auto] after:translate-x-[-50%]">
-                    {/*<p className="after:content-[''] after:absolute after:top-0 after:left-1/2 after:w-12 after:h-12 after:bg-[url('/images/icon_nodata.png')] after:bg-no-repeat after:bg-[100%_auto] ">*/}
                       보유하신 제휴 신용카드가 없습니다.
                     </p>
                   </div>
@@ -175,14 +143,6 @@ export default function cardManage() {
 
 
       </div>
-      {/*
-      <div>
-        <div>
-          <button/>
-        </div>
-      </div>
-       이런 구조가 됨
-      */}
       {/* 버튼 모음 */}
       <div className="pl-5 pr-5 pb-10">
         <RoundedButton className="mb-[15px]">신규 포인트카드 등록하기</RoundedButton>

@@ -24,6 +24,7 @@ const HeaderIconBox = ({ pathname }: Location) => {
     "/myPage": "마이 페이지",
     "/myInfo": "마이 회원정보",
     "/withdrawal": "마이 회원정보",
+    "/benefits": "마이 혜택",
   };
 
   // 컴포넌트 모음
