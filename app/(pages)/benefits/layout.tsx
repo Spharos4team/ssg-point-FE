@@ -1,9 +1,7 @@
 import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
-import React from "react";
-import contentHeader from "@/components/atoms/ContentHeader";
 
-const pagesInBene: PageProp[] = [
+const pagesInMy: PageProp[] = [
   {
     _id: 1,
     _href: "/benefits/pntPlus/attend",
@@ -31,15 +29,15 @@ const pagesInBene: PageProp[] = [
   },
 ];
 
-export default function BenefitsLayout({
+export default function PntPlusLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <div className="mt-12">
-      <TabBarTopCont pages={pagesInBene} />
-      <div className="py-10 px-5">{children}</div>
+      <TabBarTopCont pages={pagesInMy} />
+      {children}
     </div>
   );
 }

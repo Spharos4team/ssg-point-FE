@@ -1,7 +1,5 @@
 import ContentHeader from "@/components/atoms/ContentHeader";
-import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
 import TabForTabBox from "@/components/atoms/TabForTabBox";
-import NoticeBox from "@/components/modules/NoticeBox";
 import TabBoxSimple from "@/components/modules/TabBoxSimple";
 import { PageProp } from "@/types/LinkProps";
 
