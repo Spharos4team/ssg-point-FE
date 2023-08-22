@@ -16,6 +16,7 @@ const navLinks: Array<{ key: number; _href: string; name: string }> = [
 ];
 
 //TODO: 현재 페이지 확인하고 현재 페이지 위에 마크
+//TODO: TabBoarTopCont와 병합
 export default function BodyNavTop() {
   const pathname = usePathname();
 

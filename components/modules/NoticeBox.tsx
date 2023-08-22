@@ -13,7 +13,7 @@ const NoticeBox = ({
   children: ReactNode;
 }) => {
   return (
-    <div className={`${className} pt-8 pb-[80px] px-5`}>
+    <div className={`${className} pt-8 pb-[80px]`}>
       {type == "info" ? (
         <h3 className="pb-2 text-[14px] leading-[14px] font-medium">
           [{title}]

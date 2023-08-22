@@ -49,7 +49,7 @@ export default function RegAffLayout({
         "알뜰하게 적립한 포인트를 모두 모아<br />자주 사용하는 포인트로 전환해 보세요.",
     },
     {
-      _href: "/myPoint/convertPntList",
+      _href: "/myPoint/savePoint",
       name: "영수증으로 적립",
       title: (
         <>
@@ -60,6 +60,17 @@ export default function RegAffLayout({
       ),
       subTitle:
         "이마트, 신세계백화점, 이마트 에브리데이에서<br />구매하신 영수증 정보로 포인트 적립이 가능합니다.",
+    },
+    {
+      _href: "/myPoint/chgPntPwdCert",
+      name: "포인트 비밀번호 변경",
+      title: (
+        <>
+          <span className="text-[24px]">포인트 비밀번호 변경</span>
+        </>
+      ),
+      subTitle:
+        "비밀번호 변경을 위해 본인인증을 진행하고 있습니다.<br / > 자주사용하시는 인증수단을 선택해주세요.",
     },
   ];
   const currPath = usePathname();

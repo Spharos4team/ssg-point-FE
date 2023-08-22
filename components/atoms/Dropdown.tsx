@@ -8,7 +8,7 @@ const Dropdown = ({
   id: string;
   title: string;
   theme?: "mini" | "round" | "fullWidth";
-  options: { [key: number]: string };
+  options: { [key: number]: string } | string[];
   initialValue?: number;
 }) => {
   const style =

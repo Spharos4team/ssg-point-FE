@@ -1,4 +1,7 @@
 import RoundedButton from "@/components/atoms/Button/RoundedButton";
+import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
+import ListForSimpleList from "@/components/atoms/ListForSimpleList";
+import NoticeBox from "@/components/modules/NoticeBox";
 import Link from "next/link";
 
 export default function ConvertPntList() {
@@ -37,36 +40,97 @@ export default function ConvertPntList() {
 
       <div className="pb-10">
         <ul className="first:border-t last::border-b border-[#e8e8e8]">
-          <li className="relative border-b bg-white">
-            {/* 컴포넌트 분리 */}
-            <div className="block w-full h-[75px]">
-              <input
-                className="absolute left-[2px] top-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] outline-none appearance-none"
-                type="radio"
-                id="convertPointList"
-                name="convertPntList"
-              />
-              <label
-                htmlFor="convertPointList"
-                className="relative table w-full h-[75px] box-border pr-[30px] pl-[82px] bg-[20px] bg-[length:50px_50px] bg-no-repeat bg-[url('/images/samsung_pnt.png')]"
-              >
-                <span className="table-cell align-middle text-[16px] leading-[26px] text-left pb-[1px]">
-                  삼성카드 포인트
-                </span>
-              </label>
-            </div>
-            <span className="absolute right-[30px] top-1/2 mt-[-7px] z-[2]">
-              <Link
-                href={""}
-                className="relative text-sm leading-[18px] text-[#767676] pr-[10px]
-                after:absolute after: after:bg-[url('/images/arrow_right_gray.png')]"
-              >
-                조회하기
-              </Link>
-            </span>
-          </li>
+          <ListForSimpleList
+            id="convertPntSamsung"
+            name="convertPntList"
+            title="삼성카드 포인트"
+            src="/images/samsung_pnt.png"
+            miniLink={{ href: "", name: "조회하기" }}
+          />
+
+          <ListForSimpleList
+            id="convertPntOk"
+            name="convertPntList"
+            title="OK캐쉬백 포인트"
+            src="/images/ok_pnt.png"
+            miniLink={{ href: "", name: "조회하기" }}
+          />
+
+          <ListForSimpleList
+            id="convertPnt360"
+            name="convertPntList"
+            title="360 리워드 포인트"
+            src="/images/360_pnt.png"
+            miniLink={{ href: "", name: "" }}
+          />
         </ul>
       </div>
+
+      <div>
+        <RoundedButton backgroundColor="primary">전환하기</RoundedButton>
+        <Link
+          href={""}
+          className="relative float-right top-2 text-sm leading-[18px] text-[#767676] pr-[10px]
+                after:content-[''] after:absolute after:h-[10px] after:w-[6px] after:top-1/2 after:right-0 after:mt-[-4.5px] after:bg-[url('/images/arrow_right_gray.png')] after:bg-no-repeat after:bg-[100%_auto]"
+        >
+          포인트 한번에 조회하기 동의 철회
+        </Link>
+      </div>
+
+      {/* 유의사항 */}
+      <NoticeBox
+        type="info"
+        className="mt-[80px] bg-[#fbfbfb]"
+        title="유의사항"
+      >
+        <ListForNoticeBox level={5}>
+          각 포인트는 신세계포인트와 1:1로 전환되며 포인트 전환 후 취소할 수
+          없습니다.
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          매일 23:30 ~ 01:30 (2시간)은 포인트 전환 시스템 점검으로 서비스 이용이
+          일시 중단됩니다.
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          해당 제휴사 시스템 점검 시 서비스 이용이 일시 중단되며 자세한 사항은
+          해당 제휴사 공지사항을 확인해 주세요.
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          제휴사 사정에 따라 포인트 전환 정책은 변경될 수 있으며 자세한 사항은
+          해당 제휴사에 문의해 주세요.
+        </ListForNoticeBox>
+
+        <ListForNoticeBox level={2} isBullet={false} className="pt-3">
+          삼성카드
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          5천 포인트 이상 보유 시, 5천 포인트 단위로 전환 가능합니다.
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          신세계-삼성카드 소지자에 한해 전환 서비스를 이용할 수 있습니다.
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          월간 10만 포인트, 연간 100만 포인트까지 전환할 수 있습니다.
+        </ListForNoticeBox>
+
+        <ListForNoticeBox level={2} isBullet={false} className="pt-3">
+          OK캐쉬백
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          10포인트 이상 보유 시, 10포인트 단위로 전환 가능합니다.
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          월간 5만 포인트, 연간 50만 포인트까지 전환할 수 있습니다. (1일 최대
+          10회)
+        </ListForNoticeBox>
+
+        <ListForNoticeBox level={2} isBullet={false} className="pt-3">
+          SC360 리워드
+        </ListForNoticeBox>
+        <ListForNoticeBox level={2}>
+          1포인트 이상 보유 시, 1포인트 단위로 전환 가능합니다.
+        </ListForNoticeBox>
+      </NoticeBox>
     </>
   );
 }
