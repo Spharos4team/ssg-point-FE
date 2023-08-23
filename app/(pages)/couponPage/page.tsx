@@ -42,7 +42,7 @@ export default function couponPage() {
                         <button className="inline-block box-border pt-[33px] h-[60px] bg-[url('/images/register_coupon.png')] bg-top bg-no-repeat bg-[48px_auto] align-middle cursor-pointer">쿠폰 등록</button>
                     </li>
                 </ul>
-                <div className="register_coupon_box  bg-white rounded-[8px] px-[20px] py-[24px] mt-[16px]">
+                <div className="register_coupon_box hidden bg-white rounded-[8px] px-[20px] py-[24px] mt-[16px]">
                     <p className="sp_txt1 text-[16px] leading-[26px]">
                         신세계포인트 쿠폰 등록을 위해
                         <br/>
@@ -68,12 +68,13 @@ export default function couponPage() {
                     </div>
                 </div>
             </div>
+            </div>
             <div className="coupon_lists_wrap px-5 pt-2.5 pb-15 relative">
                 <h3 className="inline-block hidden absolute z-[-1] w-[1px] h-[1px] text-0">사용가능 쿠폰</h3>
                 <div className="coupon_serch h-[46px] flex items-center justify-between border-b-[1px] border-solid border-black">
-                    <div className="select_box relative inline-block align-top text-[0] bg-white
-                after:w-3 after:h-2 top-5.5  after:bg-[url('/images/arrow_down.png') after:bg-no-repeat bg-[100%_auto]">
-                        <select className="h-[38px] pr-[30px] pl-[10] block w-full box-border text-[14px] relative z-[1] text-black" title="쿠폰 정렬순서">
+                    <div className="select_box w-[95px] h-[38px] relative inline-block align-top text-[0] bg-white
+                        after:w-3 after:h-2 after:top-5.5  after:bg-[url('/images/arrow_down.png') after:bg-no-repeat after:bg-[100%_auto]">
+                        <select className="h-[38px] pr-[30px] pl-[10px] block w-full box-border text-[14px] relative z-[1] text-black" title="정렬순서">
                             <option
                                 className="font-normal block whitespace-nowrap min-h-[1.2em]"
                                 value="deadline">마감임박</option>
@@ -82,9 +83,10 @@ export default function couponPage() {
                                 value="latest">최신순</option>
                         </select>
                     </div>
-                    <div className="all_btn_wrap pr-[5px]">
-                        <button className="coupon_all_btn text-[14px] relative pr-[26px] border-transparent cursor-pointer align-middle bg-none
-                        after: content-[''] after:w-[19px] after:h-[19px] after:bg-[url('/images/coupon_all_btn.png')] after:bg-left-top after:bg-no-repeat after:inline-block after:bg-[length:19px_19px] after:absolute after:right-0 after:bottom-[-2px]"
+                    <div className="all_btn_wrap pr-[5px] ">
+                        {/**bottom이 안 들어감**/}
+                        <button className="coupon_all_btn text-[14px] relative pr-[26px] border-none bg-none bg-transparent cursor-pointer align-middle
+                        before:bg-[url('/images/coupon_all_btn.png')] before:bg-[position:left_0px] before:bg-no-repeat before:bg-[length:19px_19px] before:content-[''] before:inline-block before:w-[19px] before:h-[19px] before:absolute before:right-0 before:bottom-[-2px]"
                         >
                             전체다운
                         </button>
@@ -131,7 +133,8 @@ export default function couponPage() {
                                             height={40}
                                         />
                                     </div>
-                                    <button className="coupon_use_btn bg-[url('/images/barcode.png')] bg-no-repeat w-[85px] h-[15px] text-[11px] text-[#222222] bg-[39px_15PX] basis-[85px] pr-[45px] leading-[11px] cursor-pointer align-middle">사용하기</button>
+                                    <button className="coupon_use_btn indent-0 bg-[url('/images/barcode.png')] bg-[position:100%_0px] bg-no-repeat w-[85px] h-[15px] text-[11px] text-[#222222] bg-[length:39px_15PX] basis-[85px] pr-[45px] leading-[11px] border-none cursor-pointer align-middle">
+                                        사용하기</button>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +143,6 @@ export default function couponPage() {
                 <div className="no_result_box bd_type5 hidden pt-10 border-t-[1px] border-solid border-[#222222]"></div>
             </div>
         </div>
-    </div>
   </>
   );
 }
