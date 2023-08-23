@@ -2,7 +2,7 @@ import { before } from "node:test";
 
 const ListForNoticeBox = ({
   className,
-  isBullet = true,
+  isBullet = false,
   level,
   children,
 }: {
@@ -23,7 +23,7 @@ const ListForNoticeBox = ({
 
   return (
     <li
-      className={`${className} relative text-xs leading-5 tracking-[-0.5px] break-keep ${
+      className={`${className} relative text-xs leading-5 tracking-[-0.5px] break-keep list-none ${
         isBullet ? bullet : "pl-0 list-none"
       } ${levelColor[level]}`}
       dangerouslySetInnerHTML={{ __html: children }}

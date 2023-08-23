@@ -36,7 +36,7 @@ export default function MyInfoLayout({
 }) {
   return (
     <div className="mt-12">
-      <TabBarTopCont pages={pagesInMy} />
+      <TabBarTopCont pages={pagesInMy} lineType="primary" activeColor="red" />
       {children}
     </div>
   );

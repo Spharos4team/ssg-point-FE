@@ -5,11 +5,8 @@ import TextBox from "@/components/atoms/TextBox";
 import NoticeBox from "@/components/modules/NoticeBox";
 
 export default function savePoint({}) {
-  const affilis: { [key: number]: string } = {
-    1: "이마트",
-    2: "신세계백화점",
-    3: "이마트 에브리데이",
-  };
+  const affilis = ["이마트", "신세계백화점", "이마트 에브리데이"];
+
   const brands: string[] = [
     "이마트",
     "PK마켓",
@@ -46,6 +43,7 @@ export default function savePoint({}) {
           <Dropdown id="brands" title="브랜드선택" options={brands} />
         </div>
 
+        {/* TODO: onClick 모달로 변경= onClick props 추가하지말고 modalButton 컴포넌트로 만들기 */}
         <div className="pb-4 box-border">
           <p className="pb-2 text-xs">매장명</p>
           <Dropdown id="affilis" title="매장명선택" options={affilis} />

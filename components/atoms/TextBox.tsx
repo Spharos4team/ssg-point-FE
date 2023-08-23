@@ -5,11 +5,13 @@ const TextBox = ({
   className,
   id,
   type,
+  disable = false,
   children,
 }: {
   className?: string;
   id: string;
   type: "number" | "text" | "password";
+  disable?: boolean;
   children: string;
 }) => {
   const [value, setValue] = useState("");
@@ -21,6 +23,7 @@ const TextBox = ({
         type={type}
         id={id}
         value={value}
+        disabled={disable}
         onChange={(e) => setValue(e.target.value)}
       />
       <label
