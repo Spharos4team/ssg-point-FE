@@ -7,13 +7,7 @@ import HistoryList from "@/components/modules/HistoryList";
 export default function pntGiftMain() {
   const dropdownForHistory = {
     dropdownTitle: "pntHistory",
-    dropdownOptions: {
-      1: "1주일",
-      2: "1개월",
-      3: "3개월",
-      4: "6개월",
-      5: "직접입력",
-    },
+    dropdownOptions: ["1주일", "1개월", "3개월", "6개월", "직접입력"],
     dropdownInitial: 2,
   };
 

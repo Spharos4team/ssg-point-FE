@@ -26,6 +26,8 @@ const HeaderIconBox = ({ pathname }: Location) => {
     "/withdrawal": "마이 회원정보",
 
     "/benefits": "마이 혜택",
+
+    "/cscenter": "고객센터",
   };
 
   // 컴포넌트 모음

@@ -1,13 +1,14 @@
 import { title } from "process";
 import Dropdown from "../atoms/Dropdown";
 import ListForHistory from "../atoms/ListForHistory";
+import { Category } from "@/types/CategoryProps";
 
 type DropdownType = {
   dropdownTitle: string;
-  dropdownOptions: { [key: number]: string };
+  dropdownOptions: { [key: number]: string } | Category[] | string[];
   dropdownInitial: number;
 };
-
+//TODO: Dropdown 컴포넌트 수정 반영해야됨. options...
 const HistoryList = ({
   dropdown,
   children,

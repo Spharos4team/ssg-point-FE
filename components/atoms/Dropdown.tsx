@@ -1,16 +1,31 @@
+"use client";
+import { Category } from "@/types/CategoryProps";
+import React, { useEffect, useState } from "react";
+import { useValueContext } from "../modules/ValueContext";
+import JsonChecker from "@/utils/JsonChecker";
+
 const Dropdown = ({
   id,
   title,
   theme = "round",
-  options,
-  initialValue,
+  options, //json?
+  initialValue = 0,
+  onClick,
+  parentSeleted,
+  children,
 }: {
   id: string;
   title: string;
   theme?: "mini" | "round" | "fullWidth";
-  options: { [key: number]: string } | string[];
+  options?: string[];
   initialValue?: number;
+  onClick?: () => void;
+  parentSeleted?: string;
+  children?: React.ReactNode;
 }) => {
+  const [selectValue, setSelectValue] = useState<string>();
+  console.log(parentSeleted);
+
   const style =
     theme === "mini"
       ? {
@@ -31,19 +46,30 @@ const Dropdown = ({
       : {};
 
   return (
-    <div className={style.wrapper}>
-      <select className={style.select} id={id} title={title}>
-        {Object.entries(options).map((key) => (
-          <option
-            key={Number(key[0])}
-            value={key[1]}
-            selected={Number(key[0]) == initialValue}
-          >
-            {key[1]}
-          </option>
-        ))}
-      </select>
-    </div>
+    <>
+      <div className={style.wrapper}>
+        <select
+          className={style.select}
+          id={id}
+          title={title}
+          onChange={(e) => setSelectValue(e.target.value)}
+          value={selectValue}
+          onClick={onClick}
+        >
+          {options?.map((item, index) => (
+            <option key={index} value={item}>
+              {item}
+            </option>
+          ))}
+        </select>
+      </div>
+      {children &&
+        React.Children.map(children, (child) =>
+          React.cloneElement(child as React.ReactElement, {
+            parentSeleted: selectValue,
+          })
+        )}
+    </>
   );
 };
 
