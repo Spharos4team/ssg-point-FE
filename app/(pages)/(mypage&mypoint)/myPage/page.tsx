@@ -143,7 +143,7 @@ export default function MyPage() {
                     {/* TODO: href가 배열이라면 swiper로 */}
                     <Link
                       className="block w-full text-xs font-normal text-center whitespace-nowrap"
-                      href={_href}
+                      href={_href[0]}
                     >
                       <Image
                         className="mx-auto mb-2"
@@ -174,7 +174,7 @@ export default function MyPage() {
           {myBanners.map(({ _id, _href, name, image }) => (
             <li key={_id}>
               <LinkImageWithFallback
-                _href={_href}
+                _href={_href[0]}
                 name={name}
                 image={image!!}
               />

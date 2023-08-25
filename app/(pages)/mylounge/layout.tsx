@@ -1,5 +1,5 @@
-import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
+import TabBarTopCont from "@/components/templates/TabBarTopCont";
 
 const pagesInLounge: PageProp[] = [
   {

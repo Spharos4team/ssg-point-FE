@@ -13,7 +13,7 @@ const history = () => {
         <>
             <h3 className="hidden">쇼핑 히스토리</h3>
             <div className="shopping_his_wrap01 px-5 py-10">
-                <SpecialTitle className={"sp_tit1 mb-2 text-[14px] font-normal leading-[1.71] -tracking-[.25px] text-left text-[#767676]"} name={'권선'}>
+                <SpecialTitle ptag={"sp_tit1 mb-2 text-[14px] font-normal leading-[1.71] -tracking-[.25px] text-left text-[#767676]"} name={'권선'} color={'pink'}>
                     님과 신세계포인트는
                     <br/> 올해 이렇게 함께했어요.
                 </SpecialTitle>
