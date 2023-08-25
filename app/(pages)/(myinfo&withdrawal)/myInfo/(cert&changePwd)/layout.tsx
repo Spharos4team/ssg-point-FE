@@ -13,7 +13,7 @@ const pagesInMy: PageProp[] = [
   },
 ];
 
-export default function ServiceAndClubLayout({
+export default function CertLayout({
   children,
 }: {
   children: React.ReactNode;

@@ -6,7 +6,8 @@ const cert = () => {
   const active = "";
   return (
     <>
-      <UserCert />
+      {/*<UserCert />*/}
+        df
     </>
   );
 };
