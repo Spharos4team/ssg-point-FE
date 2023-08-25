@@ -2,14 +2,17 @@ import "app/(pages)/globals.css";
 import "tailwindcss/tailwind.css";
 
 //TODO: 전역 폰트 재설정 필요(Inter, NotoSansKR)
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_KR } from "next/font/google";
 import type { Metadata } from "next";
 
-import Footer from "@/components/Footer";
-import TabBarBottomGlobal from "@/components/layout/tabbar/TabBarBottomGlobal";
-import HeaderNavBar from "@/components/layout/header/HeaderNavBar";
+import Footer from "@/components/templates/Footer";
+import TabBarBottomGlobal from "@/components/templates/TabBarBottomGlobal";
+import HeaderNavBar from "@/components/templates/HeaderNavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const notoKr = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "SHINSEGEA POINT APP",
@@ -23,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>
+      <body className={notoKr.className}>
         {/* //TODO: 현재 루트에서 나누고 있는데, 재고필요, 공통 객체만 남겨둘 것 */}
         <HeaderNavBar />
         {/* <ToTop /> to top button */}

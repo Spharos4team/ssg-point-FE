@@ -1,0 +1,334 @@
+[
+  {
+    "id": 1,
+    "parent_id": "",
+    "name": "마이 페이지",
+    "href": "",
+    "themeColor": "#ea035c",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 2,
+    "parent_id": "",
+    "name": "신세계포인트",
+    "href": "",
+    "themeColor": "#a16c0c",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 3,
+    "parent_id": "",
+    "name": "멤버십 서비스",
+    "href": "",
+    "themeColor": "#04857f",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 4,
+    "parent_id": "",
+    "name": "고객센터",
+    "href": "",
+    "themeColor": "#5c1880",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 5,
+    "parent_id": 1,
+    "name": "마이 포인트",
+    "href": "",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 6,
+    "parent_id": 1,
+    "name": "마이 혜택",
+    "href": "",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 7,
+    "parent_id": 1,
+    "name": "마이 라운지",
+    "href": "",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 8,
+    "parent_id": 1,
+    "name": "마이 회원정보",
+    "href": "",
+    "simple_icon": "",
+    "primary_icon": ""
+  },
+  {
+    "id": 9,
+    "parent_id": 5,
+    "name": "포인트 내역",
+    "href": "/myPoint/pntHistory",
+    "simple_icon": "/images/pagecon_pntHistory.png",
+    "primary_icon": "/images/pagecon_pntHistory_primary.png"
+  },
+  {
+    "id": 10,
+    "parent_id": 5,
+    "name": "포인트 카드 관리",
+    "href": "/myPoint/cardManage",
+    "simple_icon": "/images/pagecon_cardManage.png",
+    "primary_icon": "/images/pagecon_cardManage_primary.png"
+  },
+  {
+    "id": 11,
+    "parent_id": 5,
+    "name": "포인트 선물",
+    "href": "/myPoint/pntGiftMain",
+    "simple_icon": "/images/pagecon_pntGift.png",
+    "primary_icon": "/images/pagecon_pntGift_primary.png"
+  },
+  {
+    "id": 12,
+    "parent_id": 5,
+    "name": "제휴포인트 카드 관리",
+    "href": "/myPoint/regAffiliatePntCard",
+    "simple_icon": "/images/pagecon_pntGift.png",
+    "primary_icon": "/images/pagecon_regAffiliatePntCard_primary.png"
+  },
+  {
+    "id": 13,
+    "parent_id": 5,
+    "name": "포인트 전환",
+    "href": "/myPoint/convertPntList",
+    "simple_icon": "/images/pagecon_convertPnt.png",
+    "primary_icon": "/images/pagecon_convertPnt_primary.png"
+  },
+  {
+    "id": 14,
+    "parent_id": 5,
+    "name": "영수증으로 적립",
+    "href": "/myPoint/savePoint",
+    "simple_icon": "/images/pagecon_savePoint.png",
+    "primary_icon": "/images/pagecon_savePoint_primary.png"
+  },
+  {
+    "id": 15,
+    "parent_id": 5,
+    "name": "포인트 비밀번호 변경",
+    "href": "/myPoint/chgPntPwdCert",
+    "simple_icon": "/images/pagecon_chgPntPwdCert.png",
+    "primary_icon": "/images/pagecon_chgPntPwdCert_primary.png"
+  },
+  {
+    "id": 16,
+    "parent_id": 6,
+    "name": "포인트 플러스",
+    "href": "/benefits/pntPlus/attend",
+    "simple_icon": "/images/pagecon_pntPlus.png",
+    "primary_icon": "/images/pagecon_pntPlus_primary.png"
+  },
+  {
+    "id": 17,
+    "parent_id": 6,
+    "name": "나의 운세 보기",
+    "href": "/benefits/benefitMyLuck",
+    "simple_icon": "/images/pagecon_benefitMyLuck.png",
+    "primary_icon": "/images/pagecon_benefitMyLuck_primary.png"
+  },
+  {
+    "id": 18,
+    "parent_id": 6,
+    "name": "마이 쿠폰함",
+    "href": "/benefits/myCoupon",
+    "simple_icon": "/images/pagecon_myCoupon.png",
+    "primary_icon": "/images/pagecon_myCoupon_primary.png"
+  },
+  {
+    "id": 19,
+    "parent_id": 6,
+    "name": "마이 이벤트",
+    "href": "/benefits/myEvent",
+    "simple_icon": "/images/pagecon_myEvent.png",
+    "primary_icon": "/images/pagecon_myEvent_primary.png"
+  },
+  {
+    "id": 20,
+    "parent_id": 6,
+    "name": "포인트 꿀팁",
+    "href": "/benefits/pntTip",
+    "simple_icon": "/images/pagecon_pntTip.png",
+    "primary_icon": "/images/pagecon_pntTip_primary.png"
+  },
+  {
+    "id": 21,
+    "parent_id": 7,
+    "name": "쇼핑 히스토리",
+    "href": "/mylounge/history",
+    "simple_icon": "/images/pagecon_history.png",
+    "primary_icon": "/images/pagecon_history_primary.png"
+  },
+  {
+    "id": 22,
+    "parent_id": 7,
+    "name": "추천 서비스",
+    "href": "/mylounge/recommend",
+    "simple_icon": "/images/pagecon_recommend.png",
+    "primary_icon": "/images/pagecon_recommend_primary.png"
+  },
+  {
+    "id": 23,
+    "parent_id": 7,
+    "name": "스마트 영수증",
+    "href": "/mylounge/receipt",
+    "simple_icon": "/images/pagecon_receipt.png",
+    "primary_icon": "/images/pagecon_receipt_primary.png"
+  },
+  {
+    "id": 24,
+    "parent_id": 7,
+    "name": "매장 찾기",
+    "href": "/mylounge/findstore",
+    "simple_icon": "/images/pagecon_findstore.png",
+    "primary_icon": "/images/pagecon_findstore_primary.png"
+  },
+  {
+    "id": 25,
+    "parent_id": 7,
+    "name": "자주 찾는 매장",
+    "href": "/mylounge/regularstore",
+    "simple_icon": "/images/pagecon_regularstore.png",
+    "primary_icon": "/images/pagecon_regularstore_primary"
+  },
+  {
+    "id": 26,
+    "parent_id": 8,
+    "name": "광고정보 수신관리",
+    "href": "/myInfo/infoRcvAgree",
+    "simple_icon": "/images/pagecon_infoRcvAgree.png",
+    "primary_icon": "/images/pagecon_infoRcvAgree_primary"
+  },
+  {
+    "id": 27,
+    "parent_id": 8,
+    "name": "서비스 동의관리",
+    "href": "/myInfo/serviceAgree",
+    "simple_icon": "/images/pagecon_serviceAgree.png",
+    "primary_icon": "/images/pagecon_serviceAgree_primary"
+  },
+  {
+    "id": 28,
+    "parent_id": 8,
+    "name": "회원정보 수정",
+    "href": "/myinfo/cert",
+    "simple_icon": "/images/pagecon_cert.png",
+    "primary_icon": "/images/pagecon_cert_primary"
+  },
+  {
+    "id": 29,
+    "parent_id": 8,
+    "name": "비밀번호 변경",
+    "href": "/myinfo/changePwd",
+    "simple_icon": "/images/pagecon_changePwd.png",
+    "primary_icon": "images/pagecon_changePwd_primary.png"
+  },
+  {
+    "id": 30,
+    "parent_id": 8,
+    "name": "회원 탈퇴",
+    "href": "/withdrawal/leavePassword",
+    "simple_icon": "/images/pagecon_leavePassword.png",
+    "primary_icon": "/images/pagecon_leavePassword_primary.png"
+  },
+  {
+    "id": 31,
+    "parent_id": 2,
+    "name": "가맹점 소개",
+    "href": "/spoint/memberstore",
+    "simple_icon": "/images/pagecon_memberstore.png",
+    "primary_icon": "/images/pagecon_memberstore_primary.png"
+  },
+  {
+    "id": 32,
+    "parent_id": 2,
+    "name": "포인트 카드",
+    "href": "/spoint/pointcard",
+    "simple_icon": "/images/pagecon_pointcard.png",
+    "primary_icon": "/images/pagecon_pointcard_primary.png"
+  },
+  {
+    "id": 33,
+    "parent_id": 2,
+    "name": "포인트 서비스",
+    "href": "/spoint/pointservice",
+    "simple_icon": "/images/pagecon_pointservice.png",
+    "primary_icon": "/images/pagecon_pointservice_primary.png"
+  },
+  {
+    "id": 34,
+    "parent_id": 2,
+    "name": "임시 발급 카드 인증",
+    "href": "/spoint/tempCardCert",
+    "simple_icon": "/images/pagecon_tempCardCert.png",
+    "primary_icon": "/images/pagecon_tempCardCert_primary.png"
+  },
+  {
+    "id": 35,
+    "parent_id": 2,
+    "name": "신세계그룹 뉴스레터",
+    "href": "/spoint/newsLetter",
+    "simple_icon": "/images/pagecon_newsLetter.png",
+    "primary_icon": "/images/pagecon_newsLetter_primary.png"
+  },
+  {
+    "id": 36,
+    "parent_id": 3,
+    "name": "신세계포인트 통합 ID 관리",
+    "href": "/membership/pointId",
+    "simple_icon": "/images/pagecon_pointId.png",
+    "primary_icon": "/images/pagecon_pointId_primary.png"
+  },
+  {
+    "id": 37,
+    "parent_id": 3,
+    "name": "클럽",
+    "href": "/membership/club",
+    "simple_icon": "/images/pagecon_club.png",
+    "primary_icon": "/images/pagecon_pointId_primary.png"
+  },
+  {
+    "id": 38,
+    "parent_id": 3,
+    "name": "신세계 유니버스 클럽",
+    "href": "/membership/combine",
+    "simple_icon": "/images/pagecon_combine.png",
+    "primary_icon": "/images/pagecon_combine_primary.png"
+  },
+  {
+    "id": 39,
+    "parent_id": 4,
+    "name": "공지사항",
+    "href": "/cscenter/notice",
+    "simple_icon": "/images/pagecon_notice.png",
+    "primary_icon": "/images/pagecon_notice_primary.png"
+  },
+  {
+    "id": 40,
+    "parent_id": 4,
+    "name": "FAQ",
+    "href": "/cscenter/faq",
+    "simple_icon": "/images/pagecon_faq.png",
+    "primary_icon": "/images/pagecon_faq_primary.png"
+  },
+  {
+    "id": 41,
+    "parent_id": 4,
+    "name": "1:1 상담",
+    "href": "/cscenter/consult/write",
+    "simple_icon": "/images/pagecon_consult.png",
+    "primary_icon": "/images/pagecon_consult_primary.png"
+  }
+]

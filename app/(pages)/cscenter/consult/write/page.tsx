@@ -1,40 +1,9 @@
 import RoundedButton from "@/components/atoms/Button/RoundedButton";
-import Dropdown from "@/components/atoms/Dropdown";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
 import TextBox from "@/components/atoms/TextBox";
-import NoticeBox from "@/components/modules/NoticeBox";
 import DropdownForCategory from "@/components/organisms/DropdownForCategory";
-import { Category } from "@/types/CategoryProps";
 
 export default function WritePage({}) {
-  const 카테고리: Category[] = [
-    { 대분류: ["소분류"] },
-    { 회원: ["소분류", "회원가입/탈퇴", "정보수정", "비밀번호", "클럽서비스"] },
-    { 신세계포인트: ["소분류", "적립/사용", "소멸", "선물", "전환"] },
-    { "신세계포인트 카드": ["소분류", "신세계포인트 카드", "제휴 신용카드"] },
-    { "이벤트/쿠폰": ["소분류", "이벤트", "쿠폰"] },
-    { 가맹점: ["소분류", "가맹점 이용문의"] },
-    { 개선사항: ["소분류", "시스템 오류", "서비스 개선사항"] },
-    {
-      "신세계 유니버스 클럽": [
-        "소분류",
-        "유니버스 클럽 혜택, 유니버스 클럽 가입/탈퇴",
-        "포인트 특별 혜택",
-        "포인트 카드/회원 계정",
-        "기타",
-      ],
-    },
-    {
-      "이마트 EV 클럽": [
-        "소분류",
-        "EV 클럽 혜택",
-        "EV 가입/탈퇴",
-        "EV 클럽 문의",
-        "기타",
-      ],
-    },
-    { 기타: ["소분류", "기타"] },
-  ];
   return (
     <>
       <div className="px-5 py-10">

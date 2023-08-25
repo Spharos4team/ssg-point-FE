@@ -1,7 +1,11 @@
-import { title } from "process";
+"use client";
 import Dropdown from "../atoms/Dropdown";
-import ListForHistory from "../atoms/ListForHistory";
 import { Category } from "@/types/CategoryProps";
+import Modal from "../atoms/Modal";
+import { useState } from "react";
+import { Checkbox } from "../atoms/Checkbox";
+import CalcBox from "../atoms/Input/CalcBox";
+import RoundedButton from "../atoms/Button/RoundedButton";
 
 type DropdownType = {
   dropdownTitle: string;
@@ -16,6 +20,7 @@ const HistoryList = ({
   dropdown: DropdownType;
   children: React.ReactNode;
 }) => {
+  const [modal, setModal] = useState(false);
   const { dropdownTitle, dropdownInitial, dropdownOptions } = dropdown;
 
   const plusIcon =
@@ -29,7 +34,7 @@ const HistoryList = ({
             id={dropdownTitle + "_dropdown_filter"}
             title={dropdownTitle}
             options={dropdownOptions}
-            theme="mini"
+            theme="mini_inline"
             initialValue={dropdownInitial}
           />
         </div>
@@ -39,7 +44,10 @@ const HistoryList = ({
           <p>2023-07-20 ~ 2023-08-20</p>
         </div>
 
-        <button className="relative inline-block pr-4 after:content-[''] after:inline-block after:w-5 after:h-[19px] after:bg-[url('/images/icon_filter.png')] after:bg-[100%_auto]">
+        <button
+          className="relative inline-block pr-4 after:content-[''] after:inline-block after:w-5 after:h-[19px] after:bg-[url('/images/icon_filter.png')] after:bg-[100%_auto]"
+          onClick={() => setModal(true)}
+        >
           <span className="hidden ">필터</span>
         </button>
       </div>
@@ -67,6 +75,60 @@ const HistoryList = ({
         {/* 포인트 히스토리 */}
         <ul className="pr-[5px] pl-2">{children}</ul>
       </div>
+
+      {/* Modal */}
+      <Modal fill title="필터" modal={modal} onClick={setModal}>
+        <div className="px-5 pt-6">
+          <p className="text-[14px] font-medium leading-6 pb-4">조회기간</p>
+          <div className="pb-4">
+            <div className="flex justify-start pb-5">
+              <Checkbox className="text-[14px] pr-10" id="1w" name="1주일" />
+              <Checkbox className="text-[14px] pr-10" id="1w" name="1개월" />
+              <Checkbox className="text-[14px] pr-10" id="1w" name="3개월" />
+              <Checkbox className="text-[14px] pr-10" id="1w" name="6개월" />
+            </div>
+            <div className="flex justify-between pb-5">
+              <Checkbox
+                className="text-[14px] pr-5"
+                id="1w"
+                name="직접입력(최대 6개월)"
+              />
+            </div>
+            <div className="flex justify-between gap-x-4 mb-10">
+              <CalcBox />
+              <CalcBox />
+            </div>
+          </div>
+          <p className="text-[14px] font-medium leading-6 pb-4">
+            포인트 적립/사용 구분
+          </p>
+          <div className="pb-4">
+            <div className="flex justify-start pb-4">
+              <Checkbox className="text-[14px] pr-5" id="1w" name="전체" />
+              <Checkbox className="text-[14px] pr-5" id="1w" name="적립" />
+              <Checkbox className="text-[14px] pr-5" id="1w" name="사용" />
+            </div>
+          </div>
+          <p className="text-[14px] font-medium leading-6 pb-4">
+            포인트 내역 구분
+          </p>
+          <div className="pb-4">
+            <div className="flex justify-start pb-4">
+              <Checkbox className="text-[14px] pr-5" id="1w" name="전체" />
+              <Checkbox className="text-[14px] pr-5" id="1w" name="일반" />
+              <Checkbox className="text-[14px] pr-5" id="1w" name="이벤트" />
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-x-2 px-5 pb-5">
+          <RoundedButton className="h-10" onClick={() => setModal(false)}>
+            취소
+          </RoundedButton>
+          <RoundedButton className="h-10" backgroundColor="black">
+            조회
+          </RoundedButton>
+        </div>
+      </Modal>
     </>
   );
 };

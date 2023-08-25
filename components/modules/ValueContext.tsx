@@ -2,15 +2,16 @@
 import { createContext, useContext, useState } from "react";
 
 const ValueContext = createContext({
-  selectedValue: "",
-  handleValue: (value: string) => {},
+  selectedValue: false,
+  handleValue: () => {},
 });
 
 export const ValueProvider = ({ children }: { children: React.ReactNode }) => {
-  const [selectedValue, setSelectedValue] = useState<string>("");
+  const [selectedValue, setSelectedValue] = useState<boolean>(false);
 
-  const handleValue = (value: string) => {
-    setSelectedValue(value);
+  const handleValue = () => {
+    console.log(selectedValue);
+    setSelectedValue(!selectedValue);
   };
 
   return (

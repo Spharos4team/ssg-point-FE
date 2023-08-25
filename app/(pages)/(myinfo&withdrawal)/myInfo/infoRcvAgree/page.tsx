@@ -4,7 +4,7 @@ import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
 import PrimaryButtonBasic from "@/components/atoms/ButtonPrimary";
 import NoticeBox from "@/components/modules/NoticeBox";
 import RoundCard from "@/components/modules/RoundCard";
-import SimpleContainer from "@/components/modules/SimpleContainer";
+import { ValueProvider } from "@/components/modules/ValueContext";
 
 export default function InfoRcvAgree() {
   return (
@@ -18,7 +18,9 @@ export default function InfoRcvAgree() {
         }
         sub="광고정보 수신동의를 하시면 신세계포인트의<br />다양한 혜택과 소식을 받으실 수 있습니다."
       />
-      <div className="box-border px-5 pb-10">
+
+      {/* component ? module */}
+      <div className="box-border pb-10 px-5">
         <p className="border-b-[1px] border-black text-base leading-[26px] font-medium pb-3">
           {" "}
           등록된 연락처 정보를 확인하세요.{" "}
@@ -45,13 +47,15 @@ export default function InfoRcvAgree() {
       </div>
 
       <RoundCard
+        className="mx-6"
         title="연락처 정보 변경이 필요하시나요?"
         subtitle="회원정보 수정 메뉴에서 변경하실 수 있습니다."
         linkName="회원정보 수정"
         round="rounded-lg"
       />
 
-      <div className="px-5 py-10">
+      {/* component ? module */}
+      <div className="py-10 px-5">
         <div>
           <ul className="space-y-4">
             <li className="relative flex justify-between">
@@ -87,16 +91,20 @@ export default function InfoRcvAgree() {
               {" "}
               신세계포인트 광고정보 수신동의{" "}
             </p>
-            <Checkbox id="02" name="전체동의">
-              <Checkbox id="03" name="이메일" />
-              <Checkbox id="04" name="문자" />
-              <Checkbox id="05" name="DM" />
-              <Checkbox id="06" name="TM" />
-            </Checkbox>
+            <ValueProvider>
+              <Checkbox id="02" name="전체동의">
+                <Checkbox id="03" name="이메일" />
+                <Checkbox id="04" name="문자" />
+                <Checkbox id="05" name="DM" />
+                <Checkbox id="06" name="TM" />
+              </Checkbox>
+            </ValueProvider>
           </div>
         </div>
       </div>
-      <SimpleContainer>
+
+      {/* component && organism */}
+      <div className="px-5">
         <ListForNoticeBox level={2} isBullet={false}>
           {
             "당사, 관계사, 신세계포인트 제휴사가 제공하는 상품 및 서비스 홍보, 소식지 제공, 이벤트 정보 제공(할인 쿠폰, 포인트 추가 적립, 상품 할인 포함), 제휴행사를 안내해 드립니다. 수신동의 변경은 신세계포인트 고객센터 및 홈페이지(www.shinsegaepoint.com)에서 가능합니다.<br />※ 서비스 주요 정책 및 공지사항 안내 등은 수신동의 여부와 관계없이 발송됩니다."
@@ -106,7 +114,7 @@ export default function InfoRcvAgree() {
         <PrimaryButtonBasic className="py-10" round="rounded-lg">
           확인
         </PrimaryButtonBasic>
-      </SimpleContainer>
+      </div>
       <NoticeBox type="info" title="유의사항">
         <ListForNoticeBox level={2}>
           광고정보 수신거부와 관계없이 회원 및 서비스 정책 변경, 주문/배송 안내,

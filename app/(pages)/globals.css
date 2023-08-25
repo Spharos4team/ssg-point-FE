@@ -22,6 +22,12 @@ section {
   display: block;
 }
 
+input,
+label,
+select {
+  vertical-align: middle;
+}
+
 #content {
   padding-top: 56px;
 }

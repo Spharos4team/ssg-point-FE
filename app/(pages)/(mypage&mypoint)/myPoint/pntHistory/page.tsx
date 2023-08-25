@@ -2,7 +2,7 @@ import Dropdown from "@/components/atoms/Dropdown";
 import ListForHistory, {
   PointListType,
 } from "@/components/atoms/ListForHistory";
-import PointBox from "@/components/atoms/PointBox";
+import PointBox from "@/components/modules/PointBox";
 import RadioCard2 from "@/components/atoms/RadioCard2";
 import HistoryList from "@/components/modules/HistoryList";
 import RadioCardGroup2 from "@/components/modules/RadioCardGroup2";

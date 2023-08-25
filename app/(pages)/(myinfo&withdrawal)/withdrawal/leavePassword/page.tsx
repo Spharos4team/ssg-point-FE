@@ -17,6 +17,7 @@ export default function leavePassword() {
         }
         sub="현재 사용 중인 비밀번호를 입력해주세요."
       />
+
       <div className="box-border px-5 pb-10">
         <div className="pb-[25px]">
           <p className="pb-2 text-xs">비밀번호</p>

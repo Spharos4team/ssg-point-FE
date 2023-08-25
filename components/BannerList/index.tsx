@@ -5,7 +5,7 @@ import Link from "next/link";
 const banners: Array<{ key: number; _src: string; _href: string }> = [
   //TODO: banner의 최소정보.
   //eventNo: 게시물 정보
-  //details?: api상 단일 게시물 요청
+  //details?: api상 단일 게시물 요청t
   //key와 게시물 id를 일치시키는게 좋을 듯
   {
     key: 1,

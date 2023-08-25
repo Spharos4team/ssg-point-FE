@@ -1,4 +1,4 @@
-import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
+import TabBarTopCont from "@/components/templates/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
 
 const pagesInMy: PageProp[] = [
@@ -46,8 +46,8 @@ export default function IngEventLayout({
 }) {
   return (
     <div className="mt-12">
-      <TabBarTopCont pages={pagesInMy} />
-      <div className="py-10 px-5">{children}</div>
+      <TabBarTopCont pages={pagesInMy} lineType="primary" />
+      <div className="">{children}</div>
     </div>
   );
 }

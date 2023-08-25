@@ -25,7 +25,7 @@ export default function BodyNavTop() {
     "before:content-[''] before:absolute before:top-[-2px] before:left-1/2 before:translate-x-[-50%] before:w-1 before:h-1 before:bg-black before:rounded-full";
 
   return (
-    <div className="fixed top-[56px] left-0 bg-white h-[36px] w-full z-[102]">
+    <div className="fixed top-[56px] left-0 bg-white h-[36px] w-full z-[99]">
       <ul className="flex justify-center space-x-8">
         {navLinks.map(({ key, _href, name }) => (
           <li className="align-baseline" key={key}>
