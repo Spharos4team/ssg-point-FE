@@ -3,6 +3,7 @@ import ListForHistory, {
   PointListType,
 } from "@/components/atoms/ListForHistory";
 import HistoryList from "@/components/modules/HistoryList";
+import RoundedButton from "@/components/atoms/Button/RoundedButton";
 
 export default function pntGiftMain() {
   const dropdownForHistory = {
@@ -24,9 +25,11 @@ export default function pntGiftMain() {
   ];
   return (
     <>
-      <ButtonPrimary className="py-10" round="rounded-lg">
-        선물하기
-      </ButtonPrimary>
+      <div className="flex justify-center">
+        <RoundedButton className="h-[48px] w-[93%] " backgroundColor='primary'>
+          선물하기
+        </RoundedButton>
+      </div>
 
       <div className="px-5 pb-10">
         {/* TODO: 스타일 설정 */}

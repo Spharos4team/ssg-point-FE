@@ -1,12 +1,12 @@
 export type PointListType = {
-  historyTag: "이벤트적립" | "선물적립" | "영수증적립" | "전환";
+  historyTag: "결제적립" | "이벤트적립" | "선물적립" | "영수증적립" | "전환";
   pntValue: number;
   pntInfo: { title: string; sub: string };
   pntDate: string;
 };
 
 const ListForHistory = ({ point }: { point: PointListType }) => {
-  const { historyTag, pntValue, pntInfo, pntDate } = point;
+  const { historyTag, pntValue, pntInfo, pntDate, receipt } = point;
   const plusIcon =
     "before:content-[''] before:rounded-[50%] before:inline-block before:w-4 before:h-4 before:bg-[url('/images/icon_plus.png')] before:bg-no-repeat before:bg-[#ea035c] before:bg-center before:bg-[8px_auto]";
 
@@ -34,8 +34,11 @@ const ListForHistory = ({ point }: { point: PointListType }) => {
           </>
         ) : historyTag === "선물적립" ? (
           <>
-            <span className="block text-[10px] leading-[18px] text-[#767676] w-full">
-              {pntInfo.sub}
+            {pntInfo.title}
+          </>
+        ) : historyTag === "결제적립" ? (
+          <>
+            <span className="block text-[14px] leading-[24px] text-[#767676] w-full">
             </span>
             {pntInfo.title}
           </>
@@ -47,7 +50,14 @@ const ListForHistory = ({ point }: { point: PointListType }) => {
         <p className="text-[11px] leading-[19px] text-[#767676] min-w-[62px]">
           {pntDate}
         </p>
+        {historyTag === "결제적립" ? (
+            <button className="text-[11px] text-[#767676] mt-2 border-0 border-none bg-transparent cursor-pointer align-middle bg-none
+                after:mt-[1.4px] after:w-[5px] after:content-[''] after:inline-block after:align-top after:h-2.5 after:ml-[1px] after:bg-[url('/images/arrow_right_re.png') after:bg-no-repeat after:bg-[position:0px_0px]">
+                영수증보기
+            </button> )
+        : (<></>)}
       </div>
+
     </li>
   );
 };

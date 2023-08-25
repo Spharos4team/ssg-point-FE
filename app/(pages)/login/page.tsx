@@ -63,7 +63,7 @@ export default function Login() {
         </div>
 
         <div className="my-10">
-          <RoundedButton className="" backgroundColor="primary">로그인</RoundedButton>
+          <RoundedButton className="h-[56px]" backgroundColor="primary">로그인</RoundedButton>
         </div>
 
         <ul className="text-center">
