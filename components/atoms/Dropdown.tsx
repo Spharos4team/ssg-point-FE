@@ -16,7 +16,7 @@ const Dropdown = ({
 }: {
   id: string;
   title: string;
-  theme?: "mini" | "round" | "fullWidth";
+  theme?: "mini" | "mini_inline" | "round" | "fullWidth";
   options?: string[];
   initialValue?: number;
   onClick?: () => void;
@@ -42,6 +42,12 @@ const Dropdown = ({
       : theme === "fullWidth"
       ? {
           wrapper: "",
+        }
+      : theme === "mini_inline"
+      ? {
+          wrapper: "relative inline-block align-top w-full mr-[5px]",
+          select:
+            "relative block w-full h-[30px] pr-[32px] pl-[6px] text-sm box-border z-[1] border",
         }
       : {};
 

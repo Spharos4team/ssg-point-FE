@@ -20,7 +20,7 @@ const CollapseForMomKidsInClub = () => {
           {Object.keys(genderRadios.innerHtml).map((key) => (
             <RadioCard2
               key={key}
-              id={`kids_gender2_${key}_`}
+              id={`kids_gender1_${key}`}
               value={genderRadios.innerHtml[parseInt(key)]}
             >
               {genderRadios.innerHtml[parseInt(key)]}

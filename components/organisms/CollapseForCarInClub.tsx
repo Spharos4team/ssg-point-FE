@@ -1,7 +1,7 @@
 import CollapseButton from "../atoms/Button/CollapseButton";
 import Dropdown from "../atoms/Dropdown";
 import TextBox from "../atoms/TextBox";
-const LocNumber:  string[] = [
+const LocNumber: string[] = [
   "지역번호없음",
   "서울",
   "부산",

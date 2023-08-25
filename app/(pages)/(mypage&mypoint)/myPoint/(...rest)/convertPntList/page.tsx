@@ -34,7 +34,9 @@ export default function ConvertPntList() {
         </div>
 
         <div className="pt-10">
-          <RoundedButton backgroundColor="pink">한 번에 조회하기</RoundedButton>
+          <RoundedButton className="h-12" backgroundColor="pink">
+            한 번에 조회하기
+          </RoundedButton>
         </div>
       </div>
 
@@ -67,7 +69,9 @@ export default function ConvertPntList() {
       </div>
 
       <div>
-        <RoundedButton backgroundColor="primary">전환하기</RoundedButton>
+        <RoundedButton className="h-12" backgroundColor="primary">
+          전환하기
+        </RoundedButton>
         <Link
           href={""}
           className="relative float-right top-2 text-sm leading-[18px] text-[#767676] pr-[10px]

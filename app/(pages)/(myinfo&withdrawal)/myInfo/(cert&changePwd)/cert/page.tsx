@@ -1,15 +1,8 @@
-import UserCert from "@/components/organisms/UserCert";
-
-//TODO: template 또는 page(component)로 만들어서 재사용.
+import UserCertPage from "@/components/pages/UserCertPage";
 
 const cert = () => {
-  // const active = "";
-  return (
-    <>
-      <UserCert />
-
-    </>
-  );
+  const active = "";
+  return <UserCertPage />;
 };
 
 export default cert;

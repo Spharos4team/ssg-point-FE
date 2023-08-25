@@ -16,7 +16,6 @@ export const RadioProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <RadioContext.Provider value={{ selectedValue, handleRadio }}>
       {children}
-      {selectedValue}
     </RadioContext.Provider>
   );
 };

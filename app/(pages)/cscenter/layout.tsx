@@ -1,4 +1,4 @@
-import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
+import TabBarTopCont from "@/components/templates/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
 
 export default function CscenterLayout({

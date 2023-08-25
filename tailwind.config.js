@@ -12,7 +12,17 @@ module.exports = {
         "primary-active": "#d9044b",
       },
       fontFamily: {
-        sans: ["Roboto", "Arial", "sans-serif"],
+        sans: [
+          "Inter",
+          "Noto Sans KR",
+          "Malgun Gothic",
+          "맑은고딕",
+          "굴림",
+          "gulim",
+          "helvetica",
+          "arial",
+          "sans-serif",
+        ],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

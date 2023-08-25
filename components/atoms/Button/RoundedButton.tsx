@@ -1,10 +1,12 @@
 const RoundedButton = ({
   className,
   backgroundColor = "white",
+  onClick,
   children,
 }: {
   className?: string;
   backgroundColor?: "white" | "black" | "primary" | "pink";
+  onClick?: () => {} | (() => void);
   children: React.ReactNode;
 }) => {
   const bgColor = () => {
@@ -22,14 +24,14 @@ const RoundedButton = ({
 
   return (
     // TODO: onClick || href 추가하기
-    <div className={className}>
-      <button
-        className={`${bgColor()} block text-center text-sm leading-6 font-bold box-border rounded-lg
-      w-full px-4 py-3`}
-      >
-        {children}
-      </button>
-    </div>
+
+    <button
+      className={`${bgColor()} ${className} block text-center text-sm leading-6 font-bold box-border rounded-lg
+      w-full`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 };
 

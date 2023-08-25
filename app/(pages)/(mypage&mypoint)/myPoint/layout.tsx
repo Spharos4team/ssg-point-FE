@@ -46,8 +46,8 @@ export default function IngEventLayout({
 }) {
   return (
     <div className="mt-12">
-      <TabBarTopCont pages={pagesInMy} />
-      <div>{children}</div>
+      <TabBarTopCont pages={pagesInMy} lineType="primary" />
+      <div className="">{children}</div>
     </div>
   );
 }

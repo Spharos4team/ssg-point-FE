@@ -1,5 +1,5 @@
 import TabForTabBox from "@/components/atoms/TabForTabBox";
-import TabBarTopCont from "@/components/layout/tabbar/TabBarTopCont";
+import TabBarTopCont from "@/components/templates/TabBarTopCont";
 import TabBoxSimple from "@/components/modules/TabBoxSimple";
 import { PageProp } from "@/types/LinkProps";
 
