@@ -103,6 +103,8 @@ export default function TabBarTopCont({
                 prefetch
               >
                 {name}
+                {/*span 밑에 after로 primary line을 만들어야 길이가 짧아지는 것으로ㅓ 보임*/}
+                <span className={"hidden"}>선택됨</span>
               </Link>
             </li>
           ))}

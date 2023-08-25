@@ -26,6 +26,10 @@ const HeaderIconBox = ({ pathname }: Location) => {
     "/withdrawal": "마이 회원정보",
 
     "/benefits": "마이 혜택",
+    "/mylounge": "마이 라운지",
+    "/spoint": "신세계포인트",
+    "/membership": "멤버십 서비스",
+
 
     "/cscenter": "고객센터",
   };

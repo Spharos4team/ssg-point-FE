@@ -28,32 +28,36 @@ const UserCert = () => {
   return (
     <>
       {/* TODO: Radio가 아니고, 상태관리가 가능한 tabBox */}
-      <TabBoxSimple className="flex relative h-[88px] after:content-[''] after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border after:border-[#ebebeb] after:rounded-lg after:z-0">
+      <TabBoxSimple className="tablist flex relative h-[88px] mx-5 after:content-[''] after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border after:border-[#ebebeb] after:rounded-lg after:z-0">
         <li className="bg-gradient-primary-line flex flex-1 items-center justify-center p-[2px] rounded-lg z-[1]">
           <a
-            className="relative block w-full h-full pt-[53px] text-center bg-white rounded-md"
+            className="phone relative block w-full h-full pt-[53px] text-center bg-white rounded-md leading-[18px] text-[13px]
+            after:bg-[position:15px_0px] after:content-[''] after:absolute after:w-[50px] after:h-[40px] after:left-1/2 after:ml-[-25px] after:top-[15px] after:bg-[url('/images/icon_cert.png')] after:bg-no-repeat after:bg-[85px_auto]"
             href="javascript:void(0)"
           >
             휴대폰인증
+            <span className="hidden">선택됨</span>
           </a>
         </li>
         <li
-          className={`relative flex flex-1 items-center justify-center p-[2px] h-full z-[1]`}
+          className={`card relative flex flex-1 items-center justify-center p-[2px] h-full z-[1]`}
         >
           <a
-            className={`relative block w-full h-full pt-[53px] text-center text-[#767676] bg-white rounded-md`}
+            className={`relative block w-full h-full pt-[53px] text-center text-[#767676] bg-white rounded-md
+            after:bg-[position:9px_-46px] after:content-[''] after:absolute after:w-[50px] after:h-[40px] after:left-1/2 after:ml-[-25px] after:top-[15px] after:bg-[url('/images/icon_cert.png')] after:bg-no-repeat after:bg-[85px_auto]`}
             href="javascript:void(0)"
           >
             카드인증
+            <span className="hidden">선택됨</span>
           </a>
         </li>
       </TabBoxSimple>
       <div className="box-border pb-10">
         <h3 className="hidden">휴대폰인증</h3>
         <div>
-          <div className="py-10">
-            <div className="pb-4 box-border">
-              <p className="pb-2 text-xs">이름을 입력해 주세요.</p>
+          <div className="tab_box0 px-5 py-10">
+            <div className="form_box pb-4 box-border">
+              <p className="pb-2 text-xs leading-[21px]">이름을 입력해 주세요.</p>
               <TextBox id="name" type="text">
                 이름 입력
               </TextBox>
@@ -116,17 +120,52 @@ const UserCert = () => {
           </div>
 
           {/* TODO: CheckBox Context 만들어서 상태관리하기 */}
-          <div className="">
-            <Checkbox id="all_checker" name="모든 약관에 동의합니다." />
-            <Checkbox id="01" name="[필수] 휴대전화 인증 서비스 이용약관" />
-            <Checkbox id="02" name="[필수] 고유식별정보 처리 동의" />
-            <Checkbox id="03" name="[필수] 통신사 이용약관 동의" />
-            <Checkbox id="04" name="[필수] 개인정보 수집/이용동의" />
+          <div className="terms_agree_box px-5">
+            <div className="agree_form_box">
+              <h3 className="tit pb-[17px] text-[18px] font-medium leading-[28px]"> 휴대전화 인증 약관 </h3>
+              <div className="chk_box relative inline-block align-top after:content-[''] after:w-full after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-[#e8e8e8]">
+                <Checkbox id="all_checker" name="모든 약관에 동의합니다." />
+              </div>
+              <ul className="agree_list list-none">
+                <li className="relative pr-[22px] mb-[16px]">
+                  <Checkbox id="01" name="[필수] 휴대전화 인증 서비스 이용약관" />
+                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
+                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
+                  </button>
+                </li>
+                <li className="relative pr-[22px] mb-[16px]">
+                  <Checkbox id="02" name="[필수] 고유식별정보 처리 동의" />
+                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
+                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
+                  </button>
+                </li>
+                <li className="relative pr-[22px] mb-[16px]">
+                  <Checkbox id="03" name="[필수] 통신사 이용약관 동의" />
+                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
+                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
+                  </button>
+                </li>
+                <li className="relative pr-[22px] mb-[16px]">
+                  <Checkbox id="04" name="[필수] 개인정보 수집/이용동의" />
+                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
+                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          <RoundedButton className="pt-10" backgroundColor="primary">
-            인증번호 요청
-          </RoundedButton>
+          <div className="tab_box1 px-5 pt-10">
+            <RoundedButton className="pt-10" backgroundColor="primary">
+              인증번호 요청
+            </RoundedButton>
+            <div>
+              <p></p>
+              <div className="input_btn_box">
+                <div className="input_box"></div>
+                <div className="btn_box"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

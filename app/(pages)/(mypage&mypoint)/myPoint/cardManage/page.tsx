@@ -8,12 +8,12 @@ import Image from "next/image";
 export default function cardManage() {
   // @ts-ignore
   return (
-    <>
+    <section className="content depth2 mypoint">
       <h3 className="hidden">포인트 카드 관리</h3>
       <PointBox type="simpleCard" />
 
       {/* 카드 테이블 */}
-      <div className="px-5 py-10">
+      <div className="table_cnt0 px-[20px] py-[40px]">
 
         <p className="font-medium text-[16px] leading-[26px] pb-[16px]">온라인 카드</p>
         {/* 온라인 카드 테이블 */}
@@ -88,7 +88,7 @@ export default function cardManage() {
             </colgroup>
             <thead>
               <tr>
-                <th className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">카드번호</th>
+                <th className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">카드명</th>
                 <th className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">발급처</th>
                 <th className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">발급일자</th>
               </tr>
@@ -144,7 +144,7 @@ export default function cardManage() {
 
       </div>
       {/* 버튼 모음 */}
-      <div className="pl-5 pr-5 pb-10">
+      <div className="btn_box space1 px-[20px] pb-[40px]">
         <RoundedButton className="mb-[15px]">신규 포인트카드 등록하기</RoundedButton>
         <RoundedButton className="mb-[15px]">임시 발급 카드 인증하기</RoundedButton>
         <RoundedButton className="" backgroundColor="primary">
@@ -177,6 +177,6 @@ export default function cardManage() {
           </li>
         </ul>
       </div>
-    </>
+    </section>
   );
 }

@@ -1,0 +1,22 @@
+.pointbar::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -6px;
+
+    border-t-[${color === "red" ? "#ea035c" : "#5c1880"}]
+    content:
+    absolute
+    z-[1]
+    left-1/2
+    -top-[10px]
+    -ml-1.5
+    w-0
+    h-0
+    border-t-[6px]
+    border-t-solid
+    border-x-[6px]
+    border-x-solid
+    border-x-transparent
+}
