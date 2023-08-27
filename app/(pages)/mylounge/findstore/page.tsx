@@ -10,6 +10,21 @@ const findstore = () => {
                     지역으로 찾기
                 </TabForTabBox>
             </TabBoxSimple>
+            <div className="find_store_wrap02">
+                <div className="map_area_wrap">
+                    <div className="map_area">
+                        <div className="">
+
+                        </div>
+                        <div className="">
+
+                        </div>
+                        <div className="">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
