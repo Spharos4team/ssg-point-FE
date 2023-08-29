@@ -1,12 +1,12 @@
 import { Checkbox } from "@/components/atoms/Checkbox";
 import ContentHeader from "@/components/atoms/ContentHeader";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
-import PrimaryButtonBasic from "@/components/atoms/ButtonPrimary";
 import NoticeBox from "@/components/modules/NoticeBox";
 import RoundCard from "@/components/modules/RoundCard";
-import { ValueProvider } from "@/components/modules/ValueContext";
+import { ValueProvider } from "@/components/hooks/ValueProvider";
+import Button from "@/components/atoms/Button/Button";
 
-export default function InfoRcvAgree() {
+export default function InfoRcvAgreePage() {
   return (
     <>
       <ContentHeader
@@ -47,11 +47,15 @@ export default function InfoRcvAgree() {
       </div>
 
       <RoundCard
-        className="mx-6"
-        title="연락처 정보 변경이 필요하시나요?"
+        className="mx-6 text-[13px] rounded-lg"
+        title={
+          <strong className="text-black text-[14px] font-normal">
+            연락처 정보 변경이 필요하시나요?
+          </strong>
+        }
         subtitle="회원정보 수정 메뉴에서 변경하실 수 있습니다."
         linkName="회원정보 수정"
-        round="rounded-lg"
+        link="/myInfo/cert"
       />
 
       {/* component ? module */}
@@ -62,6 +66,7 @@ export default function InfoRcvAgree() {
               <div className="relative inline-block align-top">
                 <Checkbox
                   id="00"
+                  type="basic-single"
                   name="[선택] 혜택제공 및 분석을 위한 개인정보 수집 및 이용 동의"
                 />
               </div>
@@ -74,10 +79,13 @@ export default function InfoRcvAgree() {
 
             <li className="relative flex justify-between">
               <div className="relative inline-block align-top">
-                <Checkbox
-                  id="01"
-                  name="[선택] 이마트/신세계 공동 개인정보 수집 및 이용동의"
-                />
+                <ValueProvider>
+                  <Checkbox
+                    id="01"
+                    name="[선택] 이마트/신세계 공동 개인정보 수집 및 이용동의"
+                    type={"basic-single"}
+                  />
+                </ValueProvider>
               </div>
               <button className="ablsolute right-0 top-0 w-6 h-[22px]">
                 <span className="relative block box-border overflow-hidden indent-[-999em] opacity-50 w-[24px] h-full bg-[url('/images/icon_back.png')] bg-left bg-[length:6px_auto] bg-no-repeat rotate-180">
@@ -88,15 +96,21 @@ export default function InfoRcvAgree() {
           </ul>
           <div className="mt-[8px] ml-[11px] py-2 pl-5 border-l border-black">
             <p className="text-[14px] leading-6 mb-4">
-              {" "}
-              신세계포인트 광고정보 수신동의{" "}
+              신세계포인트 광고정보 수신동의
             </p>
             <ValueProvider>
-              <Checkbox id="02" name="전체동의">
-                <Checkbox id="03" name="이메일" />
-                <Checkbox id="04" name="문자" />
-                <Checkbox id="05" name="DM" />
-                <Checkbox id="06" name="TM" />
+              <Checkbox
+                className="!block pb-4"
+                id="allCheck"
+                name="전체동의"
+                type={"basic-multi"}
+              >
+                <div className="flex gap-x-4">
+                  <Checkbox id="email" name="이메일" type={"basic-multi"} />
+                  <Checkbox id="message" name="문자" type={"basic-multi"} />
+                  <Checkbox id="DM" name="DM" type={"basic-multi"} />
+                  <Checkbox id="TM" name="TM" type={"basic-multi"} />
+                </div>
               </Checkbox>
             </ValueProvider>
           </div>
@@ -111,9 +125,9 @@ export default function InfoRcvAgree() {
           }
         </ListForNoticeBox>
 
-        <PrimaryButtonBasic className="py-10" round="rounded-lg">
+        <Button className="my-10 h-12" backgroundColor="primary">
           확인
-        </PrimaryButtonBasic>
+        </Button>
       </div>
       <NoticeBox type="info" title="유의사항">
         <ListForNoticeBox level={2}>

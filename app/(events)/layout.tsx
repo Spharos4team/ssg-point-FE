@@ -1,4 +1,4 @@
-import BodyNavTop from "@/components/BodyNavTop";
+import BodyNavTop from "@/components/atoms/BodyNavTop";
 import TabBarTopCont from "@/components/templates/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
 

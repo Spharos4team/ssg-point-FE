@@ -1,22 +1,77 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useValueContext } from "./ValueContext";
+import { useValueContext } from "../hooks/ValueProvider";
+import { useEffect, useState } from "react";
 
 const HeaderStatusBox = () => {
-  const { selectedValue, handleValue } = useValueContext();
+  const { value, valueList, handleValue, handleValueList } = useValueContext();
+  const [isLogined, setIsLogined] = useState<boolean>();
 
   const handleShow = () => {
-    handleValue();
+    //sidbar
+    handleValue(!value);
     document.body.style.overflow = "hidden";
   };
+
+  const getUserData = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:3030/users/${localStorage.getItem("userId")}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      const data = await res.json();
+      // if (data.status === 200) {
+      if (data) {
+        console.log(data);
+        localStorage.setItem("token", data.accessToken);
+        setIsLogined(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log(localStorage.getItem("userId"));
+    getUserData();
+  }, []);
+
   return (
     <>
-      <Link
-        className="flex items-center text-[14px] leading-[21px] whitespace-nowrap"
-        href={"/login"}
-      >
-        로그인
-      </Link>
+      {isLogined ? (
+        <button
+          className="flex items-center"
+          onClick={() =>
+            handleValueList("barcodeBox", !valueList["barcodeBox"])
+          }
+        >
+          <Image
+            className="mr-1"
+            src={"/images/barcode_mini.png"}
+            width={27}
+            height={15}
+            alt=""
+          />
+          <strong className="font-medium text-sm leading-6 mt-[-2px]">
+            12
+          </strong>
+          <span className="ml-1 indent-[-99em] w-6 h-6 bg-[url('/images/my-point.png')] bg-[100%_auto] bg-no-repeat">
+            P
+          </span>
+        </button>
+      ) : (
+        <Link
+          className="flex items-center text-[14px] leading-[21px] whitespace-nowrap"
+          href={"/login"}
+        >
+          로그인
+        </Link>
+      )}
 
       {/* LinkImageWithFallback 사용하지 않음(toggle 필요) */}
       <button

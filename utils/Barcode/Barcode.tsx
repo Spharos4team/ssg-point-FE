@@ -3,11 +3,15 @@ import React, { useRef, useEffect } from "react";
 import JsBarcode from "jsbarcode";
 import styles from "./Barcode.module.css";
 
-interface BarcodeProps {
+const Barcode = ({
+  type = "basic",
+  value,
+  height,
+}: {
+  type?: "basic" | "detail";
   value: string;
-}
-
-const Barcode: React.FC<BarcodeProps> = ({ value }) => {
+  height?: number;
+}) => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -15,7 +19,7 @@ const Barcode: React.FC<BarcodeProps> = ({ value }) => {
       JsBarcode(svgRef.current, value, {
         format: "CODE128", // 바코드 형식
         displayValue: true, // value 표시 여부
-        height: 80,
+        height: (height as number) ?? 80,
         fontSize: 22,
         textAlign: "right",
       });
@@ -25,7 +29,12 @@ const Barcode: React.FC<BarcodeProps> = ({ value }) => {
     }
   }, [value]);
 
-  return <svg className={styles.barcode} ref={svgRef}></svg>;
+  return (
+    <svg
+      className={type === "basic" ? styles.barcode : styles.barcode_swipe}
+      ref={svgRef}
+    ></svg>
+  );
 };
 
 export default Barcode;

@@ -1,6 +1,6 @@
 import ContentHeader from "@/components/atoms/ContentHeader";
-import PrimaryButtonBasic from "@/components/atoms/ButtonPrimary";
 import TextBox from "@/components/atoms/TextBox";
+import Button from "@/components/atoms/Button/Button";
 
 //TODO: slug 받아서 표시
 export default function leavePassword() {
@@ -26,7 +26,9 @@ export default function leavePassword() {
           </TextBox>
         </div>
 
-        <PrimaryButtonBasic round="rounded-lg">확인</PrimaryButtonBasic>
+        <Button className="h-12" backgroundColor="primary">
+          확인
+        </Button>
       </div>
     </>
   );

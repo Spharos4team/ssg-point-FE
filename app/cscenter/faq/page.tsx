@@ -1,9 +1,8 @@
 "use client";
 import ContentHeader from "@/components/atoms/ContentHeader";
 import Dropdown from "@/components/atoms/Dropdown";
-import DropdownForCategory from "@/components/organisms/DropdownForCategory";
 import parse from "html-react-parser";
-import { useEffect, useState } from "react";
+import Category from "@/datas/category.data.json";
 
 export default function FaqPage({}) {
   //TODO: 데이터 따로 정리
@@ -70,7 +69,12 @@ export default function FaqPage({}) {
 
         <div className="flex gap-3 justify-between">
           {/* TODO: subCategory 오류: https://www.tutsmake.com/category-subcategory-dropdown-in-react-js/ */}
-          <DropdownForCategory />
+          <Dropdown
+            id=""
+            mainTitle="대분류"
+            subTitle="소분류"
+            options={Category}
+          />
         </div>
       </div>
 

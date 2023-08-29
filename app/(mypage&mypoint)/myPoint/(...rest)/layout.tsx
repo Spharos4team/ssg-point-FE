@@ -28,7 +28,10 @@ export default function RegAffLayout({
         <>
           마음을 담아
           <br />
-          <span className="text-[#ea035c]">신세계포인트를 선물</span>하세요!
+          <span className="text-[#ea035c] font-medium">
+            신세계포인트를 선물
+          </span>
+          하세요!
         </>
       ),
       subTitle:
@@ -42,7 +45,9 @@ export default function RegAffLayout({
           여기저기 흩어져 있는 포인트를
           <br />
           신세계포인트로{" "}
-          <span className="text-[#ea035c]">한 곳에 모아보세요.</span>
+          <span className="text-[#ea035c] font-medium">
+            한 곳에 모아보세요.
+          </span>
         </>
       ),
       subTitle:
@@ -55,7 +60,9 @@ export default function RegAffLayout({
         <>
           포인트 적립을 깜빡하셨나요?
           <br />
-          <span className="text-[#ea035c]">영수증 정보만 입력해 주세요.</span>
+          <span className="text-[#ea035c] font-medium">
+            영수증 정보만 입력해 주세요.
+          </span>
         </>
       ),
       subTitle:
@@ -66,7 +73,7 @@ export default function RegAffLayout({
       name: "포인트 비밀번호 변경",
       title: (
         <>
-          <span className="text-[24px]">포인트 비밀번호 변경</span>
+          <span className="font-medium text-[24px]">포인트 비밀번호 변경</span>
         </>
       ),
       subTitle:

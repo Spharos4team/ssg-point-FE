@@ -1,6 +1,6 @@
-import RoundedButton from "@/components/atoms/Button/RoundedButton";
+import Button from "@/components/atoms/Button/Button";
+import ListForConvert from "@/components/atoms/ListForConvert";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
-import ListForSimpleList from "@/components/atoms/ListForSimpleList";
 import NoticeBox from "@/components/modules/NoticeBox";
 import Link from "next/link";
 
@@ -33,16 +33,16 @@ export default function ConvertPntList() {
           </ol>
         </div>
 
-        <div className="pt-10">
-          <RoundedButton className="h-12" backgroundColor="pink">
+        <div className="pt-10 px-5">
+          <Button className="h-12" backgroundColor="pink">
             한 번에 조회하기
-          </RoundedButton>
+          </Button>
         </div>
       </div>
 
       <div className="pb-10">
         <ul className="first:border-t last::border-b border-[#e8e8e8]">
-          <ListForSimpleList
+          <ListForConvert
             id="convertPntSamsung"
             name="convertPntList"
             title="삼성카드 포인트"
@@ -50,7 +50,7 @@ export default function ConvertPntList() {
             miniLink={{ href: "", name: "조회하기" }}
           />
 
-          <ListForSimpleList
+          <ListForConvert
             id="convertPntOk"
             name="convertPntList"
             title="OK캐쉬백 포인트"
@@ -58,7 +58,8 @@ export default function ConvertPntList() {
             miniLink={{ href: "", name: "조회하기" }}
           />
 
-          <ListForSimpleList
+          <ListForConvert
+            aTag="https://open.standardchartered.co.kr/bc/bc_common?menuid=OBC04020000000000&langCode=KR"
             id="convertPnt360"
             name="convertPntList"
             title="360 리워드 포인트"
@@ -68,10 +69,10 @@ export default function ConvertPntList() {
         </ul>
       </div>
 
-      <div>
-        <RoundedButton className="h-12" backgroundColor="primary">
+      <div className="px-5">
+        <Button className="h-12" backgroundColor="primary">
           전환하기
-        </RoundedButton>
+        </Button>
         <Link
           href={""}
           className="relative float-right top-2 text-sm leading-[18px] text-[#767676] pr-[10px]

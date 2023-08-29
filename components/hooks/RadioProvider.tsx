@@ -1,13 +1,21 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const RadioContext = createContext({
   selectedValue: "",
   handleRadio: (value: string) => {},
 });
 
-export const RadioProvider = ({ children }: { children: React.ReactNode }) => {
-  const [selectedValue, setSelectedValue] = useState<string>("");
+export const RadioProvider = ({
+  defaultValue,
+  children,
+}: {
+  defaultValue?: string;
+  children: React.ReactNode;
+}) => {
+  const [selectedValue, setSelectedValue] = useState<string>(
+    defaultValue as string
+  );
 
   const handleRadio = (value: string) => {
     setSelectedValue(value);

@@ -35,3 +35,25 @@ select {
 em {
   font-style: normal;
 }
+
+.mainBannerSwiper .swiper-scrollbar {
+  position: absolute !important;
+  left: 30px !important;
+  bottom: 46px !important;
+  width: 73% !important;
+  height: 2px !important;
+  z-index: 1 !important;
+}
+.mainBannerSwiper .swiper-pagination {
+  position: absolute !important;
+  right: 30px !important;
+  bottom: 38px !important;
+  z-index: 2 !important;
+  height: 18px !important;
+  font-size: 12px !important;
+  letter-spacing: -1.5px !important;
+  font-family: "Noto Sans KR", "sans-serif" !important;
+}
+.mainBannerSwiper .swiper-pagination .swiper-pagination-current {
+  font-weight: 700 !important;
+}

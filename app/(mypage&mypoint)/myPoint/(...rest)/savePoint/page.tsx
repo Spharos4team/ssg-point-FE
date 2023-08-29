@@ -1,15 +1,14 @@
+import Button from "@/components/atoms/Button/Button";
 import RoundedButton from "@/components/atoms/Button/RoundedButton";
 import Dropdown from "@/components/atoms/Dropdown";
+import { InputText } from "@/components/atoms/InputText";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
+import Modal from "@/components/atoms/Modal";
 import TextBox from "@/components/atoms/TextBox";
 import NoticeBox from "@/components/modules/NoticeBox";
 
 export default function savePoint({}) {
-  const affilis: { [key: number]: string } = {
-    1: "이마트",
-    2: "신세계백화점",
-    3: "이마트 에브리데이",
-  };
+  const affilis: string[] = ["이마트", "신세계백화점", "이마트 에브리데이"];
   const brands: string[] = [
     "이마트",
     "PK마켓",
@@ -34,21 +33,21 @@ export default function savePoint({}) {
 
   return (
     <>
-      <div className="box-border pb-10">
+      <div className="box-border px-5 pb-10">
         <h3 className="mb-4">영수증 정보 등록</h3>
         <div className="pb-4 box-border">
           <p className="pb-2 text-xs">제휴사</p>
-          <Dropdown id="affilis" title="제휴사선택" options={affilis} />
+          <Dropdown id="affilis" options={affilis} />
         </div>
 
         <div className="pb-4 box-border">
           <p className="pb-2 text-xs">브랜드</p>
-          <Dropdown id="brands" title="브랜드선택" options={brands} />
+          <Dropdown id="brands" options={brands} />
         </div>
 
         <div className="pb-4 box-border">
           <p className="pb-2 text-xs">매장명</p>
-          <Dropdown id="affilis" title="매장명선택" options={affilis} />
+          <Dropdown type="modal" id="affilis" mainTitle="매장을 선택하세요" />
         </div>
 
         <div className="pb-4 box-border">
@@ -58,14 +57,18 @@ export default function savePoint({}) {
               정보보기
             </button>
           </p>
-          <TextBox id="receiptNum" type="text">
-            {""}
-          </TextBox>
+          <InputText
+            className="rounded-lg"
+            id="reciep"
+            inputType="text"
+            placeholder=""
+            title=""
+          />
         </div>
 
-        <RoundedButton className="pt-6" backgroundColor="primary">
+        <Button className="h-12" backgroundColor="primary">
           등록하기
-        </RoundedButton>
+        </Button>
       </div>
 
       <NoticeBox type="info" className="mt-[32px]" title="유의사항">
@@ -99,6 +102,7 @@ export default function savePoint({}) {
           영수증은 포인트 적립이 불가능합니다.
         </ListForNoticeBox>
       </NoticeBox>
+      {/* <Modal modal={modal} title="점포선택" center></Modal> */}
     </>
   );
 }

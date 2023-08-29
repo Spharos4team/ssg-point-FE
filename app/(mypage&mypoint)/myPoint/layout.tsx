@@ -1,5 +1,5 @@
-import { PageProp } from "@/types/LinkProps";
 import TabBarTopCont from "@/components/templates/TabBarTopCont";
+import { PageProp } from "@/types/LinkProps";
 
 const pagesInMy: PageProp[] = [
   {

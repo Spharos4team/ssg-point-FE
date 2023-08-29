@@ -6,11 +6,11 @@ import PointBox from "@/components/modules/PointBox";
 import RadioCard2 from "@/components/atoms/RadioCard2";
 import HistoryList from "@/components/modules/HistoryList";
 import RadioCardGroup2 from "@/components/modules/RadioCardGroup2";
-import { RadioProvider } from "@/components/modules/RadioContext";
+import { RadioProvider } from "@/components/hooks/RadioProvider";
 
 export default function pntHistory() {
   const searchReceiptIcon =
-    "before:content-[''] before:absolute before:left-0 before:top-1/2 before:mt-[-20px] before:w-10 before:h-10 before:bg-[url('/images/icon_search_receipt.png')] before:bg-no-repeat before:bg-[100%_auto]";
+    "before:absolute before:left-0 before:top-1/2 before:mt-[-20px] before:w-10 before:h-10 before:bg-[url('/images/icon_search_receipt.png')] before:bg-no-repeat before:bg-[100%_auto]";
   const arrowIcon =
     "after:relative after:inline-block after:content-[''] after:w-[6px] after:h-[10px] after:ml-[5px] after:bg-[url('/images/icon_back.png')] after:rotate-180 after:bg-[100%_auto]";
 
@@ -97,15 +97,15 @@ export default function pntHistory() {
               </RadioCard2>
             ))}
           </RadioCardGroup2>
-        </RadioProvider>
-        {/* TODO: 위 Radio의 값에 따라 아래 div내 표시되는 요소를 다르게 */}
+          {/* TODO: 위 Radio의 값에 따라 아래 div내 표시되는 요소를 다르게 */}
 
-        {/* TODO: HisotryList 추가 */}
-        <HistoryList dropdown={dropdownForHistory}>
-          {pointExample.map((point, index) => (
-            <ListForHistory key={index} point={point} />
-          ))}
-        </HistoryList>
+          {/* TODO: HisotryList 추가 */}
+          <HistoryList dropdown={dropdownForHistory}>
+            {pointExample.map((point, index) => (
+              <ListForHistory key={index} point={point} />
+            ))}
+          </HistoryList>
+        </RadioProvider>
       </div>
     </>
   );

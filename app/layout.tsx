@@ -1,4 +1,4 @@
-import "app/(pages)/globals.css";
+import "app/globals.css";
 import "tailwindcss/tailwind.css";
 
 //TODO: 전역 폰트 재설정 필요(Inter, NotoSansKR)

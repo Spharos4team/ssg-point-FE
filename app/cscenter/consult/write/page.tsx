@@ -1,7 +1,10 @@
 import RoundedButton from "@/components/atoms/Button/RoundedButton";
+import Dropdown from "@/components/atoms/Dropdown";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
 import TextBox from "@/components/atoms/TextBox";
 import DropdownForCategory from "@/components/organisms/DropdownForCategory";
+
+import Category from "@/datas/category.data.json";
 
 export default function WritePage({}) {
   return (
@@ -30,7 +33,12 @@ export default function WritePage({}) {
         <div className="pb-4 box-border">
           <p className="pb-2 text-[13px] leading-[21px]">유형*</p>
           <div className="flex gap-2">
-            <DropdownForCategory />
+            <Dropdown
+              id=""
+              mainTitle="대분류"
+              subTitle="소분류"
+              options={Category}
+            />
           </div>
         </div>
 
@@ -41,6 +49,7 @@ export default function WritePage({}) {
           </TextBox>
         </div>
 
+        {/* TODO: textarea 글자 입력 상태 */}
         <div className="relative pb-4 box-border">
           <p className="pb-2 text-[13px] leading-[21px]">제목*</p>
           <textarea
@@ -80,8 +89,8 @@ export default function WritePage({}) {
       </div>
 
       <div className="flex justify-between gap-2 px-5 pb-16">
-        <RoundedButton className="w-full">취소</RoundedButton>
-        <RoundedButton className="w-full" backgroundColor="primary">
+        <RoundedButton className="w-full h-12">취소</RoundedButton>
+        <RoundedButton className="w-full h-12" backgroundColor="primary">
           저장
         </RoundedButton>
       </div>

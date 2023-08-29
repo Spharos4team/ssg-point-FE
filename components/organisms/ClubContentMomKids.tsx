@@ -1,8 +1,8 @@
 import ContentStrong from "../atoms/ContentStrong";
 import ListForNoticeBox from "../atoms/ListForNoticeBox";
-import PrimaryButtonBasic from "../atoms/ButtonPrimary";
 import ToggleCard from "../modules/ToggleCard";
 import CollapseForMomKidsInClub from "./CollapseForMomKidsInClub";
+import Button from "../atoms/Button/Button";
 
 const ClubContentMomKids = () => {
   return (
@@ -31,9 +31,9 @@ const ClubContentMomKids = () => {
         </ListForNoticeBox>
       </ul>
 
-      <PrimaryButtonBasic className="px-5" round="rounded-lg">
+      <Button className="h-12" backgroundColor="primary">
         확인
-      </PrimaryButtonBasic>
+      </Button>
     </>
   );
 };

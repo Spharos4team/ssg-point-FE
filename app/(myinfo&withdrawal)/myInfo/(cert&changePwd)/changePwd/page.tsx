@@ -1,15 +1,9 @@
-import UserCert from "@/components/organisms/UserCert";
+import UserCertPage from "@/components/pages/UserCertPage";
 
-//TODO: template 또는 page(component)로 만들어서 재사용.
-
-const changePwd = () => {
-  // const active = "";
+export default function ChangePwdPage() {
   return (
     <>
-      {/*<UserCert />*/}
-
+      <UserCertPage />
     </>
   );
-};
-
-export default changePwd;
+}

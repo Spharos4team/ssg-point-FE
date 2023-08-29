@@ -1,6 +1,6 @@
 import ContentStrong from "../atoms/ContentStrong";
 import ListForNoticeBox from "../atoms/ListForNoticeBox";
-import PrimaryButtonBasic from "../atoms/ButtonPrimary";
+import Button from "../atoms/Button/Button";
 
 const ClubContentBiz = () => {
   return (
@@ -24,9 +24,9 @@ const ClubContentBiz = () => {
         </ListForNoticeBox>
       </ul>
 
-      <PrimaryButtonBasic className="px-5" round="rounded-lg">
+      <Button className="h-12" backgroundColor="primary">
         비즈 클럽 바로가기
-      </PrimaryButtonBasic>
+      </Button>
     </>
   );
 };

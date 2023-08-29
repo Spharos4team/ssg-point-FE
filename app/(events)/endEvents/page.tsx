@@ -1,6 +1,6 @@
 "use client";
 
-import BodyNavTop from "@/components/BodyNavTop";
+import BodyNavTop from "@/components/atoms/BodyNavTop";
 import { usePathname } from "next/navigation";
 
 type PageParam = {
@@ -8,7 +8,7 @@ type PageParam = {
 };
 
 // export default function EndEventPage({ params }: { params: PageParam }) {
-export default function EndEventPage({ params } : { params: { slug: string } }) {
+export default function EndEventPage({ params }: { params: { slug: string } }) {
   const pathname = usePathname();
 
   console.log({ params });

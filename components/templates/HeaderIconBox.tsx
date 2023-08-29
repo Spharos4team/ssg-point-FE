@@ -28,10 +28,13 @@ const HeaderIconBox = ({ pathname }: Location) => {
     "/benefits": "마이 혜택",
     "/mylounge": "마이 라운지",
     "/spoint": "신세계포인트",
-    "/membership": "멤버십 서비스",
-
 
     "/cscenter": "고객센터",
+
+    "/member/findIdPw": "아이디 찾기 본인인증",
+    "/member/findPw": "비밀번호 찾기 본인인증",
+    "/member/join": "회원가입",
+    "/member/findIdResult": "아이디 찾기",
   };
 
   // 컴포넌트 모음

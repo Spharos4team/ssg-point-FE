@@ -1,12 +1,11 @@
-import RoundedButton from "@/components/atoms/Button/RoundedButton";
-import ButtonBasic from "@/components/atoms/Button/RoundedButton";
-import ButtonPrimary from "@/components/atoms/ButtonPrimary";
+import Button from "@/components/atoms/Button/Button";
 import PointBox from "@/components/modules/PointBox";
-import Link from "next/link";
 import Image from "next/image";
 
+import Cards from "@/datas/card.data.json";
+
 export default function cardManage() {
-  // @ts-ignore
+  const onlineCard = Cards.filter((item) => item.type === "online");
   return (
     <>
       <h3 className="hidden">포인트 카드 관리</h3>
@@ -43,54 +42,21 @@ export default function cardManage() {
             </thead>
             <tbody>
               {/* tr map */}
-              <tr>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  3591-****-****-5278
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  카카오페이
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  {" "}
-                  2021-03-27
-                </td>
-              </tr>
-              <tr>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  9350-****-****-4246
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  신세계포인트닷컴
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  {" "}
-                  2023-07-27
-                </td>
-              </tr>
-              <tr>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  9350-****-****-8602
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  신세계포인트XSSG.COM
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  {" "}
-                  2021-06-28
-                </td>
-              </tr>
-              <tr>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  9350-****-****-4387
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  에브리데이(ON)
-                </td>
-                <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
-                  {" "}
-                  2023-08-03
-                </td>
-              </tr>
+              {onlineCard ? (
+                onlineCard.map((item) => (
+                  <ValueInCardTable
+                    key={item.id}
+                    cardNumber={item.number}
+                    agency={item.agency}
+                    date={item.reg_date}
+                  />
+                ))
+              ) : (
+                <NoValuesInTable
+                  message="보유하신 온라인 카드가 없습니다."
+                  colSpan={3}
+                />
+              )}
             </tbody>
           </table>
         </div>
@@ -152,18 +118,10 @@ export default function cardManage() {
             </thead>
             <tbody>
               {/* tr map */}
-              <tr>
-                <td
-                  className="text-[#767676] font-[400] align-middle text-center border-b-[1px] border-solid border-#e8e8e8 py-3 box-border text-[13px] leading-[21px] break-keep"
-                  colSpan={3}
-                >
-                  <div className="py-[28px] ">
-                    <p className="relative pt-16 text-[13px] text-center text-[#767676] after:content-[''] after:absolute after:bg-[url('/images/icon_nodata.png')] after:bg-no-repeat after:top-0 after:left-1/2 after:w-12 after:h-12 after:bg-[100%_auto] after:translate-x-[-50%]">
-                      보유하신 제휴 신용카드가 없습니다.
-                    </p>
-                  </div>
-                </td>
-              </tr>
+              <NoValuesInTable
+                message="보유하신 제휴 신용카드가 없습니다."
+                colSpan={3}
+              />
             </tbody>
           </table>
         </div>
@@ -194,35 +152,32 @@ export default function cardManage() {
                 </th>
               </tr>
             </thead>
+            {/* tr map */}
             <tbody>
-              {/* tr map */}
-              <tr>
-                <td
-                  className="text-[#767676] font-[400] align-middle text-center border-b-[1px] border-solid border-#e8e8e8 py-3 box-border text-[13px] leading-[21px] break-keep"
-                  colSpan={3}
-                >
-                  <div className="py-[28px]">
-                    <p className="relative pt-16 text-[13px] text-center text-[#767676] after:content-[''] after:absolute after:bg-[url('/images/icon_nodata.png')] after:bg-no-repeat after:top-0 after:left-1/2 after:w-12 after:h-12 after:bg-[100%_auto] after:translate-x-[-50%]">
-                      보유하신 오프라인 카드가 없습니다.
-                    </p>
-                  </div>
-                </td>
-              </tr>
+              <NoValuesInTable
+                message="보유하신 오프라인 카드가 없습니다."
+                colSpan={3}
+              />
             </tbody>
           </table>
         </div>
       </div>
       {/* 버튼 모음 */}
-      <div className="pl-5 pr-5 pb-10">
-        <RoundedButton className="mb-[15px]">
+      <div className="flex flex-col gap-y-4 px-5">
+        <Button type="link" href="/myPoint/regPntCard" className="h-12">
           신규 포인트카드 등록하기
-        </RoundedButton>
-        <RoundedButton className="mb-[15px]">
+        </Button>
+        <Button type="link" href="/sPoint/tempCardCert" className="h-12">
           임시 발급 카드 인증하기
-        </RoundedButton>
-        <RoundedButton className="" backgroundColor="primary">
+        </Button>
+        <Button
+          type="link"
+          href="/myPoint/chgPntPwdCert"
+          className="!h-12"
+          backgroundColor="primary"
+        >
           포인트 비밀번호 변경하기
-        </RoundedButton>
+        </Button>
       </div>
 
       {/* bottom banner */}
@@ -258,3 +213,59 @@ export default function cardManage() {
     </>
   );
 }
+
+const NoValuesInTable = ({
+  message,
+  colSpan,
+}: {
+  message: string;
+  colSpan: number;
+}) => {
+  return (
+    <tr>
+      <td
+        className="text-[#767676] font-[400] align-middle text-center border-b-[1px] border-solid border-#e8e8e8 py-3 box-border text-[13px] leading-[21px] break-keep"
+        colSpan={colSpan}
+      >
+        <div className="py-[28px]">
+          <p className="relative pt-16 text-[13px] text-center text-[#767676] after:content-[''] after:absolute after:bg-[url('/images/icon_nodata.png')] after:bg-no-repeat after:top-0 after:left-1/2 after:w-12 after:h-12 after:bg-[100%_auto] after:translate-x-[-50%]">
+            {message}
+          </p>
+        </div>
+      </td>
+    </tr>
+  );
+};
+
+const ValueInCardTable = ({
+  cardNumber,
+  agency,
+  date,
+}: {
+  cardNumber: string;
+  agency: string;
+  date: string;
+}) => {
+  const converNumber = () => {
+    const matchNumber = cardNumber.match(/.{1,4}/g);
+    const fistConvert = matchNumber![1].replace(/./g, "*");
+    const secondConvert = matchNumber![2].replace(/./g, "*");
+    return [matchNumber![0], fistConvert, secondConvert, matchNumber![3]].join(
+      "-"
+    );
+  };
+  const convertDate = date.split("/").join("-");
+  return (
+    <tr>
+      <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
+        {converNumber()}
+      </td>
+      <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
+        {agency}
+      </td>
+      <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">
+        {convertDate}
+      </td>
+    </tr>
+  );
+};

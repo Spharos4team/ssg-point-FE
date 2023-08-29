@@ -1,17 +1,17 @@
-import ButtonPrimary from "@/components/atoms/ButtonPrimary";
+import Button from "@/components/atoms/Button/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import DefListSimple from "@/components/atoms/DefListSimple";
 import Dropdown from "@/components/atoms/Dropdown";
-import FallbackImage from "@/components/atoms/FallbackImage";
+import { InputText } from "@/components/atoms/InputText";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
-import TabForTabBox from "@/components/atoms/TabForTabBox";
-import TextBox from "@/components/atoms/TextBox";
+import Tab from "@/components/atoms/Tab";
+import TabContent from "@/components/atoms/TabContent";
+import { FormProvider } from "@/components/hooks/FormProvider";
+import { RadioProvider } from "@/components/hooks/RadioProvider";
 import NoticeBox from "@/components/modules/NoticeBox";
-import TabBoxSimple from "@/components/modules/TabBoxSimple";
+import AffiliForm from "@/components/organisms/AffiliForm";
 import LinkImageWithFallback from "@/components/ui/LinkImageWithFallback";
 import { ImageProp } from "@/types/LinkProps";
-import Image from "next/image";
-import { Suspense } from "react";
 
 export default function regAffiliatePntCard() {
   const image: ImageProp = {
@@ -20,69 +20,81 @@ export default function regAffiliatePntCard() {
     size: { h: 32, w: 112 },
   };
 
-  const 제휴멤버십 = [
-    "제휴사를 선택하세요.",
-    "삼성전자 포인트",
-    "대한항공 마일리지",
-    "아시아나마일리지",
-  ];
   return (
     <>
       <div>
-        <TabBoxSimple>
-          {/* TODO: map 사용 */}
-          <TabForTabBox href="">삼성전자 멤버십</TabForTabBox>
-          <TabForTabBox href="">대한항공</TabForTabBox>
-          <TabForTabBox href="">아시아나항공</TabForTabBox>
-        </TabBoxSimple>
+        <RadioProvider defaultValue="samsung">
+          {/* Tabs */}
+          <div className="flex border border-t">
+            <Tab
+              className="h-[60px]"
+              type="context"
+              id="samsung"
+              name="삼성전자<br/>멤버십"
+            />
+            <Tab
+              className="h-[60px]"
+              type="context"
+              id="koreanAir"
+              name="대한항공"
+            />
+            <Tab
+              className="h-[60px]"
+              type="context"
+              id="asianaAir"
+              name="아시아나항공"
+            />
+            <Tab
+              className="h-[60px]"
+              type="context"
+              id="asianaAir2"
+              name="아시아나항공2"
+            />
+          </div>
 
-        <div className="p-5">
-          <h3 className="hidden">삼성전자 멤버십</h3>
-          <p className="pb-4">
-            <LinkImageWithFallback _href="" image={image} name="test" />
-          </p>
-          <DefListSimple
-            dt="적용상품"
-            dd={"삼성전자가 공급한 제품<br />(이마트 내 삼성전자 매장)"}
-          />
-          <DefListSimple
-            dt="적립"
-            dd={"구매 금액의 0.2% 신세계포인트와 동시적립"}
-          />
-        </div>
-
-        <div className="bg-[#fbfbfb] p-5 border-b border-[#e8e8e8] mb-10 text-[14px]">
-          <div className="relative pb-2">
-            <p className="">
-              [필수] 제휴 멤버십 포인트 개인정보 수집 및 이용 동의
+          {/* Tab Content */}
+          <TabContent id="samsung" name="삼성전자 멤버십">
+            <p className="pb-4">
+              <LinkImageWithFallback _href="" image={image} name="test" />
             </p>
-          </div>
-          <Checkbox
-            id="all_checker"
-            name="동의합니다."
-            nameClass="text-[14px]"
-          />
-        </div>
+            <DefListSimple
+              dt="적용상품"
+              dd={"삼성전자가 공급한 제품<br />(이마트 내 삼성전자 매장)"}
+            />
+            <DefListSimple
+              dt="적립"
+              dd={"구매 금액의 0.2% 신세계포인트와 동시적립"}
+            />
+          </TabContent>
 
-        <div className="px-5 pb-10">
-          <div className="pb-4 box-border">
-            <p className="pb-2 text-xs">이름을 입력해 주세요.</p>
-            <Dropdown
-              id="membership"
-              title="제휴멤버십선택"
-              options={제휴멤버십}
-            ></Dropdown>
-          </div>
-          <div className="pb-4 box-border">
-            <p className="pb-2 text-xs">카드번호</p>
-            <TextBox id="name" type="text">
-              이름 입력
-            </TextBox>
-          </div>
-          <ButtonPrimary className="pt-10" round="rounded-lg">
-            등록하기
-          </ButtonPrimary>
-        </div>
+          <TabContent id="koreanAir" name="대한항공">
+            <p className="pb-4">
+              <LinkImageWithFallback _href="" image={image} name="test" />
+            </p>
+            <DefListSimple
+              dt="적립"
+              dd={
+                "최종 7만원 이상 결제 시 3,000원당<br/>1마일 신세계포인트와 동시 적립<p class='text-[11px] text-[#666]'>※ 항공사 마일리지간 선택 적립/월 1,000마일 한도</p>"
+              }
+            />
+          </TabContent>
+
+          <TabContent id="asianaAir" name="아시아나항공">
+            <p className="pb-4">
+              <LinkImageWithFallback _href="" image={image} name="test" />
+            </p>
+            <DefListSimple
+              dt="적립"
+              dd={
+                "최종 7만원 이상 결제 시 3,000원당<br/>1마일 신세계포인트와 동시 적립<p class='text-[11px] text-[#666]'>※ 항공사 마일리지간 선택 적립/월 1,000마일 한도</p>"
+              }
+            />
+          </TabContent>
+        </RadioProvider>
+
+        <FormProvider>
+          <AffiliForm />
+        </FormProvider>
 
         {/* TODO: NoticeBox theme 설정 */}
         <NoticeBox
