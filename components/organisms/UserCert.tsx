@@ -155,7 +155,7 @@ const UserCert = () => {
             </div>
           </div>
           <div className="tab_box1 px-5 pt-10">
-            <RoundedButton className="pt-10" backgroundColor="primary">
+            <RoundedButton className="h-12" backgroundColor="primary">
               인증번호 요청
             </RoundedButton>
             <div>

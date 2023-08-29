@@ -15,9 +15,11 @@ export default function pntTip() {
           sub="보기만 해도 쌓이는 초간단 꿀팁을<br />지금 바로 확인하세요."
         />
       </div>
-      <RoundedButton className="px-5 pb-10" backgroundColor="primary">
-        확인하기
-      </RoundedButton>
+        <div className="px-5 pb-10">
+          <RoundedButton className="h-12" backgroundColor="primary">
+            확인하기
+          </RoundedButton>
+        </div>
     </>
   );
 }
