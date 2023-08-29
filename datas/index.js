@@ -1,4 +1,4 @@
-const user = require("./user.data.json");
+const users = require("./users.data.json");
 const point = require("./point.data.json");
 const card = require("./card.data.json");
 const coupon = require("./coupon.data.json");
@@ -7,7 +7,7 @@ const board = require("./board.data.json");
 const category = require("./category.data.json");
 
 module.exports = () => ({
-  user: user,
+  users: users,
   point: point,
   card: card,
 

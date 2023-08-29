@@ -1,274 +1,206 @@
-{
-  "categories": [
-    {
-      "id": "1",
-      "name": "대분류",
-      "slug": "main-select",
-      "parent_id": ""
-    },
-    {
-      "id": "2",
-      "name": "회원",
-      "slug": "user",
-      "parent_id": ""
-    },
-    {
-      "id": "3",
-      "name": "신세계포인트",
-      "slug": "point",
-      "parent_id": ""
-    },
-    {
-      "id": "4",
-      "name": "신세계포인트 카드",
-      "slug": "pointcard",
-      "parent_id": ""
-    },
-    {
-      "id": "5",
-      "name": "이벤트/쿠폰",
-      "slug": "evnet-coupon",
-      "parent_id": ""
-    },
-    {
-      "id": "6",
-      "name": "가맹점",
-      "slug": "affili",
-      "parent_id": ""
-    },
-    {
-      "id": "7",
-      "name": "개선사항",
-      "slug": "improvement",
-      "parent_id": ""
-    },
-    {
-      "id": "8",
-      "name": "신세계 유니버스 클럽",
-      "slug": "universe",
-      "parent_id": ""
-    },
-    {
-      "id": "9",
-      "name": "이마트 EV 클럽",
-      "slug": "ev-club",
-      "parent_id": ""
-    },
-    {
-      "id": "10",
-      "name": "기타",
-      "slug": "etc",
-      "parent_id": ""
-    },
-    {
-      "id": "11",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "1"
-    },
-    {
-      "id": "12",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "2"
-    },
-    {
-      "id": "13",
-      "name": "회원가입/탈퇴",
-      "slug": "reg-secession",
-      "parent_id": "2"
-    },
-    {
-      "id": "14",
-      "name": "정보수정",
-      "slug": "edit",
-      "parent_id": "2"
-    },
-    {
-      "id": "15",
-      "name": "비밀번호",
-      "slug": "password",
-      "parent_id": "2"
-    },
-    {
-      "id": "16",
-      "name": "클럽서비스",
-      "slug": "club",
-      "parent_id": "2"
-    },
-    {
-      "id": "17",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "3"
-    },
-    {
-      "id": "18",
-      "name": "적립/사용",
-      "slug": "useage",
-      "parent_id": "3"
-    },
-    {
-      "id": "19",
-      "name": "소멸",
-      "slug": "extinction",
-      "parent_id": "3"
-    },
-    {
-      "id": "20",
-      "name": "선물",
-      "slug": "gift",
-      "parent_id": "3"
-    },
-    {
-      "id": "21",
-      "name": "전환",
-      "slug": "exchange",
-      "parent_id": "3"
-    },
-    {
-      "id": "22",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "4"
-    },
-    {
-      "id": "23",
-      "name": "신세계포인트 카드",
-      "slug": "ssgcard",
-      "parent_id": "4"
-    },
-    {
-      "id": "24",
-      "name": "제휴 신용카드",
-      "slug": "affilicard",
-      "parent_id": "4"
-    },
-    {
-      "id": "25",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "5"
-    },
-    {
-      "id": "26",
-      "name": "이벤트",
-      "slug": "event",
-      "parent_id": "5"
-    },
-    {
-      "id": "27",
-      "name": "쿠폰",
-      "slug": "coupon",
-      "parent_id": "5"
-    },
-    {
-      "id": "28",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "6"
-    },
-    {
-      "id": "29",
-      "name": "가맹점 이용문의",
-      "slug": "event",
-      "parent_id": "6"
-    },
-    {
-      "id": "30",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "7"
-    },
-    {
-      "id": "31",
-      "name": "시스템 오류",
-      "slug": "error",
-      "parent_id": "7"
-    },
-    {
-      "id": "32",
-      "name": "서비스 개선사항",
-      "slug": "improve",
-      "parent_id": "7"
-    },
-    {
-      "id": "33",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "8"
-    },
-    {
-      "id": "34",
-      "name": "유니버스 클럽 혜택",
-      "slug": "club-benefits",
-      "parent_id": "8"
-    },
-    {
-      "id": "35",
-      "name": "유니버스 클럽 가입/탈퇴",
-      "slug": "club-users",
-      "parent_id": "8"
-    },
-    {
-      "id": "36",
-      "name": "포인트 특별 혜택",
-      "slug": "club-special",
-      "parent_id": "8"
-    },
-    {
-      "id": "37",
-      "name": "포인트 카드/회원 계정",
-      "slug": "club-accounts",
-      "parent_id": "8"
-    },
-    {
-      "id": "38",
-      "name": "기타",
-      "slug": "etc",
-      "parent_id": "8"
-    },
-    {
-      "id": "39",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "9"
-    },
-    {
-      "id": "40",
-      "name": "EV 클럽 혜택",
-      "slug": "ev-benefits",
-      "parent_id": "9"
-    },
-    {
-      "id": "41",
-      "name": "EV 클럽 가입/탈퇴",
-      "slug": "ev-users",
-      "parent_id": "9"
-    },
-    {
-      "id": "42",
-      "name": "EV 클럽 문의",
-      "slug": "ev-inquiry",
-      "parent_id": "9"
-    },
-    {
-      "id": "43",
-      "name": "기타",
-      "slug": "ev-etc",
-      "parent_id": "9"
-    },
-    {
-      "id": "44",
-      "name": "소분류",
-      "slug": "sub-select",
-      "parent_id": "10"
-    },
-    {
-      "id": "45",
-      "name": "기타",
-      "slug": "etc",
-      "parent_id": "10"
-    }
-  ]
-}
+[
+  {
+    "id": "2",
+    "name": "회원",
+    "slug": "user",
+    "parent_id": ""
+  },
+  {
+    "id": "3",
+    "name": "신세계포인트",
+    "slug": "point",
+    "parent_id": ""
+  },
+  {
+    "id": "4",
+    "name": "신세계포인트 카드",
+    "slug": "pointcard",
+    "parent_id": ""
+  },
+  {
+    "id": "5",
+    "name": "이벤트/쿠폰",
+    "slug": "evnet-coupon",
+    "parent_id": ""
+  },
+  {
+    "id": "6",
+    "name": "가맹점",
+    "slug": "affili",
+    "parent_id": ""
+  },
+  {
+    "id": "7",
+    "name": "개선사항",
+    "slug": "improvement",
+    "parent_id": ""
+  },
+  {
+    "id": "8",
+    "name": "신세계 유니버스 클럽",
+    "slug": "universe",
+    "parent_id": ""
+  },
+  {
+    "id": "9",
+    "name": "이마트 EV 클럽",
+    "slug": "ev-club",
+    "parent_id": ""
+  },
+  {
+    "id": "10",
+    "name": "기타",
+    "slug": "etc",
+    "parent_id": ""
+  },
+  {
+    "id": "13",
+    "name": "회원가입/탈퇴",
+    "slug": "reg-secession",
+    "parent_id": "2"
+  },
+  {
+    "id": "14",
+    "name": "정보수정",
+    "slug": "edit",
+    "parent_id": "2"
+  },
+  {
+    "id": "15",
+    "name": "비밀번호",
+    "slug": "password",
+    "parent_id": "2"
+  },
+  {
+    "id": "16",
+    "name": "클럽서비스",
+    "slug": "club",
+    "parent_id": "2"
+  },
+  {
+    "id": "18",
+    "name": "적립/사용",
+    "slug": "useage",
+    "parent_id": "3"
+  },
+  {
+    "id": "19",
+    "name": "소멸",
+    "slug": "extinction",
+    "parent_id": "3"
+  },
+  {
+    "id": "20",
+    "name": "선물",
+    "slug": "gift",
+    "parent_id": "3"
+  },
+  {
+    "id": "21",
+    "name": "전환",
+    "slug": "exchange",
+    "parent_id": "3"
+  },
+  {
+    "id": "23",
+    "name": "신세계포인트 카드",
+    "slug": "ssgcard",
+    "parent_id": "4"
+  },
+  {
+    "id": "24",
+    "name": "제휴 신용카드",
+    "slug": "affilicard",
+    "parent_id": "4"
+  },
+  {
+    "id": "26",
+    "name": "이벤트",
+    "slug": "event",
+    "parent_id": "5"
+  },
+  {
+    "id": "27",
+    "name": "쿠폰",
+    "slug": "coupon",
+    "parent_id": "5"
+  },
+  {
+    "id": "29",
+    "name": "가맹점 이용문의",
+    "slug": "event",
+    "parent_id": "6"
+  },
+  {
+    "id": "31",
+    "name": "시스템 오류",
+    "slug": "error",
+    "parent_id": "7"
+  },
+  {
+    "id": "32",
+    "name": "서비스 개선사항",
+    "slug": "improve",
+    "parent_id": "7"
+  },
+  {
+    "id": "34",
+    "name": "유니버스 클럽 혜택",
+    "slug": "club-benefits",
+    "parent_id": "8"
+  },
+  {
+    "id": "35",
+    "name": "유니버스 클럽 가입/탈퇴",
+    "slug": "club-users",
+    "parent_id": "8"
+  },
+  {
+    "id": "36",
+    "name": "포인트 특별 혜택",
+    "slug": "club-special",
+    "parent_id": "8"
+  },
+  {
+    "id": "37",
+    "name": "포인트 카드/회원 계정",
+    "slug": "club-accounts",
+    "parent_id": "8"
+  },
+  {
+    "id": "38",
+    "name": "기타",
+    "slug": "etc",
+    "parent_id": "8"
+  },
+  {
+    "id": "40",
+    "name": "EV 클럽 혜택",
+    "slug": "ev-benefits",
+    "parent_id": "9"
+  },
+  {
+    "id": "41",
+    "name": "EV 클럽 가입/탈퇴",
+    "slug": "ev-users",
+    "parent_id": "9"
+  },
+  {
+    "id": "42",
+    "name": "EV 클럽 문의",
+    "slug": "ev-inquiry",
+    "parent_id": "9"
+  },
+  {
+    "id": "43",
+    "name": "기타",
+    "slug": "ev-etc",
+    "parent_id": "9"
+  },
+  {
+    "id": "45",
+    "name": "기타",
+    "slug": "etc",
+    "parent_id": "10"
+  }
+]

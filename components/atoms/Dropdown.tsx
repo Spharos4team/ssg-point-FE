@@ -1,41 +1,46 @@
 "use client";
 import { Category } from "@/types/CategoryProps";
-import React, { useEffect, useState } from "react";
-import { useValueContext } from "../modules/ValueContext";
-import JsonChecker from "@/utils/JsonChecker";
+import DropdownCategory from "./DropdownCategory";
+import DropdownBasic from "./DropdownBasic";
+import DropdwonContext from "./DropdwonContext";
+import { useEffect } from "react";
+import DropdownModal from "./DropdownModal";
 
 const Dropdown = ({
+  className,
   id,
-  title,
+  type = "basic",
+  mainTitle,
+  subTitle,
   theme = "round",
   options, //json?
-  initialValue = 0,
+  disabled = false,
   onClick,
-  parentSeleted,
-  children,
 }: {
+  className?: string;
   id: string;
-  title: string;
+  type?: "basic" | "category" | "form" | "modal";
+  mainTitle?: string;
+  subTitle?: string;
   theme?: "mini" | "mini_inline" | "round" | "fullWidth";
-  options?: string[];
-  initialValue?: number;
-  onClick?: () => void;
-  parentSeleted?: string;
-  children?: React.ReactNode;
+  options: Category[] | string[];
+  disabled?: boolean;
+  onClick?: () => {};
 }) => {
-  const [selectValue, setSelectValue] = useState<string>();
-  console.log(parentSeleted);
-
   const style =
     theme === "mini"
       ? {
-          wrapper: "relative inline-block align-top w-full",
+          wrapper: `relative inline-block align-top w-full ${
+            disabled ? "bg-[#e4e4e4]" : ""
+          }`,
           select:
             "relative block w-full h-12 pr-8 pl-[15px] text-sm box-border z-[1] border",
         }
       : theme === "round"
       ? {
-          wrapper: "relative inline-block align-top w-full rounded-lg",
+          wrapper: `relative inline-block align-top w-full rounded-lg ${
+            disabled ? "bg-[#e4e4e4]" : ""
+          }`,
           select:
             "relative block w-full h-12 pr-8 pl-[15px] text-sm box-border z-[1] border rounded-lg",
         }
@@ -45,38 +50,107 @@ const Dropdown = ({
         }
       : theme === "mini_inline"
       ? {
-          wrapper: "relative inline-block align-top w-full mr-[5px]",
+          wrapper: `relative inline-block align-top w-full mr-[5px] rounded-md ${
+            disabled ? "bg-[#e4e4e4]" : ""
+          }`,
           select:
-            "relative block w-full h-[30px] pr-[32px] pl-[6px] text-sm box-border z-[1] border",
+            "relative block w-full h-[30px] pr-[32px] pl-[6px] text-sm box-border z-[1] border rounded-md",
         }
       : {};
 
-  return (
-    <>
-      <div className={style.wrapper}>
-        <select
-          className={style.select}
+  switch (type) {
+    case "basic": {
+      if (
+        !(
+          Array.isArray(options) &&
+          Object(options).every((item: any) => typeof item === "string")
+        )
+      ) {
+        new Error(
+          "type 속성이 'basic'으로 설정되어 있습니다. 'options'가 string[] 이 아닙니다."
+        );
+      }
+      return (
+        <DropdownBasic
           id={id}
-          title={title}
-          onChange={(e) => setSelectValue(e.target.value)}
-          value={selectValue}
-          onClick={onClick}
-        >
-          {options?.map((item, index) => (
-            <option key={index} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-      </div>
-      {children &&
-        React.Children.map(children, (child) =>
-          React.cloneElement(child as React.ReactElement, {
-            parentSeleted: selectValue,
-          })
-        )}
-    </>
-  );
-};
+          mainTitle={mainTitle as string}
+          wrapper={style.wrapper as string}
+          select={style.select as string}
+          options={options as string[]}
+          disabled={disabled}
+        />
+      );
+    }
+    case "category": {
+      if (
+        !(
+          Array.isArray(options) &&
+          Object(options).every(
+            (item: any) =>
+              typeof item === "object" &&
+              "id" in item &&
+              "parent_id" in item &&
+              "slug" in item &&
+              "name" in item
+          )
+        )
+      ) {
+        throw new Error(
+          "type 속성이 'category'로 설정되어 있습니다. 'options'가 Category[] 이 아닙니다."
+        );
+      }
+      return (
+        <DropdownCategory
+          id={id}
+          mainTitle={mainTitle as string}
+          subTitle={subTitle}
+          wrapper={style.wrapper as string}
+          select={style.select as string}
+          options={options as Category[]}
+          disabled={disabled}
+        />
+      );
+    }
+    case "form": {
+      if (
+        !(
+          Array.isArray(options) &&
+          Object(options).every((item: any) => typeof item === "string")
+        )
+      ) {
+        new Error(
+          "type 속성이 'form'으로 설정되어 있습니다. 'options'가 string[] 이 아닙니다."
+        );
+      }
+      return (
+        <DropdwonContext
+          id={id}
+          mainTitle={mainTitle as string}
+          wrapper={style.wrapper as string}
+          select={style.select as string}
+          options={options as string[]}
+          disabled={disabled}
+        />
+      );
+    }
 
+    case "modal": {
+      if (options) {
+        new Error(
+          "type 속성이 'modal'로 설정되어 있습니다. 'onClick'이 필요합니다."
+        );
+      }
+      return (
+        <DropdownModal
+          id={id}
+          mainTitle={mainTitle as string}
+          wrapper={style.wrapper as string}
+          select={style.select as string}
+          onClick={onClick}
+          disabled={disabled}
+        />
+      );
+    }
+  }
+};
 export default Dropdown;

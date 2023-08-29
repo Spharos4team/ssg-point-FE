@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useRadioContext } from "./RadioContext";
+import { useRadioContext } from "../hooks/RadioProvider";
 
 const RadioCardGroup2 = ({
   title,

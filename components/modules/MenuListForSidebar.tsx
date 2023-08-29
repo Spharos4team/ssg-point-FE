@@ -2,10 +2,9 @@ import { PageProps } from "@/types/PageProps";
 
 import realJsonPages from "@/datas/page.data.json";
 import MenuButton from "../atoms/MenuButton";
-import { ValueProvider } from "./ValueContext";
 import CollapseForMenuList from "./CollapseForMenuList";
 
-const MenuListForSidebar = ({ pagesJson }: { pagesJson: PageProps[] }) => {
+const MenuListForSidebar = () => {
   const parentChildMap: Record<string | number, PageProps[]> = {};
 
   realJsonPages.forEach((item) => {

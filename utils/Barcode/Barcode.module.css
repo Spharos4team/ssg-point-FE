@@ -5,3 +5,11 @@
   position: relative;
   left: -5px;
 }
+
+.barcode_swipe {
+  color: #000;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 96px;
+  position: relative;
+}

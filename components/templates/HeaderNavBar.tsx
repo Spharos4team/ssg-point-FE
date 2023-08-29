@@ -1,12 +1,10 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import HeaderIconBox from "./HeaderIconBox";
 import Sidebar from "@/components/modules/Sidebar";
 import HeaderStatusBox from "@/components/modules/HeaderStatusBox";
-import { ValueProvider } from "@/components/modules/ValueContext";
+import { ValueProvider } from "@/components/hooks/ValueProvider";
+import BarcodeBox from "../atoms/BarcodeBox";
 
 //TODO: 전역 상태 또는 세션,쿠키 확인해서 로그인 상태 가져오기 -> 컴포넌트로 빼고 Header는 use server
 export default function HeaderNavBar() {
@@ -21,6 +19,7 @@ export default function HeaderNavBar() {
             <HeaderIconBox pathname={pathname} />
             <HeaderStatusBox />
             <Sidebar />
+            <BarcodeBox />
           </ValueProvider>
         </div>
       </div>

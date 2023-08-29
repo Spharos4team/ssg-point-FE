@@ -1,0 +1,59 @@
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 화면 사이즈, 폰트 등 전역 설정 */
+* {
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+input,
+label,
+select {
+  vertical-align: middle;
+}
+
+#content {
+  padding-top: 56px;
+}
+
+em {
+  font-style: normal;
+}
+
+.mainBannerSwiper .swiper-scrollbar {
+  position: absolute !important;
+  left: 30px !important;
+  bottom: 46px !important;
+  width: 73% !important;
+  height: 2px !important;
+  z-index: 1 !important;
+}
+.mainBannerSwiper .swiper-pagination {
+  position: absolute !important;
+  right: 30px !important;
+  bottom: 38px !important;
+  z-index: 2 !important;
+  height: 18px !important;
+  font-size: 12px !important;
+  letter-spacing: -1.5px !important;
+  font-family: "Noto Sans KR", "sans-serif" !important;
+}
+.mainBannerSwiper .swiper-pagination .swiper-pagination-current {
+  font-weight: 700 !important;
+}

@@ -1,13 +1,16 @@
-import RoundedButton from "../atoms/Button/RoundedButton";
+"use client";
 import { Checkbox } from "../atoms/Checkbox";
 import Dropdown from "../atoms/Dropdown";
 import RadioCard2 from "../atoms/RadioCard2";
-import TextBox from "../atoms/TextBox";
 import RadioCardGroup2 from "../modules/RadioCardGroup2";
-import { RadioProvider } from "../modules/RadioContext";
+import { RadioProvider } from "../hooks/RadioProvider";
 import TabBoxSimple from "../modules/TabBoxSimple";
+import { InputText } from "../atoms/InputText";
+import Button from "../atoms/Button/Button";
+import { useFormContext } from "../hooks/FormProvider";
 
 const UserCert = () => {
+  const { valueList } = useFormContext();
   const mCarrier: string[] = [
     "SKT",
     "KT",
@@ -24,6 +27,11 @@ const UserCert = () => {
   const abroadRadios = {
     valueName: "sortHistory",
     innerHtml: ["내국인", "외국인"] as string[],
+  };
+
+  const handleSubmit = () => {
+    alert("필수 요소 검사 ");
+    console.log(valueList);
   };
   return (
     <>
@@ -52,15 +60,24 @@ const UserCert = () => {
           </a>
         </li>
       </TabBoxSimple>
+
       <div className="box-border pb-10">
         <h3 className="hidden">휴대폰인증</h3>
         <div>
           <div className="tab_box0 px-5 py-10">
             <div className="form_box pb-4 box-border">
-              <p className="pb-2 text-xs leading-[21px]">이름을 입력해 주세요.</p>
-              <TextBox id="name" type="text">
-                이름 입력
-              </TextBox>
+              <p className="pb-2 text-xs leading-[21px]">
+                이름을 입력해 주세요.
+              </p>
+
+              <InputText
+                className="rounded-lg"
+                type="basic"
+                id="name"
+                inputType="text"
+                title="이름을 입력해주세요."
+                placeholder="이름 입력"
+              />
             </div>
 
             <RadioProvider>
@@ -99,72 +116,95 @@ const UserCert = () => {
               </RadioCardGroup2>
             </RadioProvider>
 
-            <div className="pb-4 box-border">
-              <p className="pb-2 text-xs">
-                생년월일을 입력해 주세요.(예: 19990101)
-              </p>
-              <TextBox id="birth" type="number">
-                법정생년월일 8자리
-              </TextBox>
+            <div className="flex flex-col gap-y-2 pb-4 box-border">
+              <p className="text-xs">생년월일을 입력해 주세요.(예: 19990101)</p>
+              <InputText
+                className="rounded-lg"
+                type="basic"
+                id="birthday"
+                inputType="birth"
+                title="생년월일을 입력해주세요."
+                placeholder="법정생년월일 8자리"
+              />
             </div>
 
-            <div className="pb-4 box-border">
-              <p className="pb-2 text-xs">
+            <div className="flex flex-col gap-y-2 box-border">
+              <p className="text-xs">
                 본인명의의 휴대전화번호를 입력해 주세요.
               </p>
-              <Dropdown id="moCarrier" title="통신사" options={mCarrier} />
-              <TextBox className="mt-2" id="phoneNo" type="number">
-                -없이 휴대폰 번호 입력
-              </TextBox>
+              <Dropdown id="moCarrier" mainTitle="통신사" options={mCarrier} />
+              <InputText
+                className="rounded-lg"
+                type="basic"
+                id="phoneNumber"
+                inputType="phone"
+                title="본인명의의 휴대전화번호를 입력해주세요."
+                placeholder="-없이 휴대폰 번호 입력"
+              />
             </div>
           </div>
 
           {/* TODO: CheckBox Context 만들어서 상태관리하기 */}
           <div className="terms_agree_box px-5">
             <div className="agree_form_box">
-              <h3 className="tit pb-[17px] text-[18px] font-medium leading-[28px]"> 휴대전화 인증 약관 </h3>
-              <div className="chk_box relative inline-block align-top after:content-[''] after:w-full after:h-[1px] after:absolute after:bottom-0 after:left-0 after:bg-[#e8e8e8]">
-                <Checkbox id="all_checker" name="모든 약관에 동의합니다." />
+              <h3 className="tit pb-[17px] text-[18px] font-medium leading-[28px]">
+                {" "}
+                휴대전화 인증 약관{" "}
+              </h3>
+              <div className="flex flex-col gap-y-4 ">
+                <div className="flex relative align-top pb-4 border-b">
+                  <Checkbox
+                    className="text-sm"
+                    id="all_checker"
+                    name="모든 약관에 동의합니다."
+                  />
+                </div>
+                <ul className="flex flex-col gap-y-2">
+                  <li className="relative pr-[22px]">
+                    <Checkbox
+                      className="text-[13px]"
+                      id="01"
+                      name="[필수] 휴대전화 인증 서비스 이용약관"
+                    />
+                    <ModalButton />
+                  </li>
+                  <li className="relative pr-[22px]">
+                    <Checkbox
+                      className="text-[13px]"
+                      id="02"
+                      name="[필수] 고유식별정보 처리 동의"
+                    />
+                    <ModalButton />
+                  </li>
+                  <li className="relative pr-[22px]">
+                    <Checkbox
+                      className="text-[13px]"
+                      id="03"
+                      name="[필수] 통신사 이용약관 동의"
+                    />
+                    <ModalButton />
+                  </li>
+                  <li className="relative pr-[22px]">
+                    <Checkbox
+                      className="text-[13px]"
+                      id="04"
+                      name="[필수] 개인정보 수집/이용동의"
+                    />
+                    <ModalButton />
+                  </li>
+                </ul>
               </div>
-              <ul className="agree_list list-none">
-                <li className="relative pr-[22px] mb-[16px]">
-                  <Checkbox id="01" name="[필수] 휴대전화 인증 서비스 이용약관" />
-                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
-                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
-                  </button>
-                </li>
-                <li className="relative pr-[22px] mb-[16px]">
-                  <Checkbox id="02" name="[필수] 고유식별정보 처리 동의" />
-                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
-                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
-                  </button>
-                </li>
-                <li className="relative pr-[22px] mb-[16px]">
-                  <Checkbox id="03" name="[필수] 통신사 이용약관 동의" />
-                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
-                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
-                  </button>
-                </li>
-                <li className="relative pr-[22px] mb-[16px]">
-                  <Checkbox id="04" name="[필수] 개인정보 수집/이용동의" />
-                  <button className="agree_show absolute right-0 top-0 w-[24px] h-[22px]">
-                    <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">내용보기</span>
-                  </button>
-                </li>
-              </ul>
             </div>
           </div>
-          <div className="tab_box1 px-5 pt-10">
-            <RoundedButton className="pt-10" backgroundColor="primary">
+          <div className="px-5 pt-10">
+            {/* submit */}
+            <Button
+              className="h-12"
+              backgroundColor="primary"
+              onClick={handleSubmit}
+            >
               인증번호 요청
-            </RoundedButton>
-            <div>
-              <p></p>
-              <div className="input_btn_box">
-                <div className="input_box"></div>
-                <div className="btn_box"></div>
-              </div>
-            </div>
+            </Button>
           </div>
         </div>
       </div>
@@ -173,3 +213,16 @@ const UserCert = () => {
 };
 
 export default UserCert;
+
+const ModalButton = ({ onClick }: { onClick?: () => {} }) => {
+  return (
+    <button
+      className="absolute right-0 top-0 w-[24px] h-[22px]"
+      onClick={onClick}
+    >
+      <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">
+        내용보기
+      </span>
+    </button>
+  );
+};

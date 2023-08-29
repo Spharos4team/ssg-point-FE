@@ -1,12 +1,12 @@
 "use client";
-import CateJson from "@/datas/category.data.json";
+import Category from "@/datas/category.data.json";
 import { useState } from "react";
 
 const DropdownForCategory = () => {
-  const categories = CateJson.categories;
   const [parent, setParent] = useState("");
-  const [child, setChild] = useState("");
+  const [child, setChild] = useState("소분류");
 
+  // TODO: 소분류 초기상태 반영 안됨
   return (
     <>
       <div className="relative inline-block align-top w-full rounded-lg">
@@ -17,13 +17,11 @@ const DropdownForCategory = () => {
           onChange={(e) => setParent(e.target.value)}
           value={parent}
         >
-          {categories
-            .filter((x) => x.parent_id === "")
-            ?.map((item, index) => (
-              <option key={index} value={item.id}>
-                {item.name}
-              </option>
-            ))}
+          {Category.filter((x) => x.parent_id === "")?.map((item, index) => (
+            <option key={index} value={item.id}>
+              {item.name}
+            </option>
+          ))}
         </select>
       </div>
       <div className="relative inline-block align-top w-full rounded-lg">
@@ -34,13 +32,13 @@ const DropdownForCategory = () => {
           onChange={(e) => setChild(e.target.value)}
           value={child}
         >
-          {categories
-            .filter((x) => x.parent_id === parent)
-            ?.map((item, index) => (
+          {Category.filter((x) => x.parent_id === parent)?.map(
+            (item, index) => (
               <option key={index} value={item.id}>
                 {item.name}
               </option>
-            ))}
+            )
+          )}
         </select>
       </div>
     </>

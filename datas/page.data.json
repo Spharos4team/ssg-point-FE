@@ -223,7 +223,7 @@
     "id": 28,
     "parent_id": 8,
     "name": "회원정보 수정",
-    "href": "/myinfo/cert",
+    "href": "/myInfo/cert",
     "simple_icon": "/images/pagecon_cert.png",
     "primary_icon": "/images/pagecon_cert_primary"
   },
@@ -231,7 +231,7 @@
     "id": 29,
     "parent_id": 8,
     "name": "비밀번호 변경",
-    "href": "/myinfo/changePwd",
+    "href": "/myInfo/changePwd",
     "simple_icon": "/images/pagecon_changePwd.png",
     "primary_icon": "images/pagecon_changePwd_primary.png"
   },

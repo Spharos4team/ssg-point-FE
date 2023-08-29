@@ -5,22 +5,30 @@
     "number": "4813209056474677",
     "type": "online",
     "agency": "신세계포인트닷컴",
-    "reg_date": "2023/07/27"
+    "reg_date": "2023/05/25"
   },
   {
     "id": 2,
     "name": "신세계포인트",
-    "number": "4813209056474677",
+    "number": "1234098756780000",
     "type": "online",
-    "agency": "신세계포인트닷컴",
-    "reg_date": "2023/07/27"
+    "agency": "SSG PAY",
+    "reg_date": "2023/07/07"
   },
   {
     "id": 3,
     "name": "",
     "number": "4813209056474677",
     "type": "online",
+    "agency": "카카오페이",
+    "reg_date": "2023/07/15"
+  },
+  {
+    "id": 4,
+    "name": "",
+    "number": "0000999988887777",
+    "type": "online",
     "agency": "신세계포인트닷컴",
-    "reg_date": "2023/07/27"
+    "reg_date": "2023/08/15"
   }
 ]

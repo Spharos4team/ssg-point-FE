@@ -1,10 +1,11 @@
 import { PageProps } from "@/types/PageProps";
 import Image from "next/image";
 import Link from "next/link";
-import { useValueContext } from "../modules/ValueContext";
+import { useValueContext } from "../hooks/ValueProvider";
 
 const MenuButton = ({ aPage }: { aPage: PageProps }) => {
   const { handleValue } = useValueContext();
+
   return (
     <li key={aPage.id} className="flex-grow h-5 text-[13px] leading-[18px]">
       <Link

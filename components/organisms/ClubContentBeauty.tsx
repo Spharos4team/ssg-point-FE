@@ -1,8 +1,8 @@
 import ContentStrong from "../atoms/ContentStrong";
 import ListForNoticeBox from "../atoms/ListForNoticeBox";
-import PrimaryButtonBasic from "../atoms/ButtonPrimary";
 import NoticeBox from "../modules/NoticeBox";
 import ToggleCard from "../modules/ToggleCard";
+import Button from "../atoms/Button/Button";
 
 const brandList: { [key: number]: string } = {
   1: "아모레퍼시픽",
@@ -45,9 +45,9 @@ const ClubContentBeauty = () => {
         받으실 수 있습니다.
       </ListForNoticeBox>
 
-      <PrimaryButtonBasic className="px-5" round="rounded-lg">
+      <Button className="px-5" backgroundColor="primary">
         확인
-      </PrimaryButtonBasic>
+      </Button>
     </>
   );
 };
