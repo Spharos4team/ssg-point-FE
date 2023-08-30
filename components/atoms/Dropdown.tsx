@@ -3,7 +3,6 @@ import { Category } from "@/types/CategoryProps";
 import DropdownCategory from "./DropdownCategory";
 import DropdownBasic from "./DropdownBasic";
 import DropdwonContext from "./DropdwonContext";
-import { useEffect } from "react";
 import DropdownModal from "./DropdownModal";
 
 const Dropdown = ({

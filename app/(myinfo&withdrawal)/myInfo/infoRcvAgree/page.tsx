@@ -79,13 +79,11 @@ export default function InfoRcvAgreePage() {
 
             <li className="relative flex justify-between">
               <div className="relative inline-block align-top">
-                <ValueProvider>
-                  <Checkbox
-                    id="01"
-                    name="[선택] 이마트/신세계 공동 개인정보 수집 및 이용동의"
-                    type={"basic-single"}
-                  />
-                </ValueProvider>
+                <Checkbox
+                  id="01"
+                  name="[선택] 이마트/신세계 공동 개인정보 수집 및 이용동의"
+                  type={"basic-single"}
+                />
               </div>
               <button className="ablsolute right-0 top-0 w-6 h-[22px]">
                 <span className="relative block box-border overflow-hidden indent-[-999em] opacity-50 w-[24px] h-full bg-[url('/images/icon_back.png')] bg-left bg-[length:6px_auto] bg-no-repeat rotate-180">

@@ -1,20 +1,27 @@
+"use client";
 import RoundedButton from "@/components/atoms/Button/RoundedButton";
 import Dropdown from "@/components/atoms/Dropdown";
+import { InputText } from "@/components/atoms/InputText";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
-import TextBox from "@/components/atoms/TextBox";
-import DropdownForCategory from "@/components/organisms/DropdownForCategory";
 
 import Category from "@/datas/category.data.json";
+import { useState } from "react";
 
 export default function WritePage({}) {
+  const [textCount, setTextCount] = useState(0);
   return (
     <>
       <div className="px-5 py-10">
         <div className="pb-4 box-border">
           <p className="pb-2 text-[13px] leading-[21px]">이름</p>
-          <TextBox id="이름" type="text" disable>
-            조*일
-          </TextBox>
+          <InputText
+            className="rounded-lg"
+            title="상담자 이름"
+            id="이름"
+            inputType="text"
+            placeholder="조*일"
+            disabled
+          />
         </div>
 
         <div className="pb-4 box-border">
@@ -25,15 +32,21 @@ export default function WritePage({}) {
               (필수 기재 사항이 아닙니다.)
             </span>
           </p>
-          <TextBox id="phone" type="text" disable>
-            010-4916-8999
-          </TextBox>
+          <InputText
+            className="rounded-lg"
+            title="상담자 이름"
+            id="전화번호"
+            inputType="text"
+            placeholder="010-4916-8999"
+            disabled
+          />
         </div>
 
         <div className="pb-4 box-border">
           <p className="pb-2 text-[13px] leading-[21px]">유형*</p>
           <div className="flex gap-2">
             <Dropdown
+              type="category"
               id=""
               mainTitle="대분류"
               subTitle="소분류"
@@ -44,19 +57,23 @@ export default function WritePage({}) {
 
         <div className="pb-4 box-border">
           <p className="pb-2 text-[13px] leading-[21px]">제목*</p>
-          <TextBox id="이름" type="text" disable>
-            제목을 입력해 주세요.(50자 이내)
-          </TextBox>
+          <InputText
+            className="rounded-lg"
+            title="상담 제목"
+            id="제목"
+            inputType="text"
+            placeholder="제목을 입력해 주세요.(50자 이내)"
+          />
         </div>
 
         {/* TODO: textarea 글자 입력 상태 */}
         <div className="relative pb-4 box-border">
-          <p className="pb-2 text-[13px] leading-[21px]">제목*</p>
+          <p className="pb-2 text-[13px] leading-[21px]">내용*</p>
           <textarea
             className="block w-full h-52 box-border border rounded-lg border-[#e8e8e8] resize-none text-[14px] leading-[24px] py-3 px-4"
             name="content"
             id="cetent"
-            maxLength={1000}
+            maxLength={10000}
           ></textarea>
           <label
             htmlFor="content00"
@@ -66,12 +83,12 @@ export default function WritePage({}) {
               {" "}
               문의하실 내용을 입력해 주세요.
               <br /> 최대 10,000자까지 입력가능합니다.
-              <br /> ※기재 시 주민등록번호 등 개인정보가
+              <br /> ※ 기재 시 주민등록번호 등 개인정보가
               <br /> 포함되지 않도록 유의하시기 바랍니다.{" "}
             </span>
           </label>
-          <span className="absolute right-4 bottom-6 text-[#666]">
-            0/10,000자
+          <span className="absolute right-4 bottom-6 text-xs text-[#666]">
+            {textCount}/10,000자
           </span>
         </div>
 

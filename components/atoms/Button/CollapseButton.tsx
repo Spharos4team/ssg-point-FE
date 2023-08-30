@@ -17,7 +17,6 @@ const CollapseButton = ({
 
   const handleCollapse = () => {
     setCollapse(!collapse);
-    console.log(collapse);
   };
   return (
     <div className="relative min-h-[48px] mx-5 border-b border-black">

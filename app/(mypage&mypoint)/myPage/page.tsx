@@ -99,8 +99,6 @@ const barcodeValue = "9350-1200-1875-5220";
 export default function MyPage() {
   return (
     <>
-      {/* 현재 섹션 레이아웃 패딩, 마진에 position 문제 있는 듯. */}
-      {/* 컴포넌트 사용하기 */}
       <div className="relative mt-[56px] mx-5 z-10">
         {/* 아래부터 PointBox */}
         <div className="pb-[2px] mx-auto box-border h-full max-w-[327px] bg-gradient-primary-line rounded-[20px] overflow-hidden shadow-md">

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server-auth --watch ./datas/index.js --port 3030"
+    "server": "json-server-auth --watch db.json --port 3030"
   },
   "dependencies": {
     "@google-cloud/storage": "^7.0.1",

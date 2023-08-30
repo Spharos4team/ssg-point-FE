@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "uuid": "fb15d166-37f3-11ee-be56-0242ac120002",
+      "user_id": "administrator",
+      "password": "1234",
+      "username": "조영일",
+      "email": "googlecho01@gmail.com",
+      "phone": "01049168999",
+      "address_home": "",
+      "address_comp": "",
+      "state": "1",
+      "barcode": "",
+      "point_password": "1234",
+      "reg_date": "",
+      "mod_date": ""
+    },
+    {
+      "email": "aaa@naver.com",
+      "password": "$2a$10$AYPh6XEfS43.VrPd/.haD.qCFqaRVmtebB/R42vbm8l0XoPAlimlu",
+      "name": "김테스터",
+      "phone": "01049168999",
+      "id": 2
+    }
+  ]
+}

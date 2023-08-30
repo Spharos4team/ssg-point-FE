@@ -28,6 +28,27 @@ const MainBanner = () => {
               alt=""
             />
           </SwiperSlide>
+          <SwiperSlide className="relative min-h min-h-[90.667vw]">
+            <Image
+              src={"/images/main-banner-01-universe.jpg"}
+              fill={true}
+              alt=""
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative min-h min-h-[90.667vw]">
+            <Image
+              src={"/images/main-banner-01-universe.jpg"}
+              fill={true}
+              alt=""
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative min-h min-h-[90.667vw]">
+            <Image
+              src={"/images/main-banner-01-universe.jpg"}
+              fill={true}
+              alt=""
+            />
+          </SwiperSlide>
         </Swiper>
       </div>
     </div>

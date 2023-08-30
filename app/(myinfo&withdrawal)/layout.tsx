@@ -24,7 +24,11 @@ const pagesInMy: PageProp[] = [
   },
   {
     _id: 5,
-    _href: "/withdrawal/leavePassword",
+    _href: [
+      "/withdrawal/leavePassword",
+      "/withdrawal/leaveUsingService",
+      "/withdrawal/leaveOnline",
+    ],
     name: "회원 탈퇴",
   },
 ];

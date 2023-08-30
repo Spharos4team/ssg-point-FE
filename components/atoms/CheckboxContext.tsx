@@ -44,7 +44,10 @@ const CheckboxContext = ({
             valueList[id] ? checkedStyle : ""
           }`}
         >
-          <span className={`table-cell align-middle break-keep`}>{name}</span>
+          <span
+            className={`table-cell align-middle break-keep`}
+            dangerouslySetInnerHTML={{ __html: name }}
+          />
         </label>
       </div>
       {children}
