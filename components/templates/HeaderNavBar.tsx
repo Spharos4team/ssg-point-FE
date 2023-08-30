@@ -15,12 +15,9 @@ export default function HeaderNavBar() {
       <div className="fixed left-0 top-0 w-full h-[56px] bg-white z-[100]">
         {/* TODO: pathname을 HeaderIconBox 안에서 사용하기 */}
         <div className="flex justify-between items-center align-middle h-full relative pr-[60px] pl-[48px] z-2">
-          <ValueProvider>
-            <HeaderIconBox pathname={pathname} />
-            <HeaderStatusBox />
-            <Sidebar />
-            <BarcodeBox />
-          </ValueProvider>
+          <HeaderIconBox pathname={pathname} />
+          <HeaderStatusBox />
+          <Sidebar />
         </div>
       </div>
     </header>

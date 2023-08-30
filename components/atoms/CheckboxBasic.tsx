@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useValueContext } from "../hooks/ValueProvider";
 
-const CheckboxBasic = ({
+const CheckboxBasicMulti = ({
   className,
   id,
   name,
@@ -72,7 +72,10 @@ const CheckboxBasic = ({
               : ""
           }`}
         >
-          <span className={`table-cell align-middle break-keep`}>{name}</span>
+          <span
+            className={`table-cell align-middle break-keep`}
+            dangerouslySetInnerHTML={{ __html: name }}
+          />
         </label>
       </div>
       {children}
@@ -80,4 +83,4 @@ const CheckboxBasic = ({
   );
 };
 
-export default CheckboxBasic;
+export default CheckboxBasicMulti;

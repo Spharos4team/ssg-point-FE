@@ -1,3 +1,4 @@
+"use client";
 import Barcode from "@/utils/Barcode/Barcode";
 import Link from "next/link";
 import { useValueContext } from "../hooks/ValueProvider";
@@ -15,7 +16,7 @@ const BarcodeBox = () => {
     <div
       className={`${
         valueList["barcodeBox"] == true ? "bottom-[-200px]" : ""
-      } fixed left-0 bottom-0 w-full rounded-t-2xl bg-gradient-primary drop-shadow-2xl transition-all`}
+      } fixed left-0 bottom-0 w-full rounded-t-2xl bg-gradient-primary drop-shadow-2xl transition-all z-[999]`}
     >
       <div className="pt-[13px] pb-[16px]">
         <div className="relative mx-auto overflow-hidden z-[1]">

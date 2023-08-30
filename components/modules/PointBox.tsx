@@ -3,6 +3,7 @@ import Barcode from "@/utils/Barcode/Barcode";
 import Link from "next/link";
 import { useState } from "react";
 import Modal from "../atoms/Modal";
+import { useValueContext } from "../hooks/ValueProvider";
 
 const PointBox = ({
   type = "simpleBox",
@@ -11,6 +12,7 @@ const PointBox = ({
 }) => {
   // 모달을 Context로 관리할까?
   const [modal, setModal] = useState(false);
+  const { valueList, handleValueList } = useValueContext();
   const barcodeNumber = "9350120018755220";
   const pointIcon =
     "after:content-[''] after:inline-block after:bg-[url('/images/point_gradi.png')] after:bg-[100%_auto] after:ml-[7px]";
@@ -48,6 +50,9 @@ const PointBox = ({
               <button
                 className="w-[56px] h-6 bg-[url('/images/icon_barcode.png')] bg-[100%_auto] indent-[-999em]"
                 id="barcode_btn"
+                onClick={() =>
+                  handleValueList("barcodeBox", !valueList["barcodeBox"])
+                }
               >
                 <span>바코드 보기</span>
               </button>
@@ -157,9 +162,14 @@ const PointBox = ({
       </div>
 
       {/* Modals */}
-      <Modal modal={modal} onClick={setModal} title="신세계포인트 상세 안내">
+      <Modal
+        center
+        modal={modal}
+        onClick={setModal}
+        title="신세계포인트 상세 안내"
+      >
         {/* TODO: 콘텐츠 리스트 컴포넌트로 대체: 이미 있는 걸로 안다.*/}
-        <div className="px-5 pb-5">
+        <div className="pb-5 h-auto">
           <p className="mb-1 text-sm leading-6">사용 가능 포인트</p>
           <p className="text-xs leading-5 text-[#767676] break-keep pt-2 mb-4">
             신세계포인트 가맹점에서 사용할 수 있도록{" "}
@@ -201,6 +211,12 @@ const PointBox = ({
             </li>
           </ul>
         </div>
+        <button
+          className="absolute right-[2px] top-[6px] w-[50px] h-[50px] indent-[-999em] bg-[url('/images/icon_close.png')] bg-center bg-no-repeat bg-[length:14px_14px]"
+          onClick={() => setModal(!modal)}
+        >
+          닫기
+        </button>
       </Modal>
     </>
   );

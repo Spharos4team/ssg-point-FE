@@ -8,6 +8,8 @@ import type { Metadata } from "next";
 import Footer from "@/components/templates/Footer";
 import TabBarBottomGlobal from "@/components/templates/TabBarBottomGlobal";
 import HeaderNavBar from "@/components/templates/HeaderNavBar";
+import { ValueProvider } from "@/components/hooks/ValueProvider";
+import BarcodeBox from "@/components/atoms/BarcodeBox";
 
 const notoKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -27,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={notoKr.className}>
-        {/* //TODO: 현재 루트에서 나누고 있는데, 재고필요, 공통 객체만 남겨둘 것 */}
-        <HeaderNavBar />
-        {/* <ToTop /> to top button */}
-        <section id="content">{children}</section>
+        <ValueProvider>
+          <HeaderNavBar />
+          {/* <ToTop /> to top button */}
+          <section id="content">{children}</section>
+          <BarcodeBox />
+        </ValueProvider>
         <Footer />
         <TabBarBottomGlobal />
       </body>

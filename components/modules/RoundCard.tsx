@@ -23,7 +23,8 @@ const RoundCard = ({
     >
       <p className="text-[13px] leading-[21px] text-[#767676]">
         {title}
-        <br />
+
+        {subtitle && <br />}
         {subtitle}
       </p>
       {link && linkName && (

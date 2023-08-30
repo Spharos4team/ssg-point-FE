@@ -25,7 +25,7 @@ const Modal = ({
   return (
     <div>
       <div
-        className={`fixed flex left-0 top-0 w-full h-full min-w-[315px] z-[999] ${
+        className={`fixed flex left-0 top-0 w-full h-full min-w-[315px] z-[200] ${
           modal ? "" : "hidden"
         } ${center ? "items-center justify-center" : ""}`}
       >
@@ -39,7 +39,7 @@ const Modal = ({
         >
           {title && (
             <div className="table relative w-full box-border min-h-[50px]">
-              <h2 className="text-base leading-[26px] align-middle p-5 pr-[45px] break-keep">
+              <h2 className="font-medium text-[18px] leading-[26px] align-middle pr-[45px] break-keep">
                 {title}
               </h2>
             </div>

@@ -1,9 +1,9 @@
 import ContentHeader from "@/components/atoms/ContentHeader";
-import TextBox from "@/components/atoms/TextBox";
-import Button from "@/components/atoms/Button/Button";
+import { FormProvider } from "@/components/hooks/FormProvider";
+import SubmitForLeave from "@/components/organisms/SubmitForLeave";
 
 //TODO: slug 받아서 표시
-export default function leavePassword() {
+export default function leavePasswordPage() {
   return (
     <>
       <ContentHeader
@@ -17,19 +17,9 @@ export default function leavePassword() {
         }
         sub="현재 사용 중인 비밀번호를 입력해주세요."
       />
-
-      <div className="box-border px-5 pb-10">
-        <div className="pb-[25px]">
-          <p className="pb-2 text-xs">비밀번호</p>
-          <TextBox id="name" type="text">
-            비밀번호를 입력해주세요.
-          </TextBox>
-        </div>
-
-        <Button className="h-12" backgroundColor="primary">
-          확인
-        </Button>
-      </div>
+      <FormProvider>
+        <SubmitForLeave />
+      </FormProvider>
     </>
   );
 }

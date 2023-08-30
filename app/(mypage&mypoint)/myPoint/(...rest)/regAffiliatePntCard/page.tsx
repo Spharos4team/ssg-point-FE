@@ -1,8 +1,4 @@
-import Button from "@/components/atoms/Button/Button";
-import { Checkbox } from "@/components/atoms/Checkbox";
 import DefListSimple from "@/components/atoms/DefListSimple";
-import Dropdown from "@/components/atoms/Dropdown";
-import { InputText } from "@/components/atoms/InputText";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
 import Tab from "@/components/atoms/Tab";
 import TabContent from "@/components/atoms/TabContent";

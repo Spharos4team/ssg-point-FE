@@ -14,7 +14,7 @@ const Button = ({
   href?: string;
   type?: "basic" | "context" | "link";
   backgroundColor?: "white" | "black" | "primary" | "pink";
-  onClick?: () => {};
+  onClick?: () => void;
   children: React.ReactNode;
 }) => {
   const bgColor = () => {
@@ -60,7 +60,7 @@ const Button = ({
             bgColor() +
             " " +
             className +
-            " block text-center text-sm leading-6 py-3 px-4 font-bold box-border rounded-lg"
+            "block text-center text-sm leading-6 py-3 px-4 font-bold box-border rounded-lg w-full"
           }
           href={href}
         >

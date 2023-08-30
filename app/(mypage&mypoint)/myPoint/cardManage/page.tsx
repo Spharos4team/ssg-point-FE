@@ -3,6 +3,8 @@ import PointBox from "@/components/modules/PointBox";
 import Image from "next/image";
 
 import Cards from "@/datas/card.data.json";
+import { ValueProvider } from "@/components/hooks/ValueProvider";
+import BarcodeBox from "@/components/atoms/BarcodeBox";
 
 export default function cardManage() {
   const onlineCard = Cards.filter((item) => item.type === "online");
