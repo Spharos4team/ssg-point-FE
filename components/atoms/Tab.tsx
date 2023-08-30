@@ -7,12 +7,16 @@ const Tab = ({
   id,
   name,
   href,
+  children,
+  color = "red",
 }: {
   className?: string;
   type: "router" | "context";
   id: string;
-  name: string;
+  name?: string;
   href?: string;
+  children?: React.ReactNode;
+  color?: 'red' | 'brown';
 }) => {
   switch (type) {
     case "router": {
@@ -29,7 +33,9 @@ const Tab = ({
       if (href) {
         throw new Error("context 타입은 href 속성이 필요 없습니다.");
       }
-      return <TabContext className={className} id={id} name={name} />;
+      return <TabContext className={className} id={id} name={name} color={color}>
+        {children}
+      </TabContext>;
     }
   }
 };

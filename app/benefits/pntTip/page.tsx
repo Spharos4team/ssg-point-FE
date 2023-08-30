@@ -1,6 +1,7 @@
 import RoundedButton from "@/components/atoms/Button/RoundedButton";
 import ContentHeader from "@/components/atoms/ContentHeader";
 import Image from "next/image";
+import Button from "@/components/atoms/Button/Button";
 
 export default function pntTip() {
   return (
@@ -16,9 +17,7 @@ export default function pntTip() {
         />
       </div>
         <div className="px-5 pb-10">
-          <RoundedButton className="h-12" backgroundColor="primary">
-            확인하기
-          </RoundedButton>
+            <Button className="h-12" backgroundColor={'primary'}>확인하기</Button>
         </div>
     </>
   );

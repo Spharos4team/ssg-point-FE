@@ -10,7 +10,7 @@ const TabRouter = ({
 }: {
   className?: string;
   id: string;
-  children: string;
+  children: React.ReactNode;
   href: string;
 }) => {
   const pathname = usePathname();

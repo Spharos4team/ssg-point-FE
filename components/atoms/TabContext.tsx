@@ -5,12 +5,19 @@ const TabContext = ({
   className,
   id,
   name,
+  children,
+  color = "red",
 }: {
   className?: string;
   id: string;
-  name: string;
+  name?: string;
+  children?: React.ReactNode;
+  color?: 'red' | 'brown';
 }) => {
-  const active = "bg-[#fff3f8] text-[#d9044b] font-medium !border-[#d9044b]";
+  const red = "bg-[#fff3f8] text-[#d9044b] font-medium !border-[#d9044b]"
+  const brown = "bg-[#fff4eb] !border-[#a16c0c]";
+  const active = color === 'red' ? red : brown;
+
 
   const { selectedValue, handleRadio } = useRadioContext();
   const handleThisValue = () => {
@@ -25,7 +32,10 @@ const TabContext = ({
         } block w-full h-11 border-b border-[#fbfbfb] box-border text-sm text-center`}
         onClick={handleThisValue}
         dangerouslySetInnerHTML={{ __html: name }}
-      ></button>
+      >
+        {children}
+      </button>
+
     </li>
   );
 };
