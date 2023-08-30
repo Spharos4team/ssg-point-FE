@@ -8,19 +8,22 @@ const TabContent = ({
   className,
   id,
   name,
-    nameHidden = false,
+  nameHidden = false,
   children,
+  h4=false,
 }: {
   className?: string;
   id: string;
   name: string;
   nameHidden?: boolean;
   children: React.ReactNode;
+  h4?: boolean;
 }) => {
   const { selectedValue } = useRadioContext();
+  const HeaderTag = h4 ? "h4" : "h3";
   return (
     <div className={`${className} p-5 ${selectedValue === id ? "" : "hidden"}`}>
-      {!nameHidden && <h3>{name}</h3>}
+      {!nameHidden && <HeaderTag>{name}</HeaderTag>}
       {children}
     </div>
   );

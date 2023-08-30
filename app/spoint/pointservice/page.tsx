@@ -14,8 +14,12 @@ import LinkImageWithFallback from "@/components/ui/LinkImageWithFallback";
 import DefListSimple from "@/components/atoms/DefListSimple";
 import PointServiceTable from "@/components/atoms/PointServiceTable";
 import ColValue from "@/components/atoms/ColValue";
-import TrValue from "@/components/TrValue";
+import TrValue from "@/components/atoms/TrValue";
 import Image from "next/image";
+import TrImages from "@/components/atoms/TrImages";
+import {it} from "node:test";
+import StrongUnderline from "@/components/atoms/StrongUnderline";
+import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
 
 export default function PointService() {
     const [isClicked, setIsClicked] = useState<number>(1);
@@ -69,13 +73,13 @@ export default function PointService() {
         {id: "emart_everyday", content: "직불카드 (신한제휴카드)", point: 10, colSpan: 2, rowSpan: 1},
     ];
     const etctable = [
-        {id: "etc", content: ["스타벅스", "프리미엄 아울렛"], url:["/images/logo_starbucks.png", "/images/logo_premiumoutlets.png"], point: 1, colSpan: 1, rowSpan: 7},
-        {id: "etc", content: ["신세계면세점<br/>(신세계온라인면세점)", "신세계팩토리스토어"], url:["/images/logo_ssgdfs.png", "/images/logo_factorystore.png"], point: 1, colSpan: 1, rowSpan: 0},
-        {id: "etc", content: ["스타필드", "신세계TV쇼핑"], url:["/images/logo_starfield.png", "/images/logo_tvshopping.png"], point: 1, colSpan: 1, rowSpan: 0},
-        {id: "etc", content: ["조선호텔", "신세계 영랑호리조트"], url:["/images/logo_josunhotel.png", "/images/logo_ssgresort.png"], point: 1, colSpan: 1, rowSpan: 0},
-        {id: "etc", content: ["신세계푸드", "CASAMIA"], url:["/images/logo_ssgfood.png", "/images/logo_casamia.png"], point: 1, colSpan: 1, rowSpan: 0},
-        {id: "etc", content: ["스무디킹", "시코르"], url:["/images/logo_smoothieking.png", "/images/logo_chicor.png"], point: 1, colSpan: 1, rowSpan: 0},
-        {id: "etc", content: ["G마켓", "옥션"], url:["/images/logo_gmarket.png", "/images/logo_auction.png"], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["스타벅스", "프리미엄 아울렛"], url:["/images/logo_starbucks.png", "/images/logo_premiumoutlets.png"], width: [130, 131], height: [91, 90], point: 1, colSpan: 1, rowSpan: 7},
+        {id: "etc", content: ["신세계면세점<br/>(신세계온라인면세점)", "신세계팩토리스토어"], url:["/images/logo_ssgdfs.png", "/images/logo_factorystore.png"], width: [130, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["스타필드", "신세계TV쇼핑"], url:["/images/logo_starfield.png", "/images/logo_tvshopping.png"], width: [132, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["조선호텔", "신세계 영랑호리조트"], url:["/images/logo_josunhotel.png", "/images/logo_ssgresort.png"], width: [130, 131], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["신세계푸드", "CASAMIA"], url:["/images/logo_ssgfood.png", "/images/logo_casamia.png"], width: [130, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["스무디킹", "시코르"], url:["/images/logo_smoothieking.png", "/images/logo_chicor.png"], width: [130, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["G마켓", "옥션"], url:["/images/logo_gmarket.png", "/images/logo_auction.png"], width: [130, 130], height: [82, 82], point: 1, colSpan: 1, rowSpan: 0},
     ]
 
     return (
@@ -156,7 +160,7 @@ export default function PointService() {
                         </Tab>
                     </div>
 
-                    <TabContent className="pt-8 font-medium" id="emart" name="이마트/이마트 트레이더스">
+                    <TabContent className="pt-8 font-medium" id="emart" name="이마트/이마트 트레이더스" h4={true}>
                         <PointServiceTable>
                             <colgroup>
                                 <ColValue width={"auto"}/>
@@ -168,7 +172,7 @@ export default function PointService() {
                             )}
                         </PointServiceTable>
                     </TabContent>
-                    <TabContent id="shinsegae" name="신세계백화점">
+                    <TabContent className="pt-8 font-medium" id="shinsegae" name="신세계백화점" h4={true}>
                         <PointServiceTable>
                             <colgroup>
                                 <ColValue width={"auto"}/>
@@ -180,7 +184,7 @@ export default function PointService() {
                             )}
                         </PointServiceTable>
                     </TabContent>
-                    <TabContent id="SSG" name="SSG.COM">
+                    <TabContent className="pt-8 font-medium" id="SSG" name="SSG.COM" h4={true}>
                         <PointServiceTable>
                             <colgroup>
                                 <ColValue width={"auto"}/>
@@ -192,7 +196,7 @@ export default function PointService() {
                             )}
                         </PointServiceTable>
                     </TabContent>
-                    <TabContent id="emart_everyday" name="이마트 에브리데이">
+                    <TabContent className="pt-8 font-medium" id="emart_everyday" name="이마트 에브리데이" h4={true}>
                         <PointServiceTable>
                             <colgroup>
                                 <ColValue width={"auto"}/>
@@ -204,7 +208,7 @@ export default function PointService() {
                             )}
                         </PointServiceTable>
                     </TabContent>
-                    <TabContent id="emart24" name="이마트24">
+                    <TabContent className="pt-8 font-medium" id="emart24" name="이마트24" h4={true}>
                         <PointServiceTable>
                             <colgroup>
                                 <ColValue width={"auto"}/>
@@ -220,13 +224,36 @@ export default function PointService() {
                                         alt="이마트24"/>
                                     <span className="font-normal block text-[11px] leading-[14px] pt-2 text-center">이마트24</span>
                                 </TrValue>
-
                         </PointServiceTable>
                     </TabContent>
-
+                    <TabContent className="pt-8 font-medium" id="etc" name="기타 제휴사" h4={true}>
+                        <PointServiceTable>
+                            <colgroup>
+                                <ColValue width={"auto"}/>
+                                <ColValue width={"auto"}/>
+                                <ColValue width={"25%"}  classname="min-w-[70px]"/>
+                            </colgroup>
+                            {etctable.map((item)=>
+                                <TrImages src1={item.url[0]} width1={item.width[0]} height1={item.height[0]} content1={item.content[0]} src2={item.url[1]} width2={item.width[1]} height2={item.height[1]} content2={item.content[1]} point={item.point} colSpan={item.colSpan} rowSpan={item.rowSpan}/>
+                            )}
+                        </PointServiceTable>
+                    </TabContent>
                     </RadioProvider>
+            <div className="bg-[#fbfbfb] px-[30px] pb-10 relative pt-5">
+                <h4 className="font-medium mb-1 -ml-2.5 text-base leading-[26px]">사용 안내</h4>
+                <p className="-tracking-[.4px] text-[13px] leadint-[21px] text-[#767676] -mx-2.5 mb-4">포인트 결제에서 신세계상품권까지, 편리하게 사용하실 수 있습니다.</p>
+                <ul className="-mx-2.5">
+                    <li>
+                        <StrongUnderline>
+                            구매 시 포인트로 결제
+                        </StrongUnderline>
+                        <ul className="list-none">
+                            <ListForNoticeBox level={6} isBullet>결제 시 보유하신 사용가능 포인트를 사용하실 수 있습니다.</ListForNoticeBox>
 
-
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
         </>
     );

@@ -53,15 +53,15 @@ export default function PointCard() {
           <ul className="text-[0] -mb-[30px] list-none block">
             <li className="odd:mr-[15px] text-center inline-block align-bottom w-[calc(50%-7.5px)] mb-[27px]">
               <a className="block relative no-underline">
-                            <span className="px-[33px] block ">
-                                <Image
-                                    className="block w-full border-0 my-0 mx-auto"
-                                    src="/imges/card_emart.png"
-                                    alt="이마트 e카드 image"
-                                    width={150}
-                                    height={237}
-                                ></Image>
-                            </span>
+                <span className="px-[33px] block ">
+                    <Image
+                        className="block w-full border-0 my-0 mx-auto"
+                        src="/imges/card_emart.png"
+                        alt="이마트 e카드 image"
+                        width={150}
+                        height={237}
+                    ></Image>
+                </span>
                 <span className="block text-center text-[14px] leading-[24px] break-keep pt-2 my-[0px] font-medium">이마트 e카드</span>
                 <span
                     className="block text-center text-[12px] leading-[20px] text-[#505050]
