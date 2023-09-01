@@ -4,8 +4,9 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Tabbar from "@/components/Tabbar";
+import Tabbar from "@/components/TabbarHeader";
 import AuthContextProvider from "@/provider/AuthContextProvider";
+import TabbarFooter from "@/components/TabbarFooter";
 
 const notoKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export default function RootLayout({
             <section className="pt-14">{children}</section>
           </AppContextProvider>
           <Footer />
-          <Tabbar type="footer" tabIdList={[44, 15, 0, 36, 62]} />
+          <TabbarFooter />
         </AuthContextProvider>
       </body>
     </html>

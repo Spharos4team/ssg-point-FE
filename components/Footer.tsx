@@ -3,25 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
-  const temsPages = staticPageFetch.getChildrenPageByParentId(
-    Number(process.env.NEXT_PUBLIC_PAGE_TERMS_PARENT)
-  );
   return (
     <footer className="mb-[75px]">
       <div className="relative px-6 pt-6 pb-8 border-t-[1px]">
         <ul className="pb-5 space-x-5">
-          {temsPages.map((item) => (
-            <li key={item.id} className="inline-block">
-              <Link
-                className={`block text-base leading-6 font-medium h-6 ${
-                  item.name == "개인정보 처리방침" ? "text-red-500" : ""
-                }`}
-                href={item.pathname}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+          {staticPageFetch
+            .getChildrenPageByParentName("서비스 이용약관")
+            .map((item) => (
+              <li key={item.id} className="inline-block">
+                <Link
+                  className={`block text-base leading-6 font-medium h-6 ${
+                    item.name == "개인정보 처리방침" ? "text-red-500" : ""
+                  }`}
+                  href={item.pathname}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
         </ul>
 
         {/* 개인정보 처리방침: red */}

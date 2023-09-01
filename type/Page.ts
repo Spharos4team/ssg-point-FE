@@ -1,11 +1,8 @@
 export type PageType = {
-  id: number;
-  parent_id: number;
+  id: number | string;
+  parent_id?: number | string;
   name: string;
-  pathname: string;
-  primary_color: string;
-  simple_icon: string;
-  primary_icon: string;
-  tab_icon: string;
-  tab_name: string;
+  pathname?: string;
+  simple_icon?: string;
+  primary_icon?: string;
 };

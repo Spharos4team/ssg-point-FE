@@ -1,33 +1,61 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 
-import Pages from "@/data/page.data.json";
+import Pages from "@/data/page.sidebar.json";
 import NavLogo from "./NavLogo";
 
 export default function HeaderNavBox() {
   const currPathname = usePathname();
   const root = "/";
 
-  const getThisBox = () => {
-    const childPage = Pages.find((page) => page.pathname === currPathname);
-    if (currPathname == root) {
-      // root인 경우
-      return <NavLogo nav />;
-    } else if (!childPage?.parent_id) {
-      // parent인 경우 자신의 name 반환
-      const thisTitle = childPage?.name;
-      return <NavH2>{thisTitle}</NavH2>;
-    } else {
-      // child인 경우 parent 찾아 반환
-      const thisTitle = Pages.find(
-        (page) => page.id == childPage.parent_id
-      )?.name;
-      return <NavH2>{thisTitle}</NavH2>;
-    }
+  const TITLES: { [key: string]: string } = {
+    "/login": "로그인",
+
+    "/couponPage": "쿠폰",
+    "/ingEvents": "이벤트 - 진행 이벤트",
+    "/endEvents": "이벤트 - 종료 이벤트",
+    "/winEvents": "이벤트 - 당첨 확인",
+    "/membership": "멤버십 서비스",
+
+    "/myPoint": "마이 포인트",
+    "/myPage": "마이 페이지",
+    "/myInfo": "마이 회원정보",
+    "/withdrawal": "마이 회원정보",
+
+    "/benefits": "마이 혜택",
+    "/mylounge": "마이 라운지",
+    "/spoint": "신세계포인트",
+
+    "/cscenter": "고객센터",
+
+    "/member/findIdPw": "아이디 찾기 본인인증",
+    "/member/findPw": "비밀번호 찾기 본인인증",
+    "/member/join": "회원가입",
+    "/member/findIdResult": "아이디 찾기",
   };
 
-  return <>{getThisBox()}</>;
+  const getTitle = () => {
+    for (const key in TITLES) {
+      if (currPathname.startsWith(key)) {
+        return TITLES[key];
+      }
+    }
+    return "/(정의되지 않은 페이지)";
+  };
+
+  const NavIconComp: { [key: string]: () => ReactElement } = {
+    "/": () => <NavLogo nav />,
+    default: () => <NavH2>{getTitle()}</NavH2>,
+  };
+
+  const getComponent = () => {
+    return NavIconComp[currPathname]
+      ? NavIconComp[currPathname]()
+      : NavIconComp.default();
+  };
+
+  return <>{getComponent()}</>;
 }
 
 const NavH2 = ({ children }: { children: React.ReactNode }) => {

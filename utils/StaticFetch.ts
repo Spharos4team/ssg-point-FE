@@ -1,40 +1,27 @@
-import Pages from "@/data/page.data.json";
+import Pages from "@/data/page.sidebar.json";
+import { PageType } from "@/type/Page";
 
 export const staticPageFetch = {
-  getOnePageByParentId: (parentId: number) => {
-    return Pages.find((page) => page.id === parentId);
+  getPageListByEachName: (eachList: string[]) => {
+    const resultPages: PageType[] = [];
+
+    eachList.forEach((each) => {
+      const foundPage = Pages.find((item) => item.name === each);
+      if (foundPage) {
+        resultPages.push(foundPage);
+      }
+    });
+
+    return resultPages;
   },
-
-  getChildrenPageByParentId: (parentId: number) => {
-    return Pages.filter((child) => child.parent_id === parentId);
-  },
-
-  getPageSetByParentId: (parentId: number) => {
-    const parentPage = Pages.find((page) => page.id === parentId);
-    const childrenPages = Pages.filter((child) => child.parent_id === parentId);
-
-    const pageSet = [parentPage, ...childrenPages];
-    return pageSet;
+  getChildrenPageByParentName: (parentName: string) => {
+    const parentPage = Pages.find((page) => page.name == parentName);
+    return Pages.filter((childPage) => childPage.parent_id == parentPage?.id);
   },
 
   getPagesByIdList: (idList: number[]) => {
     const pageMap = new Map(Pages.map((page) => [page.id, page]));
     const resultPages = idList.map((id) => pageMap.get(id));
     return resultPages.filter((page) => page !== undefined);
-  },
-
-  getParentandChildrenByCurrPath: (currPath: string) => {
-    const currentPage = Pages.find((page) => page.pathname == currPath);
-    if (!currentPage) return [];
-
-    const parentPage = Pages.find((page) => page.id == currentPage.parent_id);
-    if (!parentPage) return [];
-
-    const childrenPages = Pages.filter(
-      (page) => page.parent_id == parentPage.id
-    );
-    const sortedChildrenPages = [...childrenPages].sort((a, b) => a.id - b.id);
-
-    return sortedChildrenPages;
   },
 };

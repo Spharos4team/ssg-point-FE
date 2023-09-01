@@ -10,11 +10,11 @@ import SidebarFavoBox from "./SidebarFavoBox";
 
 import { staticPageFetch } from "@/utils/StaticFetch";
 import SidebarMenu from "./SidebarMenu";
+import { signOut } from "next-auth/react";
 
 export default function Sidebar() {
-  const temsPages = staticPageFetch.getChildrenPageByParentId(
-    Number(process.env.NEXT_PUBLIC_PAGE_TERMS_PARENT)
-  );
+  const temsPages =
+    staticPageFetch.getChildrenPageByParentName("서비스 이용약관");
 
   const { appValueList, handleAppRecord } = useAppContext();
   const hiddenRef = useRef<HTMLDivElement | null>(null);
@@ -63,7 +63,11 @@ export default function Sidebar() {
           </div>
           {/* 사용자 버튼 박스 */}
           <div className="flex gap-2 mt-[25px]">
-            <Button className="h-9" bgColor="primary">
+            <Button
+              className="h-9"
+              bgColor="primary"
+              onClick={() => signOut({ callbackUrl: "/" })}
+            >
               로그아웃
             </Button>
             <Button className="h-9" bgColor="black">
@@ -80,18 +84,20 @@ export default function Sidebar() {
 
         {/* Terms */}
         <ul className="space-x-5 mt-[20px] mb-[80px] ml-5">
-          {temsPages.map((page) => (
-            <li key={page.id} className="inline-block">
-              <Link
-                className={`block text-[13px] leading-[13px] text-[#767676] py-[5px] ${
-                  page.name === "개인정보 처리방침" ? "text-[#eb0000]" : ""
-                }`}
-                href={page.pathname as string}
-              >
-                {page.name}
-              </Link>
-            </li>
-          ))}
+          {staticPageFetch
+            .getChildrenPageByParentName("서비스 이용약관")
+            .map((page) => (
+              <li key={page.id} className="inline-block">
+                <Link
+                  className={`block text-[13px] leading-[13px] text-[#767676] py-[5px] ${
+                    page.name === "개인정보 처리방침" ? "text-[#eb0000]" : ""
+                  }`}
+                  href={page.pathname as string}
+                >
+                  {page.name}
+                </Link>
+              </li>
+            ))}
         </ul>
 
         {/* Close Button */}

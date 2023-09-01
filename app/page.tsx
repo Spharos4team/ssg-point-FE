@@ -1,5 +1,4 @@
 "use client";
-import Tabbar from "@/components/Tabbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -8,11 +7,14 @@ import Image from "next/image";
 import Card from "@/components/Card";
 import { staticPageFetch } from "@/utils/StaticFetch";
 import Link from "next/link";
+import TabbarHeader from "@/components/TabbarHeader";
+
 export default function Home() {
-  const cardPages = staticPageFetch.getPagesByIdList([10, 29, 30, 31, 40]);
   return (
     <>
-      <Tabbar type="header" />
+      <TabbarHeader
+        pages={staticPageFetch.getPageListByEachName(["쿠폰", "홈"])}
+      />
 
       <div className="mt-[36px]">
         <div className="relative z-0">
@@ -37,25 +39,33 @@ export default function Home() {
 
       <Card className="mt-[-24px] mx-[20px] mb-[24px] h-[88px] z-2" shadow>
         <ul className="flex justify-between items-center px-[19px] py-[10px]">
-          {cardPages.map(
-            (page) =>
-              page && (
-                <li key={page.id}>
-                  <Link
-                    className="block w-full text-xs text-center text-[#505050]"
-                    href={page.pathname}
-                  >
-                    <Image
-                      src={page?.tab_icon}
-                      width={45}
-                      height={45}
-                      alt={page.name}
-                    />
-                    {page.tab_name}
-                  </Link>
-                </li>
-              )
-          )}
+          {staticPageFetch
+            .getPageListByEachName([
+              "이벤트",
+              "출석체크",
+              "럭키룰렛",
+              "운세서비스",
+              "영수증",
+            ])
+            .map(
+              (page) =>
+                page && (
+                  <li key={page.id}>
+                    <Link
+                      className="block w-full text-xs text-center text-[#505050]"
+                      href={page.pathname as string}
+                    >
+                      <Image
+                        src={page?.primary_icon as string}
+                        width={45}
+                        height={45}
+                        alt={page.name}
+                      />
+                      {page.name}
+                    </Link>
+                  </li>
+                )
+            )}
         </ul>
       </Card>
 
