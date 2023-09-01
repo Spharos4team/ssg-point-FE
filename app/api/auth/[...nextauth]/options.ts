@@ -1,16 +1,18 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+import { KEY } from "@/utils/KeyHelper";
+
 export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        loginId: { label: "LoginId", type: "text" },
-        loginPass: { label: "LoginPass", type: "password" },
+        email: { label: KEY.USERID, type: "text" },
+        password: { label: KEY.USERPASSWORD, type: "password" },
       },
       async authorize(credentials, req) {
-        if (!credentials?.loginId || !credentials.loginPass) return null;
+        if (!credentials?.email || !credentials.password) return null;
 
         const res = await fetch("http://localhost:3030/login", {
           method: "POST",
@@ -30,7 +32,12 @@ export const options: NextAuthOptions = {
     }),
   ],
 
+  secret: "ssgpoint-clone-app-1234",
+
   callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
     async session({ session, token }) {
       session.user = token;
       return session;

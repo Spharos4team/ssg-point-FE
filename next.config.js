@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
+    NEXT_PUBLIC_SESSION_SECRET: "SSGPOINTAPP04",
+
     NEXT_PUBLIC_PAGE_TERMS_PARENT: "67", //Terms&Policy
     NEXT_PUBLIC_PAGE_SSGPOINT: "49", // 신세계포인트
     NEXT_PUBLIC_PAGE_MEMSRVCE: "55", // 멤버십 서비스
