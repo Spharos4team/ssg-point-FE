@@ -60,7 +60,7 @@ const HeaderStatusBox = () => {
           <strong className="font-medium text-sm leading-6 mt-[-2px]">
             12
           </strong>
-          <span className="ml-1 indent-[-99em] w-6 h-6 bg-[url('/images/my-point.png')] bg-[100%_auto] bg-no-repeat">
+          <span className="ml-1 indent-[-99em] overflow-hidden  w-6 h-6 bg-[url('/images/my-point.png')] bg-[100%_auto] bg-no-repeat">
             P
           </span>
         </button>

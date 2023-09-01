@@ -24,11 +24,11 @@ const ListForNoticeBox = ({
   const bullet =
     "pl-[7px] before:content-['·'] before:absolute before:left-0 before:top-0 before:text-xs before:leading-5 before:font-bold";
   const hyphen =
-      ""
+      "pl-[7px] -tracking-[.5px] before:content-['-'] before:absolute before:left-0 before:top-0 before:text-xs before:leading-5 before:font-normal"
   return (
     <li
       className={`${className} relative text-xs leading-5 tracking-[-0.5px] break-keep list-none ${
-        isBullet ? bullet : "pl-0 list-none"
+        isBullet ? bullet : isHyphen ? hyphen : "pl-0 list-none"
       } ${levelColor[level]}`}
       dangerouslySetInnerHTML={{ __html: children }}
     ></li>

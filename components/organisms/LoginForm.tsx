@@ -82,12 +82,14 @@ const LoginForm = () => {
           title="로그인을 위해 아이디를 입력해주세요."
           placeholder="아이디"
         />
+        {/* when press enter key, press login button, onClick={handleSubmit} is called.*/}
         <InputText
           type="form"
           id={KEY_PASSWORD}
           inputType="password"
           title="로그인을 위해 비밀번호를 입력해주세요."
           placeholder="비밀번호"
+
         />
       </div>
 
@@ -108,7 +110,6 @@ const LoginForm = () => {
           />
         </div>
       </div>
-
       <div className="my-10 space-y-2">
         <Button
           className="h-[56px] !rounded-full"

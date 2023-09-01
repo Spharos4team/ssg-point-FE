@@ -65,11 +65,11 @@ const UserCert = () => {
         <h3 className="hidden">휴대폰인증</h3>
         <div>
           <div className="tab_box0 px-5 py-10">
+            {/*휴대폰 인증*/}
             <div className="form_box pb-4 box-border">
               <p className="pb-2 text-xs leading-[21px]">
                 이름을 입력해 주세요.
               </p>
-
               <InputText
                 className="rounded-lg"
                 type="basic"
@@ -79,7 +79,7 @@ const UserCert = () => {
                 placeholder="이름 입력"
               />
             </div>
-
+            {/*남여*/}
             <RadioProvider>
               <RadioCardGroup2
                 title={"성별을 선택해주세요"}
@@ -97,7 +97,7 @@ const UserCert = () => {
                 ))}
               </RadioCardGroup2>
             </RadioProvider>
-
+            {/*내외국인*/}
             <RadioProvider>
               <RadioCardGroup2
                 title={"외국인 이신가요?"}
@@ -115,7 +115,7 @@ const UserCert = () => {
                 ))}
               </RadioCardGroup2>
             </RadioProvider>
-
+            {/*생년월일*/}
             <div className="flex flex-col gap-y-2 pb-4 box-border">
               <p className="text-xs">생년월일을 입력해 주세요.(예: 19990101)</p>
               <InputText
@@ -127,7 +127,7 @@ const UserCert = () => {
                 placeholder="법정생년월일 8자리"
               />
             </div>
-
+            {/*휴대전화*/}
             <div className="flex flex-col gap-y-2 box-border">
               <p className="text-xs">
                 본인명의의 휴대전화번호를 입력해 주세요.
@@ -145,6 +145,7 @@ const UserCert = () => {
           </div>
 
           {/* TODO: CheckBox Context 만들어서 상태관리하기 */}
+          {/*인증약관*/}
           <div className="terms_agree_box px-5">
             <div className="agree_form_box">
               <h3 className="tit pb-[17px] text-[18px] font-medium leading-[28px]">
@@ -196,6 +197,7 @@ const UserCert = () => {
               </div>
             </div>
           </div>
+          {/*인증버튼*/}
           <div className="px-5 pt-10">
             {/* submit */}
             <Button
@@ -207,6 +209,21 @@ const UserCert = () => {
             </Button>
           </div>
         </div>
+      </div>
+      {/*카드인증*/}
+      <div className="pt-10 px-[30px]">
+        <p className="font-normal pb-10 text-base leading-[26px] text-center">
+          보유하신
+          <span className="font-medium"> 신용/체크카드</span>
+          로 <br/> 본인인증이 가능합니다.
+        </p>
+        <Button
+            backgroundColor='primary'
+            onClick={''}
+            className={'h-12 font-medium'}
+        >
+          신용/체크카드 인증
+        </Button>
       </div>
     </>
   );

@@ -81,6 +81,8 @@ const InputTextContext = ({
               type="checkbox"
               checked={showPassword}
               onClick={() => setShowPassword(!showPassword)}
+              tabIndex={-1}
+
             />
           )}
         </span>

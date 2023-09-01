@@ -20,6 +20,7 @@ import TrImages from "@/components/atoms/TrImages";
 import {it} from "node:test";
 import StrongUnderline from "@/components/atoms/StrongUnderline";
 import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
+import Button from "@/components/atoms/Button/Button";
 
 export default function PointService() {
     const [isClicked, setIsClicked] = useState<number>(1);
@@ -74,7 +75,7 @@ export default function PointService() {
     ];
     const etctable = [
         {id: "etc", content: ["스타벅스", "프리미엄 아울렛"], url:["/images/logo_starbucks.png", "/images/logo_premiumoutlets.png"], width: [130, 131], height: [91, 90], point: 1, colSpan: 1, rowSpan: 7},
-        {id: "etc", content: ["신세계면세점<br/>(신세계온라인면세점)", "신세계팩토리스토어"], url:["/images/logo_ssgdfs.png", "/images/logo_factorystore.png"], width: [130, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
+        {id: "etc", content: ["신세계면세점<br/> (신세계온라인면세점)", "신세계팩토리스토어"], url:["/images/logo_ssgdfs.png", "/images/logo_factorystore.png"], width: [130, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
         {id: "etc", content: ["스타필드", "신세계TV쇼핑"], url:["/images/logo_starfield.png", "/images/logo_tvshopping.png"], width: [132, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
         {id: "etc", content: ["조선호텔", "신세계 영랑호리조트"], url:["/images/logo_josunhotel.png", "/images/logo_ssgresort.png"], width: [130, 131], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
         {id: "etc", content: ["신세계푸드", "CASAMIA"], url:["/images/logo_ssgfood.png", "/images/logo_casamia.png"], width: [130, 130], height: [90, 90], point: 1, colSpan: 1, rowSpan: 0},
@@ -203,7 +204,7 @@ export default function PointService() {
                                 <ColValue width={"auto"}/>
                                 <ColValue width={"25%"}  classname="min-w-[70px]"/>
                             </colgroup>
-                            {SSGtable.map((item)=>
+                            {emart_everydaytable.map((item)=>
                                 <TrValue rowSpan={item.rowSpan} colSpan={item.colSpan} point={item.point}>{item.content}</TrValue>
                             )}
                         </PointServiceTable>
@@ -249,12 +250,93 @@ export default function PointService() {
                         </StrongUnderline>
                         <ul className="list-none">
                             <ListForNoticeBox level={6} isBullet>결제 시 보유하신 사용가능 포인트를 사용하실 수 있습니다.</ListForNoticeBox>
-
+                            <ListForNoticeBox className="pl-[14px] before:pl-[7px]" level={2} isHyphen>오프라인 가맹점 : 10포인트 이상 보유 시 10포인트 단위</ListForNoticeBox>
+                            <ListForNoticeBox className="pl-[14px] before:pl-[7px]" level={2} isHyphen>온라인 가맹점 : 1포인트 이상 보유 시 1포인트 단위(※ G마켓/옥션 제외)</ListForNoticeBox>
                         </ul>
+                        <ListForNoticeBox level={6} isBullet>포인트 사용 시에는 포인트 비밀번호를 확인하니 미리 등록해 주세요.</ListForNoticeBox>
+                    </li>
+                    <Button
+                        className="h-10 text-xs leading-5 font-medium mt-2"
+                        backgroundColor={'yellow'}
+                        onClick={''}
+                    >
+                        포인트 사용 비밀번호 등록/수정하기
+                    </Button>
+                    <ul className="list-none mt-[15px]">
+                        <ListForNoticeBox className="text-[13px]" level={6} isBullet>
+                            각 가맹점별로 포인트 사용 제한 품목이 있을 수 있으니 결제 전 계산대에 문의 하시기 바랍니다.
+                        </ListForNoticeBox>
+                        <ListForNoticeBox className="text-[13px] pl-[7px]" level={6}>
+                            Ex. 주류, 담배, 종량제봉투, 대여용 장바구니, 리유저블 컵, 의약외품 등
+                        </ListForNoticeBox>
+                    </ul>
+                    <li className='mt-6'>
+                        <StrongUnderline>
+                            신세계상품권으로 교환
+                        </StrongUnderline>
+                        <ListForNoticeBox className="text-[13px]" level={6} isBullet>
+                            가까운 이마트/트레이더스/신세계백화점 상품권샵 또는 키오스크에서 5,000포인트 단위로 교환 가능 합니다.
+                        </ListForNoticeBox>
+                    </li>
+                    <li className='mt-6'>
+                        <StrongUnderline>
+                            소중한 사람에게 포인트 선물
+                        </StrongUnderline>
+                        <ListForNoticeBox className="text-[13px]" level={6} isBullet>
+                            신세계포인트 회원끼리 선물이 가능합니다.
+                        </ListForNoticeBox>
+                        <Button
+                            className="h-10 text-xs leading-5 font-medium mt-2"
+                            backgroundColor={'yellow'}
+                            onClick={''}
+                        >
+                            포인트 선물하기
+                        </Button>
+                    </li>
+                    <li className='mt-6'>
+                        <StrongUnderline>
+                            다양한 포인트/마일리지 전환
+                        </StrongUnderline>
+                        <ListForNoticeBox className="text-[13px]" level={6} isBullet>
+                            제휴되어 있는 다른 포인트/마일리지로 전환하거나 신세계포인트로 전환하실 수 있습니다.
+                        </ListForNoticeBox>
+                        <Button
+                            className="h-10 text-xs leading-5 font-medium mt-2"
+                            backgroundColor={'yellow'}
+                            onClick={''}
+                        >
+                            포인트 전환하기
+                        </Button>
                     </li>
                 </ul>
-            </div>
 
+            </div>
+            <div className="bg-[#fbfbfb] px-[30px] pb-10 relative">
+                <h4 className="font-medium mb-1 -ml-2.5 text-base leading-[26px]">소멸 안내</h4>
+                <p className="-tracking-[.4px] text-[13px] leadint-[21px] text-[#767676] -mx-2.5 mb-4">신세계포인트의 유효기간은, 적립일로부터 2년(24개월)이며, 유효기간이 경과된 신세계포인트는 월 단위 선입선출방식에 의하여 자동 소멸됩니다.</p>
+                <ul className="-mx-2.5">
+                    <li>
+                        <StrongUnderline>
+                            소멸포인트 확인
+                        </StrongUnderline>
+                        <ul className="list-none">
+                            <ListForNoticeBox level={6} isBullet>소멸포인트는 신세계포인트APP에서 조회 가능합니다.</ListForNoticeBox>
+                        </ul>
+                    </li>
+                    <li className='mt-6'>
+                        <StrongUnderline>
+                            소멸포인트 안내
+                        </StrongUnderline>
+                        <ListForNoticeBox className="text-[13px]" level={6} isBullet>
+                            익월 소멸예정포인트가 있을 경우, 이메일로 사전 안내 드리고 있습니다.
+                        </ListForNoticeBox>
+                        <ListForNoticeBox className="text-[13px]" level={6} isBullet>
+                            익월 소멸예정포인트가 5,000점 이상인 경우, 문자(LMS)로 추가 안내 드립니다.
+                        </ListForNoticeBox>
+                    </li>
+
+                </ul>
+            </div>
         </>
     );
 };

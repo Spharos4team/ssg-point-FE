@@ -8,7 +8,7 @@ import {Checkbox} from "@/components/atoms/Checkbox";
 import {ValueProvider} from "@/components/hooks/ValueProvider";
 import Button from "@/components/atoms/Button/Button";
 
-export default function Home() {
+export default function pointId() {
   return (
     <div className="p-0 relative">
       <h3 className="text-[18px] leading-[28px] font-normal px-5 pb-4">신세계포인트 통합 ID 서비스 TIP​</h3>

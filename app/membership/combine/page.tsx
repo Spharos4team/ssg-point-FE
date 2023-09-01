@@ -3,7 +3,7 @@ import BodyNavTop from "@/components/BodyNavTop";
 import MainBanner from "@/components/templates/MainBanner";
 import BannerListForMain from "@/components/templates/BannerListForMain";
 
-export default function Home() {
+export default function combine() {
   return (
     <>
 
