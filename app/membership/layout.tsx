@@ -4,7 +4,7 @@ import { PageProp } from "@/types/LinkProps";
 import ContentHeader from "@/components/atoms/ContentHeader";
 import {usePathname} from "next/navigation";
 
-const PagesSpoint: PageProp[] = [
+const PagesMembership: PageProp[] = [
   {
     _id: 1,
     _href: "/membership/pointId",
@@ -12,8 +12,8 @@ const PagesSpoint: PageProp[] = [
   },
   {
     _id: 2,
-    _href: ["/membership/club"],
-    name: "클럽",
+    _href: ["/membership/club", "/membership/club/momkids", "/membership/club/parking", "/membership/club/beauty", "/membership/club/biz", "/membership/club/biz/mod"],
+      name: "클럽",
   },
   {
     _id: 3,
@@ -59,7 +59,7 @@ export default function MembershipLayout({
 
   return (
       <div className="mt-12">
-        <TabBarTopCont pages={PagesSpoint} lineType="primary" activeColor="green" />
+        <TabBarTopCont pages={PagesMembership} lineType="primary" activeColor="green" />
         <ContentHeader
             main={currPage?.title}
             sub={currPage?.subTitle as string}
