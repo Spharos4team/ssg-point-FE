@@ -29,7 +29,7 @@ export default function RootLayout({
         <AuthContextProvider>
           <AppContextProvider>
             <Header />
-            <section className="pt-14">{children}</section>
+            <section className="pt-14 bg-white">{children}</section>
           </AppContextProvider>
           <Footer />
           <TabbarFooter />

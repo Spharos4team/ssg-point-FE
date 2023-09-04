@@ -18,20 +18,14 @@ export default async function Login() {
         {/* Login Form */}
         <FormLogin />
 
-        <ul className="text-center text-sm">
-          <Link
-            className={`inline-block ${list_between}`}
-            href={"/member/findIdPw"}
-          >
+        <ul className="text-center text-sm divide-x-2">
+          <Link className={`inline-block px-2`} href={"/member/findIdPw"}>
             아이디 찾기
           </Link>
-          <Link
-            className={`inline-block ${list_between}`}
-            href={"/member/findPw"}
-          >
+          <Link className={`inline-block px-2`} href={"/member/findPw"}>
             비밀번호 찾기
           </Link>
-          <Link className="inline-block" href={"/member/join"}>
+          <Link className="inline-block px-2" href={"/member/join"}>
             회원가입
           </Link>
         </ul>

@@ -32,7 +32,7 @@ export const options: NextAuthOptions = {
     }),
   ],
 
-  secret: "ssgpoint-clone-app-1234",
+  secret: process.env.NEXTAUTH_SECRET,
 
   callbacks: {
     async jwt({ token, user }) {

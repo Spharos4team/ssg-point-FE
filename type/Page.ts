@@ -5,4 +5,5 @@ export type PageType = {
   pathname?: string;
   simple_icon?: string;
   primary_icon?: string;
+  tab_icon?: string;
 };

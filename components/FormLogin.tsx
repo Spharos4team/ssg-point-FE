@@ -1,9 +1,9 @@
 "use client";
 import { useAppContext } from "@/provider/AppContextProvider";
 import { signIn } from "next-auth/react";
-import Input from "./Input";
-import Checkbox from "./Checkbox";
-import Button from "./Button";
+import Input from "./atom/Input";
+import Checkbox from "./atom/Checkbox";
+import Button from "./atom/Button";
 import { useSearchParams } from "next/navigation";
 
 import { KEY } from "@/utils/KeyHelper";

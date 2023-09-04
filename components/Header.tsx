@@ -1,15 +1,15 @@
 import HeaderNavBox from "./HeaderNavBox";
-import HeaderUserBox from "./HeaderUserBox";
-import HeaderMenuBox from "./HeaderMenuBox";
-import Sidebar from "./Sidebar";
+import Sidebar from "./organisam/Sidebar";
+import AuthBox from "./atom/AuthBox";
+import MenuBox from "./atom/MenuBox";
 
 export default function Header() {
   return (
     <header className="flex">
-      <div className="flex justify-between items-center align-middle fixed left-0 top-0 w-full h-[56px] pr-[60px] pl-[48px] bg-white z-10">
+      <div className="flex justify-between items-center align-middle fixed left-0 top-0 w-full h-[56px] pr-[60px] pl-[48px] bg-white z-20">
         <HeaderNavBox />
-        <HeaderUserBox />
-        <HeaderMenuBox />
+        <AuthBox />
+        <MenuBox />
       </div>
       <Sidebar />
     </header>

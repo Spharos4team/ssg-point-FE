@@ -29,3 +29,32 @@ export function phonHyphenShow(phoneNum: string) {
 
   return { first } + "-" + { second } + "-" + { third };
 }
+
+export function dateFormatter(date: string) {
+  const parts = date.split("/");
+  const result = parts.join("-");
+  return result;
+}
+
+export function getDDay(end: string) {
+  const currentDate = new Date();
+  const endDateParts = end.split("/");
+
+  const endYear = parseInt(endDateParts[0]);
+  const endMonth = parseInt(endDateParts[1]) - 1;
+  const endDay = parseInt(endDateParts[2]);
+
+  const expirationDate = new Date(endYear, endMonth, endDay);
+
+  const timeDifference = expirationDate.getTime() - currentDate.getTime();
+  const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+  return daysRemaining;
+}
+
+export function hyphenToSlashDate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}/${month}/${day}`;
+}

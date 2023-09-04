@@ -1,8 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { ReactElement, useEffect } from "react";
-
-import Pages from "@/data/page.sidebar.json";
 import NavLogo from "./NavLogo";
 
 export default function HeaderNavBox() {
@@ -13,9 +11,9 @@ export default function HeaderNavBox() {
     "/login": "로그인",
 
     "/couponPage": "쿠폰",
-    "/ingEvents": "이벤트 - 진행 이벤트",
-    "/endEvents": "이벤트 - 종료 이벤트",
-    "/winEvents": "이벤트 - 당첨 확인",
+    "/ingevents": "이벤트 - 진행 이벤트",
+    "/endevents": "이벤트 - 종료 이벤트",
+    "/winevents": "이벤트 - 당첨 확인",
     "/membership": "멤버십 서비스",
 
     "/myPoint": "마이 포인트",
@@ -25,7 +23,7 @@ export default function HeaderNavBox() {
 
     "/benefits": "마이 혜택",
     "/mylounge": "마이 라운지",
-    "/spoint": "신세계포인트",
+    "/sPoint": "신세계포인트",
 
     "/cscenter": "고객센터",
 

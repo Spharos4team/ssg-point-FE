@@ -1,5 +1,4 @@
 "use client";
-import { PageType } from "@/type/Page";
 import { staticPageFetch } from "@/utils/StaticFetch";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +17,7 @@ export default function TabbarFooter() {
             "마이 포인트",
             "홈",
             "포인트 꿀팁",
-            "권선",
+            "유니버스",
           ])
           .map(
             (page) =>
@@ -35,7 +34,7 @@ export default function TabbarFooter() {
                         className={`absolute ${
                           currPath == page.pathname ? "top-0" : "bottom-0"
                         }`}
-                        src={page.primary_icon as string}
+                        src={page.tab_icon as string}
                         width={48}
                         height={96}
                         alt={page.name}

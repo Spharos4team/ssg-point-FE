@@ -6,4 +6,6 @@ export const KEY = {
   STOREID: "storeUserId",
   AUTOLOGIN: "storeAutoLogin",
   BARCORDBOX: "globalBarcodeBox",
+
+  COUPONREGISTER: "couponRegister",
 };
