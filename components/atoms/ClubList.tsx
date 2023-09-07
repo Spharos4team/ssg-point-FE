@@ -2,21 +2,21 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function ClubList({
+    type,
     title,
     subtext,
     src,
     alt,
     link,
     bgtxtcolor,
-    type,
 }:{
+    type: 'list' | 'detail' | 'myclub',
     title: string,
-    subtext: string,
+    subtext?: string,
     src: string,
     alt?: string,
     link: string,
-    bgtxtcolor: 'bluegreen' | 'brown' | 'pink' | 'purple',
-    type: 'list' | 'detail',
+    bgtxtcolor?: 'bluegreen' | 'brown' | 'pink' | 'purple' | undefined,
 }){
     const backgroundtextColor = () => {
         switch (bgtxtcolor) {
@@ -28,6 +28,8 @@ export default function ClubList({
                 return {bgcolor: "bg-[#fde6ef]", txtcolor: "text-[#d9044b]"};
             case "purple":
                 return {bgcolor: "bg-[#efe8f3]", txtcolor: "text-[#5c1880]"};
+            default:
+                return {bgcolor: "", txtcolor: ""};
         }
     }
     const bgColor = backgroundtextColor().bgcolor;
@@ -73,6 +75,25 @@ export default function ClubList({
                 </div>
             );
         };
+            case "myclub": {
+               return (
+                   <li className="mr-4 max-w-[calc(25%-16px)] inline-block align-top">
+                       <Link
+                           className="block decoration-0"
+                           href={link}>
+                            <Image
+                                className="block w-[70px] mx-auto my-0 border-0"
+                               src={src}
+                               width={180}
+                               height={180}
+                               alt={alt}/>
+                           <span className="block pt-2 text-xs leading-5 text-center">
+                               {title}
+                           </span>
+                       </Link>
+                   </li>
+               );
+            };
     };
 };
 

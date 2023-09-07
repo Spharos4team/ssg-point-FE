@@ -26,9 +26,10 @@ export default function parking() {
               <Button
                   className="mt-10 h-12"
                   backgroundColor={'primary'}
-                  onClick={''}
               >
-                  가입하기
+                  <Link href={'/membership/club/parking/detail'}>
+                      가입하기
+                  </Link>
               </Button>
           </div>
       </div>

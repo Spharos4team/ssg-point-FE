@@ -12,7 +12,7 @@ const PagesMembership: PageProp[] = [
   },
   {
     _id: 2,
-    _href: ["/membership/club", "/membership/club/momkids", "/membership/club/parking", "/membership/club/beauty", "/membership/club/biz", "/membership/club/biz/mod"],
+    _href: ["/membership/club", "/membership/club/momkids", "/membership/club/momkids/detail", "/membership/club/parking", "/membership/club/parking/detail", "/membership/club/beauty", "/membership/club/biz", "/membership/club/biz/mod"],
       name: "클럽",
   },
   {

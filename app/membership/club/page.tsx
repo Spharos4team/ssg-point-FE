@@ -9,7 +9,19 @@ import ClubList from "@/components/atoms/ClubList";
 
 export default function club() {
   return (
-    <div className="relative pb-20">
+    <div className="pb-20">
+    <div className="relative">
+      <h3 className="text-lg leading-7 font-normal px-5 pb-4">MY 클럽</h3>
+      <div className="px-5">
+        <ul className="text-[0] text-left box-border list-none">
+            <ClubList title={'맘키즈 클럽'} src={'/images/logo_momkids.png'} link={'/membership/club/momkids/detail'} type={'myclub'}/>
+            <ClubList title={'맘키즈 클럽'} src={'/images/logo_momkids.png'} link={'/membership/club/momkids/detail'} type={'myclub'}/>
+            <ClubList title={'맘키즈 클럽'} src={'/images/logo_momkids.png'} link={'/membership/club/momkids/detail'} type={'myclub'}/>
+            <ClubList title={'맘키즈 클럽'} src={'/images/logo_momkids.png'} link={'/membership/club/momkids/detail'} type={'myclub'}/>
+        </ul>
+      </div>
+    </div>
+    <div className="relative ">
       <h3 className="text-lg leading-7 font-normal px-5 pb-4">이런 클럽은 어때요?</h3>
       <ul>
         <ClubList
@@ -46,5 +58,6 @@ export default function club() {
         />
       </ul>
     </div>
+      </div>
   );
 }

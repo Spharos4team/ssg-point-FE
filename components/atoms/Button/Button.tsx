@@ -13,7 +13,7 @@ const Button = ({
   className?: string;
   href?: string;
   type?: "basic" | "context" | "link";
-  backgroundColor?: "white" | "black" | "primary" | "pink" | "yellow";
+  backgroundColor?: "white" | "black" | "primary" | "pink" | "yellow" | "gray";
   onClick?: () => void;
   children: React.ReactNode;
 }) => {
@@ -29,6 +29,8 @@ const Button = ({
         return "bg-white border border-[#bcbcbc]";
       case "yellow":
         return "bg-[#f8b404] text-black";
+      case "gray":
+        return "bg-[#f5f5f5] text-black";
     }
   };
 

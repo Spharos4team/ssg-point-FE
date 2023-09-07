@@ -33,9 +33,16 @@ const HeaderIconBox = ({ pathname }: Location) => {
 
     "/member/findIdPw": "아이디 찾기 본인인증",
     "/member/findPw": "비밀번호 찾기 본인인증",
-    "/member/join": "회원가입",
     "/member/findIdResult": "아이디 찾기",
+
+    "/member/join": "회원가입",
+    "/member/join/cert": "회원가입 본인인증",
+    "/member/join/agree": "회원가입 약관동의",
+    "/member/join/form": "회원가입 정보입력",
+    "/member/join/success": "회원가입 완료",
+
   };
+  {/* 회원가입 경로에서 보이는 것 수정 필요 */}
 
   // 컴포넌트 모음
   const NavIconComp: { [key: string]: () => ReactElement } = {

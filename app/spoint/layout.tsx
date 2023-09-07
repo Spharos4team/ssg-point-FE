@@ -50,6 +50,7 @@ export default function SpointLayout({
       ),
       subTitle:
           "일상의 쇼핑부터 내 취향에 어울리는 맞춤 쇼핑까지<br />다양한 신세계포인트 가맹점을 만나보세요.",
+        className: "mt-[128px]",
     },
     {
       _href: "/spoint/pointcard",
@@ -111,6 +112,7 @@ export default function SpointLayout({
     <div className="mt-12">
       <TabBarTopCont pages={PagesSpoint} lineType="primary" activeColor="brown" />
       <ContentHeader
+          className={currPage?.className}
           main={currPage?.title}
           sub={currPage?.subTitle as string}
       />

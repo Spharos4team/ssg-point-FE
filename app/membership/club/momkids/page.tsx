@@ -27,9 +27,10 @@ export default function momkids() {
               <Button
                     className="mt-10 h-12"
                     backgroundColor={'primary'}
-                    onClick={''}
               >
-                  가입하기
+                  <Link href={'/membership/club/momkids/detail'}>
+                      가입하기
+                  </Link>
               </Button>
           </div>
       </div>

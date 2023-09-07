@@ -45,4 +45,5 @@ export interface PageProp {
   image?: ImageProp;
   fontSize?: "xs" | "sm" | "base" | "lg" | "xl";
   fontHidden?: boolean;
+  className?: string;
 }

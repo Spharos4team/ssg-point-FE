@@ -207,6 +207,23 @@ const UserCert = () => {
             >
               인증번호 요청
             </Button>
+            <div
+                className="pt-6 pb-0 box-border"
+            >
+              <p className="pb-2 text-[13px] leading-[21px] w-full block">
+                인증번호
+              </p>
+              <div className="flex">
+                <InputText
+                    className="rounded-lg w-full"
+                    id={"number"} inputType={"phone"} title={"certnumber"} placeholder={'인증번호 입력'}/>
+                <Button
+                    type={'link'}
+                    href={'/member/join/agree'}
+                    backgroundColor={'white'}
+                    className={'h-12 text-sm font-normal ml-[5px] block !w-auto break-keep p-3'}>확인</Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
