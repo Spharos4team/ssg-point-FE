@@ -1,8 +1,8 @@
-"use client";
-import { useRouter } from "next/navigation";
-import Button from "../atoms/Button/Button";
-import { InputText } from "../atoms/InputText";
-import { useFormContext } from "../hooks/FormProvider";
+'use client';
+import { useRouter } from 'next/navigation';
+import Button from '../atoms/Button/Button';
+import { InputText } from '../atoms/InputText';
+import { useFormContext } from '../hooks/FormProvider';
 
 const SubmitForLeave = () => {
   const { valueList } = useFormContext();
@@ -10,11 +10,11 @@ const SubmitForLeave = () => {
 
   const handleSubmit = () => {
     console.log(valueList);
-    if (!valueList["password"]) {
-      alert("비밀번호를 입력해 주세요.");
+    if (!valueList['password']) {
+      alert('비밀번호를 입력해 주세요.');
     } else {
       // get 요청
-      router.push("/withdrawal/leaveUsingService");
+      router.push('/withdrawal/leaveUsingService');
     }
   };
   return (
@@ -31,12 +31,7 @@ const SubmitForLeave = () => {
         />
       </div>
 
-      <Button
-        type="context"
-        className="h-12"
-        backgroundColor="primary"
-        onClick={handleSubmit}
-      >
+      <Button type="context" className="h-12" backgroundColor="primary" onClick={handleSubmit}>
         확인
       </Button>
     </div>

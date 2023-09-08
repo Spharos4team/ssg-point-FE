@@ -1,7 +1,7 @@
-"use client";
-import { useContext, useEffect, useState } from "react";
-import { useFormContext } from "../hooks/FormProvider";
-import { useValueContext } from "../hooks/ValueProvider";
+'use client';
+import { useContext, useEffect, useState } from 'react';
+import { useFormContext } from '../hooks/FormProvider';
+import { useValueContext } from '../hooks/ValueProvider';
 
 const InputTextContext = ({
   className,
@@ -13,7 +13,7 @@ const InputTextContext = ({
 }: {
   className?: string;
   id: string;
-  inputType: "email" | "text" | "password" | "phone" | "birth" | "card";
+  inputType: 'email' | 'text' | 'password' | 'phone' | 'birth' | 'card';
   title: string;
   placeholder: string;
   disabled?: boolean;
@@ -22,8 +22,8 @@ const InputTextContext = ({
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    if (id.toLowerCase().includes("email")) {
-      const storedLoginId = localStorage.getItem("email");
+    if (id.toLowerCase().includes('email')) {
+      const storedLoginId = localStorage.getItem('email');
       if (storedLoginId) {
         handleValueList(id, storedLoginId);
       }
@@ -38,19 +38,19 @@ const InputTextContext = ({
 
   const handleThisValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    const onlyNumber = value.replace(/[^0-9]/g, "");
-    if (inputType === "phone") {
+    const onlyNumber = value.replace(/[^0-9]/g, '');
+    if (inputType === 'phone') {
       handleValueList(id, onlyNumber.slice(0, 11));
-    } else if (inputType === "birth") {
+    } else if (inputType === 'birth') {
       handleValueList(id, onlyNumber.slice(0, 8));
-    } else if (inputType === "card") {
+    } else if (inputType === 'card') {
       handleValueList(id, onlyNumber.slice(0, 4));
     } else {
       handleValueList(id, value);
     }
   };
 
-  const focusColor = "focus-visible:shadow-[0_0_0_2px_#1101ff]";
+  const focusColor = 'focus-visible:shadow-[0_0_0_2px_#1101ff]';
   return (
     <div
       data-state
@@ -64,14 +64,14 @@ const InputTextContext = ({
           {!valueList[id] && (
             <>
               {placeholder}
-              {inputType == "password" && (
+              {inputType == 'password' && (
                 <em className="inline-block text-xs text-[#bcbcbc]">
                   (영문, 숫자, 특수문자 8-20자)
                 </em>
               )}
             </>
           )}
-          {inputType == "password" && (
+          {inputType == 'password' && (
             <input
               className={`absolute block w-[19px] h-[14px] translate-y-[-50%] right-[22px] top-1/2 z-[99] appearance-none ${
                 showPassword
@@ -82,7 +82,6 @@ const InputTextContext = ({
               checked={showPassword}
               onClick={() => setShowPassword(!showPassword)}
               tabIndex={-1}
-
             />
           )}
         </span>
@@ -92,11 +91,11 @@ const InputTextContext = ({
         id={id}
         type={
           showPassword
-            ? "text"
-            : inputType === "phone"
-            ? "text"
-            : inputType === "card"
-            ? "text"
+            ? 'text'
+            : inputType === 'phone'
+            ? 'text'
+            : inputType === 'card'
+            ? 'text'
             : inputType
         }
         title={title}

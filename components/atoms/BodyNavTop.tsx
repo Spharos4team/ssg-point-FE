@@ -1,17 +1,17 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks: Array<{ key: number; _href: string; name: string }> = [
   {
     key: 1,
-    _href: "/couponPage",
-    name: "쿠폰",
+    _href: '/couponPage',
+    name: '쿠폰',
   },
   {
     key: 2,
-    _href: "/",
-    name: "홈",
+    _href: '/',
+    name: '홈',
   },
 ];
 
@@ -31,7 +31,7 @@ export default function BodyNavTop() {
           <li className="align-baseline" key={key}>
             <Link
               className={`relative pt-1 text-[16px] leading-[26px] ${
-                _href == pathname ? active : ""
+                _href == pathname ? active : ''
               }`}
               href={_href}
             >

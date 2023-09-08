@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const DropdownModal = ({
   id,
@@ -15,7 +15,7 @@ const DropdownModal = ({
   disabled: boolean;
   onClick?: () => {};
 }) => {
-  const [thisValue, setThisValue] = useState("");
+  const [thisValue, setThisValue] = useState('');
   const handleThisValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setThisValue(e.target.value);
   };
@@ -25,7 +25,7 @@ const DropdownModal = ({
         <select
           className={select}
           id={id}
-          name={"main_" + mainTitle}
+          name={'main_' + mainTitle}
           value={thisValue}
           onClick={onClick}
           disabled={disabled}

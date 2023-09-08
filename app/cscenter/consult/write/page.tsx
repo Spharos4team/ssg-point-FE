@@ -1,11 +1,11 @@
-"use client";
-import RoundedButton from "@/components/atoms/Button/RoundedButton";
-import Dropdown from "@/components/atoms/Dropdown";
-import { InputText } from "@/components/atoms/InputText";
-import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
+'use client';
+import RoundedButton from '@/components/atoms/Button/RoundedButton';
+import Dropdown from '@/components/atoms/Dropdown';
+import { InputText } from '@/components/atoms/InputText';
+import ListForNoticeBox from '@/components/atoms/ListForNoticeBox';
 
-import Category from "@/datas/category.data.json";
-import { useState } from "react";
+import Category from '@/datas/category.data.json';
+import { useState } from 'react';
 
 export default function WritePage({}) {
   const [textCount, setTextCount] = useState(0);
@@ -27,10 +27,7 @@ export default function WritePage({}) {
         <div className="pb-4 box-border">
           <p className="pb-2 text-[13px] leading-[21px]">
             연락처
-            <span className="text-[#666] font-bold">
-              {" "}
-              (필수 기재 사항이 아닙니다.)
-            </span>
+            <span className="text-[#666] font-bold"> (필수 기재 사항이 아닙니다.)</span>
           </p>
           <InputText
             className="rounded-lg"
@@ -80,11 +77,11 @@ export default function WritePage({}) {
             className="absolute table left-[-26px] top-12 box-border w-full h-12 px-12 text-sm text-[#767676]"
           >
             <span className="table-cell align-middle text-left text-sm leading-6 break-keep">
-              {" "}
+              {' '}
               문의하실 내용을 입력해 주세요.
               <br /> 최대 10,000자까지 입력가능합니다.
               <br /> ※ 기재 시 주민등록번호 등 개인정보가
-              <br /> 포함되지 않도록 유의하시기 바랍니다.{" "}
+              <br /> 포함되지 않도록 유의하시기 바랍니다.{' '}
             </span>
           </label>
           <span className="absolute right-4 bottom-6 text-xs text-[#666]">

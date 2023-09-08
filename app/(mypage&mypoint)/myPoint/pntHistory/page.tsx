@@ -1,12 +1,10 @@
-import Dropdown from "@/components/atoms/Dropdown";
-import ListForHistory, {
-  PointListType,
-} from "@/components/atoms/ListForHistory";
-import PointBox from "@/components/modules/PointBox";
-import RadioCard2 from "@/components/atoms/RadioCard2";
-import HistoryList from "@/components/modules/HistoryList";
-import RadioCardGroup2 from "@/components/modules/RadioCardGroup2";
-import { RadioProvider } from "@/components/hooks/RadioProvider";
+import Dropdown from '@/components/atoms/Dropdown';
+import ListForHistory, { PointListType } from '@/components/atoms/ListForHistory';
+import PointBox from '@/components/modules/PointBox';
+import RadioCard2 from '@/components/atoms/RadioCard2';
+import HistoryList from '@/components/modules/HistoryList';
+import RadioCardGroup2 from '@/components/modules/RadioCardGroup2';
+import { RadioProvider } from '@/components/hooks/RadioProvider';
 
 export default function pntHistory() {
   const searchReceiptIcon =
@@ -15,48 +13,48 @@ export default function pntHistory() {
     "after:relative after:inline-block after:content-[''] after:w-[6px] after:h-[10px] after:ml-[5px] after:bg-[url('/images/icon_back.png')] after:rotate-180 after:bg-[100%_auto]";
 
   const historySortList = {
-    valueName: "sortHistory",
+    valueName: 'sortHistory',
     innerHtml: {
-      1: "전체",
-      2: "적립/사용",
-      3: "선물",
-      4: "전환",
+      1: '전체',
+      2: '적립/사용',
+      3: '선물',
+      4: '전환',
     } as { [key: number]: string },
   };
 
   const dropdownForHistory = {
-    dropdownTitle: "pntHistory",
-    dropdownOptions: ["1주일", "1개월", "3개월", "6개월", "직접입력"],
+    dropdownTitle: 'pntHistory',
+    dropdownOptions: ['1주일', '1개월', '3개월', '6개월', '직접입력'],
     dropdownInitial: 2,
   };
 
   const pointExample: PointListType[] = [
     {
-      historyTag: "이벤트적립",
+      historyTag: '이벤트적립',
       pntValue: 1,
       pntInfo: {
-        title: "신세계포인트닷컴",
-        sub: "[APP] 럭키룰렛 포인트 지급",
+        title: '신세계포인트닷컴',
+        sub: '[APP] 럭키룰렛 포인트 지급',
       },
-      pntDate: "2023-08-14",
+      pntDate: '2023-08-14',
     },
     {
-      historyTag: "이벤트적립",
+      historyTag: '이벤트적립',
       pntValue: 1,
       pntInfo: {
-        title: "신세계포인트닷컴",
-        sub: "[APP] 출석체크 포인트 지급",
+        title: '신세계포인트닷컴',
+        sub: '[APP] 출석체크 포인트 지급',
       },
-      pntDate: "2023-08-08",
+      pntDate: '2023-08-08',
     },
     {
-      historyTag: "선물적립",
+      historyTag: '선물적립',
       pntValue: 10,
       pntInfo: {
-        title: "권*(ID:ks*******)",
-        sub: "받은 선물: 수락",
+        title: '권*(ID:ks*******)',
+        sub: '받은 선물: 수락',
       },
-      pntDate: "2023-08-02",
+      pntDate: '2023-08-02',
     },
   ];
 
@@ -82,7 +80,7 @@ export default function pntHistory() {
       <div className="px-5 pt-[25px] pb-[60px]">
         <RadioProvider>
           <RadioCardGroup2
-            title={"test"}
+            title={'test'}
             radioType="tabList"
             theme="BlackActiveBottomLine"
             defaultValue="전체"

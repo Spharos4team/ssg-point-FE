@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const RoundCard = ({
   className,
@@ -28,10 +28,7 @@ const RoundCard = ({
         {subtitle}
       </p>
       {link && linkName && (
-        <Link
-          className={`inline-flex items-center text-sm mt-4 ${arrow}`}
-          href={link as string}
-        >
+        <Link className={`inline-flex items-center text-sm mt-4 ${arrow}`} href={link as string}>
           {linkName}
         </Link>
       )}

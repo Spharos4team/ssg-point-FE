@@ -1,8 +1,8 @@
-"use client";
-import { createContext, useContext, useEffect, useState } from "react";
+'use client';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const RadioContext = createContext({
-  selectedValue: "",
+  selectedValue: '',
   handleRadio: (value: string) => {},
 });
 
@@ -13,18 +13,14 @@ export const RadioProvider = ({
   defaultValue?: string;
   children: React.ReactNode;
 }) => {
-  const [selectedValue, setSelectedValue] = useState<string>(
-    defaultValue as string
-  );
+  const [selectedValue, setSelectedValue] = useState<string>(defaultValue as string);
 
   const handleRadio = (value: string) => {
     setSelectedValue(value);
   };
 
   return (
-    <RadioContext.Provider value={{ selectedValue, handleRadio }}>
-      {children}
-    </RadioContext.Provider>
+    <RadioContext.Provider value={{ selectedValue, handleRadio }}>{children}</RadioContext.Provider>
   );
 };
 

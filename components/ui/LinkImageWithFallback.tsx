@@ -1,8 +1,8 @@
-"use client";
-import { ImageLinkProp } from "@/types/LinkProps";
-import Image from "next/image";
-import Link from "next/link";
-import React, { Suspense, useState } from "react";
+'use client';
+import { ImageLinkProp } from '@/types/LinkProps';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { Suspense, useState } from 'react';
 
 /**
  * @version 0.1
@@ -21,12 +21,10 @@ const LinkImageWithFallback = ({
   const [errFallback, setErrFallback] = useState(true); //인자로 받은 src
 
   const ImageFallback = () => {
-    const width = image.size?.w ? `w-[${image.size.w}px]` : "w-full";
-    const height = image.size?.h ? `h-[${image.size.h}px]` : "h-full";
+    const width = image.size?.w ? `w-[${image.size.w}px]` : 'w-full';
+    const height = image.size?.h ? `h-[${image.size.h}px]` : 'h-full';
     return (
-      <div
-        className={`relative ${width} ${height} p-10 rounded-2xl bg-gray-300 dark:bg-gray-700`}
-      >
+      <div className={`relative ${width} ${height} p-10 rounded-2xl bg-gray-300 dark:bg-gray-700`}>
         <svg
           className="w-full h-full text-gray-200 dark:text-gray-600 mx-auto"
           aria-hidden="true"
@@ -49,17 +47,17 @@ const LinkImageWithFallback = ({
       <Link
         // 완성된 클래스명을 위해 복잡해졌는데... 개선하든 말든
         className={`block w-full text-center ${
-          fontSize == "xs"
-            ? "text-xs"
-            : fontSize == "sm"
-            ? "text-sm"
+          fontSize == 'xs'
+            ? 'text-xs'
+            : fontSize == 'sm'
+            ? 'text-sm'
             : fontSize
-            ? "base"
-              ? "text-base"
-              : fontSize == "lg"
-              ? "text-lg"
-              : fontSize == "xl"
-            : "text-xl"
+            ? 'base'
+              ? 'text-base'
+              : fontSize == 'lg'
+              ? 'text-lg'
+              : fontSize == 'xl'
+            : 'text-xl'
         }`}
         href={_href}
       >

@@ -1,5 +1,5 @@
-"use client";
-import { createContext, useContext, useRef, useState } from "react";
+'use client';
+import { createContext, useContext, useRef, useState } from 'react';
 
 const ValueContext = createContext({
   value: false,
@@ -10,9 +10,7 @@ const ValueContext = createContext({
 
 export const ValueProvider = ({ children }: { children: React.ReactNode }) => {
   const [value, setValue] = useState<boolean>(false);
-  const [valueList, setValueList] = useState<Record<string, boolean | string>>(
-    {}
-  );
+  const [valueList, setValueList] = useState<Record<string, boolean | string>>({});
 
   const handleValue = (value: boolean) => {
     setValue(value);
@@ -22,9 +20,7 @@ export const ValueProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <ValueContext.Provider
-      value={{ value, handleValue, valueList, handleValueList }}
-    >
+    <ValueContext.Provider value={{ value, handleValue, valueList, handleValueList }}>
       {children}
       {/* {selectedValue} */}
     </ValueContext.Provider>

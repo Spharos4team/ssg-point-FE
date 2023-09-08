@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useFormContext } from "../hooks/FormProvider";
+import { useState } from 'react';
+import { useFormContext } from '../hooks/FormProvider';
 
 const DropdwonContext = ({
   id,
@@ -28,7 +28,7 @@ const DropdwonContext = ({
           <select
             className={select}
             id={id}
-            name={"main_" + mainTitle}
+            name={'main_' + mainTitle}
             value={valueList[id] as string}
             onChange={handleThisValue}
             disabled={disabled}

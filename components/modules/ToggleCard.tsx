@@ -1,5 +1,5 @@
-import ContentStrong from "../atoms/ContentStrong";
-import ToggleBasic from "../atoms/ToggleButtonBasic";
+import ContentStrong from '../atoms/ContentStrong';
+import ToggleBasic from '../atoms/ToggleButtonBasic';
 
 const ToggleCard = ({
   className,
@@ -16,9 +16,7 @@ const ToggleCard = ({
 }) => {
   return (
     <>
-      <div
-        className={`flex flex-nowrap justify-between box-border py-4 px-5 ${className}`}
-      >
+      <div className={`flex flex-nowrap justify-between box-border py-4 px-5 ${className}`}>
         <div className="flex justify-center flex-col">
           <p
             className="text-black text-sm leading-6 break-keep whitespace-pre-wrap"

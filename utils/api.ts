@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { API_URL, LS_KEY_TOKEN } from "./commons";
+import { NextResponse } from 'next/server';
+import { API_URL, LS_KEY_TOKEN } from './commons';
 
 export const userApi = {
   postRegister: async ({
@@ -21,23 +21,19 @@ export const userApi = {
     };
   }) => {
     const res = await fetch(`${API_URL}/register`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(regObj),
     });
     return NextResponse.json({ responseDate: Date.now() });
   },
-  postLogin: async ({
-    regObj,
-  }: {
-    regObj: { email: string; password: string };
-  }) => {
+  postLogin: async ({ regObj }: { regObj: { email: string; password: string } }) => {
     const res = await fetch(`${API_URL}/login`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(regObj),
     });
@@ -46,7 +42,7 @@ export const userApi = {
     const TOKEN = localStorage.getItem(LS_KEY_TOKEN);
     const res = await fetch(`${API_URL}/users/${userId}}`, {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${TOKEN}`,
       },
     });

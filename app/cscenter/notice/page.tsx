@@ -1,11 +1,11 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function NoticePage({}) {
   const 콘텐츠 = {
-    "이마트 24": [
+    '이마트 24': [
       {
-        subDiv: "",
-        title: "8월 쿠폰 미적용점",
+        subDiv: '',
+        title: '8월 쿠폰 미적용점',
         content: `<div class="service_center_detail02"><div class="sc_cont"><table style="border-collapse: collapse; width: 100%; height: 2784px; background-color: #ffffff; border-color: #000000; border-style: solid; margin-left: auto; margin-right: auto;" border="2" width="100%" cellspacing="0" cellpadding="0"><colgroup><col style="mso-width-source: userset; mso-width-alt: 1152; width: 27pt;" width="36"> <col style="mso-width-source: userset; mso-width-alt: 9152; width: 215pt;" width="286"> <col style="mso-width-source: userset; mso-width-alt: 1152; width: 27pt;" width="36"> <col style="mso-width-source: userset; mso-width-alt: 7424; width: 174pt;" width="232"> </colgroup>
           <tbody>
           <tr style="height: 16px;">
@@ -1058,40 +1058,38 @@ export default function NoticePage({}) {
           table {border:1px solid #000}
           th, td {border: 1px solid #000}
           </style></div></div>`,
-        regDate: "2023-07-31",
+        regDate: '2023-07-31',
       },
     ],
     공지: [
       {
-        subDiv: "",
-        title: "시스템 업그레이드 작업 공지(08/03)",
+        subDiv: '',
+        title: '시스템 업그레이드 작업 공지(08/03)',
         content: `<div class="sc_cont"><p><img src="https://mycloudmembership-prd.s3.ap-northeast-2.amazonaws.com/shinsegaepoint/public/svcm-fo/editor/images/20230713/bb17a332-4470-4f56-ba53-18d73dea465c.jpg" alt="안정적인 서비스 제공을 위해 시스템 개선 작업을 진행합니다. 작업시간동안 사이트 이용이 원활하지 않을 수 있으니 이용에 참고해주시기 바랍니다. 2023-05-25(목) 오전 2시 ~ 오전 5시 (3시간). 이용제한 서비스 : 신세계포인트 조회/적립/사용 등 서비스 불가, 로그인 회원가입, 수정, 탈퇴 등 신세계포인트 통합ID서비스 접속 불가, 사이먼, 시코르, 에브리데이, 쓱고우, 면세점, 까사미아 굳닷컴, 스타필드 등 로그인 불가, 신세계 유니버스 회원 사전가입(G마켓) 및 클럽 가입 불가, 포인트 전환 불가, 제휴카드사 실시간 회원가입 불가" width="1000" height="1700"></p></div>`,
-        regDate: "2023-05-11",
+        regDate: '2023-05-11',
       },
       {
-        subDiv: "",
-        title: "법인회원 포인트 적립 서비스 종료 안내(10/16)",
+        subDiv: '',
+        title: '법인회원 포인트 적립 서비스 종료 안내(10/16)',
         content: `<div class="sc_cont"><p><img src="https://mycloudmembership-prd.s3.ap-northeast-2.amazonaws.com/shinsegaepoint/public/svcm-fo/editor/images/20230703/cdd7b23e-2e18-4266-91c7-4a0e6c09e3fb.jpg" alt=""></p></div>`,
-        regDate: "2023-07-15",
+        regDate: '2023-07-15',
       },
       {
-        subDiv: "",
-        title: "CJ ONE 포인트 제휴 종료 안내",
+        subDiv: '',
+        title: 'CJ ONE 포인트 제휴 종료 안내',
         content: `<div class="sc_cont"><p><img src="https://mycloudmembership-prd.s3.ap-northeast-2.amazonaws.com/shinsegaepoint/public/svcm-fo/editor/images/20230621/aee5fa7f-603e-480e-a5c3-2565240d5afd.jpg" alt="이마트에서 씨제이 원 포인트와 동시 적립 서비스 종료 안내   항상 신세계포인트를 사랑해주시는 고객님께 깊은 감사 드립니다.   이마트와 씨제이 원 포인트 적립 사용 제휴 서비스가 종료됨에 따라 신세계포인트에서 제공하던 관련 편의 서비스가 종료됩니다.    종료일자 2023년 7월 1일 토요일 부터     앞으로도 고객님의 즐겁고 편안한 쇼핑을 위하여 더욱 노력하는 신세계포인트가 되겠습니다. 감사합니다." width="1000" height="920"></p></div>`,
-        regDate: "2023-06-22",
+        regDate: '2023-06-22',
       },
     ],
   };
   return (
     <div>
       <ul>
-        {콘텐츠["공지"].map((i, index) => (
+        {콘텐츠['공지'].map((i, index) => (
           <li key={index} className="px-5 py-4 border-b text-[14px]">
-            <Link href={""}>
+            <Link href={''}>
               {i.title}
-              <p className="text-[11px] leading-[19px] text-[#767676] pt-1">
-                {i.regDate}
-              </p>
+              <p className="text-[11px] leading-[19px] text-[#767676] pt-1">{i.regDate}</p>
             </Link>
           </li>
         ))}

@@ -1,6 +1,6 @@
-import Button from "@/components/atoms/Button/Button";
-import ContentHeader from "@/components/atoms/ContentHeader";
-import RoundCard from "@/components/modules/RoundCard";
+import Button from '@/components/atoms/Button/Button';
+import ContentHeader from '@/components/atoms/ContentHeader';
+import RoundCard from '@/components/modules/RoundCard';
 
 export default function FindIdResultPage() {
   return (
@@ -29,11 +29,7 @@ export default function FindIdResultPage() {
 
       <RoundCard
         className="mx-5 mb-20 rounded-[8px]"
-        title={
-          <strong className="text-black text-[14px]">
-            비밀번호가 생각나지 않으세요?
-          </strong>
-        }
+        title={<strong className="text-black text-[14px]">비밀번호가 생각나지 않으세요?</strong>}
         subtitle="본인인증 후 비밀번호를 변경하실 수 있습니다."
         link="/member/findPw"
         linkName="비밀번호 찾기"

@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
-import { useEffect, ReactNode, HTMLAttributes } from "react";
+import { useRouter } from 'next/router';
+import { useEffect, ReactNode, HTMLAttributes } from 'react';
 
 type CustomLinkProps = {
   children: ReactNode;

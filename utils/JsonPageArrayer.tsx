@@ -1,4 +1,4 @@
-import { PageProps } from "@/types/PageProps";
+import { PageProps } from '@/types/PageProps';
 
 const parentChildMap: Record<string | number, PageProps[]> = {};
 export default function JsonPageArrayer(jsonObject: any[]) {

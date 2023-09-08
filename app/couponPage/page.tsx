@@ -1,16 +1,14 @@
-import BodyNavTop from "@/components/atoms/BodyNavTop";
-import Link from "next/link";
-import RoundedButton from "@/components/atoms/Button/RoundedButton";
-import Image from "next/image";
+import BodyNavTop from '@/components/atoms/BodyNavTop';
+import Link from 'next/link';
+import RoundedButton from '@/components/atoms/Button/RoundedButton';
+import Image from 'next/image';
 
 //TODO: 쿠폰 리스트 표시
 export default function couponPage() {
   return (
     <>
       <BodyNavTop />
-      <h3 className="hidden inline-block absolute z-[-1] w-[1px] h-[1px]">
-        쿠폰
-      </h3>
+      <h3 className="hidden inline-block absolute z-[-1] w-[1px] h-[1px]">쿠폰</h3>
       <div className="coupon_intro_box mt-9">
         <div className="coupon_top pt-[7%] bg-[url('/images/coupon_top.png')] bg-no-repeat bg-[100%_auto] border-b-2 border-solid border-[#ffffff]">
           <div
@@ -44,7 +42,7 @@ export default function couponPage() {
               <li className="my_coupon mr-[50px] pt-[8px] text-[13px] leading-[21px] w-[167px] text-center">
                 <Link
                   className="block box-border pt-[36px] h-[60px] bg-[url('/images/my_coupon.png')] bg-top bg-no-repeat bg-[48px_auto]"
-                  href={""}
+                  href={''}
                 >
                   마이쿠폰함으로 이동
                 </Link>
@@ -59,8 +57,7 @@ export default function couponPage() {
               <p className="sp_txt1 text-[16px] leading-[26px]">
                 신세계포인트 쿠폰 등록을 위해
                 <br />
-                <span className="text-[#c85208]">쿠폰 번호를 입력</span>해
-                주세요.
+                <span className="text-[#c85208]">쿠폰 번호를 입력</span>해 주세요.
               </p>
               <div className="input_box coupon_num mt-[16px] flex relative box-border w-full align-top">
                 <input
@@ -130,16 +127,16 @@ export default function couponPage() {
                   </span>
                   <Image
                     className="w-[80px] h-[80px] block rounded-[8px]"
-                    src={"/images/megabox_coupon.png"}
-                    alt={"[메가박스] 영화 1만원 관람 쿠폰"}
+                    src={'/images/megabox_coupon.png'}
+                    alt={'[메가박스] 영화 1만원 관람 쿠폰'}
                     width={890}
                     height={569}
                   />
                 </div>
                 <Image
                   className="brand_img w-[79px] h-[40px] block"
-                  src={"/images/megabox_logo.png"}
-                  alt={"메가박스"}
+                  src={'/images/megabox_logo.png'}
+                  alt={'메가박스'}
                   width={158}
                   height={80}
                 />
@@ -157,9 +154,7 @@ export default function couponPage() {
                     className="cnt_remaining text-[#c85208] pl-[7px] break-keep
                             before:content-[''] before:clear-both before:inline-block before:w-0.25 before:h-2.5 before:bg-[#cbcbcb] before:mr-2 before:align-middle befoe:mb-0.25"
                   >
-                    <span className="wp inline-block whitespace-nowrap">
-                      9일 남음
-                    </span>
+                    <span className="wp inline-block whitespace-nowrap">9일 남음</span>
                   </span>
                 </p>
                 <div className="franchisee barcode flex justify-between items-center w-full border-t-[1px] border-solid border-[#e8e8e8] relative pt-3 pb-4 box-border">
@@ -167,8 +162,8 @@ export default function couponPage() {
                     <div className="point_img pt-1">
                       <Image
                         className="mr-[5px] w-[20px] h-[20px]"
-                        src={"/images/megabox_logo2.png"}
-                        alt={"메가박스"}
+                        src={'/images/megabox_logo2.png'}
+                        alt={'메가박스'}
                         width={40}
                         height={40}
                       />

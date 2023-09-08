@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FormProvider } from "@/components/hooks/FormProvider";
-import LoginForm from "@/components/organisms/LoginForm";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FormProvider } from '@/components/hooks/FormProvider';
+import LoginForm from '@/components/organisms/LoginForm';
 
 //TODO: 자동 로그인, 아이디 저장 기능 구현: 쿠키 활용할 것
 export default function Login() {
@@ -11,11 +11,7 @@ export default function Login() {
     <>
       <div className="login_box p-[40px]">
         <div className="relative mx-auto mb-[40px] w-[89px] h-[56px]">
-          <Image
-            src="/images/logo.0b330974.gif"
-            alt="SHINSEGAE POINT"
-            fill={true}
-          />
+          <Image src="/images/logo.0b330974.gif" alt="SHINSEGAE POINT" fill={true} />
         </div>
 
         {/* --- Start Form --- */}
@@ -25,19 +21,13 @@ export default function Login() {
         {/* --- End Form --- */}
 
         <ul className="text-center text-sm">
-          <Link
-            className={`inline-block ${list_between}`}
-            href={"/member/findIdPw"}
-          >
+          <Link className={`inline-block ${list_between}`} href={'/member/findIdPw'}>
             아이디 찾기
           </Link>
-          <Link
-            className={`inline-block ${list_between}`}
-            href={"/member/findPw"}
-          >
+          <Link className={`inline-block ${list_between}`} href={'/member/findPw'}>
             비밀번호 찾기
           </Link>
-          <Link className="inline-block" href={"/member/join"}>
+          <Link className="inline-block" href={'/member/join'}>
             회원가입
           </Link>
         </ul>
@@ -50,19 +40,19 @@ export default function Login() {
           <li className="inline-block">
             <Link
               className="relative block w-12 h-12 bg-[url('/images/ico_sns.6ebacaac.png')] bg-no-repeat bg-[98%_auto] bg-[left_0px_top_-56px]"
-              href={"https://www.naver.com"}
+              href={'https://www.naver.com'}
             />
           </li>
           <li className="inline-block">
             <Link
               className="relative block w-12 h-12 bg-[url('/images/ico_sns.6ebacaac.png')] bg-no-repeat bg-[98%_auto] bg-[left_0px_top_-113px]"
-              href={"https://www.naver.com"}
+              href={'https://www.naver.com'}
             />
           </li>
           <li className="inline-block">
             <Link
               className="relative block w-12 h-12 bg-[url('/images/ico_sns.6ebacaac.png')] bg-no-repeat bg-[98%_auto] bg-[left_0px_top_-169px]"
-              href={"https://www.naver.com"}
+              href={'https://www.naver.com'}
             />
           </li>
         </ul>

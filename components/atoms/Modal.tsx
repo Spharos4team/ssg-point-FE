@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 
 const Modal = ({
   title,
@@ -16,9 +16,9 @@ const Modal = ({
 }) => {
   useEffect(() => {
     if (modal) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else if (!modal) {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [modal]);
 
@@ -26,15 +26,15 @@ const Modal = ({
     <div>
       <div
         className={`fixed flex left-0 top-0 w-full h-full min-w-[315px] z-[200] ${
-          modal ? "" : "hidden"
-        } ${center ? "items-center justify-center" : ""}`}
+          modal ? '' : 'hidden'
+        } ${center ? 'items-center justify-center' : ''}`}
       >
         {/* Layer */}
         <div
           className={`flex relative flex-col z-[2] min-w-[315px] px-5 py-6 ${
             fill
-              ? "max-w-none max-h-none h-full w-[100vw] m-0 rounded-none"
-              : "max-w-[315px] w-[calc(100vw-40px)] m-[35px_auto] rounded-2xl"
+              ? 'max-w-none max-h-none h-full w-[100vw] m-0 rounded-none'
+              : 'max-w-[315px] w-[calc(100vw-40px)] m-[35px_auto] rounded-2xl'
           } min-h-[10px] bg-white overflow-hidden box-border`}
         >
           {title && (

@@ -1,17 +1,18 @@
-"use client";
-import Button from "@/components/atoms/Button/Button";
-import { Checkbox } from "@/components/atoms/Checkbox";
-import ContentHeader from "@/components/atoms/ContentHeader";
-import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
-import Modal from "@/components/atoms/Modal";
-import Underline from "@/components/atoms/Underline";
-import NoticeBox from "@/components/modules/NoticeBox";
-import Link from "next/link";
-import { useState } from "react";
+'use client';
+import Button from '@/components/atoms/Button/Button';
+import { Checkbox } from '@/components/atoms/Checkbox';
+import ContentHeader from '@/components/atoms/ContentHeader';
+import ListForNoticeBox from '@/components/atoms/ListForNoticeBox';
+import Modal from '@/components/atoms/Modal';
+import Underline from '@/components/atoms/Underline';
+import NoticeBox from '@/components/modules/NoticeBox';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function LeaveOnlinePage() {
   const [miniModal, setMiniModal] = useState(false);
   const [largeModal, setLargeModal] = useState(false);
+  const [nocheckModal, setNocheckModal] = useState(false);
   const handleLeave = () => {
     setMiniModal(false);
     setLargeModal(true);
@@ -26,9 +27,7 @@ export default function LeaveOnlinePage() {
               <br />
               탈퇴하시면 아래 가입하신 모든 사이트를
               <br />
-              <span className={`font-medium text-[#ea035c]`}>
-                더 이상 이용하실 수 없게{" "}
-              </span>
+              <span className={`font-medium text-[#ea035c]`}>더 이상 이용하실 수 없게 </span>
               됩니다.
             </strong>
           </>
@@ -42,11 +41,7 @@ export default function LeaveOnlinePage() {
         </h3>
         <div>
           <div>
-            <Checkbox
-              className="text-sm"
-              id="all"
-              name="신세계포인트 통합ID 서비스"
-            />
+            <Checkbox className="text-sm" id="all" name="신세계포인트 통합ID 서비스" />
           </div>
           <div>
             <ul>
@@ -59,7 +54,7 @@ export default function LeaveOnlinePage() {
                   <Link
                     className="absolute top-0 right-0 w-[60px] h-[22px] align-middle"
                     href={
-                      "https://member.shinsegaepoint.com/emart/emartApp/myinfo/withdrawalPassword"
+                      'https://member.shinsegaepoint.com/emart/emartApp/myinfo/withdrawalPassword'
                     }
                     target="_blank"
                   >
@@ -74,8 +69,7 @@ export default function LeaveOnlinePage() {
 
           <NoticeBox type="simple" className="!pb-0 !pt-2">
             <ListForNoticeBox level={2} isBullet>
-              일부 사이트만 탈퇴를 원하시는 경우 해당 사이트에서 개별적으로
-              탈퇴하실 수 있습니다.
+              일부 사이트만 탈퇴를 원하시는 경우 해당 사이트에서 개별적으로 탈퇴하실 수 있습니다.
             </ListForNoticeBox>
           </NoticeBox>
         </div>
@@ -84,34 +78,31 @@ export default function LeaveOnlinePage() {
       <div className="px-5">
         <NoticeBox type="info" title="유의사항">
           <ListForNoticeBox level={5}>
-            회원 탈퇴 시 현재 이용 중인 모든 신세계포인트 통합ID 서비스 및
-            사이트를 더 이상 이용하실 수 없어요!
+            회원 탈퇴 시 현재 이용 중인 모든 신세계포인트 통합ID 서비스 및 사이트를 더 이상 이용하실
+            수 없어요!
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            신세계포인트 정책에 따라 회원탈퇴 후 5일 동안 다시 가입할 수
-            없습니다.
+            신세계포인트 정책에 따라 회원탈퇴 후 5일 동안 다시 가입할 수 없습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 시 보유하고 계신 포인트, 쿠폰, 각종 적립금 등 모든 혜택은
-            자동 소멸되며 복구되지 않습니다.
+            회원 탈퇴 시 보유하고 계신 포인트, 쿠폰, 각종 적립금 등 모든 혜택은 자동 소멸되며
+            복구되지 않습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            트레이더스 유료 멤버십(TRADERS CLUB) 회원인 경우, 클럽(멤버십)을
-            먼저 탈회하신 뒤에 회원탈퇴가 가능합니다.
+            트레이더스 유료 멤버십(TRADERS CLUB) 회원인 경우, 클럽(멤버십)을 먼저 탈회하신 뒤에
+            회원탈퇴가 가능합니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 후 다시 가입하시는 경우 신규 회원으로 가입되며, 이전의
-            회원정보 및 혜택은 복원되지 않습니다.
+            회원 탈퇴 후 다시 가입하시는 경우 신규 회원으로 가입되며, 이전의 회원정보 및 혜택은
+            복원되지 않습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 전 예약 발송된 광고 메시지가 있는 경우 약 1-2일 동안
-            발송될 수 있습니다.
+            회원 탈퇴 전 예약 발송된 광고 메시지가 있는 경우 약 1-2일 동안 발송될 수 있습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 시 신세계포인트 온라인 통합ID 회원만 탈퇴되며, 오프라인
-            서비스는 계속 이용하실 수 있습니다. (단, 오프라인 카드 미보유 회원은
-            완전히 탈퇴되며, 신세계포인트의 모든 서비스를 더 이상 이용하실 수
-            없습니다.)
+            회원 탈퇴 시 신세계포인트 온라인 통합ID 회원만 탈퇴되며, 오프라인 서비스는 계속 이용하실
+            수 있습니다. (단, 오프라인 카드 미보유 회원은 완전히 탈퇴되며, 신세계포인트의 모든
+            서비스를 더 이상 이용하실 수 없습니다.)
           </ListForNoticeBox>
         </NoticeBox>
       </div>
@@ -123,11 +114,7 @@ export default function LeaveOnlinePage() {
           name="탈퇴 유의사항을 모두 확인하였으며,<br/>신세계포인트 온라인 통합ID 서비스 탈퇴에 동의합니다."
         />
         <div>
-          <Button
-            className="mt-10 h-12"
-            backgroundColor="white"
-            onClick={() => setMiniModal(true)}
-          >
+          <Button className="mt-10 h-12" backgroundColor="white" onClick={() => setMiniModal(true)}>
             온라인 통합ID 탈퇴하기
           </Button>
         </div>
@@ -143,27 +130,18 @@ export default function LeaveOnlinePage() {
           이용하실 수 없습니다.
         </p>
         <p className="text-sm leading-6 font-semibold text-center text-[#ea035c] pt-2 pb-6 tracking-[-.3px]">
-          ※신세계그룹의 각 사별 적립금/마일리지/포인트 등도 모두 함께
-          소멸됩니다.
+          ※신세계그룹의 각 사별 적립금/마일리지/포인트 등도 모두 함께 소멸됩니다.
         </p>
         <ListForNoticeBox level={2} isBullet>
-          멤버십 서비스 : TRADERS CLUB, 사이먼 VIP, 시코르, 쓱고우, 에브리데이,
-          면세점, 까사미아, 이마트앱, 백화점앱, 이마트 문화센터, 백화점아카데미,
-          스타필드 클래스콕 등
+          멤버십 서비스 : TRADERS CLUB, 사이먼 VIP, 시코르, 쓱고우, 에브리데이, 면세점, 까사미아,
+          이마트앱, 백화점앱, 이마트 문화센터, 백화점아카데미, 스타필드 클래스콕 등
         </ListForNoticeBox>
         <ListForNoticeBox level={2} isBullet>
           적립금/마일리지/포인트 : e머니, TR CASH, SSG머니, 썸머니 등
         </ListForNoticeBox>
         <div className="flex flex-col gap-2 justify-center">
-          <p className="text-sm font-semibold text-center pt-2 pb-6">
-            정말로 탈퇴하시겠습니까?
-          </p>
-          <Button
-            type="link"
-            className="!h-10"
-            backgroundColor="pink"
-            href="/cscenter/faq"
-          >
+          <p className="text-sm font-semibold text-center pt-2 pb-6">정말로 탈퇴하시겠습니까?</p>
+          <Button type="link" className="!h-10" backgroundColor="pink" href="/cscenter/faq">
             고객센터
           </Button>
           <div className="flex gap-2">
@@ -176,11 +154,7 @@ export default function LeaveOnlinePage() {
             >
               다시 생각해보기
             </Button>
-            <Button
-              className="h-10"
-              backgroundColor="black"
-              onClick={handleLeave}
-            >
+            <Button className="h-10" backgroundColor="black" onClick={handleLeave}>
               그래도 탈퇴하기
             </Button>
           </div>
@@ -193,44 +167,43 @@ export default function LeaveOnlinePage() {
         </p>
         <ul>
           <ListForNoticeBox level={5}>
-            회원 탈퇴 시 현재 이용 중인 모든 신세계포인트 통합ID 서비스 및
-            사이트를 더 이상 이용하실 수 없습니다.
+            회원 탈퇴 시 현재 이용 중인 모든 신세계포인트 통합ID 서비스 및 사이트를 더 이상 이용하실
+            수 없습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
             신세계포인트 정책에 따라 회원탈퇴 후 5일 동안 재가입이 불가합니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 시 보유하고 계신 포인트, 쿠폰, 각종 적립금 등 모든 혜택은
-            자동 소멸되며 복구 불가합니다.
+            회원 탈퇴 시 보유하고 계신 포인트, 쿠폰, 각종 적립금 등 모든 혜택은 자동 소멸되며 복구
+            불가합니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            트레이더스 유료 멤버십(TRADERS CLUB) 회원인 경우, 클럽(멤버십)을
-            먼저 탈회하신 뒤에 회원탈퇴가 가능합니다.
+            트레이더스 유료 멤버십(TRADERS CLUB) 회원인 경우, 클럽(멤버십)을 먼저 탈회하신 뒤에
+            회원탈퇴가 가능합니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 후 재가입 시 신규 회원으로 가입되며, 탈퇴 전의 회원정보 및
-            혜택은 복원되지 않습니다.
+            회원 탈퇴 후 재가입 시 신규 회원으로 가입되며, 탈퇴 전의 회원정보 및 혜택은 복원되지
+            않습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 전 예약 발송된 광고 메시지가 있는 경우 약 1-2일 동안
-            발송될 수 있습니다.
+            회원 탈퇴 전 예약 발송된 광고 메시지가 있는 경우 약 1-2일 동안 발송될 수 있습니다.
           </ListForNoticeBox>
           <ListForNoticeBox level={2} isBullet>
-            회원 탈퇴 시 신세계포인트 온라인 통합ID 회원 탈퇴가 되며,
-            신세계포인트 오프라인 서비스는 계속 이용 가능합니다. (단, 오프라인
-            카드 미보유 회원은 신세계포인트 회원 탈퇴되며, 신세계포인트의 모든
-            서비스를 더 이상 이용하실 수 없습니다.)
+            회원 탈퇴 시 신세계포인트 온라인 통합ID 회원 탈퇴가 되며, 신세계포인트 오프라인 서비스는
+            계속 이용 가능합니다. (단, 오프라인 카드 미보유 회원은 신세계포인트 회원 탈퇴되며,
+            신세계포인트의 모든 서비스를 더 이상 이용하실 수 없습니다.)
           </ListForNoticeBox>
         </ul>
         <div className="flex gap-x-2 py-10">
           <Button
-            className="h-12"
+            className="h-12 font-normal text-gray-500"
             backgroundColor="white"
             onClick={() => setLargeModal(false)}
           >
             취소하기
           </Button>
-          <Button className="h-12" backgroundColor="black">
+          {/*todo: soft delete fetch 추가 필요, 탈퇴시 홈으로 이동함*/}
+          <Button className="h-12" backgroundColor="black" type={'link'} href={'/'}>
             회원 탈퇴하기
           </Button>
         </div>
@@ -241,6 +214,15 @@ export default function LeaveOnlinePage() {
           닫기
         </button>
       </Modal>
+      {/* todo: nocheckModal -> 너비 285px 필요 모달 너비가 고정되어있음, check가 안 되어 있을 때 사용 */}
+      <div className="max-w-[285px]">
+        <Modal modal={nocheckModal} center>
+          <p className="text-sm leading-6 text-left pb-6 break-normal -tracking-[.3px]">
+            여기에서는 전체 사이트 탈퇴만 가능합니다. 탈퇴를 원하시는 경우 전체 사이트를 선택해
+            주세요.
+          </p>
+        </Modal>
+      </div>
     </>
   );
 }

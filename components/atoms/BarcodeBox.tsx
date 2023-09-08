@@ -1,13 +1,13 @@
-"use client";
-import Barcode from "@/utils/Barcode/Barcode";
-import Link from "next/link";
-import { useValueContext } from "../hooks/ValueProvider";
-import { useEffect } from "react";
+'use client';
+import Barcode from '@/utils/Barcode/Barcode';
+import Link from 'next/link';
+import { useValueContext } from '../hooks/ValueProvider';
+import { useEffect } from 'react';
 
 const BarcodeBox = () => {
   const { valueList, handleValueList } = useValueContext();
   useEffect(() => {
-    handleValueList("barcodeBox", false);
+    handleValueList('barcodeBox', false);
   }, []);
 
   const arrow =
@@ -15,7 +15,7 @@ const BarcodeBox = () => {
   return (
     <div
       className={`${
-        valueList["barcodeBox"] == true ? "bottom-[-200px]" : ""
+        valueList['barcodeBox'] == true ? 'bottom-[-200px]' : ''
       } fixed left-0 bottom-0 w-full rounded-t-2xl bg-gradient-primary drop-shadow-2xl transition-all z-[999]`}
     >
       <div className="pt-[13px] pb-[16px]">
@@ -32,13 +32,13 @@ const BarcodeBox = () => {
           <div className="flex justify-center gap-x-5 mt-3">
             <Link
               className={`relative text-xs font-medium pr-[11px] ${arrow}`}
-              href={"/myPoint/chgPntPwdCert"}
+              href={'/myPoint/chgPntPwdCert'}
             >
               포인트 비밀번호 변경
             </Link>
             <Link
               className={`relative text-xs font-medium pr-[11px] ${arrow}`}
-              href={"/myLounge/receipt"}
+              href={'/myLounge/receipt'}
             >
               스마트 영수증
             </Link>
@@ -47,11 +47,9 @@ const BarcodeBox = () => {
       </div>
       <button
         className="absolute top-[-15px] left-1/2 translate-x-[-50%] text-center w-10 h-10 mx-auto rounded-full bg-gradient-to-r from-[#f8ae04] to-[#faa503] before:absolute before:block before:top-[18px] before:left-1/2 before:translate-x-[-50%] before:w-[10px] before:h-2 before:bg-[url('/images/arrow_down.png')] before:bg-[100%_auto] before:bg-no-repeat"
-        onClick={() => handleValueList("barcodeBox", !valueList["barcodeBox"])}
+        onClick={() => handleValueList('barcodeBox', !valueList['barcodeBox'])}
       >
-        <span className="absolute inline-block w-[1px] h-[1px] overflow-hidden z-[-1px]">
-          접기
-        </span>
+        <span className="absolute inline-block w-[1px] h-[1px] overflow-hidden z-[-1px]">접기</span>
       </button>
     </div>
   );

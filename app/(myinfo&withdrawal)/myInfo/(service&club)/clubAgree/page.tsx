@@ -1,7 +1,7 @@
-import ClubContentBeauty from "@/components/organisms/ClubContentBeauty";
-import ClubContentBiz from "@/components/organisms/ClubContentBiz";
-import ClubContentCarSrv from "@/components/organisms/ClubContentCarSrv";
-import ClubContentMomKids from "@/components/organisms/ClubContentMomKids";
+import ClubContentBeauty from '@/components/organisms/ClubContentBeauty';
+import ClubContentBiz from '@/components/organisms/ClubContentBiz';
+import ClubContentCarSrv from '@/components/organisms/ClubContentCarSrv';
+import ClubContentMomKids from '@/components/organisms/ClubContentMomKids';
 
 export default function clubAgree() {
   return (

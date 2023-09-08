@@ -1,16 +1,16 @@
-"use client";
-import { useEffect } from "react";
-import Button from "../atoms/Button/Button";
-import { Checkbox } from "../atoms/Checkbox";
-import { InputText } from "../atoms/InputText";
-import { useFormContext } from "../hooks/FormProvider";
-import { useRouter } from "next/navigation";
+'use client';
+import { useEffect } from 'react';
+import Button from '../atoms/Button/Button';
+import { Checkbox } from '../atoms/Checkbox';
+import { InputText } from '../atoms/InputText';
+import { useFormContext } from '../hooks/FormProvider';
+import { useRouter } from 'next/navigation';
 
 const LoginForm = () => {
-  const KEY_ID = "email";
-  const KEY_PASSWORD = "password";
-  const KEY_STORE_ID = "storeId";
-  const KEY_TOKEN = "token";
+  const KEY_ID = 'email';
+  const KEY_PASSWORD = 'password';
+  const KEY_STORE_ID = 'storeId';
+  const KEY_TOKEN = 'token';
 
   const { valueList } = useFormContext();
   const router = useRouter();
@@ -21,9 +21,9 @@ const LoginForm = () => {
       password: valueList[KEY_PASSWORD],
     };
     try {
-      const res = await fetch("http://localhost:3030/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('http://localhost:3030/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(regObj),
       });
       const data = await res.json();
@@ -31,9 +31,9 @@ const LoginForm = () => {
       if (data) {
         console.log(data);
         saveInStorage();
-        localStorage.setItem("userId", data.user.id);
+        localStorage.setItem('userId', data.user.id);
         localStorage.setItem(KEY_TOKEN, data.accessToken);
-        router.push("/");
+        router.push('/');
       }
     } catch (error) {
       console.log(error);
@@ -43,10 +43,10 @@ const LoginForm = () => {
   const validate = () => {
     let result = true;
     if (!valueList[KEY_ID]) {
-      alert("로그인 아이디는 필수입니다.");
+      alert('로그인 아이디는 필수입니다.');
       result = false;
     } else if (!valueList[KEY_PASSWORD]) {
-      alert("로그인 비밀번호는 필수입니다.");
+      alert('로그인 비밀번호는 필수입니다.');
       result = false;
     }
     return result;
@@ -56,16 +56,16 @@ const LoginForm = () => {
     if (valueList[KEY_STORE_ID]) {
       // true 시 저장
       localStorage.setItem(KEY_ID, valueList[KEY_ID] as string);
-      localStorage.setItem(KEY_STORE_ID, "true");
+      localStorage.setItem(KEY_STORE_ID, 'true');
     } else if (!valueList[KEY_STORE_ID]) {
       // false 시  초기화
-      localStorage.setItem(KEY_ID, "");
-      localStorage.setItem(KEY_STORE_ID, "");
+      localStorage.setItem(KEY_ID, '');
+      localStorage.setItem(KEY_STORE_ID, '');
     }
   };
 
   const handleSubmit = () => {
-    console.log("onSubmit", valueList);
+    console.log('onSubmit', valueList);
     if (validate()) {
       doLogin();
     }
@@ -89,7 +89,6 @@ const LoginForm = () => {
           inputType="password"
           title="로그인을 위해 비밀번호를 입력해주세요."
           placeholder="비밀번호"
-
         />
       </div>
 
@@ -111,11 +110,7 @@ const LoginForm = () => {
         </div>
       </div>
       <div className="my-10 space-y-2">
-        <Button
-          className="h-[56px] !rounded-full"
-          backgroundColor="primary"
-          onClick={handleSubmit}
-        >
+        <Button className="h-[56px] !rounded-full" backgroundColor="primary" onClick={handleSubmit}>
           로그인
         </Button>
       </div>

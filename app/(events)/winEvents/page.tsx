@@ -1,5 +1,5 @@
-"use client";
-import { usePathname } from "next/navigation";
+'use client';
+import { usePathname } from 'next/navigation';
 
 type PageParam = {
   slug: string;

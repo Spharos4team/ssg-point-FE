@@ -1,5 +1,5 @@
-import TabContext from "./TabContext";
-import TabRouter from "./TabRouter";
+import TabContext from './TabContext';
+import TabRouter from './TabRouter';
 
 const Tab = ({
   className,
@@ -8,10 +8,10 @@ const Tab = ({
   name,
   href,
   children,
-  color = "red",
+  color = 'red',
 }: {
   className?: string;
-  type: "router" | "context";
+  type: 'router' | 'context';
   id: string;
   name?: string;
   href?: string;
@@ -19,9 +19,9 @@ const Tab = ({
   color?: 'red' | 'brown';
 }) => {
   switch (type) {
-    case "router": {
+    case 'router': {
       if (!href) {
-        throw new Error("router 타입은 href 속성이 필요합니다.");
+        throw new Error('router 타입은 href 속성이 필요합니다.');
       }
       return (
         <TabRouter className={className} id={id} href={href}>
@@ -29,13 +29,15 @@ const Tab = ({
         </TabRouter>
       );
     }
-    case "context": {
+    case 'context': {
       if (href) {
-        throw new Error("context 타입은 href 속성이 필요 없습니다.");
+        throw new Error('context 타입은 href 속성이 필요 없습니다.');
       }
-      return <TabContext className={className} id={id} name={name} color={color}>
-        {children}
-      </TabContext>;
+      return (
+        <TabContext className={className} id={id} name={name} color={color}>
+          {children}
+        </TabContext>
+      );
     }
   }
 };

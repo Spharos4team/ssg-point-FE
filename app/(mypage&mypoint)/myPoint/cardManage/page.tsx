@@ -1,13 +1,13 @@
-import Button from "@/components/atoms/Button/Button";
-import PointBox from "@/components/modules/PointBox";
-import Image from "next/image";
+import Button from '@/components/atoms/Button/Button';
+import PointBox from '@/components/modules/PointBox';
+import Image from 'next/image';
 
-import Cards from "@/datas/card.data.json";
-import { ValueProvider } from "@/components/hooks/ValueProvider";
-import BarcodeBox from "@/components/atoms/BarcodeBox";
+import Cards from '@/datas/card.data.json';
+import { ValueProvider } from '@/components/hooks/ValueProvider';
+import BarcodeBox from '@/components/atoms/BarcodeBox';
 
 export default function cardManage() {
-  const onlineCard = Cards.filter((item) => item.type === "online");
+  const onlineCard = Cards.filter((item) => item.type === 'online');
   return (
     <>
       <h3 className="hidden">포인트 카드 관리</h3>
@@ -15,9 +15,7 @@ export default function cardManage() {
 
       {/* 카드 테이블 */}
       <div className="px-5 py-10">
-        <p className="font-medium text-[16px] leading-[26px] pb-[16px]">
-          온라인 카드
-        </p>
+        <p className="font-medium text-[16px] leading-[26px] pb-[16px]">온라인 카드</p>
         {/* 온라인 카드 테이블 */}
         <div className="pb-10">
           <table className="table-fixed w-full border-t-[1px] border-solid border-black">
@@ -25,9 +23,9 @@ export default function cardManage() {
               온라인/모바일 카드
             </caption>
             <colgroup>
-              <col width={"40%"} />
-              <col width={"auto"} />
-              <col width={"81px"} />
+              <col width={'40%'} />
+              <col width={'auto'} />
+              <col width={'81px'} />
             </colgroup>
             <thead>
               <tr>
@@ -54,17 +52,12 @@ export default function cardManage() {
                   />
                 ))
               ) : (
-                <NoValuesInTable
-                  message="보유하신 온라인 카드가 없습니다."
-                  colSpan={3}
-                />
+                <NoValuesInTable message="보유하신 온라인 카드가 없습니다." colSpan={3} />
               )}
             </tbody>
           </table>
         </div>
-        <p className="hidden font-medium text-[16px] leading-[26px] pb-[16px]">
-          비즈 클럽 카드
-        </p>
+        <p className="hidden font-medium text-[16px] leading-[26px] pb-[16px]">비즈 클럽 카드</p>
         {/*링크 alt 에러*/}
         {/*<Link className="absolute right-2.5 top-[-37px] text-3 leading-5 font-[400]" href={""} alt={"카드 관리로 이동"}>카드 관리</Link>*/}
         <table className="hidden table-fixed w-full border-t-[1px] border-solid border-black">
@@ -72,9 +65,9 @@ export default function cardManage() {
             비즈 클럽 카드
           </caption>
           <colgroup>
-            <col width={"40%"} />
-            <col width={"auto"} />
-            <col width={"81px"} />
+            <col width={'40%'} />
+            <col width={'auto'} />
+            <col width={'81px'} />
           </colgroup>
           <thead>
             <tr>
@@ -92,18 +85,14 @@ export default function cardManage() {
           <tbody></tbody>
         </table>
 
-        <p className="font-medium text-[16px] leading-[26px] pb-[16px]">
-          제휴 신용카드
-        </p>
+        <p className="font-medium text-[16px] leading-[26px] pb-[16px]">제휴 신용카드</p>
         <div className="relative pb-[40px]">
           <table className="table-fixed w-full border-t-[1px] border-solid border-black">
-            <caption className="hidden absolute z-[-1] w-[1px] h-[1px]">
-              제휴 신용카드
-            </caption>
+            <caption className="hidden absolute z-[-1] w-[1px] h-[1px]">제휴 신용카드</caption>
             <colgroup>
-              <col width={"56%"} />
-              <col width={"auto"} />
-              <col width={"81px"} />
+              <col width={'56%'} />
+              <col width={'auto'} />
+              <col width={'81px'} />
             </colgroup>
             <thead>
               <tr>
@@ -120,26 +109,19 @@ export default function cardManage() {
             </thead>
             <tbody>
               {/* tr map */}
-              <NoValuesInTable
-                message="보유하신 제휴 신용카드가 없습니다."
-                colSpan={3}
-              />
+              <NoValuesInTable message="보유하신 제휴 신용카드가 없습니다." colSpan={3} />
             </tbody>
           </table>
         </div>
 
-        <p className="font-medium text-[16px] leading-[26px] pb-[16px]">
-          오프라인 카드
-        </p>
+        <p className="font-medium text-[16px] leading-[26px] pb-[16px]">오프라인 카드</p>
         <div className="relative">
           <table className="table-fixed w-full border-t-[1px] border-solid border-black">
-            <caption className="hidden absolute z-[-1] w-[1px] h-[1px]">
-              온라인/모바일 카드
-            </caption>
+            <caption className="hidden absolute z-[-1] w-[1px] h-[1px]">온라인/모바일 카드</caption>
             <colgroup>
-              <col width={"40%"} />
-              <col width={"auto"} />
-              <col width={"81px"} />
+              <col width={'40%'} />
+              <col width={'auto'} />
+              <col width={'81px'} />
             </colgroup>
             <thead>
               <tr>
@@ -156,10 +138,7 @@ export default function cardManage() {
             </thead>
             {/* tr map */}
             <tbody>
-              <NoValuesInTable
-                message="보유하신 오프라인 카드가 없습니다."
-                colSpan={3}
-              />
+              <NoValuesInTable message="보유하신 오프라인 카드가 없습니다." colSpan={3} />
             </tbody>
           </table>
         </div>
@@ -187,10 +166,7 @@ export default function cardManage() {
         <p className="text-[18px] leading-[26px] mb-5">
           다양한 신세계포인트
           <br />
-          <strong className="font-[500] text-[#ea035c]">
-            제휴 신용카드의 혜택
-          </strong>
-          을 확인하세요!
+          <strong className="font-[500] text-[#ea035c]">제휴 신용카드의 혜택</strong>을 확인하세요!
         </p>
         <ul className="list-none">
           <li className="rounded-lg overflow-hidden">
@@ -198,15 +174,15 @@ export default function cardManage() {
             {/*<Link href={""} title={"이벤트 페이지 이동"}/>*/}
             {/* eslint-disable-next-line react/jsx-no-undef */}
             <Image
-              src={"/images/ad_pointCard.jpg"}
+              src={'/images/ad_pointCard.jpg'}
               alt={
-                "SHINSEGAE POINT 다양한 카드로 즐기는 포인트 우대&middot;쇼핑 혜택, 신세계포인트 제휴신용카드 보기 &rarr;"
+                'SHINSEGAE POINT 다양한 카드로 즐기는 포인트 우대&middot;쇼핑 혜택, 신세계포인트 제휴신용카드 보기 &rarr;'
               }
               width={750}
               height={660}
               style={{
-                width: "100%",
-                height: "auto",
+                width: '100%',
+                height: 'auto',
               }}
             />
           </li>
@@ -216,13 +192,7 @@ export default function cardManage() {
   );
 }
 
-const NoValuesInTable = ({
-  message,
-  colSpan,
-}: {
-  message: string;
-  colSpan: number;
-}) => {
+const NoValuesInTable = ({ message, colSpan }: { message: string; colSpan: number }) => {
   return (
     <tr>
       <td
@@ -250,13 +220,11 @@ const ValueInCardTable = ({
 }) => {
   const converNumber = () => {
     const matchNumber = cardNumber.match(/.{1,4}/g);
-    const fistConvert = matchNumber![1].replace(/./g, "*");
-    const secondConvert = matchNumber![2].replace(/./g, "*");
-    return [matchNumber![0], fistConvert, secondConvert, matchNumber![3]].join(
-      "-"
-    );
+    const fistConvert = matchNumber![1].replace(/./g, '*');
+    const secondConvert = matchNumber![2].replace(/./g, '*');
+    return [matchNumber![0], fistConvert, secondConvert, matchNumber![3]].join('-');
   };
-  const convertDate = date.split("/").join("-");
+  const convertDate = date.split('/').join('-');
   return (
     <tr>
       <td className="font-[400] align-middle text-center border-b-[1px] border-solid border-[#e8e8e8] py-3 box-border text-[13px] break-keep leading-[21px]">

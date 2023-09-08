@@ -1,8 +1,8 @@
-import ContentHeader from "@/components/atoms/ContentHeader";
-import UserCertPage from "@/components/pages/UserCertPage";
+import ContentHeader from '@/components/atoms/ContentHeader';
+import UserCertPage from '@/components/pages/UserCertPage';
 
 const cert = () => {
-  const active = "";
+  const active = '';
   return (
     <>
       <UserCertPage />

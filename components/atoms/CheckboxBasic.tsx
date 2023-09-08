@@ -1,6 +1,6 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useValueContext } from "../hooks/ValueProvider";
+'use client';
+import { useEffect, useState } from 'react';
+import { useValueContext } from '../hooks/ValueProvider';
 
 const CheckboxBasicMulti = ({
   className,
@@ -63,13 +63,7 @@ const CheckboxBasicMulti = ({
         <label
           htmlFor={id}
           className={`block min-h-[22px] pt-[1px] pl-[30px] leading-[18px] align-middle whitespace-nowrap break-keep before:content-[''] before:absolute before:left-0 before:top:0 before:w-[22px] before:h-[22px] before:border before:border-[#505050] before:rounded-[50%] before:z-[2] ${
-            children
-              ? value
-                ? checkedStyle
-                : ""
-              : thisValue
-              ? checkedStyle
-              : ""
+            children ? (value ? checkedStyle : '') : thisValue ? checkedStyle : ''
           }`}
         >
           <span

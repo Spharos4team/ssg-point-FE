@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import BodyNavTop from "@/components/atoms/BodyNavTop";
-import { usePathname } from "next/navigation";
+import BodyNavTop from '@/components/atoms/BodyNavTop';
+import { usePathname } from 'next/navigation';
 
 type PageParam = {
   slug: string;

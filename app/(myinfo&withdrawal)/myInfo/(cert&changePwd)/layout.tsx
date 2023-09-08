@@ -1,21 +1,17 @@
-import ContentHeader from "@/components/atoms/ContentHeader";
-import ListForNoticeBox from "@/components/atoms/ListForNoticeBox";
-import NoticeBox from "@/components/modules/NoticeBox";
-import { PageProp } from "@/types/LinkProps";
+import ContentHeader from '@/components/atoms/ContentHeader';
+import ListForNoticeBox from '@/components/atoms/ListForNoticeBox';
+import NoticeBox from '@/components/modules/NoticeBox';
+import { PageProp } from '@/types/LinkProps';
 
 const pagesInMy: PageProp[] = [
   {
     _id: 5,
-    _href: "/withdrawal/leavePassword",
-    name: "회원 탈퇴",
+    _href: '/withdrawal/leavePassword',
+    name: '회원 탈퇴',
   },
 ];
 
-export default function CertLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function CertLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ContentHeader

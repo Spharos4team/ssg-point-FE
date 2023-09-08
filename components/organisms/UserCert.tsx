@@ -1,36 +1,29 @@
-"use client";
-import { Checkbox } from "../atoms/Checkbox";
-import Dropdown from "../atoms/Dropdown";
-import RadioCard2 from "../atoms/RadioCard2";
-import RadioCardGroup2 from "../modules/RadioCardGroup2";
-import { RadioProvider } from "../hooks/RadioProvider";
-import TabBoxSimple from "../modules/TabBoxSimple";
-import { InputText } from "../atoms/InputText";
-import Button from "../atoms/Button/Button";
-import { useFormContext } from "../hooks/FormProvider";
+'use client';
+import { Checkbox } from '../atoms/Checkbox';
+import Dropdown from '../atoms/Dropdown';
+import RadioCard2 from '../atoms/RadioCard2';
+import RadioCardGroup2 from '../modules/RadioCardGroup2';
+import { RadioProvider } from '../hooks/RadioProvider';
+import TabBoxSimple from '../modules/TabBoxSimple';
+import { InputText } from '../atoms/InputText';
+import Button from '../atoms/Button/Button';
+import { useFormContext } from '../hooks/FormProvider';
 
 const UserCert = () => {
   const { valueList } = useFormContext();
-  const mCarrier: string[] = [
-    "SKT",
-    "KT",
-    "LG U+",
-    "SKT 알뜰폰",
-    "KT 알뜰폰",
-    "LG U+ 알뜰폰",
-  ];
+  const mCarrier: string[] = ['SKT', 'KT', 'LG U+', 'SKT 알뜰폰', 'KT 알뜰폰', 'LG U+ 알뜰폰'];
 
   const genderRadios = {
-    valueName: "sortHistory",
-    innerHtml: ["남자", "여자"] as string[],
+    valueName: 'sortHistory',
+    innerHtml: ['남자', '여자'] as string[],
   };
   const abroadRadios = {
-    valueName: "sortHistory",
-    innerHtml: ["내국인", "외국인"] as string[],
+    valueName: 'sortHistory',
+    innerHtml: ['내국인', '외국인'] as string[],
   };
 
   const handleSubmit = () => {
-    alert("필수 요소 검사 ");
+    alert('필수 요소 검사 ');
     console.log(valueList);
   };
   return (
@@ -67,9 +60,7 @@ const UserCert = () => {
           <div className="tab_box0 px-5 py-10">
             {/*휴대폰 인증*/}
             <div className="form_box pb-4 box-border">
-              <p className="pb-2 text-xs leading-[21px]">
-                이름을 입력해 주세요.
-              </p>
+              <p className="pb-2 text-xs leading-[21px]">이름을 입력해 주세요.</p>
               <InputText
                 className="rounded-lg"
                 type="basic"
@@ -82,7 +73,7 @@ const UserCert = () => {
             {/*남여*/}
             <RadioProvider>
               <RadioCardGroup2
-                title={"성별을 선택해주세요"}
+                title={'성별을 선택해주세요'}
                 radioType="titleTop"
                 defaultValue="남자"
               >
@@ -100,7 +91,7 @@ const UserCert = () => {
             {/*내외국인*/}
             <RadioProvider>
               <RadioCardGroup2
-                title={"외국인 이신가요?"}
+                title={'외국인 이신가요?'}
                 radioType="titleTop"
                 defaultValue="내국인"
               >
@@ -129,9 +120,7 @@ const UserCert = () => {
             </div>
             {/*휴대전화*/}
             <div className="flex flex-col gap-y-2 box-border">
-              <p className="text-xs">
-                본인명의의 휴대전화번호를 입력해 주세요.
-              </p>
+              <p className="text-xs">본인명의의 휴대전화번호를 입력해 주세요.</p>
               <Dropdown id="moCarrier" mainTitle="통신사" options={mCarrier} />
               <InputText
                 className="rounded-lg"
@@ -149,16 +138,12 @@ const UserCert = () => {
           <div className="terms_agree_box px-5">
             <div className="agree_form_box">
               <h3 className="tit pb-[17px] text-[18px] font-medium leading-[28px]">
-                {" "}
-                휴대전화 인증 약관{" "}
+                {' '}
+                휴대전화 인증 약관{' '}
               </h3>
               <div className="flex flex-col gap-y-4 ">
                 <div className="flex relative align-top pb-4 border-b">
-                  <Checkbox
-                    className="text-sm"
-                    id="all_checker"
-                    name="모든 약관에 동의합니다."
-                  />
+                  <Checkbox className="text-sm" id="all_checker" name="모든 약관에 동의합니다." />
                 </div>
                 <ul className="flex flex-col gap-y-2">
                   <li className="relative pr-[22px]">
@@ -178,11 +163,7 @@ const UserCert = () => {
                     <ModalButton />
                   </li>
                   <li className="relative pr-[22px]">
-                    <Checkbox
-                      className="text-[13px]"
-                      id="03"
-                      name="[필수] 통신사 이용약관 동의"
-                    />
+                    <Checkbox className="text-[13px]" id="03" name="[필수] 통신사 이용약관 동의" />
                     <ModalButton />
                   </li>
                   <li className="relative pr-[22px]">
@@ -200,28 +181,27 @@ const UserCert = () => {
           {/*인증버튼*/}
           <div className="px-5 pt-10">
             {/* submit */}
-            <Button
-              className="h-12"
-              backgroundColor="primary"
-              onClick={handleSubmit}
-            >
+            <Button className="h-12" backgroundColor="primary" onClick={handleSubmit}>
               인증번호 요청
             </Button>
-            <div
-                className="pt-6 pb-0 box-border"
-            >
-              <p className="pb-2 text-[13px] leading-[21px] w-full block">
-                인증번호
-              </p>
+            <div className="pt-6 pb-0 box-border">
+              <p className="pb-2 text-[13px] leading-[21px] w-full block">인증번호</p>
               <div className="flex">
                 <InputText
-                    className="rounded-lg w-full"
-                    id={"number"} inputType={"phone"} title={"certnumber"} placeholder={'인증번호 입력'}/>
+                  className="rounded-lg w-full"
+                  id={'number'}
+                  inputType={'phone'}
+                  title={'certnumber'}
+                  placeholder={'인증번호 입력'}
+                />
                 <Button
-                    type={'link'}
-                    href={'/member/join/agree'}
-                    backgroundColor={'white'}
-                    className={'h-12 text-sm font-normal ml-[5px] block !w-auto break-keep p-3'}>확인</Button>
+                  type={'link'}
+                  href={'/member/join/agree'}
+                  backgroundColor={'white'}
+                  className={'h-12 text-sm font-normal ml-[5px] block !w-auto break-keep p-3'}
+                >
+                  확인
+                </Button>
               </div>
             </div>
           </div>
@@ -232,13 +212,9 @@ const UserCert = () => {
         <p className="font-normal pb-10 text-base leading-[26px] text-center">
           보유하신
           <span className="font-medium"> 신용/체크카드</span>
-          로 <br/> 본인인증이 가능합니다.
+          로 <br /> 본인인증이 가능합니다.
         </p>
-        <Button
-            backgroundColor='primary'
-            onClick={''}
-            className={'h-12 font-medium'}
-        >
+        <Button backgroundColor="primary" onClick={''} className={'h-12 font-medium'}>
           신용/체크카드 인증
         </Button>
       </div>
@@ -250,10 +226,7 @@ export default UserCert;
 
 const ModalButton = ({ onClick }: { onClick?: () => {} }) => {
   return (
-    <button
-      className="absolute right-0 top-0 w-[24px] h-[22px]"
-      onClick={onClick}
-    >
+    <button className="absolute right-0 top-0 w-[24px] h-[22px]" onClick={onClick}>
       <span className="block w-[24px] h-[100%] text-[0] indent-[-9999em] relative bg-[url('/images/arrow_down.png')] bg-[position:right_8px_bottom] bg-no-repeat bg-[9px_auto] opacity-[.5] rotate-[-90deg] box-border">
         내용보기
       </span>

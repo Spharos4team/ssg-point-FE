@@ -1,38 +1,38 @@
-import LinkImageWithFallback from "@/components/ui/LinkImageWithFallback";
-import { PageProp } from "@/types/LinkProps";
-import Barcode from "@/utils/Barcode/Barcode";
-import Image from "next/image";
-import Link from "next/link";
+import LinkImageWithFallback from '@/components/ui/LinkImageWithFallback';
+import { PageProp } from '@/types/LinkProps';
+import Barcode from '@/utils/Barcode/Barcode';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const iconSize = 40;
 const btnsInPointBox: PageProp[] = [
   {
     _id: 1,
-    _href: "/mypoint/pntGiftMain",
-    name: "선물하기",
+    _href: '/mypoint/pntGiftMain',
+    name: '선물하기',
     image: {
-      _src: "/images/gift.png",
-      type: "icon",
+      _src: '/images/gift.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
   },
   {
     _id: 2,
-    _href: "/mypoint/convertPntList",
-    name: "전환하기",
+    _href: '/mypoint/convertPntList',
+    name: '전환하기',
     image: {
-      _src: "/images/exchange.png",
-      type: "icon",
+      _src: '/images/exchange.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
   },
   {
     _id: 3,
-    _href: "/mypoint/savePoint",
-    name: "영수증으로 적립",
+    _href: '/mypoint/savePoint',
+    name: '영수증으로 적립',
     image: {
-      _src: "/images/save_with_bill.png",
-      type: "icon",
+      _src: '/images/save_with_bill.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
   },
@@ -40,61 +40,61 @@ const btnsInPointBox: PageProp[] = [
 const myBanners: PageProp[] = [
   {
     _id: 1,
-    name: "신세계면세점",
-    _href: "",
+    name: '신세계면세점',
+    _href: '',
     image: {
-      type: "image",
-      _src: "/images/",
+      type: 'image',
+      _src: '/images/',
     },
   },
   {
     _id: 2,
-    name: "신세계아울렛APP",
-    _href: "",
+    name: '신세계아울렛APP',
+    _href: '',
     image: {
-      type: "image",
-      _src: "/images/",
+      type: 'image',
+      _src: '/images/',
     },
   },
   {
     _id: 3,
-    name: "시코르",
-    _href: "",
+    name: '시코르',
+    _href: '',
     image: {
-      type: "image",
-      _src: "/images/",
+      type: 'image',
+      _src: '/images/',
     },
   },
   {
     _id: 4,
-    name: "이마트에브리데이",
-    _href: "",
+    name: '이마트에브리데이',
+    _href: '',
     image: {
-      type: "image",
-      _src: "/images/",
+      type: 'image',
+      _src: '/images/',
     },
   },
   {
     _id: 5,
-    name: "쓱고우",
-    _href: "",
+    name: '쓱고우',
+    _href: '',
     image: {
-      type: "image",
-      _src: "/images/",
+      type: 'image',
+      _src: '/images/',
     },
   },
   {
     _id: 6,
-    name: "신세계까사",
-    _href: "",
+    name: '신세계까사',
+    _href: '',
     image: {
-      type: "image",
-      _src: "/images/",
+      type: 'image',
+      _src: '/images/',
     },
   },
 ];
 
-const barcodeValue = "9350-1200-1875-5220";
+const barcodeValue = '9350-1200-1875-5220';
 
 export default function MyPage() {
   return (
@@ -109,7 +109,7 @@ export default function MyPage() {
             <Link
               //TODO: pathname에 따라 아이콘 변경
               className="inline-block items-center text-sm p-[10px] pr-0 after:inline-block after:content-[''] after:w-[6px] after:h-[10px] after:bg-[url('/images/arrow_right.png')] after:bg-[length:100%_auto] after:ml-1"
-              href={"/mypoint/pntHistory"}
+              href={'/mypoint/pntHistory'}
             >
               <span className="hidden">포인트 내역으로</span>
             </Link>
@@ -171,11 +171,7 @@ export default function MyPage() {
         <ul className="space-y-3">
           {myBanners.map(({ _id, _href, name, image }) => (
             <li key={_id}>
-              <LinkImageWithFallback
-                _href={_href[0]}
-                name={name}
-                image={image!!}
-              />
+              <LinkImageWithFallback _href={_href[0]} name={name} image={image!!} />
             </li>
           ))}
         </ul>

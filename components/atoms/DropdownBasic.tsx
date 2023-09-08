@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const DropdownBasic = ({
   id,
@@ -15,7 +15,7 @@ const DropdownBasic = ({
   options: string[];
   disabled: boolean;
 }) => {
-  const [thisValue, setThisValue] = useState("");
+  const [thisValue, setThisValue] = useState('');
   const handleThisValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setThisValue(e.target.value);
   };
@@ -26,7 +26,7 @@ const DropdownBasic = ({
           <select
             className={select}
             id={id}
-            name={"main_" + mainTitle}
+            name={'main_' + mainTitle}
             value={thisValue}
             onChange={handleThisValue}
             disabled={disabled}

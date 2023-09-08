@@ -1,5 +1,5 @@
-"use client";
-import { createContext, useContext, useState } from "react";
+'use client';
+import { createContext, useContext, useState } from 'react';
 
 const FormContext = createContext({
   valueList: {} as Record<string, string | boolean>,
@@ -7,18 +7,14 @@ const FormContext = createContext({
 });
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
-  const [valueList, setValueList] = useState<Record<string, string | boolean>>(
-    {}
-  );
+  const [valueList, setValueList] = useState<Record<string, string | boolean>>({});
 
   const handleValueList = (id: string, value: string | boolean) => {
     setValueList((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
-    <FormContext.Provider value={{ valueList, handleValueList }}>
-      {children}
-    </FormContext.Provider>
+    <FormContext.Provider value={{ valueList, handleValueList }}>{children}</FormContext.Provider>
   );
 };
 

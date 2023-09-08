@@ -1,14 +1,14 @@
-"use client";
-import { useAppContext } from "@/provider/AppContextProvider";
-import { phonHyphenShow } from "@/utils/FormatHelpers";
-import { useEffect } from "react";
+'use client';
+import { useAppContext } from '@/provider/AppContextProvider';
+import { phonHyphenShow } from '@/utils/FormatHelpers';
+import { useEffect } from 'react';
 
 export default function Input({
   className,
   id,
   title,
   titleClass,
-  type = "text",
+  type = 'text',
   birthFormat,
   hyphenShow = false,
   ref,
@@ -19,8 +19,8 @@ export default function Input({
   id: string;
   title?: React.ReactNode;
   titleClass?: string;
-  type?: "text" | "email" | "password" | "birth" | "cardNumber" | "phone";
-  birthFormat?: "yyyy-mm-dd" | "yyyymmdd" | "yy-mm-dd" | "yymmdd";
+  type?: 'text' | 'email' | 'password' | 'birth' | 'cardNumber' | 'phone';
+  birthFormat?: 'yyyy-mm-dd' | 'yyyymmdd' | 'yy-mm-dd' | 'yymmdd';
   hyphenShow?: boolean;
   ref?: React.RefObject<HTMLInputElement>;
   children: React.ReactNode;
@@ -29,22 +29,18 @@ export default function Input({
   const { appValueList, handleAppRecord } = useAppContext();
 
   const initValue = () => {
-    if (appValueList[id] == "") {
-      handleAppRecord(id, "");
+    if (appValueList[id] == '') {
+      handleAppRecord(id, '');
     }
   };
 
-  const inputType = ["birth", "cardNumber", "phone"].includes(type)
-    ? "number"
-    : type;
+  const inputType = ['birth', 'cardNumber', 'phone'].includes(type) ? 'number' : type;
 
   useEffect(() => {
-    if (type == "birth" && !birthFormat) {
+    if (type == 'birth' && !birthFormat) {
       throw new Error("'birth' 타입은 'birthFormat' 속성이 필수입니다.");
-    } else if (type !== "birth" && birthFormat) {
-      throw new Error(
-        "'birthFormat' 속성은 오직 'birth' 타입에만 사용할 수 있습니다."
-      );
+    } else if (type !== 'birth' && birthFormat) {
+      throw new Error("'birthFormat' 속성은 오직 'birth' 타입에만 사용할 수 있습니다.");
     }
     return () => {
       initValue();
@@ -53,13 +49,13 @@ export default function Input({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    const onlyNumber = value.replace(/[^0-9]/g, "");
+    const onlyNumber = value.replace(/[^0-9]/g, '');
 
-    if (type === "phone") {
+    if (type === 'phone') {
       handleAppRecord(id, onlyNumber.slice(0, 11));
-    } else if (type === "birth") {
+    } else if (type === 'birth') {
       handleAppRecord(id, onlyNumber.slice(0, 8));
-    } else if (type === "cardNumber") {
+    } else if (type === 'cardNumber') {
       handleAppRecord(id, onlyNumber.slice(0, 4));
     } else {
       handleAppRecord(id, value);
@@ -68,9 +64,7 @@ export default function Input({
 
   return (
     <div>
-      {title && (
-        <p className={`${titleClass} text-[13px] leading-5 pb-2`}>{title}</p>
-      )}
+      {title && <p className={`${titleClass} text-[13px] leading-5 pb-2`}>{title}</p>}
       <div
         data-state
         className={`${className} relative inline-block w-full h-[48px] align-top box-border border border-inherit rounded-full`}
@@ -80,9 +74,7 @@ export default function Input({
           htmlFor={id}
         >
           <span className="table-cell align-middle text-left break-all">
-            {hyphenShow
-              ? phonHyphenShow(String(appValueList[id]))
-              : !appValueList[id] && children}
+            {hyphenShow ? phonHyphenShow(String(appValueList[id])) : !appValueList[id] && children}
           </span>
         </label>
         <input

@@ -1,5 +1,5 @@
-"use client";
-import { createContext, useContext, useState } from "react";
+'use client';
+import { createContext, useContext, useState } from 'react';
 
 type AppValueType = string | boolean | number;
 interface AppContextInterface<T extends AppValueType> {
@@ -12,26 +12,15 @@ const AppContext = createContext<AppContextInterface<AppValueType>>({
   handleAppRecord: (id, value) => {},
 });
 
-export const AppContextProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const [appValueList, setAppValueList] = useState<
-    Record<string, AppValueType>
-  >({});
+export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
+  const [appValueList, setAppValueList] = useState<Record<string, AppValueType>>({});
 
-  const handleAppRecord = <T extends AppValueType>(
-    id: string,
-    value: T
-  ): void => {
+  const handleAppRecord = <T extends AppValueType>(id: string, value: T): void => {
     setAppValueList((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
-    <AppContext.Provider value={{ appValueList, handleAppRecord }}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ appValueList, handleAppRecord }}>{children}</AppContext.Provider>
   );
 };
 

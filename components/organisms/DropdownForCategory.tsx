@@ -1,10 +1,10 @@
-"use client";
-import Category from "@/datas/category.data.json";
-import { useState } from "react";
+'use client';
+import Category from '@/datas/category.data.json';
+import { useState } from 'react';
 
 const DropdownForCategory = () => {
-  const [parent, setParent] = useState("");
-  const [child, setChild] = useState("소분류");
+  const [parent, setParent] = useState('');
+  const [child, setChild] = useState('소분류');
 
   // TODO: 소분류 초기상태 반영 안됨
   return (
@@ -17,7 +17,7 @@ const DropdownForCategory = () => {
           onChange={(e) => setParent(e.target.value)}
           value={parent}
         >
-          {Category.filter((x) => x.parent_id === "")?.map((item, index) => (
+          {Category.filter((x) => x.parent_id === '')?.map((item, index) => (
             <option key={index} value={item.id}>
               {item.name}
             </option>
@@ -32,13 +32,11 @@ const DropdownForCategory = () => {
           onChange={(e) => setChild(e.target.value)}
           value={child}
         >
-          {Category.filter((x) => x.parent_id === parent)?.map(
-            (item, index) => (
-              <option key={index} value={item.id}>
-                {item.name}
-              </option>
-            )
-          )}
+          {Category.filter((x) => x.parent_id === parent)?.map((item, index) => (
+            <option key={index} value={item.id}>
+              {item.name}
+            </option>
+          ))}
         </select>
       </div>
     </>

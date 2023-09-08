@@ -9,7 +9,7 @@ export function pathValidate(PATH: PathProps, params: { slug: string }) {
       return PATH[key];
     }
   }
-  return "/(정의되지 않은 경로)";
+  return '/(정의되지 않은 경로)';
 }
 
 /**

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const ListForConvert = ({
   id,
@@ -21,11 +21,7 @@ const ListForConvert = ({
   return (
     <li className="relative border-b bg-white z-[1]">
       {aTag ? (
-        <a
-          className="relative block w-full h-[75px] z-[2]"
-          href={aTag}
-          target="_blank"
-        >
+        <a className="relative block w-full h-[75px] z-[2]" href={aTag} target="_blank">
           <SimpleListContent
             id={id}
             name={name}
@@ -78,13 +74,7 @@ const SimpleListContent = ({
     <div className="block w-full h-[75px]">
       {src ? (
         <div className="table-cell align-middle h-[75px] w-[75px] px-[12px]">
-          <Image
-            className=""
-            src={src}
-            width={50}
-            height={50}
-            alt={title + "_icon"}
-          />
+          <Image className="" src={src} width={50} height={50} alt={title + '_icon'} />
         </div>
       ) : (
         <></>

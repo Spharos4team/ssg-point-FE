@@ -1,60 +1,60 @@
-import { ImageLinkProp } from "@/types/LinkProps";
-import LinkImageWithFallback from "../ui/LinkImageWithFallback";
+import { ImageLinkProp } from '@/types/LinkProps';
+import LinkImageWithFallback from '../ui/LinkImageWithFallback';
 
 const iconSize = 45; // 아이콘 사이즈 설정
-const fontSize = "xs";
+const fontSize = 'xs';
 const bodyNavProps: Array<ImageLinkProp> = [
   {
     _id: 1,
-    _href: "/ingEvents",
-    name: "이벤트",
+    _href: '/ingEvents',
+    name: '이벤트',
     image: {
-      _src: "/images/event.png",
-      type: "icon",
+      _src: '/images/event.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
     fontSize: fontSize,
   },
   {
     _id: 2,
-    _href: "/benefits/pntPlus/attend",
-    name: "출석체크",
+    _href: '/benefits/pntPlus/attend',
+    name: '출석체크',
     image: {
-      _src: "/images/attend-check.png",
-      type: "icon",
+      _src: '/images/attend-check.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
     fontSize: fontSize,
   },
   {
     _id: 3,
-    _href: "/benefits/pntPlus/roulette",
-    name: "럭키룰렛",
+    _href: '/benefits/pntPlus/roulette',
+    name: '럭키룰렛',
     image: {
-      _src: "/images/lucky-roulette.png",
-      type: "icon",
+      _src: '/images/lucky-roulette.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
     fontSize: fontSize,
   },
   {
     _id: 4,
-    _href: "/benefits/benefitMyLuck",
-    name: "운세서비스",
+    _href: '/benefits/benefitMyLuck',
+    name: '운세서비스',
     image: {
-      _src: "/images/my-luck.png",
-      type: "icon",
+      _src: '/images/my-luck.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
     fontSize: fontSize,
   },
   {
     _id: 4,
-    _href: "/myLounge/receipt",
-    name: "영수증",
+    _href: '/myLounge/receipt',
+    name: '영수증',
     image: {
-      _src: "/images/receipt.png",
-      type: "icon",
+      _src: '/images/receipt.png',
+      type: 'icon',
       size: { w: iconSize, h: iconSize },
     },
     fontSize: fontSize,
@@ -72,12 +72,7 @@ export default function NavBoxForMainBody() {
       <ul className="flex justify-between items-center px-[19px] py-[10px]">
         {bodyNavProps.map(({ _id, _href, name, image, fontSize }) => (
           <li key={_id}>
-            <LinkImageWithFallback
-              _href={_href}
-              name={name}
-              image={image}
-              fontSize={fontSize}
-            />
+            <LinkImageWithFallback _href={_href} name={name} image={image} fontSize={fontSize} />
           </li>
         ))}
       </ul>

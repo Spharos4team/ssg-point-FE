@@ -1,14 +1,14 @@
-"use client";
-import React, { useRef, useEffect } from "react";
-import JsBarcode from "jsbarcode";
-import styles from "./Barcode.module.css";
+'use client';
+import React, { useRef, useEffect } from 'react';
+import JsBarcode from 'jsbarcode';
+import styles from './Barcode.module.css';
 
 const Barcode = ({
-  type = "basic",
+  type = 'basic',
   value,
   height,
 }: {
-  type?: "basic" | "detail";
+  type?: 'basic' | 'detail';
   value: string;
   height?: number;
 }) => {
@@ -17,23 +17,20 @@ const Barcode = ({
   useEffect(() => {
     if (svgRef.current) {
       JsBarcode(svgRef.current, value, {
-        format: "CODE128", // 바코드 형식
+        format: 'CODE128', // 바코드 형식
         displayValue: true, // value 표시 여부
         height: (height as number) ?? 80,
         fontSize: 22,
-        textAlign: "right",
+        textAlign: 'right',
       });
 
-      const textElement = svgRef.current.querySelector("text");
-      textElement?.setAttribute("fill", "#767676");
+      const textElement = svgRef.current.querySelector('text');
+      textElement?.setAttribute('fill', '#767676');
     }
   }, [value]);
 
   return (
-    <svg
-      className={type === "basic" ? styles.barcode : styles.barcode_swipe}
-      ref={svgRef}
-    ></svg>
+    <svg className={type === 'basic' ? styles.barcode : styles.barcode_swipe} ref={svgRef}></svg>
   );
 };
 

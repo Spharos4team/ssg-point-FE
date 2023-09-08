@@ -1,5 +1,5 @@
-import { Category } from "@/types/CategoryProps";
-import { useState } from "react";
+import { Category } from '@/types/CategoryProps';
+import { useState } from 'react';
 
 const DropdownCategory = ({
   id,
@@ -18,17 +18,17 @@ const DropdownCategory = ({
   options: Category[];
   disabled: boolean;
 }) => {
-  const MainCategory = options.filter((item) => item.parent_id === "");
+  const MainCategory = options.filter((item) => item.parent_id === '');
   const getSubCategory = (parentId: string) => {
     return options?.filter((item) => item.parent_id === parentId);
   };
 
-  const [parent, setParent] = useState("");
-  const [child, setChild] = useState("");
+  const [parent, setParent] = useState('');
+  const [child, setChild] = useState('');
 
   const handleParent = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setParent(e.target.value);
-    setChild("");
+    setChild('');
   };
   const handleChild = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setChild(e.target.value);
@@ -42,7 +42,7 @@ const DropdownCategory = ({
           <select
             className={select}
             id={id}
-            name={"main_" + mainTitle}
+            name={'main_' + mainTitle}
             value={parent}
             onChange={handleParent}
             disabled={disabled}
@@ -57,12 +57,12 @@ const DropdownCategory = ({
         </div>
       )}
       {/* SubCategory */}
-      {options.every((item) => item.parent_id === "") || (
+      {options.every((item) => item.parent_id === '') || (
         <div className={wrapper}>
           <select
             className={select}
             id={id}
-            name={"sub_" + subTitle}
+            name={'sub_' + subTitle}
             value={child}
             onChange={handleChild}
             disabled={disabled}

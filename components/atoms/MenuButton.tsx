@@ -1,7 +1,7 @@
-import { PageProps } from "@/types/PageProps";
-import Image from "next/image";
-import Link from "next/link";
-import { useValueContext } from "../hooks/ValueProvider";
+import { PageProps } from '@/types/PageProps';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useValueContext } from '../hooks/ValueProvider';
 
 const MenuButton = ({ aPage }: { aPage: PageProps }) => {
   const { handleValue } = useValueContext();
@@ -13,12 +13,7 @@ const MenuButton = ({ aPage }: { aPage: PageProps }) => {
         href={aPage.href}
         onClick={handleValue}
       >
-        <Image
-          src={aPage.simple_icon}
-          width={20}
-          height={20}
-          alt={aPage.name}
-        />
+        <Image src={aPage.simple_icon} width={20} height={20} alt={aPage.name} />
         {aPage.name}
       </Link>
     </li>

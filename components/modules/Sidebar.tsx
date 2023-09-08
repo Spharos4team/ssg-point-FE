@@ -1,62 +1,59 @@
-import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { useValueContext } from "../hooks/ValueProvider";
-import MenuListForSidebar from "./MenuListForSidebar";
-import Pages from "@/datas/page.data.json";
-import Button from "../atoms/Button/Button";
-import { usePathname } from "next/navigation";
-import { userApi } from "@/utils/api";
+import Link from 'next/link';
+import { useEffect, useRef } from 'react';
+import { useValueContext } from '../hooks/ValueProvider';
+import MenuListForSidebar from './MenuListForSidebar';
+import Pages from '@/datas/page.data.json';
+import Button from '../atoms/Button/Button';
+import { usePathname } from 'next/navigation';
+import { userApi } from '@/utils/api';
 
 // const { getUserData } = userApi;
 const Sidebar = () => {
   // TODO: handleValue Naming 변경, 컨텍스트 내 useState 추가(범위 내 Ref 관리)
   const { value, valueList, handleValue, handleValueList } = useValueContext();
-  const hiddenRef = useRef("");
+  const hiddenRef = useRef('');
   const currPathname = usePathname();
 
   useEffect(() => {
-    if (!valueList["email"]) {
-      const LC_Id = localStorage.getItem("email");
-      handleValueList("email", LC_Id as string);
+    if (!valueList['email']) {
+      const LC_Id = localStorage.getItem('email');
+      handleValueList('email', LC_Id as string);
     }
-    console.log(localStorage.getItem("token")); // token 확인
+    console.log(localStorage.getItem('token')); // token 확인
   }, [value]);
 
   const handleHidden = () => {
     handleValue(!value);
     value &&
       setTimeout(() => {
-        hiddenRef.current.className += " hidden";
-        document.body.style.overflow = "auto";
+        hiddenRef.current.className += ' hidden';
+        document.body.style.overflow = 'auto';
       }, 300);
   };
 
   useEffect(() => {
-    console.log("URL이 변경되었습니다:", currPathname);
+    console.log('URL이 변경되었습니다:', currPathname);
     handleValue(false);
     value &&
       setTimeout(() => {
-        hiddenRef.current.className += " hidden";
-        document.body.style.overflow = "auto";
+        hiddenRef.current.className += ' hidden';
+        document.body.style.overflow = 'auto';
       }, 300);
   }, [currPathname]);
 
   const getUserData = async () => {
     try {
-      const res = await fetch(
-        `http://localhost:3030/users/${localStorage.getItem("userId")}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const res = await fetch(`http://localhost:3030/users/${localStorage.getItem('userId')}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
       const data = await res.json();
       // if (data.status === 200) {
       if (data) {
-        handleValueList("name", data.user.name);
-        localStorage.setItem("token", data.accessToken);
+        handleValueList('name', data.user.name);
+        localStorage.setItem('token', data.accessToken);
       }
     } catch (error) {
       console.log(error);
@@ -74,14 +71,14 @@ const Sidebar = () => {
     <nav className={`fixed left-0 top-0`}>
       <div
         className={`fixed block top-0 w-[85%] min-w-[320px] h-full z-[999] bg-white overflow-y-auto ease-in-out duration-300 ${
-          value ? "left-0" : "left-[-100%]"
+          value ? 'left-0' : 'left-[-100%]'
         }`}
       >
         <div className="block h-[60px] pt-[16px] pl-[20px] box-border">
           {/* <NavLogo /> */}
           <Link
             className="inline-block w-[57px] h-[36px] bg-[url('/images/logo_header.840b502c.gif')] bg-[100%_auto] bg-no-repeat"
-            href={"/"}
+            href={'/'}
             onClick={handleHidden}
           />
         </div>
@@ -90,9 +87,7 @@ const Sidebar = () => {
           <div className="px-5 pt-[18px] pb-6">
             <div className="flex items-center justify-between">
               <p className="text-[18px] leading-[26px]">
-                <strong
-                  className={`relative inline-block font-medium pl-1 pr-[1px] ${underline}`}
-                >
+                <strong className={`relative inline-block font-medium pl-1 pr-[1px] ${underline}`}>
                   조영일
                 </strong>
                 님 반갑습니다.
@@ -107,7 +102,7 @@ const Sidebar = () => {
                 로그아웃
               </Button>
               <Button className="h-9" backgroundColor="black">
-                <Link href={"/myPage"}>마이페이지</Link>
+                <Link href={'/myPage'}>마이페이지</Link>
               </Button>
             </div>
           </div>
@@ -115,9 +110,7 @@ const Sidebar = () => {
 
         {/* 즐겨착기 메뉴: 숨김 */}
         <div className="relative bg-[#fff9ea] box-border pt-[26px] pb-[24px]">
-          <div className="hidden justify-between px-5">
-            {Pages && Pages.map((i) => i.name)}
-          </div>
+          <div className="hidden justify-between px-5">{Pages && Pages.map((i) => i.name)}</div>
 
           {/* 즐겨찾기 메뉴 */}
           <p className="relative h-20 w-[calc(100%-48px)] mx-6 pl-[58px] pt-[18px] border border-dashed border-[#f8b404] box-border">
@@ -143,18 +136,12 @@ const Sidebar = () => {
         {/* terms */}
         <ul className="space-x-5 mt-[20px] mb-[80px] ml-5">
           <li className="inline-block">
-            <Link
-              className="block text-[13px] leading-[13px] text-[#767676] py-[5px]"
-              href={""}
-            >
+            <Link className="block text-[13px] leading-[13px] text-[#767676] py-[5px]" href={''}>
               서비스 이용약관
             </Link>
           </li>
           <li className="inline-block">
-            <Link
-              className="block text-[13px] leading-[13px] text-[#eb0000] py-[5px]"
-              href={""}
-            >
+            <Link className="block text-[13px] leading-[13px] text-[#eb0000] py-[5px]" href={''}>
               개인정보 처리방침
             </Link>
           </li>
@@ -170,7 +157,7 @@ const Sidebar = () => {
       {/* Background */}
       <div
         className={`fixed w-full h-full min-w-[320px] bg-black transition-all ease-linear duration-300 ${
-          value ? "bg-opacity-50 duration-300" : "bg-opacity-0 hidden"
+          value ? 'bg-opacity-50 duration-300' : 'bg-opacity-0 hidden'
         }`}
         onClick={handleHidden}
         ref={hiddenRef}

@@ -1,38 +1,34 @@
-"use client";
-import { useState } from "react";
-import Button from "../atoms/Button/Button";
-import ListForHistory, { PointListType } from "../atoms/ListForHistory";
-import Modal from "../atoms/Modal";
-import HistoryList from "../modules/HistoryList";
-import Link from "next/link";
+'use client';
+import { useState } from 'react';
+import Button from '../atoms/Button/Button';
+import ListForHistory, { PointListType } from '../atoms/ListForHistory';
+import Modal from '../atoms/Modal';
+import HistoryList from '../modules/HistoryList';
+import Link from 'next/link';
 
 const HistoryForGift = () => {
   const [modal, setModal] = useState(false);
   const dropdownForHistory = {
-    dropdownTitle: "pntHistory",
-    dropdownOptions: ["1주일", "1개월", "3개월", "6개월", "직접입력"],
+    dropdownTitle: 'pntHistory',
+    dropdownOptions: ['1주일', '1개월', '3개월', '6개월', '직접입력'],
     dropdownInitial: 2,
   };
 
   const pointExample: PointListType[] = [
     {
-      historyTag: "선물적립",
+      historyTag: '선물적립',
       pntValue: 10,
       pntInfo: {
-        title: "권*(ID:ks*******)",
-        sub: "받은 선물: 수락",
+        title: '권*(ID:ks*******)',
+        sub: '받은 선물: 수락',
       },
-      pntDate: "2023-08-02",
+      pntDate: '2023-08-02',
     },
   ];
   return (
     <>
       <div className="px-5 pb-5">
-        <Button
-          className="h-12"
-          backgroundColor="primary"
-          onClick={() => setModal(!modal)}
-        >
+        <Button className="h-12" backgroundColor="primary" onClick={() => setModal(!modal)}>
           선물하기
         </Button>
       </div>
@@ -64,7 +60,7 @@ const HistoryForGift = () => {
               다음에 하기
             </Button>
             <Button className="h-10" backgroundColor="black">
-              <Link href={"/"}>앱 다운로드</Link>
+              <Link href={'/'}>앱 다운로드</Link>
             </Button>
           </div>
         </>

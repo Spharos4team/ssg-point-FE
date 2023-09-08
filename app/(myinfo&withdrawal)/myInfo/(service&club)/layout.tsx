@@ -1,21 +1,17 @@
-import ContentHeader from "@/components/atoms/ContentHeader";
-import TabForTabBox from "@/components/atoms/TabForTabBox";
-import TabBoxSimple from "@/components/modules/TabBoxSimple";
-import { PageProp } from "@/types/LinkProps";
+import ContentHeader from '@/components/atoms/ContentHeader';
+import TabForTabBox from '@/components/atoms/TabForTabBox';
+import TabBoxSimple from '@/components/modules/TabBoxSimple';
+import { PageProp } from '@/types/LinkProps';
 
 const pagesInMy: PageProp[] = [
   {
     _id: 5,
-    _href: "/withdrawal/leavePassword",
-    name: "회원 탈퇴",
+    _href: '/withdrawal/leavePassword',
+    name: '회원 탈퇴',
   },
 ];
 
-export default function ServiceAndClubLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ServiceAndClubLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ContentHeader

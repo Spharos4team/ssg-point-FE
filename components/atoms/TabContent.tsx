@@ -1,8 +1,8 @@
-"use client";
-import { ImageProp } from "@/types/LinkProps";
-import LinkImageWithFallback from "../ui/LinkImageWithFallback";
-import DefListSimple from "./DefListSimple";
-import { useRadioContext } from "../hooks/RadioProvider";
+'use client';
+import { ImageProp } from '@/types/LinkProps';
+import LinkImageWithFallback from '../ui/LinkImageWithFallback';
+import DefListSimple from './DefListSimple';
+import { useRadioContext } from '../hooks/RadioProvider';
 
 const TabContent = ({
   className,
@@ -10,7 +10,7 @@ const TabContent = ({
   name,
   nameHidden = false,
   children,
-  h4=false,
+  h4 = false,
 }: {
   className?: string;
   id: string;
@@ -20,9 +20,9 @@ const TabContent = ({
   h4?: boolean;
 }) => {
   const { selectedValue } = useRadioContext();
-  const HeaderTag = h4 ? "h4" : "h3";
+  const HeaderTag = h4 ? 'h4' : 'h3';
   return (
-    <div className={`${className} p-5 ${selectedValue === id ? "" : "hidden"}`}>
+    <div className={`${className} p-5 ${selectedValue === id ? '' : 'hidden'}`}>
       {!nameHidden && <HeaderTag>{name}</HeaderTag>}
       {children}
     </div>

@@ -1,5 +1,5 @@
-"use client";
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
 const TextBox = ({
   className,
@@ -10,11 +10,11 @@ const TextBox = ({
 }: {
   className?: string;
   id: string;
-  type: "number" | "text" | "password";
+  type: 'number' | 'text' | 'password';
   disable?: boolean;
   children: string;
 }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   return (
     <div className={`${className} relative inline-block w-full align-top`}>
@@ -28,7 +28,7 @@ const TextBox = ({
       />
       <label
         className={`absolute table left-0 top-0 box-border w-full h-12 px-4 leading-6 text-sm ${
-          value ? "hidden" : ""
+          value ? 'hidden' : ''
         }`}
         htmlFor={id}
       >

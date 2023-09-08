@@ -1,8 +1,8 @@
-import ContentStrong from "../atoms/ContentStrong";
-import ListForNoticeBox from "../atoms/ListForNoticeBox";
-import ToggleCard from "../modules/ToggleCard";
-import CollapseForCarInClub from "./CollapseForCarInClub";
-import Button from "../atoms/Button/Button";
+import ContentStrong from '../atoms/ContentStrong';
+import ListForNoticeBox from '../atoms/ListForNoticeBox';
+import ToggleCard from '../modules/ToggleCard';
+import CollapseForCarInClub from './CollapseForCarInClub';
+import Button from '../atoms/Button/Button';
 
 const ClubContentCarSrv = () => {
   const smallListStyle =
@@ -31,8 +31,8 @@ const ClubContentCarSrv = () => {
           {`이마트, 신세계백화점 방문 시 구매 내역에 따라 등록하신 차량의 주차비가 자동으로 정산됩니다.<ul><li class="${smallListStyle}">이마트 : 일부 점포 제외 (이마트앱 > 주차 > 무료주차 가능점포)</li><li class="${smallListStyle}">백화점 : 경기점, 타임스퀘어점 제외</li></ul>`}
         </ListForNoticeBox>
         <ListForNoticeBox level={1}>
-          차량번호는 최대 1대까지 입력이 가능하며, 임시번호 및 외교차량 등 일부
-          차량번호는 등록되지 않습니다.
+          차량번호는 최대 1대까지 입력이 가능하며, 임시번호 및 외교차량 등 일부 차량번호는 등록되지
+          않습니다.
         </ListForNoticeBox>
       </ul>
 

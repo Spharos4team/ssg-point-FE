@@ -1,13 +1,11 @@
-import { ImageProp } from "@/types/LinkProps";
+import { ImageProp } from '@/types/LinkProps';
 
 export default function FallbackImage({ image }: { image: ImageProp }) {
   const { size } = image;
-  const width = size?.w ? `w-[${size.w}px]` : "w-full";
-  const height = size?.h ? `h-[${size.h}px]` : "h-full";
+  const width = size?.w ? `w-[${size.w}px]` : 'w-full';
+  const height = size?.h ? `h-[${size.h}px]` : 'h-full';
   return (
-    <div
-      className={`relative ${width} ${height} p-10 rounded-2xl bg-gray-300 dark:bg-gray-700`}
-    >
+    <div className={`relative ${width} ${height} p-10 rounded-2xl bg-gray-300 dark:bg-gray-700`}>
       <svg
         className="w-full h-full text-gray-200 dark:text-gray-600 mx-auto"
         aria-hidden="true"

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 //TODO: 이 페이지(bannerList) 자체도 swiper 사용해야 함
 const banners: Array<{ key: number; _src: string; _href: string }> = [
@@ -9,13 +9,13 @@ const banners: Array<{ key: number; _src: string; _href: string }> = [
   //key와 게시물 id를 일치시키는게 좋을 듯
   {
     key: 1,
-    _src: "/images/main-banners-01.png",
-    _href: "ingevents/detail?eventNo=3373",
+    _src: '/images/main-banners-01.png',
+    _href: 'ingevents/detail?eventNo=3373',
   },
   {
     key: 2,
-    _src: "/images/main-banners-01.png",
-    _href: "ingevents/detail?eventNo=3373",
+    _src: '/images/main-banners-01.png',
+    _href: 'ingevents/detail?eventNo=3373',
   },
 ];
 

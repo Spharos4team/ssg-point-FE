@@ -6,7 +6,7 @@ export interface ImageProp {
   _id?: number;
   _src: string;
   size?: { h: number; w: number };
-  type: "icon" | "profile" | "image";
+  type: 'icon' | 'profile' | 'image';
   // fallback: "icon_fallback" | "profile_fallback" | "iamge_fallback"; //WARN: fallback의 값은 type에 따라 결정된다.
 }
 /**
@@ -19,7 +19,7 @@ export interface ImageLinkProp {
   _href: string;
   name: string;
   image: ImageProp;
-  fontSize?: "xs" | "sm" | "base" | "lg" | "xl";
+  fontSize?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
   fontHidden?: boolean;
 }
 
@@ -43,7 +43,7 @@ export interface PageProp {
   title?: React.ReactNode;
   subTitle?: string;
   image?: ImageProp;
-  fontSize?: "xs" | "sm" | "base" | "lg" | "xl";
+  fontSize?: 'xs' | 'sm' | 'base' | 'lg' | 'xl';
   fontHidden?: boolean;
   className?: string;
 }

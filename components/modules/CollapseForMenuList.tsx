@@ -1,6 +1,6 @@
-import { PageProps } from "@/types/PageProps";
-import { useEffect, useState } from "react";
-import MenuButton from "../atoms/MenuButton";
+import { PageProps } from '@/types/PageProps';
+import { useEffect, useState } from 'react';
+import MenuButton from '../atoms/MenuButton';
 
 const CollapseForMenuList = ({
   parent,
@@ -30,7 +30,7 @@ const CollapseForMenuList = ({
           <em>메뉴닫기</em>
         </span>
       </button>
-      <div className={`${menuCollapse ? "" : "hidden"}`}>
+      <div className={`${menuCollapse ? '' : 'hidden'}`}>
         {/* hidden */}
         <ul className="grid grid-cols-2 gap-y-5 pb-[34px]">
           {parentChildMap[parent.id]
