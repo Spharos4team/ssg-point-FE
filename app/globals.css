@@ -17,6 +17,7 @@
 }
 
 body {
+  min-height: 100vh;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -28,8 +29,12 @@ body {
 /* body::-webkit-scrollbar {
   width: 8px; /* 스크롤바의 너비 */
 
+em {
+  font-style: normal;
+}
+
 section {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 500px);
 }
 
 .mainBannerSwiper .swiper-scrollbar {
@@ -79,4 +84,29 @@ section {
   font-weight: 500;
   vertical-align: middle;
   word-break: break-all;
+}
+.basic_table .center td,
+.basic_table .center th {
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.react-datepicker,
+.react-datepicker__month-container {
+  width: 100%;
+}
+
+.react-datepicker__day-names,
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-datepicker__day {
+  border-radius: 100%;
+}
+
+.react-datepicker__day:hover {
+  background-color: #e8e8e8;
 }

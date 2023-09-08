@@ -1,5 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import KakaoProvider from "next-auth/providers/kakao";
+import NaverProvider from "next-auth/providers/naver";
+import GoogleProvider from "next-auth/providers/google";
 
 import { KEY } from "@/utils/KeyHelper";
 
@@ -21,6 +24,7 @@ export const options: NextAuthOptions = {
           },
           body: JSON.stringify(credentials),
         });
+
         const user = await res.json();
 
         if (res.ok && user) {
@@ -29,6 +33,19 @@ export const options: NextAuthOptions = {
         }
         return null;
       },
+    }),
+
+    KakaoProvider({
+      clientId: process.env.KAKAO_CLIENT_ID!,
+      clientSecret: process.env.KAKAO_CLIENT_SECRET!,
+    }),
+    NaverProvider({
+      clientId: process.env.NAVER_CLIENT_ID!,
+      clientSecret: process.env.NAVER_CLIENT_SECRET!,
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
 

@@ -3,15 +3,23 @@ import { useAppContext } from "@/provider/AppContextProvider";
 import { useEffect } from "react";
 
 export default function Collapse({
+  className,
+  buttonClass,
+  position = "bottom",
   id,
   title,
   children,
   open = false,
+  center = false,
 }: {
+  className?: string;
+  buttonClass?: string;
+  position?: "top" | "bottom";
   id: string;
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   open?: boolean;
+  center?: boolean;
 }) {
   const { appValueList, handleAppRecord } = useAppContext();
 
@@ -25,32 +33,46 @@ export default function Collapse({
   const isOpen = appValueList[id];
   return (
     <div
-      className={`border-b ${
-        isOpen ? "h-full" : "h-[49px]"
+      className={`${className ?? ""} border-b ${
+        isOpen ? "h-full" : "min-h-[49px]"
       } transition ease-in-out duration-300 overflow-hidden`}
     >
+      {position == "top" && (
+        <div
+          className={`relative ${
+            isOpen ? "translate-y-0 h-full" : "-translate-y-full h-0"
+          } transition-all ease-in-out duration-300 overflow-hidden z-0`}
+        >
+          {children}
+        </div>
+      )}
       <button
         id={id}
-        className="relative block w-full h-12 text-left text-sm leading-[24px] bg-white"
+        className={`${buttonClass} ${
+          center ? "flex justify-center items-center" : ""
+        } relative block w-full h-12 text-left text-sm leading-[24px] z-20 bg-white`}
         onClick={() => handleAppRecord(id, !appValueList[id])}
       >
         {title}
         <span
-          className={`absolute right-0 top-5 w-3 h-2 -indent-[999em] ${collapseArrow} ${
+          className={`${
+            center ? "ml-2" : "absolute right-0"
+          } top-5 w-3 h-2 -indent-[999em] ${collapseArrow} ${
             isOpen ? "bg-[center_bottom_1px]" : "bg-[center_top_1px]"
           }`}
         >
           <em>{isOpen ? "메뉴닫기" : "메뉴열기"}</em>
         </span>
       </button>
-
-      <div
-        className={`relative ${
-          isOpen ? "translate-y-0 h-full" : "-translate-y-full h-0"
-        } transition-all ease-in-out duration-300 overflow-hidden -z-10`}
-      >
-        {children}
-      </div>
+      {position == "bottom" && (
+        <div
+          className={`relative ${
+            isOpen ? "translate-y-0 h-full" : "-translate-y-full h-0"
+          } transition-all ease-in-out duration-300 overflow-hidden z-0`}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 }

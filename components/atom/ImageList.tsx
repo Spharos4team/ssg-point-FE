@@ -13,7 +13,7 @@ export default function ImageList({
     <ul
       className={`${
         className ?? ""
-      } grid grid-cols-2 gap-x-1 gap-y-5 pb-[34px] mt-5`}
+      } grid grid-cols-2 gap-x-1 gap-y-5 pb-[34px] mt-5 z[0]`}
     >
       {pages
         .filter((page) => page?.parent_id)
@@ -23,7 +23,7 @@ export default function ImageList({
             className="flex-grow h-5 text-[13px] leading-[18px]"
           >
             <Link
-              className="flex gap-1 items-center h-5 text-[13px] leading-[18px]"
+              className="flex gap-1 items-center h-5 text-[2.5vw] leading-[18px] text-ellipsis whitespace-nowrap"
               href={child?.pathname as string}
             >
               <Image

@@ -9,6 +9,7 @@ export default function Button({
   open,
   onClick,
   children,
+  disabled = false,
 }: {
   id?: string;
   className?: string;
@@ -17,6 +18,7 @@ export default function Button({
   open?: boolean;
   onClick?: () => void;
   children: React.ReactNode;
+  disabled?: boolean;
 }) {
   const bgProvider = () => {
     switch (bgColor) {
@@ -40,6 +42,7 @@ export default function Button({
             bgProvider() + " " + className
           } flex gap-x-1 items-center border-0`}
           onClick={onClick}
+          disabled={disabled}
         >
           {children}
         </button>
@@ -55,6 +58,7 @@ export default function Button({
           } block text-center text-sm leading-6 font-bold box-border rounded-lg
       w-full h-12`}
           onClick={onClick}
+          disabled={disabled}
         >
           {children}
         </button>

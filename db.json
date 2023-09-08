@@ -164,6 +164,15 @@
       "win_date": "2023/07/13",
       "start_date": "2023/06/08",
       "end_date": "2023/07/12"
+    },
+    {
+      "id": 9,
+      "name": "신세계면세점 멤버십 등급 안내",
+      "thumb": "/event/ssgdutyfreemembership_thumb.jpg",
+      "banner_thumb": "/event/ssgdutyfreemembership_banner.jpg",
+      "win_date": "",
+      "start_date": "2023/02/28",
+      "end_date": "2024/01/31"
     }
   ]
 }

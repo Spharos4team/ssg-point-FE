@@ -8,4 +8,7 @@ export const KEY = {
   BARCORDBOX: "globalBarcodeBox",
 
   COUPONREGISTER: "couponRegister",
+  MYCOUPONS: "benefits-mycoupon",
+
+  PNTDROPDOWN: "pntHistoryFilter_dropdown",
 };

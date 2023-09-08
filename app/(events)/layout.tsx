@@ -15,6 +15,7 @@ export default function EventsLayout({
           "당첨 확인",
         ])}
         activeTab="underline-primary"
+        activeColor="benefits"
         justify="between"
         hideByScroll
       />

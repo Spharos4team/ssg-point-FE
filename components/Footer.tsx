@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mb-[75px]">
+    <footer className="mb-[75px] min-w-[320px]">
       <div className="relative px-6 pt-6 pb-8 border-t-[1px]">
         <ul className="pb-5 space-x-5">
           {staticPageFetch
@@ -24,14 +24,14 @@ export default function Footer() {
         </ul>
 
         {/* 개인정보 처리방침: red */}
-        <div className="mb-4">
-          <p className="block text-[14px] leading-[1em] tracking-[0.5px] pb-[10px]">
+        <div className="mb-4 min-w-[320px]">
+          <p className="block text-xs leading-[1em] tracking-[0.5px] pb-[10px]">
             신세계포인트 고객센터
           </p>
           <button className="inline-block cursor-pointer text-3xl leading-[1em] tracking-normal align-top">
             1899-4349
           </button>
-          <p className="inline-block mt-[-27px] ml-[16px] text-[12px] leading-[18px]">
+          <p className="inline-block mt-[-27px] ml-[16px] text-xs leading-[18px]">
             운영시간<span className="mx-1">:</span>
             <em>09</em>시 - <em>18</em>시<br />
             점심시간<span className="mx-1">:</span>

@@ -2,82 +2,13 @@ import Card from "@/components/atom/Card";
 import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
 import Grid from "@/components/atom/Grid";
-import ListBody from "@/components/atom/ListBody";
 import ListHeader from "@/components/atom/ListHeader";
 import Subtitle from "@/components/atom/Subtitle";
 import Image from "next/image";
 import Link from "next/link";
+import cardLinkList_1 from "@/data/onlineCard.json";
 
 export default function PointCardPage() {
-  const cardLinkList_1 = [
-    {
-      id: 1,
-      name: "신세계포인트",
-      href: "https://m.shinsegaepoint.com/",
-      src: "/images/resources/sPoint/card_shinsegaepoint.png",
-    },
-    {
-      id: 2,
-      name: "이마트",
-      href: "https://emartapp.emart.com/main/main.do?trcknCode=etc_QRscan",
-      src: "/images/resources/sPoint/card_emart.png",
-    },
-    {
-      id: 3,
-      name: "신세계백화점",
-      href: "https://www.shinsegae.com/",
-      src: "/images/resources/sPoint/card_shinsegae.png",
-    },
-    {
-      id: 4,
-      name: "SSG.COM",
-      href: "https://m.ssg.com/",
-      src: "/images/resources/sPoint/card_ssg.png",
-    },
-    {
-      id: 5,
-      name: "신세계아울렛",
-      href: "https://app.premiumoutlets.co.kr/page/app/online",
-      src: "/images/resources/sPoint/card_outlets.png",
-    },
-    {
-      id: 6,
-      name: "시코르",
-      href: "https://m.chicor.com/main",
-      src: "/images/resources/sPoint/card_chicor.png",
-    },
-    {
-      id: 7,
-      name: "이마트에브리데이",
-      href: "http://m.emarteveryday.co.kr/index.jsp",
-      src: "/images/resources/sPoint/card_emarteveryday.png",
-    },
-    {
-      id: 8,
-      name: "쓱고우",
-      href: "https://ondemandweb.ondemand.mycloudmembership.com/",
-      src: "/images/resources/sPoint/card_ssggo.png",
-    },
-    {
-      id: 9,
-      name: "신세계면세점",
-      href: "https://www.ssgdfs.com/kr/common/downloadDFAppLink",
-      src: "/images/resources/sPoint/card_ssgdf.png",
-    },
-    {
-      id: 10,
-      name: "신세계까사",
-      href: "https://www.guud.com/index",
-      src: "/images/resources/sPoint/card_chicor.png",
-    },
-    {
-      id: 11,
-      name: "스타필드",
-      href: "https://m.starfield.co.kr/",
-      src: "/images/resources/sPoint/card_starfield.png",
-    },
-  ];
-
   const cardLinkList_2 = [
     {
       id: 1,
@@ -174,7 +105,7 @@ export default function PointCardPage() {
         </Subtitle>
         <Grid>
           {cardLinkList_1.map((link) => (
-            <li className="flex justify-center">
+            <li key={link.id} className="flex justify-center">
               <Link href={link.href} target="_blank">
                 <Card className="relative w-20 h-20 mx-auto">
                   <Image src={link.src} fill alt={link.name} />
@@ -192,7 +123,7 @@ export default function PointCardPage() {
 
         <Grid>
           {cardLinkList_2.map((link) => (
-            <li className="flex justify-center text-center">
+            <li key={link.id} className="flex justify-center text-center">
               <Link href={link.href} target="_blank">
                 <Card className="relative w-20 h-20 mx-auto">
                   <Image src={link.src} fill alt={link.name} />
@@ -209,7 +140,7 @@ export default function PointCardPage() {
 
         <Grid>
           {cardLinkList_3.map((link) => (
-            <li className="flex justify-center">
+            <li key={link.id} className="flex justify-center">
               <Link className="items-center" href={link.href} target="_blank">
                 <Card className="relative w-20 h-20 mx-auto">
                   <Image src={link.src} fill alt={link.name} />

@@ -1,4 +1,4 @@
-import FormCert from "@/components/FormCert";
+import FormCert from "@/components/organisam/FormCert";
 import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
 import Subtitle from "@/components/atom/Subtitle";
@@ -28,6 +28,7 @@ export default function TempCardCertPage() {
         </ContentHeader>
       </div>
 
+      {/* --- 3 step --- */}
       <ul
         className={`px-5 pb-10 relative flex justify-between ${beforeArrow} ${afterArrow}`}
       >

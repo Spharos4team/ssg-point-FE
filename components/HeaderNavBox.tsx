@@ -17,6 +17,7 @@ export default function HeaderNavBox() {
     "/membership": "멤버십 서비스",
 
     "/myPoint": "마이 포인트",
+    "/myLounge": "마이 라운지",
     "/myPage": "마이 페이지",
     "/myInfo": "마이 회원정보",
     "/withdrawal": "마이 회원정보",
@@ -29,16 +30,25 @@ export default function HeaderNavBox() {
 
     "/member/findIdPw": "아이디 찾기 본인인증",
     "/member/findPw": "비밀번호 찾기 본인인증",
-    "/member/join": "회원가입",
     "/member/findIdResult": "아이디 찾기",
+
+    "/member/join": "회원가입",
+    "/member/join/cert": "회원가입 본인인증",
+
+    "/stplat/policy": "개인정보 처리방침",
   };
 
   const getTitle = () => {
-    for (const key in TITLES) {
-      if (currPathname.startsWith(key)) {
+    const pathSegments = currPathname.split("/").filter(Boolean);
+
+    while (pathSegments.length > 0) {
+      const key = `/${pathSegments.join("/")}`;
+      if (TITLES[key]) {
         return TITLES[key];
       }
+      pathSegments.pop();
     }
+
     return "/(정의되지 않은 페이지)";
   };
 

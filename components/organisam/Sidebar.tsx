@@ -14,6 +14,9 @@ import Collapse from "../atom/Collapse";
 import ImageList from "../atom/ImageList";
 import ListHeader from "../atom/ListHeader";
 import { scrollHider } from "@/utils/CommonHelper";
+import Underline from "../atom/UnderLine";
+import CloseButton from "../atom/CloseButton";
+import Modal from "../atom/Modal";
 
 const getAPageByName = staticPageFetch.getAPageByName;
 const getChildrenPageByParentName = staticPageFetch.getChildrenPageByParentName;
@@ -21,7 +24,7 @@ const getChildrenPageByParentName = staticPageFetch.getChildrenPageByParentName;
 export default function Sidebar() {
   const session = useSession();
 
-  const temsPages =
+  const termsPages =
     staticPageFetch.getChildrenPageByParentName("서비스 이용약관");
 
   const { appValueList, handleAppRecord } = useAppContext();
@@ -61,7 +64,9 @@ export default function Sidebar() {
         </div>
 
         {/* User Status Box */}
-        {session.status == "authenticated" ? UserStatusOn() : UserStatusOff()}
+        {session.status == "authenticated"
+          ? UserStatusOn({ session })
+          : UserStatusOff()}
 
         {/* Favorite Menus */}
         <SidebarFavoBox />
@@ -91,10 +96,7 @@ export default function Sidebar() {
         </ul>
 
         {/* Close Button */}
-        <button
-          className="absolute top-0 right-0 w-[60px] h-[60px] bg-[url('/images/icon_close.png')] bg-[14px_auto] bg-center bg-no-repeat"
-          onClick={handleHidden}
-        />
+        <CloseButton onClick={handleHidden} />
       </div>
 
       {/* TODO: Background */}
@@ -109,28 +111,66 @@ export default function Sidebar() {
   );
 }
 
-const UserStatusOn = () => {
+const UserStatusOn = ({ session }: { session: any }) => {
+  const pointIcon =
+    "after:inline-block after:w-[33px] after:h-[30px] after:bg-[100%_auto] after:bg-[url('/images/resources/point_gradi.png')] after:bg-no-repeat";
+
+  const { appValueList, handleAppRecord } = useAppContext();
+  const handleLogout = () => {
+    signOut({ callbackUrl: "/" });
+  };
+  const handleLogoutModal = {
+    on: () => {
+      handleAppRecord("logoutModal", true);
+    },
+    off: () => {
+      handleAppRecord("logoutModal", false);
+    },
+  };
+
   return (
     <>
       <div className="px-5 pt-[18px] pb-6">
-        <div className="flex items-center justify-between">
-          <p className="text-[18px] leading-[26px]">로그인해 주세요.</p>
+        <div className="flex flex-col justify-start">
+          <p className="text-[18px] leading-[26px]">
+            <Underline>{session.data?.user?.name}</Underline>님 반갑습니다.
+          </p>
+          <p className="text-[18px] leading-[26px]">
+            <span
+              className={`flex justify-end text-2xl leading-7 font-bold ${pointIcon}`}
+            >
+              1
+            </span>
+          </p>
         </div>
         <div className="flex gap-2 mt-[25px]">
           <Button
             className="h-9"
             bgColor="primary"
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={handleLogoutModal.on}
           >
             로그아웃
           </Button>
-          <Button className="h-9" bgColor="black">
-            <Link href={getAPageByName("마이 페이지")?.pathname as string}>
-              마이페이지
-            </Link>
-          </Button>
+
+          <Link
+            className="flex justify-center items-center h-9 leading-6 font-bold rounded-lg w-full text-white bg-black"
+            href={getAPageByName("마이 페이지")?.pathname as string}
+          >
+            마이페이지
+          </Link>
         </div>
       </div>
+      <Modal id="logoutModal" center>
+        <p className="text-lg text-center pb-5">
+          정말로 로그아웃 하시겠습니까?
+        </p>
+        <div className="flex gap-x-2">
+          <Button bgColor="black" onClick={handleLogout}>
+            확인
+          </Button>
+          <Button onClick={handleLogoutModal.off}>취소</Button>
+        </div>
+      </Modal>
     </>
   );
 };
@@ -142,16 +182,18 @@ const UserStatusOff = () => {
           <p className="text-[18px] leading-[26px]">로그인해 주세요.</p>
         </div>
         <div className="flex gap-2 mt-[25px]">
-          <Button className="h-9" bgColor="primary">
-            <Link href={getAPageByName("로그인")?.pathname as string}>
-              로그인
-            </Link>
-          </Button>
-          <Button className="h-9" bgColor="black">
-            <Link href={getAPageByName("회원가입")?.pathname as string}>
-              회원가입
-            </Link>
-          </Button>
+          <Link
+            className="flex justify-center items-center h-9 leading-6 font-bold rounded-lg w-full bg-gradient-primary"
+            href={getAPageByName("로그인")?.pathname as string}
+          >
+            로그인
+          </Link>
+          <Link
+            className="flex justify-center items-center h-9 leading-6 font-bold rounded-lg w-full text-white bg-black"
+            href={getAPageByName("회원가입")?.pathname as string}
+          >
+            회원가입
+          </Link>
         </div>
       </div>
     </>

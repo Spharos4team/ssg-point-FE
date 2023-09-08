@@ -5,5 +5,11 @@ export default function ContentTitle({
   className?: string;
   children: React.ReactNode;
 }) {
-  return <p className={`${className} text-2xl leading-9`}>{children}</p>;
+  return (
+    <p
+      className={`${className} text-xl font-medium leading-8 tracking-[-.5px]`}
+    >
+      {children}
+    </p>
+  );
 }

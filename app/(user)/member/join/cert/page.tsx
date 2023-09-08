@@ -1,4 +1,4 @@
-import FormCert from "@/components/FormCert";
+import FormCert from "@/components/organisam/FormCert";
 import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
 import Subtitle from "@/components/atom/Subtitle";

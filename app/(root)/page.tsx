@@ -7,6 +7,7 @@ import Image from "next/image";
 import Card from "@/components/atom/Card";
 import { staticPageFetch } from "@/utils/StaticFetch";
 import Link from "next/link";
+import FallbackImage from "@/components/atom/FallbackImage";
 
 export default function Home() {
   return (
@@ -24,7 +25,12 @@ export default function Home() {
             modules={[Scrollbar, Pagination]}
           >
             <SwiperSlide className="relative w-full min-h-[90.667vw]">
-              <Image src={"/images/banners/main-banners-01.png"} fill alt="" />
+              <Image
+                src={"/images/banners/main-banners-01.png"}
+                fill
+                alt=""
+                onError={() => <FallbackImage />}
+              />
             </SwiperSlide>
           </Swiper>
         </div>
