@@ -44,6 +44,18 @@ export default function RegAffLayout({ children }: { children: React.ReactNode }
       subTitle: '알뜰하게 적립한 포인트를 모두 모아<br />자주 사용하는 포인트로 전환해 보세요.',
     },
     {
+      _href: '/myPoint/convertOKCashbag',
+      name: '포인트 전환',
+      title: (
+        <>
+          여기저기 흩어져 있는 포인트를
+          <br />
+          신세계포인트로 <span className="text-[#ea035c] font-medium">한 곳에 모아보세요.</span>
+        </>
+      ),
+      subTitle: '알뜰하게 적립한 포인트를 모두 모아<br />자주 사용하는 포인트로 전환해 보세요.',
+    },
+    {
       _href: '/myPoint/savePoint',
       name: '영수증으로 적립',
       title: (

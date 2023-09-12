@@ -42,18 +42,18 @@ function PostCodeDaum({
   };
   return (
     <div>
-      {/*{*/}
-      {/*    isView &&*/}
-      {/*    <DaumPostcode*/}
-      {/*        className="postmodal"*/}
-      {/*        autoClose*/}
-      {/*        onComplete={complete}*/}
+      {
+          isView &&
+          <DaumPostcode
+              className="postmodal"
+              autoClose
+              onComplete={complete}
 
-      {/*    />*/}
-      {/*}*/}
-      <button type="button" onClick={handleClick}>
-        {children}
-      </button>
+          />
+      }
+      {/*<button type="button" onClick={handleClick}>*/}
+      {/*  {children}*/}
+      {/*</button>*/}
     </div>
   );
 }

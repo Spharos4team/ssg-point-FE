@@ -46,6 +46,7 @@ export default function ConvertPntList() {
             miniLink={{ href: '', name: '조회하기' }}
           />
 
+          {/*todo:클릭시 색 변경*/}
           <ListForConvert
             id="convertPntOk"
             name="convertPntList"
@@ -65,13 +66,15 @@ export default function ConvertPntList() {
         </ul>
       </div>
 
-      <div className="px-5">
-        <Button className="h-12" backgroundColor="primary">
+      <div className="px-5 flex">
+        <Button className="h-12" backgroundColor="primary" type={"link"} href={'/myPoint/convertOKCashbag'}>
           전환하기
         </Button>
+      </div>
+      <div className='px-5'>
         <Link
           href={''}
-          className="relative float-right top-2 text-sm leading-[18px] text-[#767676] pr-[10px]
+          className="relative block float-right top-2 text-sm leading-[18px] text-[#767676] pr-[10px]
                 after:content-[''] after:absolute after:h-[10px] after:w-[6px] after:top-1/2 after:right-0 after:mt-[-4.5px] after:bg-[url('/images/arrow_right_gray.png')] after:bg-no-repeat after:bg-[100%_auto]"
         >
           포인트 한번에 조회하기 동의 철회
