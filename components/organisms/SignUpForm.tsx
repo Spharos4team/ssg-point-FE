@@ -156,7 +156,7 @@ export default function SignUpForm() {
       </Input>
 
         {/*광고 동의 안 할 시 modal*/}
-      <Modal modal={true}>
+      <Modal modal={false}>
         <strong className="block mb-2 text-[20px] leading-[30px] font-medium text-[#ea035c]">
           잠깐!
         </strong>
@@ -245,7 +245,12 @@ export default function SignUpForm() {
               >
                 다음에 할게요
               </Button>
-              <Button className="h-10 text-xs" backgroundColor="black">
+              <Button
+                  className="h-10 text-xs"
+                  backgroundColor="black"
+                  type={"link"}
+                  href={"/member/join/success"}
+              >
                 확인
               </Button>
             </div>

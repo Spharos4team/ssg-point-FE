@@ -7,6 +7,7 @@ const ListForNoticeBox = ({
   isReference = false,
   level,
   children,
+  isCheck = false,
 }: {
   className?: string;
   isBullet?: boolean;
@@ -14,6 +15,7 @@ const ListForNoticeBox = ({
   children: string;
   isHyphen?: boolean;
   isReference?: boolean;
+  isCheck?: boolean;
 }) => {
   const levelColor = {
     1: 'text-black font-bold before:text-black before:font-bold',
@@ -29,10 +31,12 @@ const ListForNoticeBox = ({
     "pl-[7px] -tracking-[.5px] before:content-['-'] before:absolute before:left-0 before:top-0 before:text-xs before:leading-5 before:font-normal";
   const reference =
     "pl-[14px] -tracking-[.5px] before:content-['※'] before:absolute before:left-0 before:top-0 before:text-xs before:leading-5 before:font-normal";
+  const check =
+    "text-[13px] leading-[21px] pl-[14px] -tracking-[.5px] before:content-[''] before:relative before:top-6 before:mt-[1px] before:ml-1 before:inline-block before:w-[11px] before:h-[7px] before:bg-[url('/images/arrow_down_form.png')] before:opacity-50 before:bg-no-repeat before:bg-[100%_auto]";
   return (
     <li
       className={`${className} relative text-xs leading-5 tracking-[-0.5px] break-keep list-none ${
-        isBullet ? bullet : isHyphen ? hyphen : isReference ? reference : 'pl-0 list-none'
+        isBullet ? bullet : isHyphen ? hyphen : isReference ? reference : isCheck ? check : 'pl-0 list-none'
       } ${levelColor[level]}`}
       dangerouslySetInnerHTML={{ __html: children }}
     ></li>

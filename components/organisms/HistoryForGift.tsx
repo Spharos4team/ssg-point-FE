@@ -28,7 +28,7 @@ const HistoryForGift = () => {
   return (
     <>
       <div className="px-5 pb-5">
-        <Button className="h-12" backgroundColor="primary" onClick={() => setModal(!modal)}>
+        <Button className="h-12 " backgroundColor="primary" type={'link'} href={'/myPoint/pntGift'}>
           선물하기
         </Button>
       </div>
