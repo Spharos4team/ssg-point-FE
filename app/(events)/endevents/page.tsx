@@ -1,14 +1,14 @@
 import EventList from "@/components/organisam/EventList";
-import { hyphenToSlashDate } from "@/utils/FormatHelpers";
+import { dateHyphenSlashConverter } from "@/utils/FormatHelpers";
 
 export default function EndEventsPage() {
-  const today = hyphenToSlashDate(new Date());
+  const today = dateHyphenSlashConverter(new Date());
   const eventFetchList = [
     {
       name: "종료",
       pathname: "/endevents",
-      url: `http://localhost:3030/event?_sort=start_date&_order=desc&end_date_lte=${today}`,
+      url: `http://localhost:3030/event?start_date_gte=2022/01/01&end_date_lte=${today}`,
     },
   ];
-  return <EventList />;
+  return <EventList eventFetchList={eventFetchList} />;
 }

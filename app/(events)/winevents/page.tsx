@@ -1,8 +1,8 @@
 import EventList from "@/components/organisam/EventList";
-import { hyphenToSlashDate } from "@/utils/FormatHelpers";
+import { dateHyphenSlashConverter } from "@/utils/FormatHelpers";
 
 export default function WinEventsPage() {
-  const today = hyphenToSlashDate(new Date());
+  const today = dateHyphenSlashConverter(new Date());
   const winEventList = [
     {
       name: "당첨",
@@ -10,5 +10,5 @@ export default function WinEventsPage() {
       url: `http://localhost:3030/event?win_date_ne=null`,
     },
   ];
-  return <EventList />;
+  return <EventList eventFetchList={winEventList} />;
 }

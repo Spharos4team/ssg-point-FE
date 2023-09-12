@@ -523,5 +523,23 @@
     "simple_icon": "",
     "primary_icon": "",
     "tab_icon": ""
+  },
+  {
+    "id": 58,
+    "parent_id": 0,
+    "name": "사용가능 쿠폰",
+    "pathname": "/benefits/myCoupon",
+    "simple_icon": "",
+    "primary_icon": "",
+    "tab_icon": ""
+  },
+  {
+    "id": 59,
+    "parent_id": 0,
+    "name": "사용완료/기간만료 쿠폰",
+    "pathname": "/benefits/endCoupon",
+    "simple_icon": "",
+    "primary_icon": "",
+    "tab_icon": ""
   }
 ]

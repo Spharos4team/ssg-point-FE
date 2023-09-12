@@ -151,7 +151,7 @@ export default function RegAffiliatePntCardPage() {
         </div>
         <div className="pb-4">
           <p className="text-[13px] pb-2 leading-[21px]">카드번호</p>
-          <div className="flex items-center border rounded-lg">
+          <div className="flex justify-between items-center border rounded-lg">
             <Input
               type="cardNumber"
               className="border-0 text-center rounded-lg"

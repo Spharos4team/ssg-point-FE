@@ -19,7 +19,7 @@ export default function TabbarHeader({
   activeColor?: "black" | "spoint" | "benefits" | "cscenter" | "membership";
   hideByScroll?: boolean;
 }) {
-  // 자식 페이지만 현재페이지로 표시...
+  // TODO: 자식 페이지만 현재페이지로 표시...
   const pathname = usePathname();
 
   const uniquePntPlus = "/benefits/pntPlus/attend";
@@ -65,6 +65,7 @@ export default function TabbarHeader({
 
   const [showHeader, setShowHeader] = useState(true);
   const [scrollState, setScrollState] = useState(0);
+
   useLayoutEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -104,11 +105,10 @@ export default function TabbarHeader({
                 <li
                   key={each.id}
                   className={`relative flex basis-auto px-5 text-[15px] transition-all duration-300 ease-in-out ${
-                    pathname?.startsWith(each.pathname as string) &&
-                    currActive()
-                  } ${
-                    pathname?.startsWith(each.pathname as string) && currColor()
-                  } ${justify == "between" ? "w-full" : "px-5"}`}
+                    pathname.includes(each.pathname) && currActive()
+                  } ${pathname.includes(each.pathname) && currColor()} ${
+                    justify == "between" ? "w-full" : "px-5"
+                  }`}
                 >
                   <Link
                     className="relative block w-full whitespace-nowrap"

@@ -14,15 +14,18 @@ import { useEffect, useRef } from "react";
 import DetailArrow from "../atom/DetailArrow";
 import TabPannel from "../atom/TabPannel";
 import ContentTitle from "../atom/ContentTitle";
+import { usePathname } from "next/navigation";
 
 export default function FormCert() {
+  const pathname = usePathname();
   const { appValueList, handleAppRecord } = useAppContext();
 
   const phoneIcon =
-    "before:absolute before:left-1/2 before:top-[15px] before:ml-[-18px] before:w-[35px] before:h-[40px] before:bg-[url('/images/resources/cert/ico_find_tab.png')] before:bg-[85px_auto] before:bg-[top_left_5px]";
-  const phoneSelected = "before:bg-[top_right_-5px]";
+    "before:absolute before:left-1/2 before:top-[15px] before:ml-[-18px] before:w-[35px] before:h-[40px] before:bg-[url('/images/resources/cert/ico_find_tab.png')] before:bg-[85px_auto] before:bg-[top_right_-5px]";
+  const phoneSelected = "before:!bg-[top_left_5px] ";
   const cardIcon =
-    "before:absolute before:left-1/2 before:top-[15px] before:ml-[-18px] before:w-[35px] before:h-[40px] before:bg-[url('/images/resources/cert/ico_find_tab.png')] before:bg-[85px_auto] before:bg-[center_left]";
+    "before:absolute before:left-1/2 before:top-[15px] before:ml-[-18px] before:w-[35px] before:h-[40px] before:bg-[url('/images/resources/cert/ico_find_tab.png')] before:bg-[85px_auto] before:bg-[center_right]";
+  const cardIconSelected = "before:!bg-[center_left]";
 
   const checkIcon =
     "before:relative before:left-0 before:w-[11px] before:h-2 before:bg-[url(/images/icon_check.png)] before:bg-[11px_auto]";
@@ -119,7 +122,11 @@ export default function FormCert() {
             initValue
           >
             <div
-              className={`bg-white w-full h-full pt-12 pb-3 rounded-md ${phoneIcon}`}
+              className={`bg-white w-full h-full pt-12 pb-3 rounded-md ${
+                appValueList[certId] == "phone"
+                  ? phoneIcon + " " + phoneSelected
+                  : phoneIcon
+              }`}
             >
               휴대폰인증
             </div>
@@ -131,7 +138,11 @@ export default function FormCert() {
             activeColor="primary"
           >
             <div
-              className={`bg-white w-full h-full pt-12 pb-3 rounded-md ${cardIcon}`}
+              className={`bg-white w-full h-full pt-12 pb-3 rounded-md ${
+                appValueList[certId] == "card"
+                  ? cardIcon + " " + cardIconSelected
+                  : cardIcon
+              }`}
             >
               카드인증
             </div>
@@ -267,19 +278,24 @@ export default function FormCert() {
         </Button>
       </TabPannel>
 
+      {/* ------------ CardCert ------------ */}
       <TabPannel className="p-0 pb-10" id={certId} label="card">
         <ContentTitle className="py-10 !text-base text-center">
-          보유하신 신용/체크카드로
+          보유하신 <strong>신용/체크카드</strong>
+          로
           <br />
           본인인증이 가능합니다.
         </ContentTitle>
-        <Input
-          className="rounded-lg"
-          id="idForCardCert"
-          title={`아이디를 입력해주세요.`}
-        >
-          아이디 입력
-        </Input>
+
+        {pathname == "/member/findPw" && (
+          <Input
+            className="rounded-lg"
+            id="idForCardCert"
+            title={`아이디를 입력해주세요.`}
+          >
+            아이디 입력
+          </Input>
+        )}
         <Button className="my-5" bgColor="primary">
           신용/체크카드 인증
         </Button>

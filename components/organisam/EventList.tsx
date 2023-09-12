@@ -6,10 +6,10 @@ import Dropdown from "../atom/Dropdown";
 import ListBody from "../atom/ListBody";
 import Image from "next/image";
 import Subtitle from "../atom/Subtitle";
-import { dateFormatter, hyphenToSlashDate } from "@/utils/FormatHelpers";
-import { FetchListByFetchItem } from "@/utils/Fetch";
-import { useAppContext } from "@/provider/AppContextProvider";
+import { dateHyphenSlashConverter } from "@/utils/FormatHelpers";
 import Link from "next/link";
+import { FetchListByFetchItem, fetchThisItem } from "@/utils/Fetch";
+import { useAppContext } from "@/provider/AppContextProvider";
 
 type EventType = {
   id: number;
@@ -21,87 +21,44 @@ type EventType = {
   end_date: string;
 };
 
-export default function EventList() {
+export default function EventList({
+  eventFetchList,
+}: {
+  eventFetchList: any[];
+}) {
   const currPathname = usePathname();
-  const router = useRouter();
   const { appValueList } = useAppContext();
-  const [eventList, setEventList] = useState([]);
-
-  const ingFetchValue = appValueList["ingevent"];
-
-  const today = hyphenToSlashDate(new Date());
-
-  const eventFetchList = [
-    {
-      name: "최신순",
-      pathname: "/ingevents",
-      url: `http://localhost:3030/event?_sort=start_date&_order=desc&end_date_gte=${today}`,
-    },
-    {
-      name: "마감임박",
-      pathname: "/ingevents",
-      url: `http://localhost:3030/event?_sort=end_date&_order=asc&end_date_gte=${today}`,
-    },
-    {
-      name: "종료",
-      pathname: "/endevents",
-      url: `http://localhost:3030/event?_sort=start_date&_order=desc&end_date_lte=${today}`,
-    },
-    {
-      name: "당첨",
-      pathname: "/winevents",
-      url: `http://localhost:3030/event?win_date_ne=null`,
-    },
-  ];
-
-  const whiteList = [...new Set(eventFetchList.map((i) => i.pathname))];
-  const ingEventList = eventFetchList.filter((i) => i.pathname == whiteList[0]);
-  const endEventList = eventFetchList.filter((i) => i.pathname == whiteList[1]);
-  const winEventList = eventFetchList.filter((i) => i.pathname == whiteList[2]);
+  const [eventList, setEventList] = useState();
 
   useEffect(() => {
-    if (!whiteList.includes(currPathname)) {
-      router.push(whiteList[0]);
-    }
-
-    if (currPathname == whiteList[0]) {
-      const thisFetchValue = FetchListByFetchItem(
-        ingFetchValue as string,
-        ingEventList
+    if (currPathname == "/ingevents") {
+      const fetching = FetchListByFetchItem(
+        appValueList["event_dropdown"] as string,
+        eventFetchList
       );
-      thisFetchValue
-        .then((v) => {
-          setEventList(v);
-        })
-        .catch((e) => console.log(e));
-    } else if (currPathname == whiteList[1]) {
-      const thisFetchValue = FetchListByFetchItem("종료", endEventList);
-      thisFetchValue
-        .then((v) => {
-          setEventList(v);
-        })
-        .catch((e) => console.log(e));
-    } else if (currPathname == whiteList[2]) {
-      const thisFetchValue = FetchListByFetchItem("당첨", winEventList);
-      thisFetchValue
-        .then((v) => {
-          setEventList(v);
-        })
-        .catch((e) => console.log(e));
+      fetching.then((i) => setEventList(i));
+    } else {
+      const fetching = FetchListByFetchItem(
+        eventFetchList[0].name,
+        eventFetchList
+      );
+      fetching.then((i) => setEventList(i));
     }
-  }, [ingFetchValue]);
+  }, [appValueList["event_dropdown"]]);
+
+  const today = dateHyphenSlashConverter(new Date());
 
   return (
     <>
       <div className={`mt-[36px] `}>
-        {currPathname === whiteList[0] ? (
+        {currPathname === "/ingevents" ? (
           <>
             {/* list header */}
             <ListHeader>
               {/* dropdown */}
               <Dropdown
-                id={"ingevent"}
-                options={ingEventList.map((i) => i.name)}
+                id={"event_dropdown"}
+                options={eventFetchList.map((i) => i.name)}
               />
             </ListHeader>
           </>
@@ -110,16 +67,19 @@ export default function EventList() {
         )}
       </div>
 
-      {/* ------ Event List Body ------ */}
-      <ListBody>
+      {/* ------------ Event List Body ------------ */}
+      <ListBody className="">
         {eventList &&
           eventList.map((item: EventType) => (
-            <li key={item.id}>
+            <li className="group" key={item.id}>
               <Link
                 className="relative"
-                href={{ pathname: `/winEvent`, query: { detail: item.name } }}
+                href={{
+                  pathname: `${currPathname}/detail`,
+                  query: { eventNo: item.id },
+                }}
               >
-                {item.end_date < today ? (
+                {item.end_date < dateHyphenSlashConverter(today, true) ? (
                   <div
                     className={`absolute flex items-center h-full w-full bg-black bg-opacity-50 ${
                       item.win_date !== "null"
@@ -141,20 +101,19 @@ export default function EventList() {
                   <></>
                 )}
                 <Image
+                  className="group-hover:max-w-[102%] group-hover:-ml-[1%] transition-all duration-200"
                   src={`https://storage.googleapis.com/ssg-images${item.thumb}`}
                   width={750}
                   height={450}
                   alt=""
                 />
               </Link>
-              <div className="px-5 pt-2 pb-5">
+              <div className="px-5 pt-2 pb-5 group-hover:underline">
                 <p className="text-base font-medium text-left whitespace-nowrap text-ellipsis overflow-hidden">
                   {item.name}
                 </p>
                 <Subtitle className="!pt-1">
-                  {`${dateFormatter(item.start_date)} ~ ${dateFormatter(
-                    item.end_date
-                  )}`}
+                  {`${item.start_date} ~ ${item.end_date}`}
                 </Subtitle>
               </div>
             </li>

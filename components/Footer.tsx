@@ -24,14 +24,16 @@ export default function Footer() {
         </ul>
 
         {/* 개인정보 처리방침: red */}
-        <div className="mb-4 min-w-[320px]">
-          <p className="block text-xs leading-[1em] tracking-[0.5px] pb-[10px]">
-            신세계포인트 고객센터
-          </p>
-          <button className="inline-block cursor-pointer text-3xl leading-[1em] tracking-normal align-top">
-            1899-4349
-          </button>
-          <p className="inline-block mt-[-27px] ml-[16px] text-xs leading-[18px]">
+        <div className="mb-4 min-w-[320px] flex">
+          <div>
+            <p className="block text-sm leading-[1em] tracking-[0.5px] pb-[10px]">
+              신세계포인트 고객센터
+            </p>
+            <button className="inline-block cursor-pointer -ml-[2px] text-3xl leading-[1em] tracking-normal align-top">
+              1899-4349
+            </button>
+          </div>
+          <p className="-mt-1 ml-[16px] text-xs leading-[18px]">
             운영시간<span className="mx-1">:</span>
             <em>09</em>시 - <em>18</em>시<br />
             점심시간<span className="mx-1">:</span>
@@ -41,14 +43,12 @@ export default function Footer() {
         </div>
 
         <div className="txt_cnt">
-          <p className="pt-1 pb-2">
-            <span className="block text-[12px]">
+          <p className="pt-1 pb-2 text-xs">
+            <span className="block">
               ㈜이마트 서울시 중구 세종대로 7길 37(순화동)
             </span>
-            <span className="inline-block mr-2 text-[12px]">
-              대표자: 강희석
-            </span>
-            <span className="inline-block mr-2 text-[12px]">
+            <span className="inline-block mr-2">대표자: 강희석</span>
+            <span className="inline-block mr-2">
               사업자등록번호 : 206-86-50913
             </span>
           </p>
@@ -57,7 +57,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="absolute right-[15px] top-[158px] w-[90px]">
+        <div className="absolute right-[15px] bottom-8 w-[90px]">
           <Link
             className="block w-full text-center"
             href={"http://www.wa.or.kr/board/list.asp?BoardID=0006"}

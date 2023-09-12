@@ -52,11 +52,18 @@ export function getDDay(end: string) {
   return daysRemaining;
 }
 
-export function hyphenToSlashDate(date: Date) {
+export function dateHyphenSlashConverter(
+  date: Date | string,
+  hyphen: boolean = false
+) {
+  if (typeof date === "string") {
+    date = new Date(date);
+  }
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
-  return `${year}/${month}/${day}`;
+  const divider = hyphen ? "/" : "-";
+  return year + divider + month + divider + day;
 }
 
 export function getDayListThisMonth(today: Date) {

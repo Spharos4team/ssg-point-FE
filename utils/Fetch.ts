@@ -27,3 +27,24 @@ export const FetchListByFetchItem = async (
     console.log(`Invaild Name: ${name}`);
   }
 };
+
+export const fetchThisItem = async (api: string) => {
+  const res = await fetch(`http://localhost:3030/${api}`);
+  const data = await res.json();
+
+  if (data) {
+    console.log(data);
+    return data;
+  }
+};
+
+export async function fetchEventById(eventId?: string) {
+  const queryPath = "/detail?eventId";
+  const res = await fetch(
+    `http://localhost:3030/event${eventId ? "?id=" + eventId : ""}`,
+    { next: { revalidate: 10 } }
+  );
+  const data = await res.json();
+  console.log(data);
+  return { data };
+}

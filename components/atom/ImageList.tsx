@@ -23,7 +23,7 @@ export default function ImageList({
             className="flex-grow h-5 text-[13px] leading-[18px]"
           >
             <Link
-              className="flex gap-1 items-center h-5 text-[2.5vw] leading-[18px] text-ellipsis whitespace-nowrap"
+              className="flex gap-1 items-center h-5 text-[13px] leading-[18px] text-ellipsis whitespace-nowrap"
               href={child?.pathname as string}
             >
               <Image

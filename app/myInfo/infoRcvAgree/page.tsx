@@ -12,6 +12,15 @@ import Subtitle from "@/components/atom/Subtitle";
 export default function InfoRcvAgreePage() {
   const linkRightArrow =
     "before:absolute before:right-0 before:top-1/2 before:w-[6px] before:h-[10px] before:mt-[-4.5px] before:bg-[url('/images/arrow_left.png')] before:bg-[100%_auto] before:rotate-180 before:opacity-40";
+
+    // TODO: checkList 만들고 상태 관리.
+  //   useEffect(() => {
+  //     if (chkList.every((term) => term == true)) {
+  //       handleAppRecord(allCheckId, true);
+  //     } else handleAppRecord(allCheckId, false);
+  // }, [chkList[0], chkList[1], chkList[2], chkList[3]]);
+
+
   return (
     <>
       <ContentHeader className="mt-9">

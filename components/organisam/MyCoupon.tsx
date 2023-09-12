@@ -9,7 +9,7 @@ import Subtitle from "../atom/Subtitle";
 import {
   dateFormatter,
   getDDay,
-  hyphenToSlashDate,
+  dateHyphenSlashConverter,
 } from "@/utils/FormatHelpers";
 import { FetchListByFetchItem } from "@/utils/Fetch";
 import { useAppContext } from "@/provider/AppContextProvider";
@@ -38,7 +38,7 @@ export default function MyCoupon() {
 
   const myCouponFetchValue = appValueList[KEY.MYCOUPONS];
 
-  const today = hyphenToSlashDate(new Date());
+  const today = dateHyphenSlashConverter(new Date());
 
   const couponFetchList = [
     // myCoupon

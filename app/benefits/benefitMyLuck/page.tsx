@@ -1,9 +1,12 @@
 import Button from "@/components/atom/Button";
+import LoginRedirector from "@/components/atom/LoginRedirector";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BenefitMyLuckPage() {
   return (
     <>
+      <LoginRedirector />
       <div className="mt-[36px]">
         <div className="px-5 pt-10 pb-14 text-center">
           <div className="relative w-full min-h-[85vw]">
@@ -30,7 +33,13 @@ export default function BenefitMyLuckPage() {
         </div>
       </div>
       <div className="px-5 pb-10">
-        <Button bgColor="primary">나의 운세 보러가기</Button>
+        <Link
+          className="block w-full h-12 font-semibold text-[14px] text-center py-3 bg-gradient-primary rounded-lg"
+          href={"https://shinsegaepoint.sinbiun.com/mobile/"}
+          target="_blank"
+        >
+          나의 운세 보러가기
+        </Link>
       </div>
       <div className="px-5">유의사항...</div>
     </>
