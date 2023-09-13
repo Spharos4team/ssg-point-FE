@@ -1,19 +1,18 @@
-import FormCert from "@/components/organisam/FormCert";
 import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
-import Subtitle from "@/components/atom/Subtitle";
 import StepNavigation from "@/components/atom/StepNavigation";
+import Subtitle from "@/components/atom/Subtitle";
+import FormInfo from "@/components/organisam/FormInfo";
 
-export default function CertPage() {
+export default function FormPage() {
   return (
     <>
       <ContentHeader>
         <StepNavigation />
-        <ContentTitle>본인인증</ContentTitle>
-        <Subtitle>본인인증 수단을 선택해주세요.</Subtitle>
+        <ContentTitle>정보입력</ContentTitle>
+        <Subtitle>필수 정보를 입력해주세요.</Subtitle>
       </ContentHeader>
-
-      <FormCert />
+      <FormInfo />
     </>
   );
 }

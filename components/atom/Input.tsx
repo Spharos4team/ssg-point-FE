@@ -142,7 +142,7 @@ export default function Input({
   }
 
   return (
-    <div>
+    <>
       {title && (
         <p className={`${titleClass} text-[13px] leading-5 pb-2`}>{title}</p>
       )}
@@ -184,6 +184,6 @@ export default function Input({
           ref={ref}
         />
       </div>
-    </div>
+    </>
   );
 }

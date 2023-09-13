@@ -14,10 +14,11 @@ import { useEffect, useRef } from "react";
 import DetailArrow from "../atom/DetailArrow";
 import TabPannel from "../atom/TabPannel";
 import ContentTitle from "../atom/ContentTitle";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function FormCert() {
   const pathname = usePathname();
+  const router = useRouter();
   const { appValueList, handleAppRecord } = useAppContext();
 
   const phoneIcon =
@@ -70,8 +71,9 @@ export default function FormCert() {
   // TODO: 현재 Form 내 모든 KEY 관리 필요...
   const allCheckId = "terms_all";
   const chkList = termsList.map((term) => appValueList[term.id + "_chk"]);
+  const key_username = "";
 
-  // TODO: NOTE//전체 토글, 개별 토글
+  // 체크리스트 전체 토글, 개별 토글
   useEffect(() => {
     if (chkList.every((term) => term == true)) {
       handleAppRecord(allCheckId, true);
@@ -86,33 +88,57 @@ export default function FormCert() {
   const handleSubmit = () => {
     // null validation
     if (!appValueList["userName"]) {
-      console.log(appValueList["userName"]);
+      console.log("이름", appValueList["userName"]);
+      alert("이름는 필수 입니다.");
       document.getElementById("userName")?.focus();
+      return null;
     } else if (!appValueList["userBirth"]) {
-      console.log(appValueList["userName"]);
+      console.log("생년월일", appValueList["userBirth"]);
+      alert("생년월일은 필수 입니다.");
       document.getElementById("userBirth")?.focus();
+      return null;
     } else if (!appValueList["userPhone"]) {
-      console.log(appValueList["userPhone"]);
+      console.log("전화번호", appValueList["userPhone"]);
+      alert("전화번호는 필수 입니다.");
       document.getElementById("userPhone")?.focus();
     }
 
-    // terms validation
-    else if (!appValueList["terms_01_chk"]) {
+    // terms validation(Modal)
+    if (!appValueList["terms_01_chk"]) {
       handleAppRecord("terms_01_valid", true);
+      return 0;
     } else if (!appValueList["terms_02_chk"]) {
       handleAppRecord("terms_02_valid", true);
+      return 0;
     } else if (!appValueList["terms_03_chk"]) {
       handleAppRecord("terms_03_valid", true);
+      return 0;
     } else if (!appValueList["terms_04_chk"]) {
       handleAppRecord("terms_04_valid", true);
+      return 0;
     }
 
     // TODO: POST fetching
+
+    const requestForm = {
+      name: appValueList["userName"],
+      gender: appValueList["userGender"],
+      nationality: appValueList["userNation"],
+      birth: appValueList["userBirth"],
+      phoneAffili: appValueList["userPhoneAffili"],
+      phoneNumber: appValueList["userPhone"],
+    };
+
+    console.log(requestForm);
+    localStorage.setItem("registerUser", JSON.stringify(requestForm));
+
+    console.log(JSON.parse(localStorage.getItem("registerUser") as string)); //사용 가능
+    router.push("/member/join/agree");
   };
 
   return (
-    <div className="mx-5">
-      <Card border fit>
+    <div className="">
+      <Card className="mx-5" border fit>
         <Tabs>
           <Tab
             className={`relative p-[2px]`}
@@ -178,14 +204,19 @@ export default function FormCert() {
           </Tabs>
 
           <Tabs className="gap-x-2" title={"외국인 이신가요?"}>
-            <Tab id="userNation" label="male" className="bg-gray-200" initValue>
+            <Tab
+              id="userNation"
+              label="Korean"
+              className="bg-gray-200"
+              initValue
+            >
               <span
                 className={`relative flex gap-x-2 justify-center items-center ${checkIcon}`}
               >
                 내국인
               </span>
             </Tab>
-            <Tab id="userNation" label="female" className="bg-gray-200">
+            <Tab id="userNation" label="Foreigner" className="bg-gray-200">
               <span
                 className={`relative flex gap-x-2 justify-center items-center ${checkIcon}`}
               >
@@ -209,7 +240,7 @@ export default function FormCert() {
               className="w-full h-12 border rounded-lg"
               id="userPhoneAffili"
               options={phoneAfilliOptions.map((item) => item.name)}
-            ></Dropdown>
+            />
             <Input className="rounded-lg" id="userPhone" type="phone">
               -없이 휴대폰 번호 입력
             </Input>
@@ -250,7 +281,7 @@ export default function FormCert() {
                 <Modal id={term.id} center>
                   {term.content_url}test
                 </Modal>
-                {/* --- Validate Modal --- */}
+                {/* ------ Validate Modal ------ */}
                 <Modal id={`${term.id}_valid`} center>
                   <p className="text-sm tracking-[-.3px]">
                     {term.required ? "[필수]" : "[선택]"} {term.name}에

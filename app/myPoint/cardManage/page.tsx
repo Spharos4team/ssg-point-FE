@@ -3,6 +3,7 @@ import ListBody from "@/components/atom/ListBody";
 import ListHeader from "@/components/atom/ListHeader";
 import PointCard from "@/components/module/PointCard";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CardManagePage() {
   return (
@@ -82,7 +83,9 @@ export default function CardManagePage() {
         </div>
 
         <div className="flex flex-col gap-y-4 pb-10">
-          <Button>신규 포인트 카드 등록하기</Button>
+          <Link href={"/myPoint/regPntCard"}>
+            <Button>신규 포인트 카드 등록하기</Button>
+          </Link>
           <Button>임시 발급 카드 인증하기</Button>
           <Button bgColor="primary">포인트 비밀번호 변경하기</Button>
         </div>

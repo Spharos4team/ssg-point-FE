@@ -8,6 +8,7 @@ import Subtitle from "@/components/atom/Subtitle";
 import Tab from "@/components/atom/Tab";
 import TabPannel from "@/components/atom/TabPannel";
 import Tabs from "@/components/atom/Tabs";
+import InputCard from "@/components/module/InputCard";
 import Image from "next/image";
 
 export default function RegAffiliatePntCardPage() {
@@ -149,34 +150,9 @@ export default function RegAffiliatePntCardPage() {
             options={[]}
           />
         </div>
-        <div className="pb-4">
-          <p className="text-[13px] pb-2 leading-[21px]">카드번호</p>
-          <div className="flex justify-between items-center border rounded-lg">
-            <Input
-              type="cardNumber"
-              className="border-0 text-center rounded-lg"
-              id="1"
-            />
-            -
-            <Input
-              type="cardNumber"
-              className="border-0 text-center rounded-lg"
-              id="2"
-            />
-            -
-            <Input
-              type="cardNumber"
-              className="border-0 text-center rounded-lg"
-              id="3"
-            />
-            -
-            <Input
-              type="cardNumber"
-              className="border-0 text-center rounded-lg"
-              id="4"
-            />
-          </div>
-        </div>
+
+        <InputCard id="regAffiliCard" />
+
         <div className="pt-10">
           <Button bgColor="primary">등록하기</Button>
         </div>

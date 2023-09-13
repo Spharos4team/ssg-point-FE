@@ -6,7 +6,7 @@ import Dropdown from "../atom/Dropdown";
 import ListBody from "../atom/ListBody";
 import Image from "next/image";
 import Subtitle from "../atom/Subtitle";
-import { dateHyphenSlashConverter } from "@/utils/FormatHelpers";
+import { dateHyphenSlashConverter, getDDay } from "@/utils/FormatHelpers";
 import Link from "next/link";
 import { FetchListByFetchItem, fetchThisItem } from "@/utils/Fetch";
 import { useAppContext } from "@/provider/AppContextProvider";
@@ -67,7 +67,7 @@ export default function EventList({
         )}
       </div>
 
-      {/* ------------ Event List Body ------------ */}
+      {/* ------------------ Event List Body ------------------ */}
       <ListBody className="">
         {eventList &&
           eventList.map((item: EventType) => (
@@ -98,8 +98,15 @@ export default function EventList({
                     )}
                   </div>
                 ) : (
-                  <></>
+                  getDDay(item.end_date) <= 30 && (
+                    <div className="flex w-[82px] h-[56px] justify-center absolute top-[10px] right-[5px] bg-[url('/images/resources/dday_box.png')] bg-[100%_auto]">
+                      <span className="text-sm font-bold pt-3 bg-gradient-primary-clip bg-clip-text text-transparent">
+                        {getDDay(item.end_date)}일 남음
+                      </span>
+                    </div>
+                  )
                 )}
+
                 <Image
                   className="group-hover:max-w-[102%] group-hover:-ml-[1%] transition-all duration-200"
                   src={`https://storage.googleapis.com/ssg-images${item.thumb}`}

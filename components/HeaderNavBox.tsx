@@ -34,6 +34,7 @@ export default function HeaderNavBox() {
 
     "/member/join": "회원가입",
     "/member/join/cert": "회원가입 본인인증",
+    "/member/join/form": "회원가입 정보입력",
 
     "/stplat/policy": "개인정보 처리방침",
   };

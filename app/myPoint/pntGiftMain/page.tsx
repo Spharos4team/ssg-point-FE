@@ -6,6 +6,7 @@ import IndexStat from "@/components/atom/IndexStat";
 import ListBody from "@/components/atom/ListBody";
 import ListHeader from "@/components/atom/ListHeader";
 import Subtitle from "@/components/atom/Subtitle";
+import Link from "next/link";
 
 export default function PntGiftMain() {
   return (
@@ -17,13 +18,15 @@ export default function PntGiftMain() {
           <span className="text-benefits font-bold">신세계포인트를 선물</span>
           하세요.
         </ContentTitle>
-        <Subtitle className="!pt-2 leading-6">
+        <Subtitle className="!pt-2 leading-6 mb-5">
           신세계포인트 회원끼리 주고받는 <br />
           가장 실속있는 마음의 선물!
           <br />
           친구나 가족, 소중한 사람에게 선물해 보세요.
         </Subtitle>
-        <Button bgColor="primary">선물하기</Button>
+        <Link href={"/myPoint/pntGift"}>
+          <Button bgColor="primary">선물하기</Button>
+        </Link>
       </ContentHeader>
 
       <div className="px-5 pb-10">

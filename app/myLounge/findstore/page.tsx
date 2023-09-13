@@ -3,6 +3,9 @@ import Dropdown from "@/components/atom/Dropdown";
 import Tab from "@/components/atom/Tab";
 import TabPannel from "@/components/atom/TabPannel";
 import Tabs from "@/components/atom/Tabs";
+import FindStoreMap from "@/components/organisam/FindStoreMap";
+import SsgStoreMap from "@/components/organisam/SsgStoreMap";
+import { NavermapsProvider } from "react-naver-maps";
 
 export default function FindstorePage() {
   return (
@@ -17,7 +20,7 @@ export default function FindstorePage() {
       </Tabs>
 
       <TabPannel id="findstoreTab" label="byMap">
-        asdf
+        <SsgStoreMap />
       </TabPannel>
 
       <TabPannel className="mt-4" id="findstoreTab" label="byLoc">

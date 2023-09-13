@@ -110,3 +110,20 @@ section {
 .react-datepicker__day:hover {
   background-color: #e8e8e8;
 }
+
+.map_marker {
+  display: block;
+  width: 50px;
+  height: 65px;
+  background-size: 50px 65px;
+  background-image: url("/images/marker_bg.png");
+  background-position: 50% 50%;
+}
+
+.map_marker > img {
+  display: block;
+  margin: 0 auto;
+  padding-top: 4px;
+  width: 40px;
+  height: 44px;
+}
