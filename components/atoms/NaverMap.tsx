@@ -1,4 +1,4 @@
-'use client';
+
 import { NavermapsProvider } from 'react-naver-maps';
 import Map from '@/components/atoms/Map';
 import { Container as MapDiv } from 'react-naver-maps';

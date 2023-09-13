@@ -48,14 +48,14 @@ export default function converOKCashbag() {
         </div>
         <div className="pt-5 flex w-full">
           <Input
-            className="rounded-lg font-normal after:bg-[url('/images/point_mark.png')] after:bg-no-repeat"
-            titleClass="after:content-['*'] after:inline-block after:text-[#eb0000] font-medium"
+            className="break-all rounded-lg font-normal after:bg-[url('/images/point_mark.png')] after:bg-no-repeat"
+            titleClass="block after:content-['*'] after:inline-block after:text-[#eb0000] font-medium"
             type={'phone'}
             title="전환할 포인트"
           >
             전환 포인트를 입력하세요.
           </Input>
-          <Button className="h-12 !w-1/4 ml-[5px] font-medium !p-0 break-normal translate-y-[60%]">
+          <Button className="h-12 !w-1/6 ml-[5px] font-medium break-normal translate-y-[60%]">
             전액 전환
           </Button>
         </div>

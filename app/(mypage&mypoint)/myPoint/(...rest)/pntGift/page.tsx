@@ -21,7 +21,7 @@ export default function pntGift() {
       <div className="py-10">
         <div className="flex pb-2">
           <InputText
-            className="rounded-lg w-full"
+            className="rounded-lg w-full break-all"
             id={'number'}
             inputType={'phone'}
             title={'number'}
@@ -46,7 +46,7 @@ export default function pntGift() {
         <p className="text-sm text-center font-medium py-5">
           선물하려는 분이 맞는지 확인해 주세요.
         </p>
-        <div className="text-xs border-x-0 border-t-black border-[2px] border-t-solid px-2 py-4 text-[#767676] font-medium">
+        <div className="text-xs border-x-0 border-t-black border-[2px] border-t-solid px-2 py-3 text-[#767676] font-medium">
           <ul className="flex w-full">
             <li className="py-2 w-1/5">이름</li>
             <li className="py-2 text-black font-medium ">조*일</li>

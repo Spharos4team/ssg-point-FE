@@ -6,13 +6,14 @@ export default function Map({}: {}) {
   const navermaps = useNavermaps();
   return (
     <NaverMap defaultCenter={new navermaps.LatLng(37.3595704, 127.105399)} defaultZoom={15}>
-      {/*<Marker*/}
-      {/*    defaultPosition={new navermaps.LatLng(37.3595704, 127.105399)}*/}
-      {/*    icon={{*/}
-      {/*        url: '/images/icon_marker_gray.png',*/}
-      {/*        scaledSize: navermaps.Size(50, 65),*/}
-      {/*    }}*/}
-      {/*/>*/}
+      <Marker
+          defaultPosition={new navermaps.LatLng(37.3595704, 127.105399)}
+          icon={{
+                url: '/images/icon_starbucks.png',
+              // url: '/images/icon_marker_gray.png',
+              scaledSize: navermaps.Size(50, 65),
+          }}
+      />
       {/*<Marker*/}
       {/*    defaultPosition={new navermaps.LatLng(37.3595704, 127.105399)}*/}
       {/*    {isChecked===false ?*/}
