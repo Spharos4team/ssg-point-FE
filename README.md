@@ -41,3 +41,23 @@
   - ~~ExampleComponent/inde.tsx~~
 - Component: {컴포넌트}{위치}{범위}.tsx
   - TabBarTopMain.tsx
+
+## 📌 Check
+
+### 디렉터리 구조
+
+    ├─ ... # 환경설정 파일들
+    ├─ README.md
+    ├─ app # 라우팅
+    │   ├─ ... # 라우팅 폴더들
+    │   ├─ globals.
+    │   └─ middleware.ts # next-auth
+    ├─ components # 컴포넌트 폴더
+    │   ├─ atom
+    │   ├─ module
+    │   └─ organism
+    ├─ data # json data
+    ├─ provider # custom provider
+    ├─ public # images for develop
+    ├─ type # 미리 정의된 타입
+    └─ utils # helpers
