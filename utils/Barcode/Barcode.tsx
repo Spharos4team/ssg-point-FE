@@ -2,6 +2,10 @@
 import React, { useRef, useEffect } from "react";
 import JsBarcode from "jsbarcode";
 import styles from "./Barcode.module.css";
+<<<<<<< HEAD
+=======
+import { addHyphensToNumber } from "../FormatHelpers";
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
 
 const Barcode = ({
   type = "basic",
@@ -20,8 +24,14 @@ const Barcode = ({
         format: "CODE128", // 바코드 형식
         displayValue: true, // value 표시 여부
         height: (height as number) ?? 80,
+<<<<<<< HEAD
         fontSize: 22,
         textAlign: "right",
+=======
+        fontSize: 11,
+        textAlign: "right",
+        text: addHyphensToNumber(value),
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
       });
 
       const textElement = svgRef.current.querySelector("text");

@@ -1,5 +1,6 @@
 # ssg-point-FE
 
+<<<<<<< HEAD
 ## 📌 프로젝트 소개
 
 > 2023 Spharos Academy 3기 1차 프로젝트
@@ -81,3 +82,6 @@
   - TabBarTopMain.tsx
 
 
+=======
+> 2023 Spharos Academy 3기 1차 프로젝트
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12

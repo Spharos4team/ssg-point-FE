@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import TabBarTopCont from "@/components/templates/TabBarTopCont";
 import { PageProp } from "@/types/LinkProps";
 
@@ -20,14 +21,37 @@ const pagesInMy: PageProp[] = [
 ];
 
 export default function SpointLayout({
+=======
+import TabbarHeader from "@/components/TabbarHeader";
+import { staticPageFetch } from "@/utils/StaticFetch";
+
+export default function MembershipLayout({
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
+<<<<<<< HEAD
     <div className="mt-12">
       <TabBarTopCont pages={pagesInMy} lineType="primary" activeColor="brown" />
       {children}
     </div>
+=======
+    <>
+      <TabbarHeader
+        pages={staticPageFetch.getPageListByEachName([
+          "신세계포인트 통합 ID 관리",
+          "클럽",
+          "신세계유니버스 클럽",
+        ])}
+        activeTab="underline-primary"
+        activeColor="membership"
+        justify="between"
+        hideByScroll
+      />
+      {children}
+    </>
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
   );
 }

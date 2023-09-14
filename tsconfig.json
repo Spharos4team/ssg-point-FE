@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "target": "es5",
+=======
+    "target": "es6",
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+<<<<<<< HEAD
     "forceConsistentCasingInFileNames": true,
+=======
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -23,6 +30,7 @@
       "@/*": ["./*"]
     }
   },
+<<<<<<< HEAD
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -30,5 +38,8 @@
     ".next/types/**/*.ts",
     "tailwind.config.js"
   ],
+=======
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+>>>>>>> d8142e12e16b5e9d35220be00530d3ab18ba4a12
   "exclude": ["node_modules"]
 }
