@@ -69,14 +69,28 @@ export default function FormAgree() {
     } else setActiveBlack(undefined);
   }, [chkList]);
 
+  useEffect(() => {
+    if (appValueList["allAgree"]) {
+      termsList.map((i) => handleAppRecord(`${i.id}_chk`, true));
+    } else if (!appValueList["allAgree"]) {
+      termsList.map((i) => handleAppRecord(`${i.id}_chk`, false));
+    }
+  }, [appValueList["allAgree"]]);
+
+  const handleAllAgree = () => {
+    handleAppRecord("allAgree", !appValueList["allAgree"]);
+  };
+
   return (
     <>
       <div className="px-5 pb-10">
         <Button
+          id="allAgree"
           className={`border-none ${
             activeBlack == undefined ? "!bg-gray-100 " : ""
           }`}
           bgColor={activeBlack}
+          onClick={handleAllAgree}
         >
           모두 동의합니다.
         </Button>

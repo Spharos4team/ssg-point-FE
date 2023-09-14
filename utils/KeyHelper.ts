@@ -1,6 +1,6 @@
 export const KEY = {
-  USERID: "userId",
-  USERPASSWORD: "userPassword",
+  USERID: "loginId",
+  USERPASSWORD: "password",
   TOKEN: "token",
 
   STOREID: "storeUserId",

@@ -25,34 +25,37 @@ export default function RegPntCardPage() {
         </Subtitle>
       </ContentHeader>
 
-      <InputCard id="regPntCard" name="카드번호를 입력해주세요." />
+      {/* ------ FormRegPnt ------ */}
+      <div className="px-5">
+        <InputCard id="regPntCard" name="카드번호를 입력해주세요." />
 
-      <Input
-        title="카드 CVC"
-        className="rounded-lg mb-5"
-        id="pntCardCvc"
-        type="cardNumber"
-      >
-        3자리 숫자를 입력하세요
-      </Input>
+        <Input
+          title="카드 CVC"
+          className="rounded-lg mb-5"
+          id="pntCardCvc"
+          type="cardNumber"
+        >
+          3자리 숫자를 입력하세요
+        </Input>
 
-      <Dropdown
-        className="w-full border h-12 rounded-lg mb-5"
-        title="카드 수령 제휴사"
-        id="pntCardAffili"
-        options={[]}
-      />
+        <Dropdown
+          className="w-full border h-12 rounded-lg mb-5"
+          title="카드 수령 제휴사"
+          id="pntCardAffili"
+          options={[]}
+        />
 
-      <Dropdown
-        className="w-full border h-12 rounded-lg"
-        title="등록 매장"
-        id="pntCardRegStore"
-        options={[]}
-      />
+        <Dropdown
+          className="w-full border h-12 rounded-lg"
+          title="등록 매장"
+          id="pntCardRegStore"
+          options={[]}
+        />
 
-      <div className="flex gap-x-2 py-10">
-        <Button className="text-gray-500">취소</Button>
-        <Button bgColor="primary">등록하기</Button>
+        <div className="flex gap-x-2 py-10">
+          <Button className="text-gray-500">취소</Button>
+          <Button bgColor="primary">등록하기</Button>
+        </div>
       </div>
     </>
   );

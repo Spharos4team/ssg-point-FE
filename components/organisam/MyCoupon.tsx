@@ -134,7 +134,7 @@ export default function MyCoupon() {
       {/* ------ My Coupon List Body ------ */}
       <div className="px-5">
         <ListBody>
-          {couponList &&
+          {couponList ? (
             couponList.map((coupon: CouponType) => (
               <li
                 key={coupon.id}
@@ -200,7 +200,16 @@ export default function MyCoupon() {
                   </div>
                 </div>
               </li>
-            ))}
+            ))
+          ) : (
+            <div>
+              <div className="py-12">
+                <p className="relative pt-16 text-center text-gray-500 after:absolute after:top-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[48px] after:bg-[url('/images/resources/no_content.png')] after:bg-no-repeat after:bg-[100%_auto]">
+                  보유하신 제휴 신용카드가 없습니다.
+                </p>
+              </div>
+            </div>
+          )}
         </ListBody>
       </div>
     </>

@@ -21,6 +21,18 @@ export default function TabbarHeader({
 }) {
   // TODO: 자식 페이지만 현재페이지로 표시...
   const pathname = usePathname();
+  let modifiedPathname = pathname;
+  switch (pathname) {
+    case "/benefits/pntPlus/roulette":
+      modifiedPathname = "/benefits/pntPlus/attend";
+      break;
+    case "/benefits/endCoupon":
+      modifiedPathname = "/benefits/myCoupon";
+      break;
+    case "/benefits/winEvent":
+      modifiedPathname = "/benefits/myEvent";
+      break;
+  }
 
   const uniquePntPlus = "/benefits/pntPlus/attend";
 
@@ -105,10 +117,10 @@ export default function TabbarHeader({
                 <li
                   key={each.id}
                   className={`relative flex basis-auto px-5 text-[15px] transition-all duration-300 ease-in-out ${
-                    pathname.includes(each.pathname) && currActive()
-                  } ${pathname.includes(each.pathname) && currColor()} ${
-                    justify == "between" ? "w-full" : "px-5"
-                  }`}
+                    modifiedPathname.includes(each.pathname) && currActive()
+                  } ${
+                    modifiedPathname.includes(each.pathname) && currColor()
+                  } ${justify == "between" ? "w-full" : "px-5"}`}
                 >
                   <Link
                     className="relative block w-full whitespace-nowrap"

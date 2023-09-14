@@ -33,7 +33,7 @@ export default function FormLogin() {
 
     // Login Process
     const result = await signIn("credentials", {
-      email: appValueList[KEY.USERID],
+      loginId: appValueList[KEY.USERID],
       password: appValueList[KEY.USERPASSWORD],
       redirect: true,
       callbackUrl: callBackUrl ? callBackUrl : "/",

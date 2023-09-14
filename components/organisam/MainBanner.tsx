@@ -7,13 +7,12 @@ import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { useRouter } from "next/navigation";
+import myEventList from "@/data/event.json";
 
-export async function fetchEventMain(display?: string) {
-  const queryPath = "/detail?eventId";
-  const res = await fetch(
-    `http://localhost:3030/event${"?display=" + display}`,
-    { next: { revalidate: 10 } }
-  );
+export async function fetchEventMain() {
+  const res = await fetch(`http://3.35.193.212:8000/api/v1/events`, {
+    method: "GET",
+  });
   const data = await res.json();
   console.log(data);
   return data;
@@ -42,23 +41,27 @@ export default function MainBanner() {
         scrollbar
         modules={[Scrollbar, Pagination]}
       >
-        {mainBanners &&
-          mainBanners.map((slide) => (
-            <SwiperSlide
-              key={slide.id}
-              className="relative w-full min-h-[90.667vw]"
-            >
-              <Image
-                src={`https://storage.googleapis.com/ssg-images${slide.banner_thumb}`}
-                fill
-                alt={`${slide.name} 배너 이미지`}
-                onError={() => <FallbackImage />}
-                onClick={() =>
-                  router.push(`/ingevents/detail?eventNo=${slide.id}`)
-                }
-              />
-            </SwiperSlide>
-          ))}
+        {myEventList &&
+          myEventList
+            .filter((main) => main.display == "main")
+            .map((slide) => (
+              <SwiperSlide
+                key={slide.id}
+                className="relative w-full min-h-[90.667vw]"
+              >
+                {slide.banner_thumb && (
+                  <Image
+                    src={`https://storage.googleapis.com/ssg-images${slide.banner_thumb}`}
+                    fill
+                    alt={`${slide.name} 배너 이미지`}
+                    onError={() => <FallbackImage />}
+                    onClick={() =>
+                      router.push(`/ingevents/detail?eventNo=${slide.id}`)
+                    }
+                  />
+                )}
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

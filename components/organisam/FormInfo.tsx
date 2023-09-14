@@ -11,8 +11,11 @@ import Checkbox from "../atom/Checkbox";
 import DetailArrow from "../atom/DetailArrow";
 import { useAppContext } from "@/provider/AppContextProvider";
 import Modal from "../atom/Modal";
+import Subtitle from "../atom/Subtitle";
+import { useRouter } from "next/navigation";
 
 export default function FromInfo() {
+  const router = useRouter();
   const { appValueList, handleAppRecord } = useAppContext();
   const [activeChk, setActiveChk] = useState(false);
   const [userInfo, setUserInfo] = useState({});
@@ -64,6 +67,11 @@ export default function FromInfo() {
       console.log("아이디", appValueList["userId"]);
       alert("아이디는 필수 입니다.");
       document.getElementById("userId")?.focus();
+      return null;
+    } else if (!appValueList["idCheck"]) {
+      console.log("아이디 중복확인", appValueList["idCheck"]);
+      alert("아이디 중복확인은 필수 입니다.");
+      document.getElementById("idCheck")?.focus();
       return null;
     } else if (!appValueList["userPassword"]) {
       console.log("비밀번호", appValueList["userPassword"]);
@@ -125,8 +133,15 @@ export default function FromInfo() {
         "APP PUSH": false,
       },
     };
-    console.log(requestForm);
-    requestJoin(requestForm);
+    const res = requestJoin(requestForm);
+    console.log(res);
+    res.then((i) => {
+      localStorage.setItem(
+        "registeredUserAccount",
+        JSON.stringify(requestForm)
+      );
+      if (i !== null) router.push("/member/join/success");
+    });
   };
 
   // 현재 회원가입 안됨. token? (auth)?
@@ -143,20 +158,24 @@ export default function FromInfo() {
 
   const requestValidId = async (loginId: string) => {
     const res = await fetch(
-      `http://3.35.193.212:8000/api/v1/user/check-loginId?${loginId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      `http://3.35.193.212:8000/api/v1/user/check-loginId?loginId=${loginId}`
     );
-    return res.json();
+    console.log(res);
+    return res;
   };
 
   const handleIdValid = () => {
     const res = requestValidId(appValueList["userId"] as string);
-    console.log(res);
+    res.then((i) => {
+      if (i.status == 200) {
+        console.log("ok");
+        handleAppRecord("idCheck", true);
+        handleAppRecord("idPassModal", true);
+      } else {
+        handleAppRecord("idCheckModal", true);
+        handleAppRecord("idCheck", false);
+      }
+    });
   };
 
   return (
@@ -168,9 +187,21 @@ export default function FromInfo() {
               아이디
             </Input>
           </div>
-          <Button className="max-w-[110px]" onClick={handleIdValid}>
+          <Button
+            id="idCheck"
+            className="max-w-[110px]"
+            onClick={handleIdValid}
+          >
             중복확인
           </Button>
+          <Modal id="idPassModal" center>
+            <h3>사용할 수 있는 아이디입니다.</h3>
+            <Subtitle>입력하신 아이디는 사용할 수 있는 아이디입니다.</Subtitle>
+          </Modal>
+          <Modal id="idCheckModal" center>
+            <h3>중복되는 아이디가 존재합니다!</h3>
+            <Subtitle>다른 아이디를 사용해주세요.</Subtitle>
+          </Modal>
         </div>
         <div>
           <Input
@@ -194,7 +225,7 @@ export default function FromInfo() {
         </div>
         <Modal id="passwordValidModal" center>
           <h2>비밀번호를 확인해주세요.</h2>
-          <p>입력하신 비밀번호가 서로 일치하지 않습니다.</p>
+          <Subtitle>입력하신 비밀번호가 서로 일치하지 않습니다.</Subtitle>
         </Modal>
         <div>
           <Input

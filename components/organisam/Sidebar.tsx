@@ -133,13 +133,13 @@ const UserStatusOn = ({ session }: { session: any }) => {
       <div className="px-5 pt-[18px] pb-6">
         <div className="flex flex-col justify-start">
           <p className="text-[18px] leading-[26px]">
-            <Underline>{session.data?.user?.name}</Underline>님 반갑습니다.
+            <Underline>{session.data?.user?.user.name}</Underline>님 반갑습니다.
           </p>
           <p className="text-[18px] leading-[26px]">
             <span
               className={`flex justify-end text-2xl leading-7 font-bold ${pointIcon}`}
             >
-              1
+              {session.data.user.user.point}
             </span>
           </p>
         </div>

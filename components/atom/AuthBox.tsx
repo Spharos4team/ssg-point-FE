@@ -8,10 +8,10 @@ import { KEY } from "@/utils/KeyHelper";
 export default function AuthBox() {
   const session = useSession();
 
-  return session.status === "authenticated" ? UserOn() : UserOff();
+  return session.status === "authenticated" ? UserOn(session) : UserOff();
 }
 
-const UserOn = () => {
+const UserOn = (session: any) => {
   const { appValueList, handleAppRecord } = useAppContext();
   return (
     <button
@@ -27,7 +27,9 @@ const UserOn = () => {
         height={15}
         alt=""
       />
-      <strong className="font-medium text-sm leading-6 mt-[-2px]">12</strong>
+      <strong className="font-medium text-sm leading-6 mt-[-2px]">
+        {session.data?.user?.user.point}
+      </strong>
       <span className="ml-1 indent-[-99em] w-6 h-6 bg-[url('/images/my_point.png')] bg-[100%_auto] bg-no-repeat overflow-hidden">
         P
       </span>

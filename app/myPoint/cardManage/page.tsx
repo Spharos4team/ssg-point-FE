@@ -1,11 +1,38 @@
+"use client";
 import Button from "@/components/atom/Button";
 import ListBody from "@/components/atom/ListBody";
 import ListHeader from "@/components/atom/ListHeader";
 import PointCard from "@/components/module/PointCard";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function CardManagePage() {
+  const session = useSession();
+  const [onlineCardList, setOnlineCardList] = useState([]);
+  const thisUrl = `http://3.35.193.212:8000/api/v1/point-card?UUID=${session.data?.user.uuid}`;
+  console.log(session.data);
+
+  useEffect(() => {
+    const thisCardFetch = async (url) => {
+      const res = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "Application/json",
+          Authorization: `Bearer ${session.data?.user.access_token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      setOnlineCardList(data);
+    };
+
+    if (session.data && thisUrl) {
+      thisCardFetch(thisUrl);
+    }
+  }, []);
+
   return (
     <>
       <div className="mt-[36px]">
@@ -27,18 +54,25 @@ export default function CardManagePage() {
               </tr>
             </thead>
             <tbody className="center text-gray-500">
-              <tr>
-                <td className="text-xs"> 9350-****-****-5220 </td>
-                <td>신세계포인트닷컴</td>
-                <td>2023-08-01</td>
-              </tr>
+              {onlineCardList.map((card, index) => (
+                <tr key={index}>
+                  <td className="text-xs">
+                    {card.number.replace(
+                      /(\d{4})(\d{4})(\d{4})(\d{4})/,
+                      "$1-****-****-$4"
+                    )}
+                  </td>
+                  <td>{card.agency}</td>
+                  <td>{card.createDate}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
 
         <div className="pb-12">
           <ListHeader className="text-base font-medium" border>
-            온라인 카드
+            제휴 신용카드
           </ListHeader>
 
           <table className="basic_table">
@@ -51,9 +85,13 @@ export default function CardManagePage() {
             </thead>
             <tbody className="center text-gray-500">
               <tr>
-                <td className="text-xs"> 9350-****-****-5220 </td>
-                <td>신세계포인트닷컴</td>
-                <td>2023-08-01</td>
+                <td colSpan={3}>
+                  <div className="py-12">
+                    <p className="relative pt-16 text-center text-gray-500 after:absolute after:top-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[48px] after:bg-[url('/images/resources/no_content.png')] after:bg-no-repeat after:bg-[100%_auto]">
+                      보유하신 제휴 신용카드가 없습니다.
+                    </p>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -61,7 +99,7 @@ export default function CardManagePage() {
 
         <div className="pb-12">
           <ListHeader className="text-base font-medium" border>
-            온라인 카드
+            오프라인 카드
           </ListHeader>
 
           <table className="basic_table">
@@ -74,9 +112,13 @@ export default function CardManagePage() {
             </thead>
             <tbody className="center text-gray-500">
               <tr>
-                <td className="text-xs"> 9350-****-****-5220 </td>
-                <td>신세계포인트닷컴</td>
-                <td>2023-08-01</td>
+                <td colSpan={3}>
+                  <div className="py-12">
+                    <p className="relative pt-16 text-center text-gray-500 after:absolute after:top-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[48px] after:bg-[url('/images/resources/no_content.png')] after:bg-no-repeat after:bg-[100%_auto]">
+                      보유하신 제휴 신용카드가 없습니다.
+                    </p>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>

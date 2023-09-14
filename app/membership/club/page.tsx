@@ -74,8 +74,8 @@ export default function ClubPage() {
         </h3>
         <ul className="space-y-2">
           {clubList.map((paper) => (
-            <Paper key={paper.id} bgColor={`${paper.paperColor}`}>
-              <Card className="bg-transparent flex justify-between">
+            <Paper key={paper.id} bgColor={paper.paperColor}>
+              <Card className="!bg-transparent flex justify-between">
                 <div className="">
                   <ContentTitle
                     className={`${paper.textColor} !text-base font-medium`}
