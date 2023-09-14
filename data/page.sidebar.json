@@ -149,7 +149,7 @@
     "id": 17,
     "parent_id": 4,
     "name": "포인트 플러스",
-    "pathname": "/benefits/pntPlus",
+    "pathname": "/benefits/pntPlus/attend",
     "simple_icon": "/images/pagecon/pagecon_pntPlus.png",
     "primary_icon": "",
     "tab_icon": ""

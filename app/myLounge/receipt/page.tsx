@@ -2,6 +2,9 @@ import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
 import Subtitle from "@/components/atom/Subtitle";
 import FormReceipt from "@/components/organisam/FormReceipt";
+import ListBody from "@/components/atom/ListBody";
+import ListHeader from "@/components/atom/ListHeader";
+import ListItem from "@/components/atom/ListItem";
 
 export default function ReceiptPage() {
   return (

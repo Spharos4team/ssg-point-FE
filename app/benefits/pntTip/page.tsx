@@ -8,7 +8,7 @@ export default function PntTipPages() {
     <>
       <ContentHeader className="mt-[36px]">
         <ContentTitle>
-          <span className="text-benefits font-bold">포인트 적립</span>
+          <span className="text-benefits font-medium">포인트 적립</span>
           스마트하게!
         </ContentTitle>
         <Subtitle className="!pt-2">
@@ -17,7 +17,7 @@ export default function PntTipPages() {
           지금 바로 확인하세요.
         </Subtitle>
       </ContentHeader>
-      <div className="px-5">
+      <div className="px-5 pb-10">
         <Button bgColor="primary">확인하기</Button>
       </div>
     </>

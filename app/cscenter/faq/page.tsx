@@ -12,7 +12,7 @@ export default function FaqPage() {
     <>
       <ContentHeader className="mt-9">
         <ContentTitle className="text-xl !leading-8 tracking-[-.5px]">
-          자주 묻는 <span className="font-bold text-cscenter">질문과 답변</span>
+          자주 묻는 <span className="font-medium text-cscenter">질문과 답변</span>
           을
           <br />
           모아 두었어요.

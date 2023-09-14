@@ -7,7 +7,7 @@ import Subtitle from "@/components/atom/Subtitle";
 import Image from "next/image";
 import Link from "next/link";
 
-import onlinCardList from "@/data/onlineCard.json";
+import onlineCardList from "@/data/onlineCard.json";
 import Button from "@/components/atom/Button";
 
 export default function PointIdPage() {
@@ -32,7 +32,7 @@ export default function PointIdPage() {
       <div className="px-5 mb-20">
         <ListHeader>신세계포인트 통합 ID 서비스 TIP​</ListHeader>
         <ListBody>
-          {onlinCardList.map((card) => (
+          {onlineCardList.map((card) => (
             <li key={card.id} className="mb-1">
               <Card className="flex gap-x-4" border>
                 <div>

@@ -14,7 +14,7 @@ export default function InfoRcvAgreePage() {
     <>
       <ContentHeader className="mt-9">
         <ContentTitle className="leading[30px]">
-          <span className="font-bold text-mypoint">나에게 딱 알맞는 정보</span>
+          <span className="font-medium text-mypoint">나에게 딱 알맞는 정보</span>
           를 원한다면!
         </ContentTitle>
         <Subtitle className="!pt-2 !text-sm">
@@ -25,8 +25,8 @@ export default function InfoRcvAgreePage() {
       </ContentHeader>
 
       <div className="px-5 pb-10">
-        <ListHeader border>등록된 연락처 정보를 확인하세요.</ListHeader>
-        <ListBody className="space-y-2">
+        <ListHeader className="font-medium" border>등록된 연락처 정보를 확인하세요.</ListHeader>
+        <ListBody className="space-y-2 !text-[13px] leading-[21x]">
           <dl>
             <dt>휴대폰 번호</dt>
             <dd>
@@ -49,8 +49,8 @@ export default function InfoRcvAgreePage() {
       </div>
 
       <Card className="mx-5" border shadow>
-        <p className="text-[13px]">
-          <strong className="text-[14px]">
+        <p className="text-[13px] text-gray-500">
+          <strong className="text-[14px] font-normal text-black">
             연락처 정보 변경이 필요하시나요?
           </strong>
           <br />

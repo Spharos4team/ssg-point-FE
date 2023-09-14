@@ -23,6 +23,7 @@ export default function ServiceAgreeLayout() {
           label="service"
           urlBased="/myInfo/serviceAgree"
           activeColor="benefits"
+          className="font-medium text-sm leading-6"
         >
           서비스 동의
         </Tab>
@@ -31,6 +32,7 @@ export default function ServiceAgreeLayout() {
           label="club"
           urlBased="/myInfo/clubAgree"
           activeColor="benefits"
+          className="font-medium text-sm leading-6"
         >
           클럽 동의
         </Tab>

@@ -7,6 +7,8 @@ import Subtitle from "@/components/atom/Subtitle";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ListHeader from "@/components/atom/ListHeader";
+import ListItem from "@/components/atom/ListItem";
 
 export default function ConvertPntList() {
   const router = useRouter();
@@ -30,7 +32,7 @@ export default function ConvertPntList() {
           여기저기 흩어져 있는 포인트를
           <br />
           신세계포인트로{" "}
-          <span className="text-benefits font-bold">한 곳에 모아보세요.</span>
+          <span className="text-benefits font-medium">한 곳에 모아보세요.</span>
         </ContentTitle>
         <Subtitle className="!pt-2 leading-6">
           알뜰하게 적립한 포인트를 모두 모아
@@ -148,6 +150,53 @@ export default function ConvertPntList() {
           </Subtitle>
         </Link>
       </div>
+
+      <ListBody className="px-5 pb-10">
+        <ListHeader className="text-sm h-auto leading-7 font-medium bg-[#fbfbfb]">
+          [유의사항]
+        </ListHeader>
+        <ListItem bullet className="text-xs text-[#eb0000]">
+            각 포인트는 신세계포인트와 1:1로 전환되며 포인트 전환 후 취소할 수 없습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            매일 23:30 ~ 01:30 (2시간)은 포인트 전환 시스템 점검으로 서비스 이용이 일시 중단됩니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            해당 제휴사 시스템 점검 시 서비스 이용이 일시 중단되며 자세한 사항은 해당 제휴사
+            공지사항을 확인해 주세요.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            제휴사 사정에 따라 포인트 전환 정책은 변경될 수 있으며 자세한 사항은 해당 제휴사에 문의해
+            주세요.
+        </ListItem>
+        <ListItem className="text-xs text-[#767676] pt-3">
+            삼성카드 포인트
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            5천 포인트 이상 보유 시, 5천 포인트 단위로 전환 가능합니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            신세계-삼성카드 소지자에 한해 전환 서비스를 이용할 수 있습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            월간 10만 포인트, 연간 100만 포인트까지 전환할 수 있습니다.
+        </ListItem>
+        <ListItem className="text-xs text-[#767676] pt-3">
+            OK캐쉬백 포인트
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            10포인트 이상 보유 시, 10포인트 단위로 전환 가능합니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            월간 5만 포인트, 연간 50만 포인트까지 전환할 수 있습니다. (1일 최대 10회)
+        </ListItem>
+        <ListItem className="text-xs text-[#767676] pt-3">
+            SC360 리워드 포인트
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+            1포인트 이상 보유 시, 1포인트 단위로 전환 가능합니다.
+        </ListItem>
+      </ListBody>
     </>
   );
 }

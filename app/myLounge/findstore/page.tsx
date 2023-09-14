@@ -18,7 +18,7 @@ export default function FindstorePage() {
           지역으로 찾기
         </Tab>
       </Tabs>
-
+      {/*todo:onclick시 자주찾는매장에 등록*/}
       <TabPannel id="findstoreTab" label="byMap">
         <SsgStoreMap />
       </TabPannel>

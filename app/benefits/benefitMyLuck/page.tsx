@@ -1,7 +1,10 @@
-import Button from "@/components/atom/Button";
-import LoginRedirector from "@/components/atom/LoginRedirector";
-import Image from "next/image";
-import Link from "next/link";
+import Button from '@/components/atom/Button';
+import LoginRedirector from '@/components/atom/LoginRedirector';
+import Image from 'next/image';
+import Link from 'next/link';
+import ListBody from '@/components/atom/ListBody';
+import ListHeader from '@/components/atom/ListHeader';
+import ListItem from '@/components/atom/ListItem';
 
 export default function BenefitMyLuckPage() {
   return (
@@ -11,19 +14,15 @@ export default function BenefitMyLuckPage() {
         <div className="px-5 pt-10 pb-14 text-center">
           <div className="relative w-full min-h-[85vw]">
             <Image
-              src={
-                "https://storage.googleapis.com/ssg-images/pntPlus/myLuck_banner.png"
-              }
+              src={'https://storage.googleapis.com/ssg-images/pntPlus/myLuck_banner.png'}
               objectFit="contain"
               fill
               alt=""
             />
           </div>
-          <p className="text-[6vw] font-bold pb-2">
-            신세계포인트{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              운세서비스
-            </span>
+          <p className="text-[6vw] font-medium pb-2">
+            신세계포인트{' '}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">운세서비스</span>
           </p>
           <p className="text-[5vw] pb-2">2023년 무료 신토정비결</p>
           <p className="text-[4vw] text-gray-500">
@@ -34,14 +33,25 @@ export default function BenefitMyLuckPage() {
       </div>
       <div className="px-5 pb-10">
         <Link
-          className="block w-full h-12 font-semibold text-[14px] text-center py-3 bg-gradient-primary rounded-lg"
-          href={"https://shinsegaepoint.sinbiun.com/mobile/"}
+          className="block w-full h-12 font-medium text-[14px] text-center py-3 bg-gradient-primary rounded-lg"
+          href={'https://shinsegaepoint.sinbiun.com/mobile/'}
           target="_blank"
         >
           나의 운세 보러가기
         </Link>
       </div>
-      <div className="px-5">유의사항...</div>
+      <ListBody className="px-5 pb-10">
+        <ListHeader className="text-sm h-auto leading-7 font-medium bg-[#fbfbfb]">
+          유의사항
+        </ListHeader>
+        <ListItem bullet className="text-xs text-[#767676]">
+          운세의 모든 서비스는 신세계포인트와 제휴를 맺은 ㈜고든에서 제공 및 관리합니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          서비스 이용 관련 자세한 내용은 ㈜고든으로 문의해주시기 바랍니다.
+        </ListItem>
+        <ListItem className="ml-[7px] text-xs text-[#767676]">㈜고든 고객센터 : 070-7600-9624</ListItem>
+      </ListBody>
     </>
   );
 }

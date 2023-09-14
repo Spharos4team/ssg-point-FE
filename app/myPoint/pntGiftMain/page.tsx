@@ -15,7 +15,7 @@ export default function PntGiftMain() {
         <ContentTitle>
           마음을 담아
           <br />
-          <span className="text-benefits font-bold">신세계포인트를 선물</span>
+          <span className="text-benefits font-medium">신세계포인트를 선물</span>
           하세요.
         </ContentTitle>
         <Subtitle className="!pt-2 leading-6 mb-5">

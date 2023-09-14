@@ -14,7 +14,7 @@ export default function Button({
   id?: string;
   className?: string;
   type?: "basic" | "simple";
-  bgColor?: "primary" | "pink" | "black" | "white";
+  bgColor?: "primary" | "pink" | "black" | "white" | "yellow";
   open?: boolean;
   onClick?: () => void;
   children: React.ReactNode;
@@ -30,6 +30,8 @@ export default function Button({
         return "bg-black text-white";
       case "white":
         return "bg-white border border-[#bcbcbc]";
+      case "yellow":
+        return "bg-[#f8b404] text-black";
     }
   };
 
@@ -55,7 +57,7 @@ export default function Button({
           id={id}
           className={`${
             bgProvider() + " " + className
-          } block text-center text-sm leading-6 font-bold box-border rounded-lg
+          } block text-center text-sm leading-6 font-medium box-border rounded-lg
       w-full h-12`}
           onClick={onClick}
           disabled={disabled}

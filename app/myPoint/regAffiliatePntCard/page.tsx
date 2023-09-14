@@ -10,6 +10,9 @@ import TabPannel from "@/components/atom/TabPannel";
 import Tabs from "@/components/atom/Tabs";
 import InputCard from "@/components/module/InputCard";
 import Image from "next/image";
+import ListBody from "@/components/atom/ListBody";
+import ListHeader from "@/components/atom/ListHeader";
+import ListItem from "@/components/atom/ListItem";
 
 export default function RegAffiliatePntCardPage() {
   const afilliTab = "affiliTab";
@@ -18,7 +21,7 @@ export default function RegAffiliatePntCardPage() {
       <ContentHeader className="mt-[36px]">
         <ContentTitle>
           신세계포인트에{" "}
-          <span className="text-benefits font-bold">제휴사 포인트 </span>{" "}
+          <span className="text-benefits font-medium">제휴사 포인트 </span>{" "}
           더하기!
         </ContentTitle>
         <Subtitle className="!pt-2 leading-6">
@@ -158,7 +161,40 @@ export default function RegAffiliatePntCardPage() {
         </div>
       </div>
 
-      <div className="p-5 pb-20">유의사항...</div>
+      <div className="px-5 pb-20">
+      <ListBody>
+        <ListHeader className="text-sm leading-7 font-medium" border>
+          유의사항
+        </ListHeader>
+        <ListItem bullet className="text-xs text-[#eb0000]">
+          제휴 멤버십 동시 적립 서비스는 이마트에서만 제공되는 서비스입니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          해당 제휴사에서 승인된 멤버십 카드 번호만 등록하실 수 있습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          제휴사당 최대 1개의 카드만 등록하실 수 있습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          잘못된 제휴 멤버십 카드번호 등록 시 제휴 포인트는 적립되지 않으며 잘못된 정보 등록에 대한 책임은 등록한 회원에게 있습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          제휴 멤버십의 상태가 정상일 경우에만 포인트가 적립됩니다. (휴면/탈퇴 시 적립불가)
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          이미 등록된 제휴 멤버십 카드는 다른 ID로 중복 등록할 수 없습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          동시 적립 서비스만 제공되며, 제휴 포인트 사용을 원할 경우에는 해당 제휴사 카드를 제시해야 합니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          제휴 종료 시 사전 공지드리며, 기존에 등록된 제휴 멤버십 카드번호는 종료일 기준으로 일괄 삭제됩니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          자세한 제휴 포인트의 적립/사용 정책은 해당 제휴사에 문의해 주세요.
+        </ListItem>
+      </ListBody>
+      </div>
     </>
   );
 }

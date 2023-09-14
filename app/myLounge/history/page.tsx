@@ -1,10 +1,13 @@
-import Card from "@/components/atom/Card";
-import ContentHeader from "@/components/atom/ContentHeader";
-import ContentTitle from "@/components/atom/ContentTitle";
-import ListBody from "@/components/atom/ListBody";
-import ListHeader from "@/components/atom/ListHeader";
-import Subtitle from "@/components/atom/Subtitle";
-import Underline from "@/components/atom/UnderLine";
+import Card from '@/components/atom/Card';
+import ContentHeader from '@/components/atom/ContentHeader';
+import ContentTitle from '@/components/atom/ContentTitle';
+import ListBody from '@/components/atom/ListBody';
+import ListHeader from '@/components/atom/ListHeader';
+import Subtitle from '@/components/atom/Subtitle';
+import Underline from '@/components/atom/UnderLine';
+import ListItem from '@/components/atom/ListItem';
+import Button from '@/components/atom/Button';
+import Link from 'next/link';
 
 export default function HistoryPage() {
   const pointIcon =
@@ -13,15 +16,13 @@ export default function HistoryPage() {
     <>
       <ContentHeader className="mt-[36px]">
         <Subtitle className="!pt-2 leading-[1.71] !text-sm tracking-[-.25px] !mb-2">
-          <Underline className="">{"조영일"}</Underline>
+          <Underline color="pink">{'조영일'}</Underline>
           님과 신세계포인트는
           <br />
           올해 이렇게 함께했어요.
         </Subtitle>
         <div className="pt-4">
-          <Subtitle className="text-sm !tracking-wide">
-            2023-01-01 ~ 2023-09-05
-          </Subtitle>
+          <Subtitle className="text-sm !tracking-wide">2023-01-01 ~ 2023-09-05</Subtitle>
         </div>
       </ContentHeader>
 
@@ -31,18 +32,10 @@ export default function HistoryPage() {
             <p>신세계포인트</p>
             <p>(사용가능)</p>
           </div>
-          <p
-            className={`flex justify-end text-2xl leading-7 font-bold ${pointIcon}`}
-          >
-            1
-          </p>
+          <p className={`flex justify-end text-2xl leading-7 font-bold ${pointIcon}`}>1</p>
         </ListHeader>
 
-        <Card
-          className="w-full mx-auto p-[2px] bg-gradient-primary-line !rounded-3xl"
-          shadow
-          fit
-        >
+        <Card className="w-full mx-auto p-[2px] bg-gradient-primary-line !rounded-3xl" shadow fit>
           <Card className="!rounded-[21px] !p-4 !h-[200px] flex">
             <div className="flex-1 flex flex-col justify-between h-full pl-2 text-[13px]">
               <div>
@@ -101,21 +94,46 @@ export default function HistoryPage() {
 
       <ContentHeader className="">
         <ContentTitle className="leading-[30px]">
-          <Underline className="">{"조영일"}</Underline>고객님이
+          <Underline color={'pink'}>{'조영일'}</Underline>고객님이
           <br />
           자주 방문하는 브랜드
         </ContentTitle>
+        <ListBody className="mt-5 pt-2 px-5 pb-10 border-t-[1px] border-t-solid border-t-black"></ListBody>
       </ContentHeader>
-      <ListBody>{}</ListBody>
 
       <ContentHeader className="">
         <ContentTitle className="leading-[30px]">
-          <Underline className="">{"조영일"}</Underline>고객님이
+          <Underline color="pink">{'조영일'}</Underline>고객님이
           <br />
           많이 쇼핑하는 브랜드
         </ContentTitle>
+        <ListBody className="mt-5 pt-2 px-5 pb-10 border-t-[1px] border-t-solid border-t-black"></ListBody>
       </ContentHeader>
-      <ListBody>{}</ListBody>
+
+      <div className="px-5 pb-20">
+        <Link href={'/myLounge/recommend'}>
+          <Button bgColor={'primary'}>고객님을 위한 추천 서비스를 만나보세요!</Button>
+        </Link>
+      </div>
+
+      <ListBody className="px-5 pb-10">
+        <ListHeader className="text-sm h-auto leading-7 font-medium bg-[#fbfbfb]">
+          [유의사항]
+        </ListHeader>
+        <ListItem bullet className="text-xs text-[#767676]">
+          매년 1월 1일 ~ 전일까지의 신세계포인트 적립/사용한 결제 건을 기준으로 집계되며 환불, 취소
+          등으로 인한 실제 결제 금액과 일부 차이가 있을 수 있습니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          결제 데이터는 결제한 다음 날 반영됩니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          '자주 방문하는 브랜드'는 구매 횟수가 많은 기준입니다.
+        </ListItem>
+        <ListItem bullet className="text-xs text-[#767676]">
+          '많이 쇼핑하는 브랜드'는 구매 금액이 많은 기준입니다.
+        </ListItem>
+      </ListBody>
     </>
   );
 }

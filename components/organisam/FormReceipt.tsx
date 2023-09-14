@@ -1,17 +1,18 @@
-"use client";
-import Image from "next/image";
-import Button from "../atom/Button";
-import Checkbox from "../atom/Checkbox";
-import Dropdown from "../atom/Dropdown";
-import ListBody from "../atom/ListBody";
-import ListHeader from "../atom/ListHeader";
-import Paper from "../atom/Paper";
-import IndexStat from "../atom/IndexStat";
+'use client';
+import Image from 'next/image';
+import Button from '../atom/Button';
+import Checkbox from '../atom/Checkbox';
+import Dropdown from '../atom/Dropdown';
+import ListBody from '../atom/ListBody';
+import ListHeader from '../atom/ListHeader';
+import Paper from '../atom/Paper';
+import IndexStat from '../atom/IndexStat';
+import ListItem from '@/components/atom/ListItem';
 
 export default function FormReceipt() {
-  const arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  const arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
   const handleCheck = () => {
-    alert("hi");
+    alert('hi');
   };
   return (
     <>
@@ -19,7 +20,7 @@ export default function FormReceipt() {
         <li className="flex justify-between ">
           <Checkbox
             className="text-[11px]"
-            id={"_chk"}
+            id={'_chk'}
             name={`[선택] 전자영수증 조회를 위한 제 3자 제공동의`}
           />
           <Button id="termsbtn_1" className="h-[22px]" type="simple">
@@ -29,7 +30,7 @@ export default function FormReceipt() {
           </Button>
         </li>
         <li className="flex justify-between">
-          <Checkbox className="text-[11px]" id={"_chk"} name={`전체 선택`} />
+          <Checkbox className="text-[11px]" id={'_chk'} name={`전체 선택`} />
         </li>
       </ListBody>
 
@@ -58,19 +59,14 @@ export default function FormReceipt() {
       <div className="px-5 pb-10">
         <ListHeader>
           {/* dropdown */}
-          <Dropdown id={"dropdownId"} options={[]} />
+          <Dropdown id={'dropdownId'} options={[]} />
           <div className="text-xs w-4/6">
             <p>2023-08-06 ~ 2023-09-06</p>
           </div>
 
           {/* TODO: download all */}
           <Button className="pr-1" type="simple">
-            <Image
-              width={19}
-              height={19}
-              src={"/images/icon_filter.png"}
-              alt="필터"
-            />
+            <Image width={19} height={19} src={'/images/icon_filter.png'} alt="필터" />
           </Button>
         </ListHeader>
         <Paper className="flex items-center h-9" bgColor="bg-[#f8f8f8]">
@@ -81,7 +77,20 @@ export default function FormReceipt() {
         <ListBody className="border-b">{}</ListBody>
       </div>
 
-      <div className="px-5">유의사항</div>
+      <ListBody className="pt-8 px-5 pb-20">
+        <ListHeader className={'text-sm font-medium leading-6 pb-2'}>[유의사항]</ListHeader>
+        <ListItem className="text-xs text-[#767676]" bullet>
+          신세계포인트 제휴사 중 '전자 영수증 정보 제공 가능 제휴사'에 한해 제공됩니다.
+        </ListItem>
+        <ListItem className="text-xs text-[#767676]" bullet>
+          서비스 이용 동의 시 선택하신 제휴사에 한해 영수증 조회가 가능하며 서비스 해제 및 제휴사
+          선택을 변경하실 수 있습니다.
+        </ListItem>
+        <ListItem className="text-xs text-[#767676]" bullet>
+          스마트 영수증은 신세계포인트 적립 또는 사용한 구매 내역만 조회되며 포인트 선물 및 전환,
+          상품권 구매 내역은 제공되지 않습니다.
+        </ListItem>
+      </ListBody>
     </>
   );
 }

@@ -7,7 +7,7 @@ import Toggle from "@/components/atom/Toggle";
 export default function ServiceAgreePage() {
   return (
     <>
-      <ListHeader className="px-5 border-gray-500 font-medium" border>
+      <ListHeader className="px-5 border-gray-500 !font-medium" border>
         신세계포인트 제휴사간 통합 서비스
       </ListHeader>
       <ListBody className="">

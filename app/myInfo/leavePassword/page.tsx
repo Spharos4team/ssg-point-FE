@@ -11,7 +11,7 @@ export default function LeavePasswordPage() {
         <ContentTitle className="leading[30px]">
           개인정보 보호를 위해
           <br />
-          <span className="font-bold text-mypoint">비밀번호를 확인</span>
+          <span className="font-medium text-mypoint">비밀번호를 확인</span>
           하고 있습니다.
         </ContentTitle>
         <Subtitle className="!pt-2 !text-sm">
@@ -19,7 +19,7 @@ export default function LeavePasswordPage() {
         </Subtitle>
       </ContentHeader>
 
-      <div className="px-5">
+      <div className="px-5 pb-10">
         <Input
           className="mb-5 rounded-lg"
           id="leavePass"

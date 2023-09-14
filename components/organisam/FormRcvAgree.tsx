@@ -37,7 +37,7 @@ export default function FormRcvAgree() {
         <li className="flex justify-between ">
           <Checkbox
             className="text-[11px]"
-            id={"_chk"}
+            id={"5_chk"}
             name={`[선택] 혜택제공 및 분석을 위한 개인정보 수집 및 이용 동의`}
           />
           <Button id="termsbtn_1" className="h-[22px]" type="simple">
@@ -47,7 +47,7 @@ export default function FormRcvAgree() {
         <li className="flex justify-between">
           <Checkbox
             className="text-[11px]"
-            id={"_chk"}
+            id={"6_chk"}
             name={`
       [선택] 이마트/신세계 공동 개인정보 수집 및 이용 동의`}
           />
