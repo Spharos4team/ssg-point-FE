@@ -6,8 +6,8 @@
 > 신세계포인트 클론 코딩 프론트엔드
 
 ### Project Repositories
-- 프론트엔드(https://github.com/Spharos4team/ssg-point-FE)
-- 백엔드(https://github.com/Spharos4team/ssg-point-BE)
+- [프론트엔드](https://github.com/Spharos4team/ssg-point-FE)
+- [백엔드](https://github.com/Spharos4team/ssg-point-BE)
 
 ## 📌 시스템 아키텍처
 ![KakaoTalk_20230914_142212237](https://github.com/Spharos4team/ssg-point-FE/assets/122842139/d9ae2877-adff-43aa-ad70-fab32d8a1e45)
