@@ -1,5 +1,5 @@
-import CouponList from "@/components/CouponList";
-import FormRegCoupon from "@/components/FormRegCoupon";
+import CouponList from "@/components/organisam/CouponList";
+import FormRegCoupon from "@/components/organisam/FormRegCoupon";
 import Paper from "@/components/atom/Paper";
 
 export default function CouponPage() {

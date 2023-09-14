@@ -12,7 +12,7 @@
     "id": 2,
     "parent_id": 1,
     "name": "마이 포인트",
-    "pathname": "/myPoint",
+    "pathname": "/myPoint/pntHistory",
     "simple_icon": "",
     "primary_icon": "",
     "tab_icon": "/images/tabIcon/tab_point.png"
@@ -39,7 +39,7 @@
     "id": 5,
     "parent_id": 1,
     "name": "마이 회원정보",
-    "pathname": "/myInfo",
+    "pathname": "/myInfo/infoRcvAgree",
     "simple_icon": "",
     "primary_icon": "",
     "tab_icon": "/images/tabIcon/tab_mypage.png"
@@ -105,7 +105,7 @@
     "name": "포인트 선물",
     "pathname": "/myPoint/pntGiftMain",
     "simple_icon": "/images/pagecon/pagecon_pntGiftMain.png",
-    "primary_icon": "",
+    "primary_icon": "/images/pagecon/pagecon_pntGiftMain_primary2.png",
     "tab_icon": ""
   },
   {
@@ -123,7 +123,7 @@
     "name": "포인트 전환",
     "pathname": "/myPoint/convertPntList",
     "simple_icon": "/images/pagecon/pagecon_convertPntList.png",
-    "primary_icon": "",
+    "primary_icon": "/images/pagecon/pagecon_convertPntList_primary2.png",
     "tab_icon": ""
   },
   {
@@ -132,7 +132,7 @@
     "name": "영수증으로 적립",
     "pathname": "/myPoint/savePoint",
     "simple_icon": "/images/pagecon/pagecon_savePoint.png",
-    "primary_icon": "",
+    "primary_icon": "/images/pagecon/pagecon_savePoint_primary.png",
     "tab_icon": ""
   },
   {
@@ -147,7 +147,7 @@
 
   {
     "id": 17,
-    "parent_id": 3,
+    "parent_id": 4,
     "name": "포인트 플러스",
     "pathname": "/benefits/pntPlus/attend",
     "simple_icon": "/images/pagecon/pagecon_pntPlus.png",
@@ -156,8 +156,8 @@
   },
   {
     "id": 18,
-    "parent_id": 3,
-    "name": "나의 운세 보기",
+    "parent_id": 4,
+    "name": "나의 운세보기",
     "pathname": "/benefits/benefitMyLuck",
     "simple_icon": "/images/pagecon/pagecon_benefitMyLuck.png",
     "primary_icon": "",
@@ -165,7 +165,7 @@
   },
   {
     "id": 19,
-    "parent_id": 3,
+    "parent_id": 4,
     "name": "마이 쿠폰함",
     "pathname": "/benefits/myCoupon",
     "simple_icon": "/images/pagecon/pagecon_myCoupon.png",
@@ -174,7 +174,7 @@
   },
   {
     "id": 20,
-    "parent_id": 3,
+    "parent_id": 4,
     "name": "마이 이벤트",
     "pathname": "/benefits/myEvent",
     "simple_icon": "/images/pagecon/pagecon_myEvent.png",
@@ -183,7 +183,7 @@
   },
   {
     "id": 21,
-    "parent_id": 3,
+    "parent_id": 4,
     "name": "포인트 꿀팁",
     "pathname": "/benefits/pntTip",
     "simple_icon": "/images/pagecon/pagecon_pntTip.png",
@@ -193,7 +193,7 @@
 
   {
     "id": 22,
-    "parent_id": 4,
+    "parent_id": 3,
     "name": "쇼핑 히스토리",
     "pathname": "/myLounge/history",
     "simple_icon": "/images/pagecon/pagecon_history.png",
@@ -202,7 +202,7 @@
   },
   {
     "id": 23,
-    "parent_id": 4,
+    "parent_id": 3,
     "name": "추천 서비스",
     "pathname": "/myLounge/recommend",
     "simple_icon": "/images/pagecon/pagecon_recommend.png",
@@ -211,7 +211,7 @@
   },
   {
     "id": 24,
-    "parent_id": 4,
+    "parent_id": 3,
     "name": "스마트 영수증",
     "pathname": "/myLounge/receipt",
     "simple_icon": "/images/pagecon/pagecon_receipt.png",
@@ -220,7 +220,7 @@
   },
   {
     "id": 25,
-    "parent_id": 4,
+    "parent_id": 3,
     "name": "매장 찾기",
     "pathname": "/myLounge/findstore",
     "simple_icon": "/images/pagecon/pagecon_findstore.png",
@@ -229,7 +229,7 @@
   },
   {
     "id": 26,
-    "parent_id": 4,
+    "parent_id": 3,
     "name": "자주 찾는 매장",
     "pathname": "/myLounge/regularstore",
     "simple_icon": "/images/pagecon/pagecon_regularstore.png",
@@ -350,7 +350,7 @@
   {
     "id": 39,
     "parent_id": 7,
-    "name": "신세계 유니버스 클럽",
+    "name": "신세계유니버스 클럽",
     "pathname": "/membership/combine",
     "simple_icon": "/images/pagecon/pagecon_combine.png",
     "primary_icon": "",
@@ -520,6 +520,24 @@
     "parent_id": 0,
     "name": "당첨 확인",
     "pathname": "/winevents",
+    "simple_icon": "",
+    "primary_icon": "",
+    "tab_icon": ""
+  },
+  {
+    "id": 58,
+    "parent_id": 0,
+    "name": "사용가능 쿠폰",
+    "pathname": "/benefits/myCoupon",
+    "simple_icon": "",
+    "primary_icon": "",
+    "tab_icon": ""
+  },
+  {
+    "id": 59,
+    "parent_id": 0,
+    "name": "사용완료/기간만료 쿠폰",
+    "pathname": "/benefits/endCoupon",
     "simple_icon": "",
     "primary_icon": "",
     "tab_icon": ""

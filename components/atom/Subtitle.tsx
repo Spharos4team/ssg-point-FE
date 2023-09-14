@@ -4,16 +4,29 @@ export default function Subtitle({
   children,
 }: {
   className?: string;
-  type?: "small";
+  type?: "small" | "__html";
   children: React.ReactNode;
 }) {
-  return (
-    <p
-      className={`${className ?? ""} ${
-        type == "small" && "text-xs"
-      } text-gray-500 pt-5`}
-    >
-      {children}
-    </p>
-  );
+  switch (type) {
+    case "small": {
+      return (
+        <p
+          className={`${className ?? ""} ${
+            type == "small" && "text-xs"
+          } text-gray-500 pt-5`}
+        >
+          {children}
+        </p>
+      );
+    }
+    case "__html": {
+      return (
+        <p
+          className={`${className ?? ""} text-xs"
+          text-gray-500 pt-5`}
+          dangerouslySetInnerHTML={{ __html: children as string }}
+        />
+      );
+    }
+  }
 }

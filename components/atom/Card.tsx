@@ -1,7 +1,8 @@
+import IconButton from "./IconButton";
+
 export default function Card({
   id,
   className,
-  type,
   shadow = false,
   border = false,
   fit = false,
@@ -9,7 +10,6 @@ export default function Card({
 }: {
   id?: string;
   className?: string;
-  type?: string;
   shadow?: boolean;
   border?: boolean;
   fit?: boolean;

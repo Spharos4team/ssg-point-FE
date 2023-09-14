@@ -9,6 +9,12 @@ const nextConfig = {
         port: "",
         pathname: "/ssg-images/**",
       },
+      {
+        protocol: "https",
+        hostname: "ssgpoint.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   env: {

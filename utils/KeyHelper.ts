@@ -1,6 +1,6 @@
 export const KEY = {
-  USERID: "userId",
-  USERPASSWORD: "userPassword",
+  USERID: "loginId",
+  USERPASSWORD: "password",
   TOKEN: "token",
 
   STOREID: "storeUserId",
@@ -8,4 +8,7 @@ export const KEY = {
   BARCORDBOX: "globalBarcodeBox",
 
   COUPONREGISTER: "couponRegister",
+  MYCOUPONS: "benefits-mycoupon",
+
+  PNTDROPDOWN: "pntHistoryFilter_dropdown",
 };

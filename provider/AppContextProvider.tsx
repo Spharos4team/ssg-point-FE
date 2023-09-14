@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-type AppValueType = string | boolean | number;
+type AppValueType = string | boolean | number | Date;
 interface AppContextInterface<T extends AppValueType> {
   appValueList: Record<string, T>;
   handleAppRecord: (id: string, value: T) => void;

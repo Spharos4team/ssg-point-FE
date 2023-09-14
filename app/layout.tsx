@@ -2,9 +2,9 @@ import { AppContextProvider } from "@/provider/AppContextProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Tabbar from "@/components/TabbarHeader";
 import AuthContextProvider from "@/provider/AuthContextProvider";
 import TabbarFooter from "@/components/TabbarFooter";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={notoKr.className}>
         <AuthContextProvider>
           <AppContextProvider>

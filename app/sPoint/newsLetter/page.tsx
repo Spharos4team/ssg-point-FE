@@ -1,4 +1,3 @@
-import Button from "@/components/atom/Button";
 import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
 import Link from "next/link";
@@ -20,12 +19,13 @@ export default function NewsLetterPage() {
         </ContentHeader>
       </div>
 
-      <div className="px-5">
+      <div className="px-5 pb-10">
         <Link
+          className="block w-full h-12 font-semibold text-[14px] text-center py-3 bg-gradient-primary rounded-lg"
           href={"https://www.shinsegaegroupnewsroom.com/category/newsletter/"}
           target="_blank"
         >
-          <Button bgColor="primary">보러가기</Button>
+          보러가기
         </Link>
       </div>
     </>

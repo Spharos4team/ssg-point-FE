@@ -38,7 +38,9 @@ export default function Checkbox({
     <>
       <div className={`${className} relative inline-block text-[10px]`}>
         <input
-          className="absolute left-0 top-0 w-6 h-6 rounded-xl border-0 appearance-none"
+          className={`${
+            disabled ? "bg-gray-200" : ""
+          } absolute left-0 top-0 w-6 h-6 rounded-xl border-0 appearance-none`}
           id={id}
           type="checkbox"
           onChange={() => handleAppRecord(id, !appValueList[id])}
@@ -46,7 +48,7 @@ export default function Checkbox({
           onClick={onClick}
         />
         <label
-          className={`${
+          className={`${disabled ? "text-gray-700" : ""} ${
             appValueList[id] === true ? checked : ""
           } block min-h-[22px] pt-[1px] pl-[30px] leading-[18px] align-middle whitespace-nowrap break-keep before:absolute before:left-0 before:top:0 before:w-[22px] before:h-[22px] before:border before:border-[#505050] before:rounded-[50%] before:z-[2]`}
           htmlFor={id}
