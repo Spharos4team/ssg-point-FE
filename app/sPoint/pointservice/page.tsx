@@ -688,8 +688,8 @@ export default function PointServicePage() {
           <h3 className="text-lg leading-7 font-normal px-5 pt-10">클럽 서비스</h3>
           <ul className="space-y-2">
             {clubList.map((paper) => (
-                <Paper key={paper.id} bgColor={`${paper.paperColor}`}>
-                  <Card className="bg-transparent flex justify-between">
+                <Paper key={paper.id} bgColor={paper.paperColor}>
+                  <Card className="!bg-transparent flex justify-between">
                     <div className="">
                       <ContentTitle
                           className={`${paper.textColor} !text-base font-medium`}

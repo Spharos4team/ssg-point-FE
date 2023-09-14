@@ -12,7 +12,7 @@ export default function AgreePage() {
         <ContentTitle>약관동의</ContentTitle>
       </ContentHeader>
 
-      <FormAgree />
+      <FormAgree/>
     </>
   );
 }
