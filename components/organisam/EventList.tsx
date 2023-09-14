@@ -11,6 +11,8 @@ import Link from "next/link";
 import { FetchListByFetchItem, fetchThisItem } from "@/utils/Fetch";
 import { useAppContext } from "@/provider/AppContextProvider";
 
+import thisEventList from "@/data/event.json";
+
 type EventType = {
   id: number;
   name: string;
@@ -29,6 +31,7 @@ export default function EventList({
   const currPathname = usePathname();
   const { appValueList } = useAppContext();
   const [eventList, setEventList] = useState();
+  const [jEventList, setJEventList] = useState();
 
   useEffect(() => {
     if (currPathname == "/ingevents") {
@@ -37,12 +40,44 @@ export default function EventList({
         eventFetchList
       );
       fetching.then((i) => setEventList(i));
+
+      const ingList = thisEventList.filter(
+        (i) => new Date(i.end_date).getTime() - new Date().getTime() > 0
+      );
+
+      if (appValueList["event_dropdown"] == "최신순") {
+        const sortList = ingList.sort(function (a, b) {
+          return (
+            new Date(b.start_date).getTime() - new Date(a.start_date).getTime()
+          );
+        });
+        setJEventList(sortList);
+      } else if (appValueList["event_dropdown"] == "마감임박") {
+        const sortList = ingList.sort(function (a, b) {
+          return (
+            new Date(a.end_date).getTime() - new Date(b.end_date).getTime()
+          );
+        });
+        setJEventList(sortList);
+      }
     } else {
       const fetching = FetchListByFetchItem(
         eventFetchList[0].name,
         eventFetchList
       );
       fetching.then((i) => setEventList(i));
+
+      if (currPathname == "/endevents") {
+        const endList = thisEventList.filter(
+          (i) => new Date(i.end_date).getTime() - new Date().getTime() <= 0
+        );
+        setJEventList(endList);
+      } else if (currPathname == "/winevents") {
+        const endList = thisEventList.filter(
+          (i) => i.win_date && i.win_date !== "null"
+        );
+        setJEventList(endList);
+      }
     }
   }, [appValueList["event_dropdown"]]);
 
@@ -69,8 +104,8 @@ export default function EventList({
 
       {/* ------------------ Event List Body ------------------ */}
       <ListBody className="">
-        {eventList &&
-          eventList.map((item: EventType) => (
+        {jEventList &&
+          jEventList.map((item: EventType) => (
             <li className="group" key={item.id}>
               <Link
                 className="relative"

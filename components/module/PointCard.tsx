@@ -14,17 +14,19 @@ import ListItem from "../atom/ListItem";
 import CloseButton from "../atom/CloseButton";
 import { KEY } from "@/utils/KeyHelper";
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export default function PointCard({
   type = "simple",
 }: {
   type?: "simple" | "cardNumber" | "barcode";
 }) {
+  const session = useSession();
   const router = useRouter();
   const { appValueList, handleAppRecord } = useAppContext();
   const pointIcon =
     "after:inline-block after:w-[33px] after:h-[30px] after:bg-[100%_auto] after:bg-[url('/images/resources/point_gradi.png')] after:bg-no-repeat";
-  const barcodeNumber = "9350120018755220";
+  const barcodeNumber = session.data?.user?.user.bardCode;
 
   const handleThisModal = {
     infoOn: () => handleAppRecord("myPointInfoModal", true),
@@ -65,8 +67,7 @@ export default function PointCard({
   };
 
   // Card Number
-  const cardNumber = "9350120018755220";
-  const dividedArray = cardNumber.match(/.{1,4}/g);
+  const dividedArray = barcodeNumber?.match(/.{1,4}/g);
   return (
     <div className="p-5 pb-5">
       <Card
@@ -120,7 +121,7 @@ export default function PointCard({
               <dd
                 className={`flex justify-end text-2xl leading-7 font-bold ${pointIcon}`}
               >
-                {`1`}
+                {session.data?.user.user.point}
               </dd>
             </dl>
           ) : type == "cardNumber" ? (
@@ -153,7 +154,7 @@ export default function PointCard({
                 <p
                   className={`flex items-center justify-start text-[32px] leading-7 font-bold ${pointIcon} after:ml-2 after:!h-[41px] after:!w-[44px]`}
                 >
-                  {`1`}
+                  {session.data?.user.user.point}
                 </p>
                 <ul className="mt-3 mb-5 flex text-[12px] divide-x">
                   <li className="inline-block px-4 pl-0">
@@ -177,7 +178,7 @@ export default function PointCard({
                 <dd
                   className={`flex justify-end text-[13px] leading-7 font-bold`}
                 >
-                  {`1`}P
+                  {session.data?.user.user.point}P
                 </dd>
               </dl>
               <dl className="flex justify-between ">
@@ -208,7 +209,7 @@ export default function PointCard({
               <dd
                 className={`flex justify-end text-base leading-7 font-medium ${pointIcon} after:!w-[27px] after:!h-[25px] after:!ml-1`}
               >
-                {`1`}
+                {session.data?.user.user.point}
               </dd>
             </dl>
           ) : (

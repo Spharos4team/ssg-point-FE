@@ -1,10 +1,10 @@
-import Button from '@/components/atom/Button';
-import ContentHeader from '@/components/atom/ContentHeader';
-import ContentTitle from '@/components/atom/ContentTitle';
-import Dropdown from '@/components/atom/Dropdown';
-import Input from '@/components/atom/Input';
-import Subtitle from '@/components/atom/Subtitle';
-import InputCard from '@/components/module/InputCard';
+import Button from "@/components/atom/Button";
+import ContentHeader from "@/components/atom/ContentHeader";
+import ContentTitle from "@/components/atom/ContentTitle";
+import Dropdown from "@/components/atom/Dropdown";
+import Input from "@/components/atom/Input";
+import Subtitle from "@/components/atom/Subtitle";
+import InputCard from "@/components/module/InputCard";
 
 export default function RegPntCardPage() {
   return (
@@ -13,7 +13,7 @@ export default function RegPntCardPage() {
         <ContentTitle>
           신세계포인트 카드를
           <br />
-          <span className="text-benefits font-medium">직접 바로 등록</span>
+          <span className="text-benefits font-bold">직접 바로 등록</span>
           하실 수 있어요.
         </ContentTitle>
         <Subtitle className="!pt-2 leading-6">
@@ -24,10 +24,17 @@ export default function RegPntCardPage() {
           수령하신 포인트 카드 정보를 입력해 주세요.
         </Subtitle>
       </ContentHeader>
+
+      {/* ------ FormRegPnt ------ */}
       <div className="px-5">
         <InputCard id="regPntCard" name="카드번호를 입력해주세요." />
 
-        <Input title="카드 CVC" className="rounded-lg mb-5" id="pntCardCvc" type="cardNumber">
+        <Input
+          title="카드 CVC"
+          className="rounded-lg mb-5"
+          id="pntCardCvc"
+          type="cardNumber"
+        >
           3자리 숫자를 입력하세요
         </Input>
 

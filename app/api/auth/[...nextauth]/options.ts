@@ -11,13 +11,13 @@ export const options: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: KEY.USERID, type: "text" },
+        loginId: { label: KEY.USERID, type: "text" },
         password: { label: KEY.USERPASSWORD, type: "password" },
       },
       async authorize(credentials, req) {
-        if (!credentials?.email || !credentials.password) return null;
+        if (!credentials?.loginId || !credentials.password) return null;
 
-        const res = await fetch("http://localhost:3030/login", {
+        const res = await fetch("http://3.35.193.212:8000/api/v1/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -25,13 +25,15 @@ export const options: NextAuthOptions = {
           body: JSON.stringify(credentials),
         });
 
-        const user = await res.json();
-
-        if (res.ok && user) {
+        if (res.ok) {
+          const user = await res.json();
           console.log(user);
+          // localStorage.setItem("userInfo", JSON.stringify(user));
           return user;
+        } else {
+          console.log(res);
+          return null;
         }
-        return null;
       },
     }),
 

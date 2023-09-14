@@ -4,6 +4,8 @@ import PageNavigator from "@/components/module/PageNavigator";
 import { dateHyphenSlashConverter } from "@/utils/FormatHelpers";
 import { use } from "react";
 
+import thisNotice from "@/data/notice.json";
+
 export async function fetchNotice(boardId?: string) {
   const queryPath = "/detail?boardId";
   const res = await fetch(
@@ -22,7 +24,7 @@ export default function NoticePage() {
     <>
       <div className={`mt-9`}>
         <ListBody className="!gap-0">
-          {a.data.map((i: any) => (
+          {thisNotice.map((i: any) => (
             <BoardList
               key={i.id}
               title={i.title}

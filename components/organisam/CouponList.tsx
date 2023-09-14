@@ -10,6 +10,8 @@ import ListBody from "../atom/ListBody";
 import Subtitle from "../atom/Subtitle";
 import { FetchListByFetchItem } from "@/utils/Fetch";
 
+import thisCouponList from "@/data/coupon.json";
+
 type CouponType = {
   id: number;
   name: string;
@@ -28,6 +30,7 @@ const dropdownId = "coupon_sort";
 export default function CouponList() {
   const { appValueList } = useAppContext();
   const [couponList, setCouponList] = useState([]);
+  const [jCouponList, setJCouponList] = useState([]);
 
   const fetchValue = appValueList[dropdownId];
 
@@ -51,6 +54,20 @@ export default function CouponList() {
         setCouponList(v);
       })
       .catch((e) => console.log(e));
+
+    if (fetchValue == "최신순") {
+      const sortThiCouponList = thisCouponList.sort(function (a, b) {
+        return (
+          new Date(b.start_date).getTime() - new Date(a.start_date).getTime()
+        );
+      });
+      setJCouponList(sortThiCouponList);
+    } else if (fetchValue == "마감임박") {
+      const sortThiCouponList = thisCouponList.sort(function (a, b) {
+        return new Date(a.end_date).getTime() - new Date(b.end_date).getTime();
+      });
+      setJCouponList(sortThiCouponList);
+    }
   }, [fetchValue]);
 
   return (
@@ -78,8 +95,8 @@ export default function CouponList() {
       {/* list body */}
       {/* TODO: ListBody 컴포넌트 */}
       <ListBody>
-        {couponList &&
-          couponList.map((coupon: CouponType) => (
+        {jCouponList &&
+          jCouponList.map((coupon) => (
             <li
               key={coupon.id}
               className="flex justify-between gap-x-2 pt-4 border-b"
