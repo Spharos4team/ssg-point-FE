@@ -12,7 +12,7 @@ import Button from "./atom/Button";
 import Modal from "./atom/Modal";
 import { useEffect, useRef } from "react";
 
-export default function FormCert() {
+export default function  FormCert() {
   const { appValueList, handleAppRecord } = useAppContext();
 
   const phoneIcon =

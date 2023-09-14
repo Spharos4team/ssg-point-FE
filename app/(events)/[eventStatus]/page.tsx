@@ -105,6 +105,7 @@ export default function EventStatusPage() {
           eventList.map((item: EventType) => (
             <li>
               <Image
+                className="w-full"
                 src={`https://storage.googleapis.com/ssg-images${item.thumb}`}
                 width={750}
                 height={450}
