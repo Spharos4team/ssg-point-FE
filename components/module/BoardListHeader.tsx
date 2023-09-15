@@ -144,11 +144,7 @@ export default function BoardListHeader({
               >
                 {startDate}
               </Input>
-              <Input
-                id="pntHistoryStartDate"
-                type="date"
-                dateValueId="endtDate"
-              >
+              <Input id="pntHistoryEndtDate" type="date" dateValueId="endtDate">
                 {today.toISOString().split("T")[0]}
               </Input>
             </p>

@@ -79,6 +79,10 @@ export default function PointHistoryList() {
     const param = thisFetchList.find(
       (i) => i.name === appValueList[KEY.PNTDROPDOWN]
     );
+    const startDate = appValueList["pntHistoryStartDate"];
+    const endDate = appValueList["pntHistoryEndtDate"];
+    const pointUse = 0;
+    const pointType = 0;
 
     if (param && param.url) {
       const res = fetchPntList(param.url);
