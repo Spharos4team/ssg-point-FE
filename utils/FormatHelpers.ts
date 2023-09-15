@@ -116,11 +116,11 @@ export function generateCalendar(today: Date) {
 
 export function addHyphensToNumber(input: string): string {
   // 숫자만 남기고 모든 공백 및 하이픈 제거
-  const cleanInput = input.replace(/[\s-]/g, "");
+  const cleanInput = input?.replace(/[\s-]/g, "");
 
   // 4자리 마다 하이픈을 추가
-  const formattedInput = cleanInput.replace(/(.{4})/g, " $1 -");
+  const formattedInput = cleanInput?.replace(/(.{4})/g, " $1 -");
 
   // 마지막에 추가된 하이픈 제거
-  return formattedInput.slice(0, -1);
+  return formattedInput?.slice(0, -1);
 }

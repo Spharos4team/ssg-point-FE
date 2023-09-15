@@ -37,12 +37,12 @@ export default function BarcodeBox() {
                 SHINSEGAE POINT
               </p>
               <p className="inline-block float-right pr-[16px] text-base font-bold after:relative after:inline-block after:top-[3px] after:ml-[2px] after:w-[9px] after:h-[16px] after:bg-[url('/images/p_mark.png')] after:bg-[100%_auto] after:bg-no-repeat">
-                {session.data.user.user.point}
+                {session.data?.user?.user?.point}
               </p>
               <div className="mx-auto mt-[12px] relative p-[5px] pt-[6px] w-full max-w-[328px] min-h-[90px] text-center box-border rounded-lg bg-white">
                 <Barcode
                   type="detail"
-                  value={session.data.user?.user.bardCode.replace(
+                  value={session.data.user?.user?.bardCode.replace(
                     /(\d{4})(\d{4})(\d{4})(\d{4})/,
                     "$1-$2-$3-$4"
                   )}

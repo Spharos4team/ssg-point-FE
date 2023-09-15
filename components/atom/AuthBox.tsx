@@ -28,7 +28,7 @@ const UserOn = (session: any) => {
         alt=""
       />
       <strong className="font-medium text-sm leading-6 mt-[-2px]">
-        {session.data?.user?.user.point}
+        {session.data?.user?.user?.point}
       </strong>
       <span className="ml-1 indent-[-99em] w-6 h-6 bg-[url('/images/my_point.png')] bg-[100%_auto] bg-no-repeat overflow-hidden">
         P

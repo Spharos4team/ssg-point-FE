@@ -1,13 +1,70 @@
-import Collapse from "@/components/atom/Collapse";
+"use client";
 import ContentHeader from "@/components/atom/ContentHeader";
 import ContentTitle from "@/components/atom/ContentTitle";
 import Dropdown from "@/components/atom/Dropdown";
-import ListBody from "@/components/atom/ListBody";
 import ListHeader from "@/components/atom/ListHeader";
 import PageNavigator from "@/components/module/PageNavigator";
-import Image from "next/image";
+import FaqList from "@/components/organisam/FaqList";
+import { useAppContext } from "@/provider/AppContextProvider";
+import { useEffect, useState } from "react";
 
 export default function FaqPage() {
+  const [subDropdownList, setSubDropdownList] = useState<string[]>([]);
+  const { appValueList, handleAppRecord } = useAppContext();
+  const mainCat = [
+    "회원",
+    "신세계포인트",
+    "신세계포인트카드",
+    "이벤트/쿠폰",
+    "가맹점",
+    "개선사항",
+    "신세계 유니버스 클럽",
+    "이마트 EV 클럽",
+    "기타",
+  ];
+  const subMember = ["회원가입/탈퇴", "정보수정", "비밀번호", "클럽서비스"];
+  const subSsgPoint = ["적립/사용", "소멸", "선물", "전환"];
+  const subSsgPointCard = ["신세계포인트 카드", "제휴 신용카드"];
+  const subEventCoupon = ["이벤트", "쿠폰"];
+  const subAffili = ["가맹점 이용문의"];
+  const subFeedback = ["시스템오류", "서비스 개선사항"];
+  const subUniverseClub = [
+    "유니버스 클럽 혜택",
+    "유니버스 클럽 가입/탈퇴",
+    "포인트 특별 혜택",
+    "포인트 카드/회원 계정",
+    "기타",
+  ];
+  const subEmartEv = [
+    "EV 클럽 혜택",
+    "EV 클럽 가입/탈퇴",
+    "EV 클럽 문의",
+    "기타",
+  ];
+  const subEtc = ["기타"];
+
+  useEffect(() => {
+    if (appValueList["faqBoardMainCate"] == "회원") {
+      setSubDropdownList(subMember);
+    } else if (appValueList["faqBoardMainCate"] == "신세계포인트") {
+      setSubDropdownList(subSsgPoint);
+    } else if (appValueList["faqBoardMainCate"] == "신세계포인트카드") {
+      setSubDropdownList(subSsgPointCard);
+    } else if (appValueList["faqBoardMainCate"] == "이벤트/쿠폰") {
+      setSubDropdownList(subEventCoupon);
+    } else if (appValueList["faqBoardMainCate"] == "가맹점") {
+      setSubDropdownList(subAffili);
+    } else if (appValueList["faqBoardMainCate"] == "개선사항") {
+      setSubDropdownList(subFeedback);
+    } else if (appValueList["faqBoardMainCate"] == "신세계 유니버스 클럽") {
+      setSubDropdownList(subUniverseClub);
+    } else if (appValueList["faqBoardMainCate"] == "이마트 EV 클럽") {
+      setSubDropdownList(subEmartEv);
+    } else if (appValueList["faqBoardMainCate"] == "기타") {
+      setSubDropdownList(subEtc);
+    }
+  }, [appValueList["faqBoardMainCate"]]);
+
   return (
     <>
       <ContentHeader className="mt-9">
@@ -26,156 +83,20 @@ export default function FaqPage() {
             className="h-12 w-full border rounded-lg"
             wrapper="flex-1"
             id="faqBoardMainCate"
-            options={[]}
+            options={mainCat}
+            initValue="대분류"
           />
           <Dropdown
             className="h-12 w-full border rounded-lg"
             wrapper="flex-1"
             id="faqBoardSubCate"
-            options={[]}
+            options={subDropdownList}
+            initValue="소분류"
           />
         </div>
       </ListHeader>
 
-      <ListBody className="!pt-12">
-        <li className="">
-          <Collapse
-            className="px-6"
-            buttonClass="h-full"
-            id="1"
-            title={
-              <div className="flex gap-x-3 pt-5 pb-5">
-                <Image
-                  className="my-auto mt-1"
-                  src={"/images/resources/cscenter/q_mark.png"}
-                  width={24}
-                  height={24}
-                  alt=""
-                />
-                <div className="text-[13px] w-5/6 text-ellipsis overflow-hidden">
-                  <p>[이마트 EV 클럽]</p>
-                  <p className="text-gray-600">
-                    [EV 클럽 문의] 이마트 EV클럽 이용 문의는 어디로 하나요?
-                  </p>
-                </div>
-              </div>
-            }
-          >
-            <div className="flex gap-x-3 pb-5">
-              <Image
-                className="my-auto mt-0"
-                src={"/images/resources/cscenter/a_mark.png"}
-                width={24}
-                height={24}
-                alt=""
-              />
-              <div className="text-[13px] text-ellipsis overflow-hidden ">
-                <p>
-                  • EV클럽 전문 고객센터 또는 1:1 문의를 통해 확인하실 수
-                  있습니다.{" "}
-                </p>
-                <p className="text-gray-600 pt-4">
-                  [EV클럽 고객센터]
-                  <br />
-                  1670-2143 ｜ 운영시간 10:00~22:00
-                </p>
-              </div>
-            </div>
-          </Collapse>
-        </li>
-
-        <li className="">
-          <Collapse
-            className="px-6"
-            buttonClass="h-full"
-            id="2"
-            title={
-              <div className="flex gap-x-3 pt-5 pb-5">
-                <Image
-                  className="my-auto mt-1"
-                  src={"/images/resources/cscenter/q_mark.png"}
-                  width={24}
-                  height={24}
-                  alt=""
-                />
-                <div className="text-[13px] w-5/6 text-ellipsis overflow-hidden">
-                  <p>[이마트 EV 클럽]</p>
-                  <p className="text-gray-600">
-                    [EV 클럽 문의] 이마트 EV클럽 이용 문의는 어디로 하나요?
-                  </p>
-                </div>
-              </div>
-            }
-          >
-            <div className="flex gap-x-3 pb-5">
-              <Image
-                className="my-auto mt-0"
-                src={"/images/resources/cscenter/a_mark.png"}
-                width={24}
-                height={24}
-                alt=""
-              />
-              <div className="text-[13px] text-ellipsis overflow-hidden ">
-                <p>
-                  • EV클럽 전문 고객센터 또는 1:1 문의를 통해 확인하실 수
-                  있습니다.{" "}
-                </p>
-                <p className="text-gray-600 pt-4">
-                  [EV클럽 고객센터]
-                  <br />
-                  1670-2143 ｜ 운영시간 10:00~22:00
-                </p>
-              </div>
-            </div>
-          </Collapse>
-        </li>
-
-        <li className="">
-          <Collapse
-            className="px-6"
-            buttonClass="h-full"
-            id="3"
-            title={
-              <div className="flex gap-x-3 pt-5 pb-5">
-                <Image
-                  className="my-auto mt-1"
-                  src={"/images/resources/cscenter/q_mark.png"}
-                  width={24}
-                  height={24}
-                  alt=""
-                />
-                <div className="text-[13px] w-5/6 text-ellipsis overflow-hidden">
-                  <p>[이마트 EV 클럽]</p>
-                  <p className="text-gray-600">
-                    [EV 클럽 문의] 이마트 EV클럽 이용 문의는 어디로 하나요?
-                  </p>
-                </div>
-              </div>
-            }
-          >
-            <div className="flex gap-x-3 pb-5">
-              <Image
-                className="my-auto mt-0"
-                src={"/images/resources/cscenter/a_mark.png"}
-                width={24}
-                height={24}
-                alt=""
-              />
-              <div className="text-[13px] text-ellipsis overflow-hidden ">
-                <p>
-                  • EV클럽 전문 고객센터 또는 1:1 문의를 통해 확인하실 수
-                  있습니다.{" "}
-                </p>
-                <p className="text-gray-600 pt-4">
-                  [EV클럽 고객센터]
-                  <br />
-                  1670-2143 ｜ 운영시간 10:00~22:00
-                </p>
-              </div>
-            </div>
-          </Collapse>
-        </li>
-      </ListBody>
+      <FaqList />
 
       <PageNavigator />
     </>

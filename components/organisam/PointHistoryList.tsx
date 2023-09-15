@@ -18,7 +18,7 @@ import { useAppContext } from "@/provider/AppContextProvider";
 export default function PointHistoryList() {
   const session = useSession();
   const [pageNum, setPageNum] = useState(1);
-  const [thisPntList, setThisPntList] = useState([]);
+  const [thisPntList, setThisPntList] = useState();
 
   const { appValueList, handleAppRecord } = useAppContext();
   const UUID = session.data?.user?.user?.uuid;
@@ -62,29 +62,30 @@ export default function PointHistoryList() {
     },
   ];
 
+  const fetchPntList = async (url) => {
+    const res = await fetch(url, {
+      // mode: "no-cors",
+      method: "GET",
+      headers: {
+        "Content-Type": "Application/json",
+        Authorization: `Bearer ${session.data?.user?.access_token}`,
+      },
+    });
+    const data = await res.json();
+    return data;
+  };
+
   useEffect(() => {
     const param = thisFetchList.find(
       (i) => i.name === appValueList[KEY.PNTDROPDOWN]
     );
-    console.log(param);
-
-    const fetchPntList = async (url) => {
-      const res = await fetch(url, {
-        // mode: "no-cors",
-        method: "GET",
-        headers: {
-          "Content-Type": "Application/json",
-          Authorization: `Bearer ${session.data?.user?.access_token}`,
-        },
-      });
-      const data = await res.json();
-      setThisPntList(data);
-      console.log(data);
-      console.log(thisPntList);
-    };
 
     if (param && param.url) {
-      fetchPntList(param.url);
+      const res = fetchPntList(param.url);
+      res.then((i) => {
+        console.log(i);
+        setThisPntList(i);
+      });
     }
   }, [appValueList[KEY.PNTDROPDOWN]]);
 
@@ -143,37 +144,37 @@ export default function PointHistoryList() {
 
           <ListBody className="pb-20">
             {/* {pntHistoryJson.content.map((content) => ( */}
-            {thisPntList &&
-              thisPntList?.content?.map((item) => (
-                <li
-                  key={item.pointId}
-                  className="flex justify-between py-3 border-b"
-                >
-                  <div className={`flex gap-x-2 text-benefits`}>
-                    <IndexIcon className="mt-1" type="accumulate" />
-                    <p className="text-[13px] leading-[21px] font-medium w-[80px]">
-                      {item.point}P
-                      <span className="block text-[11px]">
-                        {item.type}
-                        {item.statusType}
-                      </span>
-                    </p>
-                  </div>
+            {thisPntList?.content?.map((item) => (
+              <li
+                key={item.pointId}
+                className="flex justify-between py-3 border-b"
+              >
+                <div className={`flex gap-x-2 text-benefits`}>
+                  <IndexIcon className="mt-1" type="accumulate" />
+                  <p className="text-[13px] leading-[21px] font-medium w-[80px]">
+                    {item.point}P
+                    <span className="block text-[11px]">
+                      {item.type}
+                      {item.statusType}
+                    </span>
+                  </p>
+                </div>
 
-                  <div className="w-4/6">
-                    <p className="text-sm">{item.title}</p>
-                    <Subtitle className="!pt-1 !text-[10px]">
-                      {item.content}
-                    </Subtitle>
-                  </div>
+                <div className="w-4/6">
+                  <p className="text-sm">{item.title}</p>
+                  <Subtitle className="!pt-1 !text-[10px]">
+                    {item.content}
+                  </Subtitle>
+                </div>
 
-                  <div className="min-w-[62px]">
-                    <Subtitle className="!pt-1 !text-[10px]">
-                      {item.createdDate.split("T")[0]}
-                    </Subtitle>
-                  </div>
-                </li>
-              ))}
+                <div className="min-w-[62px]">
+                  <Subtitle className="!pt-1 !text-[10px]">
+                    {item.createdDate.split("T")[0]}
+                  </Subtitle>
+                </div>
+              </li>
+            ))}
+            {thisPntList?.last != false ? "more" : ""}
           </ListBody>
         </TabPannel>
       </div>

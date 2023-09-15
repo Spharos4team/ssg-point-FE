@@ -33,7 +33,7 @@ export default function CunsultWritePage() {
             </>
           }
         >
-          {session.data?.user.user.phone2}
+          {session.data?.user.user.phone}
         </Input>
 
         <div className="">
