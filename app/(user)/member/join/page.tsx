@@ -4,37 +4,8 @@ import ContentTitle from "@/components/atom/ContentTitle";
 import Subtitle from "@/components/atom/Subtitle";
 import Image from "next/image";
 import Link from "next/link";
+import { JoinStep, joinSteps } from "@/data/joinSteps"
 
-export const joinSteps = [
-  {
-    id: 1,
-    name: "본인인증",
-    icon: "/images/resources/join/join_steps.png",
-    positionY: "",
-    url: "/member/join/cert",
-  },
-  {
-    id: 2,
-    name: "약관동의",
-    icon: "/images/resources/join/join_steps.png",
-    positionY: "translate-y-[-70px]",
-    url: "/member/join/agree",
-  },
-  {
-    id: 3,
-    name: "정보입력",
-    icon: "/images/resources/join/join_steps.png",
-    positionY: "translate-y-[-140px]",
-    url: "/member/join/form",
-  },
-  {
-    id: 4,
-    name: "가입완료",
-    icon: "/images/resources/join/join_steps.png",
-    positionY: "translate-y-[-210px]",
-    url: "/member/join/success",
-  },
-];
 export default function JoinPage() {
   return (
     <>
@@ -50,7 +21,7 @@ export default function JoinPage() {
 
       <div className="px-5 pb-10">
         <ol className="divide-y">
-          {joinSteps.map((step) => (
+          {joinSteps.map((step:JoinStep) => (
             <li
               key={step.id}
               className={`relative flex justify-start gap-x-5 h-[92px] items-center box-border `}

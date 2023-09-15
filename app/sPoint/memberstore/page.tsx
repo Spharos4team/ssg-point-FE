@@ -146,8 +146,8 @@ export default function MemberStorePage() {
       <h3 className="text-lg px-5">신세계포인트 가맹점 안내</h3>
       <div className="px-5 pt-6 pb-20">
         <Grid>
-          {affiliLinks.map((link) => (
-            <li className="flex justify-center text-center">
+          {affiliLinks.map((link, idx) => (
+            <li className="flex justify-center text-center" key={idx}>
               <Link href={link.href} target="_blank">
                 <Card className="relative w-20 h-20 mx-auto" border>
                   <Image src={link.src} fill alt={link.name} />
