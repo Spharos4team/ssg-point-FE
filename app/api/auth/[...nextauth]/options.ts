@@ -6,6 +6,27 @@ import GoogleProvider from "next-auth/providers/google";
 
 import { KEY } from "@/utils/KeyHelper";
 
+import NextAuth, { DefaultSession } from "next-auth"
+import { JWT } from "next-auth/jwt";
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      user: {
+        name: string
+        phone: string
+        address: string
+        uuid: string
+        point: string| number
+        bardCode: string
+      }
+      access_token: string
+      token: JWT
+      uuid: string
+    } & DefaultSession["user"]
+  }
+}
+
 export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -58,7 +79,7 @@ export const options: NextAuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      session.user = token;
+      session.user.token = token;
       return session;
     },
 

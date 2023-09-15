@@ -130,7 +130,7 @@ export default function Input({
 
           {/* --- DatePicker --- */}
           <DatePicker
-            selected={appValueList[dateValueId as string]}
+            selected={appValueList[dateValueId] as Date}
             onChange={(date) =>
               handleAppRecord(dateValueId as string, date as Date)
             }

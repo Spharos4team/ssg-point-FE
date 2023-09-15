@@ -26,7 +26,7 @@ export default function CombinePage() {
             src="https://www.youtube.com/embed/kOmsPrux7T0"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen="allowfullscreen"
+            allowFullScreen
           />
         </div>
         <div className="absolute w-full text-center bottom-[3.678%]">

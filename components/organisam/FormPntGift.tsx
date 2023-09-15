@@ -17,7 +17,7 @@ export default function FormPntGift() {
     handleAppRecord("AddressBook", true);
   };
 
-  const thisGift = async (phone, name) => {
+  const thisGift = async (phone: string | number, name: string) => {
     const res = await fetch(
       `http://3.35.193.212:8000/api/v1/point/gift/user?phone=${phone}&name=${name}`,
       {
@@ -33,7 +33,7 @@ export default function FormPntGift() {
     return data;
   };
 
-  const sendGift = async (uuid, body) => {
+  const sendGift = async (uuid: string, body: {}) => {
     const res = await fetch(
       `http://3.35.193.212:8000/api/v1/point/gift?UUID=${uuid}`,
       {
@@ -52,8 +52,8 @@ export default function FormPntGift() {
 
   const handleConfirm = () => {
     const letThisGift = thisGift(
-      appValueList["addressBook"],
-      appValueList["targetUser"]
+      appValueList["addressBook"] as string,
+      appValueList["targetUser"] as string
     );
     letThisGift.then((i) => {
       if (i.code == "error") {
@@ -72,14 +72,14 @@ export default function FormPntGift() {
     const myUuid = session.data?.user?.user.uuid;
 
     const requestForm = {
-      point: appValueList["targetPoint"],
-      message: appValueList["targetMessage"],
-      loginId: appValueList["target_loginId"],
-      name: appValueList["target_name"],
+      point: appValueList["targetPoint"] as string,
+      message: appValueList["targetMessage"] as string,
+      loginId: appValueList["target_loginId"] as string,
+      name: appValueList["target_name"] as string,
     };
     console.log(requestForm);
 
-    const letThisSend = sendGift(myUuid, requestForm);
+    const letThisSend = sendGift(myUuid as string, requestForm);
     letThisSend.then((i) => {
       i && handleAppRecord("AddressBookOk", false);
       handleAppRecord("AddressBookComplete", true);

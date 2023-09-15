@@ -14,11 +14,17 @@ import Modal from "../atom/Modal";
 import Subtitle from "../atom/Subtitle";
 import { useRouter } from "next/navigation";
 
+type UserInfo = {
+  name: string
+  phoneNumber: string
+}
+
+
 export default function FromInfo() {
   const router = useRouter();
   const { appValueList, handleAppRecord } = useAppContext();
   const [activeChk, setActiveChk] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState<UserInfo>();
   const [address, setAddress] = useState<DaumAddressType[]>();
 
   const termChkList = [
@@ -106,34 +112,34 @@ export default function FromInfo() {
     }
 
     const requestForm = {
-      loginId: appValueList["userId"],
-      password: appValueList["userPassword"],
+      loginId: appValueList["userId"] as string,
+      password: appValueList["userPassword"] as string,
       name:
         appValueList["userName"] ||
-        JSON.parse(localStorage.getItem("registerUser"))["name"],
+        JSON.parse(localStorage.getItem("registerUser") as string)["name"] as string,
       email:
         appValueList["userEmail"] ||
-        JSON.parse(localStorage.getItem("registerUser"))["email"] ||
+        JSON.parse(localStorage.getItem("registerUser") as string)["email"] as string ||
         "",
       phone:
         appValueList["userPhone"] ||
-        JSON.parse(localStorage.getItem("registerUser"))["phoneNumber"] ||
+        JSON.parse(localStorage.getItem("registerUser") as string)["phoneNumber"] as string ||
         "",
       address:
-        appValueList["userZipCode"] +
+        appValueList["userZipCode"] as string +
         " " +
-        appValueList["userAddress"] +
+        appValueList["userAddress"] as string +
         " " +
-        appValueList["userAddressDetail"],
+        appValueList["userAddressDetail"] as string,
       term: {
-        이메일: appValueList["RvcEmail_chk"],
-        문자: appValueList["RvcSMS_chk"],
-        DM: appValueList["RvcDM_chk"],
-        TM: appValueList["RvcTM_chk"],
+        이메일: appValueList["RvcEmail_chk"] as boolean,
+        문자: appValueList["RvcSMS_chk"] as boolean,
+        DM: appValueList["RvcDM_chk"] as boolean,
+        TM: appValueList["RvcTM_chk"] as boolean,
         "APP PUSH": false,
       },
     };
-    const res = requestJoin(requestForm);
+    const res = requestJoin(requestForm );
     console.log(res);
     res.then((i) => {
       localStorage.setItem(
@@ -145,7 +151,7 @@ export default function FromInfo() {
   };
 
   // 현재 회원가입 안됨. token? (auth)?
-  const requestJoin = async (member) => {
+  const requestJoin = async (member: { loginId: string | number; password: string | number; name: any; email: any; phone: any; address: string; term: { 이메일: string | number | boolean | Date; 문자: string | number | boolean | Date; DM: string | number | boolean | Date; TM: string | number | boolean | Date; "APP PUSH": boolean; }; }) => {
     const res = await fetch(`http://3.35.193.212:8000/api/v1/auth/signup`, {
       method: "POST",
       headers: {
@@ -235,7 +241,7 @@ export default function FromInfo() {
             type="text"
             disabled
           >
-            {userInfo.name}
+            {userInfo?.name}
           </Input>
         </div>
         <div>
@@ -246,9 +252,9 @@ export default function FromInfo() {
             type="text"
             disabled
           >
-            {userInfo.phoneNumber?.slice(0, 3)}-
-            {userInfo.phoneNumber?.slice(3, 7)}-
-            {userInfo.phoneNumber?.slice(7, 11)}
+            {userInfo?.phoneNumber?.slice(0, 3)}-
+            {userInfo?.phoneNumber?.slice(3, 7)}-
+            {userInfo?.phoneNumber?.slice(7, 11)}
           </Input>
         </div>
         <div className="space-y-2">
@@ -268,7 +274,7 @@ export default function FromInfo() {
               type="text"
               disabled
             />
-            <DaumPostCode setAddress={setAddress}>우편번호 찾기</DaumPostCode>
+            <DaumPostCode setAddress={setAddress} isView={false} setIsView={undefined} >우편번호 찾기</DaumPostCode>
           </div>
           <Input className="rounded-lg" id="userAddressDetail" type="text">
             상세주소

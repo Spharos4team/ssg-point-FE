@@ -30,8 +30,8 @@ export default function EventList({
 }) {
   const currPathname = usePathname();
   const { appValueList } = useAppContext();
-  const [eventList, setEventList] = useState();
-  const [jEventList, setJEventList] = useState();
+  const [eventList, setEventList] = useState<EventType[]>();
+  const [jEventList, setJEventList] = useState<EventType[]>();
 
   useEffect(() => {
     if (currPathname == "/ingevents") {

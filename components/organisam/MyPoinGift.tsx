@@ -7,16 +7,18 @@ import IndexStat from "../atom/IndexStat";
 import Button from "../atom/Button";
 import ListItem from "../atom/ListItem";
 
-/**
- * @type myPoint
- * @returns ReactNode
- */
+type GiftType = {
+  name: string
+  loginId: string
+  localDate: string | Date
+  point: string | number
+}
 export default function MyPointGift() {
   const [fromUserId, setFromUserId] = useState("");
   const session = useSession();
-  const [thisGift, setThisGift] = useState();
+  const [thisGift, setThisGift] = useState<GiftType>();
 
-  const myPointGift = async (name) => {
+  const myPointGift = async (name: string) => {
     const res = await fetch(
       `http://3.35.193.212:8000/api/v1/point/gift-check?name=${name}`,
       {
@@ -37,7 +39,7 @@ export default function MyPointGift() {
     }
   };
 
-  const pointAcceptOrDeny = async (id, status) => {
+  const pointAcceptOrDeny = async (id: string, status: number | string) => {
     const res = await fetch(
       `http://3.35.193.212:8000/api/v1/point/gift?id=${id}&status=${status}`,
       {
@@ -52,11 +54,12 @@ export default function MyPointGift() {
     if (res.ok) {
       const data = await res.json();
       console.log(data);
+      return data
     }
   };
 
   useEffect(() => {
-    const myGift = myPointGift(session.data?.user?.user?.name);
+    const myGift = myPointGift(session.data?.user?.user?.name as string);
     myGift.then((i) => {
       setThisGift(i);
       setFromUserId(i.id);
@@ -69,15 +72,18 @@ export default function MyPointGift() {
   const handleAccept = async () => {
     const id = fromUserId;
     const status = 1;
-    pointAcceptOrDeny(id, status);
-    setThisGift();
+    const thisAccept = pointAcceptOrDeny(id, status);
+    thisAccept.then(i => 
+      setThisGift(i))
   };
   const handleDeny = () => {
     const id = fromUserId;
     const status = 2;
-    pointAcceptOrDeny(id, status);
-    setThisGift();
-  };
+    const thisDeny = pointAcceptOrDeny(id, status);
+    thisDeny.then(i => 
+      setThisGift(i)
+      )
+    };
   return thisGift ? (
     <div className="px-5">
       <h3 className="text-benefits text-lg font-medium pb-2">
@@ -86,7 +92,7 @@ export default function MyPointGift() {
       <Card className="border-benefits" border shadow>
         <div className="flex justify-between text-[12px] text-gray-500">
           <p>보낸사람:</p>
-          <p>{thisGift.localDate}</p>
+          <p>{thisGift.localDate as string}</p>
         </div>
         <p className="text-[16px] pt-2">{`${thisGift.name}(ID:${thisGift.loginId})`}</p>
         <div className="flex gap-x-2 items-center w-full">

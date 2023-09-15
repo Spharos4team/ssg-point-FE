@@ -7,8 +7,12 @@ import { useEffect, useState } from "react";
 import faqList from "@/data/faq.json";
 import { useAppContext } from "@/provider/AppContextProvider";
 
+type FaqType = {
+  id: number; main_category: string; sub_category: string; q: string; a: string;
+}
+
 export default function FaqList() {
-  const [thisFaqList, setThisFaqList] = useState([]);
+  const [thisFaqList, setThisFaqList] = useState<FaqType[]>();
   const { appValueList, handleAppRecord } = useAppContext();
   const faqAll = async () => {
     const res = await fetch("http://3.35.193.212:8000/api/v1/faq", {
@@ -40,12 +44,12 @@ export default function FaqList() {
 
   return (
     <ListBody className="!pt-12">
-      {thisFaqList.map((i) => (
+      {thisFaqList?.map((i) => (
         <li key={i.id} className="">
           <Collapse
             className="px-6"
             buttonClass="h-full"
-            id={i.id}
+            id={String(i.id)}
             title={
               <div className="flex gap-x-3 pt-5 pb-5">
                 <Image

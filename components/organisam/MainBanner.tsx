@@ -22,7 +22,7 @@ export default function MainBanner() {
   const router = useRouter();
   const [mainBanners, setMainBanners] = useState([]);
 
-  const mainBannersPromise = fetchEventMain("main");
+  const mainBannersPromise = fetchEventMain();
   useEffect(() => {
     mainBannersPromise
       .then((v) => setMainBanners(v))

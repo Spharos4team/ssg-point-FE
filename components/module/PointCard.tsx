@@ -143,7 +143,7 @@ export default function PointCard({
               </p>
               <Button
                 className="!w-9 !h-[28px] !text-[11px] !rounded-md !pb-[1px]"
-                onClick={() => handleThisModal.copyOn(cardNumber)}
+                onClick={() => handleThisModal.copyOn(barcodeNumber as string)}
               >
                 복사
               </Button>
@@ -215,7 +215,7 @@ export default function PointCard({
           ) : (
             type == "barcode" && (
               <>
-                <Barcode height={45} value={barcodeNumber} />
+                <Barcode height={45} value={barcodeNumber as string} />
 
                 <ul className="flex justify-between items-center mt-6 px-[10px] py-[10px]">
                   {staticPageFetch

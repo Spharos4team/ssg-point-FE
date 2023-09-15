@@ -1,6 +1,5 @@
 "use client";
 import Button from "@/components/atom/Button";
-import ListBody from "@/components/atom/ListBody";
 import ListHeader from "@/components/atom/ListHeader";
 import PointCard from "@/components/module/PointCard";
 import { useSession } from "next-auth/react";
@@ -8,14 +7,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+type CardType = {
+  createDate:string;
+  agency: string;
+  number: string;
+}
+
 export default function CardManagePage() {
   const session = useSession();
-  const [onlineCardList, setOnlineCardList] = useState([]);
+  const [onlineCardList, setOnlineCardList] = useState<CardType[]>();
   const thisUrl = `http://3.35.193.212:8000/api/v1/point-card?UUID=${session.data?.user.uuid}`;
   console.log(session.data);
 
   useEffect(() => {
-    const thisCardFetch = async (url) => {
+    const thisCardFetch = async (url: string) => {
       const res = await fetch(url, {
         method: "GET",
         headers: {
@@ -54,7 +59,7 @@ export default function CardManagePage() {
               </tr>
             </thead>
             <tbody className="center text-gray-500">
-              {onlineCardList.map((card, index) => (
+              {onlineCardList?.map((card, index) => (
                 <tr key={index}>
                   <td className="text-xs">
                     {card.number.replace(

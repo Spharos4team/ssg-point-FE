@@ -117,9 +117,9 @@ export default function TabbarHeader({
                 <li
                   key={each.id}
                   className={`relative flex basis-auto px-5 text-[15px] transition-all duration-300 ease-in-out ${
-                    modifiedPathname.includes(each.pathname) && currActive()
+                    modifiedPathname.includes(each.pathname as string) && currActive()
                   } ${
-                    modifiedPathname.includes(each.pathname) && currColor()
+                    modifiedPathname.includes(each.pathname as string) && currColor()
                   } ${justify == "between" ? "w-full" : "px-5"}`}
                 >
                   <Link

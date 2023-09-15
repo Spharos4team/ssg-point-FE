@@ -14,11 +14,12 @@ import pntHistoryJson from "@/data/pointTest.json";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useAppContext } from "@/provider/AppContextProvider";
+import { PointType } from "./MyPointList";
 
 export default function PointHistoryList() {
   const session = useSession();
   const [pageNum, setPageNum] = useState(1);
-  const [thisPntList, setThisPntList] = useState();
+  const [thisPntList, setThisPntList] = useState<PointType>();
 
   const { appValueList, handleAppRecord } = useAppContext();
   const UUID = session.data?.user?.user?.uuid;
@@ -62,7 +63,7 @@ export default function PointHistoryList() {
     },
   ];
 
-  const fetchPntList = async (url) => {
+  const fetchPntList = async (url: any) => {
     const res = await fetch(url, {
       // mode: "no-cors",
       method: "GET",
@@ -173,7 +174,7 @@ export default function PointHistoryList() {
 
                 <div className="min-w-[62px]">
                   <Subtitle className="!pt-1 !text-[10px]">
-                    {item.createdDate.split("T")[0]}
+                    {item.createdDate?.split("T")[0] }
                   </Subtitle>
                 </div>
               </li>

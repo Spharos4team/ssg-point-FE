@@ -20,7 +20,7 @@ type CouponType = {
   coupon_desc: string;
   fc_icon: string;
   fc_desc: string;
-  barcode: number;
+  barcode: string | number;
   start_date: string;
   end_date: string;
 };
@@ -29,8 +29,8 @@ const dropdownId = "coupon_sort";
 
 export default function CouponList() {
   const { appValueList } = useAppContext();
-  const [couponList, setCouponList] = useState([]);
-  const [jCouponList, setJCouponList] = useState([]);
+  const [couponList, setCouponList] = useState<CouponType[]>();
+  const [jCouponList, setJCouponList] = useState<CouponType[]>();
 
   const fetchValue = appValueList[dropdownId];
 
