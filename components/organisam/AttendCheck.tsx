@@ -20,16 +20,15 @@ export default function AttendCheck() {
 
   return (
     <div className="bg-white w-full p-5">
-      {currDateDigit}
       <ul className="grid grid-cols-7 grid-rows-7 gap-2">
         {thisMonth.map((i) =>
           i == "" ? (
-            <li></li>
+            <></>
           ) : (
-            <li>
+            <li key={i}>
               {i == currDateDigit ? (
                 <div
-                  className={`relative flex justify-center items-center w-[10vw] h-[10vw] p-[2px] rounded-full bg-gradient-primary-line cursor-pointer`}
+                  className={`relative flex justify-center items-center w-[10vw] h-[10vw] p-[2px] rounded-full bg-gradient-primary cursor-pointer`}
                   onClick={handleAttend}
                 >
                   <div

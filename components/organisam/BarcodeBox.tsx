@@ -5,7 +5,6 @@ import Barcode from "@/utils/Barcode/Barcode";
 import { KEY } from "@/utils/KeyHelper";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export default function BarcodeBox() {

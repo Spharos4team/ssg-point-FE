@@ -9,23 +9,34 @@ import { KEY } from "@/utils/KeyHelper";
 import NextAuth, { DefaultSession } from "next-auth"
 import { JWT } from "next-auth/jwt";
 
-declare module "next-auth" {
-  interface Session {
-    user: {
-      user: {
-        name: string
-        phone: string
-        address: string
-        uuid: string
-        point: string| number
-        bardCode: string
-      }
-      access_token: string
-      token: JWT
-      uuid: string
-    } & DefaultSession["user"]
-  }
-}
+// declare module "next-auth" {
+//   interface Session {
+//     data:{
+//       user: {
+//         name: string
+//         point: number|string
+//         user: {
+//           name: string
+//           point: number|string
+//         }
+//       }
+//     }
+//       user: {
+//         user: {
+//           name: string
+//           phone: string
+//           address: string
+//           uuid: string
+//           point: string| number
+//           bardCode: string
+//         }
+//         bardCode: string
+//         access_token: string
+//         token: JWT
+//         uuid: string
+//       } & DefaultSession["user"]
+//   }
+// }
 
 export const options: NextAuthOptions = {
   providers: [
@@ -79,7 +90,7 @@ export const options: NextAuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      session.user.token = token;
+      session.user = token;
       return session;
     },
 

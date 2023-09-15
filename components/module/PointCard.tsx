@@ -26,7 +26,7 @@ export default function PointCard({
   const { appValueList, handleAppRecord } = useAppContext();
   const pointIcon =
     "after:inline-block after:w-[33px] after:h-[30px] after:bg-[100%_auto] after:bg-[url('/images/resources/point_gradi.png')] after:bg-no-repeat";
-  const barcodeNumber = session.data?.user?.user.bardCode;
+  const barcodeNumber = session.data?.user?.user?.bardCode;
 
   const handleThisModal = {
     infoOn: () => handleAppRecord("myPointInfoModal", true),
@@ -71,7 +71,7 @@ export default function PointCard({
   return (
     <div className="p-5 pb-5">
       <Card
-        className="max-w-[327px] mx-auto p-[2px] bg-gradient-primary-line !rounded-3xl transition-all duration-200 ease-in-out"
+        className="max-w-[327px] mx-auto p-[2px] bg-gradient-primary !rounded-3xl transition-all duration-200 ease-in-out"
         shadow
         fit
       >
@@ -121,25 +121,29 @@ export default function PointCard({
               <dd
                 className={`flex justify-end text-2xl leading-7 font-bold ${pointIcon}`}
               >
-                {session.data?.user.user.point}
+                {session.data?.user?.user?.point}
               </dd>
             </dl>
           ) : type == "cardNumber" ? (
             <div className="relative flex justify-between min-h-[60px] pt-8">
               <p className="text-lg font-bold tracking-widest">
+                {barcodeNumber &&
+                <>
                 {dividedArray![0]}
                 <span className="inline-block font-normal text-[10px] text-[#bcbcbc] px-[2px] align-top">
-                  -
+                -
                 </span>
                 {dividedArray![1]}
                 <span className="inline-block font-normal text-[10px] text-[#bcbcbc] px-[2px] align-top">
-                  -
+                -
                 </span>
                 {dividedArray![2]}
                 <span className="inline-block font-normal text-[10px] text-[#bcbcbc] px-[2px] align-top">
-                  -
+                -
                 </span>
                 {dividedArray![3]}
+                </>
+              }
               </p>
               <Button
                 className="!w-9 !h-[28px] !text-[11px] !rounded-md !pb-[1px]"
@@ -154,7 +158,7 @@ export default function PointCard({
                 <p
                   className={`flex items-center justify-start text-[32px] leading-7 font-bold ${pointIcon} after:ml-2 after:!h-[41px] after:!w-[44px]`}
                 >
-                  {session.data?.user.user.point}
+                  {session.data?.user?.user?.point}
                 </p>
                 <ul className="mt-3 mb-5 flex text-[12px] divide-x">
                   <li className="inline-block px-4 pl-0">
@@ -178,7 +182,7 @@ export default function PointCard({
                 <dd
                   className={`flex justify-end text-[13px] leading-7 font-bold`}
                 >
-                  {session.data?.user.user.point}P
+                  {session.data?.user?.user?.point}P
                 </dd>
               </dl>
               <dl className="flex justify-between ">
@@ -209,7 +213,7 @@ export default function PointCard({
               <dd
                 className={`flex justify-end text-base leading-7 font-medium ${pointIcon} after:!w-[27px] after:!h-[25px] after:!ml-1`}
               >
-                {session.data?.user.user.point}
+                {session.data?.user?.user?.point}
               </dd>
             </dl>
           ) : (

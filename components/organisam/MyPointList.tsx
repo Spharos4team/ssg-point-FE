@@ -40,7 +40,7 @@ export default function MyPointList() {
     }
   };
   useEffect(() => {
-    const myUuid = session.data?.user?.user.uuid;
+    const myUuid = session.data?.user?.user?.uuid;
     const thisList = myPointList(myUuid as string)
     thisList.then(i => 
       setThisList(i)

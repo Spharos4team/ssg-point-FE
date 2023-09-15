@@ -147,7 +147,7 @@ export default function MemberStorePage() {
       <div className="px-5 pt-6 pb-20">
         <Grid>
           {affiliLinks.map((link) => (
-            <li className="flex justify-center text-center">
+            <li key={link.id} className="flex justify-center text-center">
               <Link href={link.href} target="_blank">
                 <Card className="relative w-20 h-20 mx-auto" border>
                   <Image src={link.src} fill alt={link.name} />
